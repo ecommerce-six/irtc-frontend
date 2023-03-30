@@ -9,16 +9,38 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@mui/lab": "^5.0.0-alpha.124",
+    "@mui/material": "^5.11.15",
+    "@reduxjs/toolkit": "^1.9.3",
+    "@tailwindcss/line-clamp": "^0.4.2",
+    "@types/marked": "^4.0.8",
+    "@uiw/react-md-editor": "^3.20.5",
+    "formik": "^2.2.9",
+    "js-cookie": "^3.0.1",
+    "marked": "^4.3.0",
     "next": "13.2.4",
+    "next-redux-wrapper": "^8.1.0",
+    "next-remove-imports": "^1.0.10",
+    "next-transpile-modules": "^10.0.0",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-paginate": "^8.1.4",
+    "react-redux": "^8.0.5",
+    "restful-react": "^15.9.4",
+    "swiper": "^9.1.1"
   },
   "devDependencies": {
+    "@types/js-cookie": "^3.0.3",
     "@types/node": "18.15.11",
     "@types/react": "18.0.31",
     "@types/react-dom": "18.0.11",
+    "autoprefixer": "^10.4.14",
     "eslint": "8.37.0",
     "eslint-config-next": "13.2.4",
+    "postcss": "^8.4.21",
+    "tailwindcss": "^3.3.0",
     "typescript": "5.0.2"
   }
 }

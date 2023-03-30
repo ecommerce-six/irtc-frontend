@@ -2,6 +2,15 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-}
+  transpilePackages: ["react-redux"],
+  i18n: {
+    locales: ["fa"],
+    defaultLocale: "fa",
+  },
+};
 
-module.exports = nextConfig
+// const removeImports = require("next-remove-imports")();
+
+// module.exports = removeImports({});
+
+module.exports = nextConfig;
