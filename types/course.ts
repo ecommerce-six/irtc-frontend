@@ -1,4 +1,4 @@
-export type coursePreview = {
+export type coursePreviewType = {
   slug: string;
   cover: string;
   rate: number;

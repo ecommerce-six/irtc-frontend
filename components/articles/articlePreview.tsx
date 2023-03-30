@@ -2,9 +2,9 @@
 import React from "react";
 import Link from "next/link";
 
-import { articlePreview } from "../../types/article";
+import { articlePreviewType } from "../../types/article";
 
-function ArticlePreview({ cover, title, description, slug }: articlePreview) {
+function ArticlePreview({ cover, title, description, slug }: articlePreviewType) {
   return (
     <div className="p-[1rem] w-full md:max-w-[32.5rem] rounded-xl box-shadow">
       <img src={cover} alt={title} className="w-full rounded-xl" />

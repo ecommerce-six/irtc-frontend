@@ -131,11 +131,11 @@ function Menu() {
       >
         <div className="py-4 flex items-center justify-evenly">
           <Link href="/">
-            <Image src={LogoIcon} alt="" className="w-14" />
+            <Image src={LogoIcon} alt="IRTC Logo" className="w-14" />
           </Link>
 
           <Link href="/">
-            <Image src={LogoText} alt="" className="w-24" />
+            <Image src={LogoText} alt="IRTC Logo" className="w-24" />
           </Link>
         </div>
 

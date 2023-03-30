@@ -2,10 +2,10 @@
 import React from "react";
 import Link from "next/link";
 
-import { coursePreview } from "../../types/course";
+import { coursePreviewType } from "../../types/course";
 import { AvatarIcon, CostIcon, SmallRateIcon, SmallRecordIcon, TomanIcon } from "../../public/icons/svgs";
 
-function CoursePreview(props: coursePreview) {
+function CoursePreview(props: coursePreviewType) {
   const { slug, cover, title, rate, price, credit, duration, membersCount, shortDescription, recordingFinished } =
     props;
 

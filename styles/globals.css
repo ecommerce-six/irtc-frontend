@@ -40,19 +40,6 @@ body {
   background: radial-gradient(50% 50% at 50% 50%, #b246e6 14.58%, rgba(255, 255, 255, 0) 100%);
 }
 
-.panel-purple-gradient {
-  z-index: -1;
-  position: fixed;
-  inset: -115% -50% auto auto;
-  width: 75vw;
-  height: 75vw;
-  background: radial-gradient(50% 50% at 50% 50%, #b246e6 14.58%, rgba(255, 255, 255, 0) 100%);
-}
-
-.pink-gradient {
-  background: radial-gradient(50% 50% at 50% 50%, #dc4298 14.58%, #dc429800 100%);
-}
-
 .box-shadow {
   box-shadow: 0px 0px 40px rgba(85, 104, 112, 0.25);
 }
@@ -155,6 +142,12 @@ body {
   transition: all 300ms;
 }
 
+/* 
+
+    Article Markdown Classes
+
+*/
+
 .article-body h1 {
   margin: 0.25rem 0;
   color: #161d27;
@@ -248,6 +241,12 @@ body {
     width: 100% !important;
   }
 }
+
+/* 
+
+    Markdown editor Classes
+
+*/
 
 .w-md-editor-content {
   height: 35rem !important;

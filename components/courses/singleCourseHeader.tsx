@@ -2,7 +2,7 @@
 import React from "react";
 import { usePathname } from "next/navigation";
 
-import { coursePreview } from "../../types/course";
+import { coursePreviewType } from "../../types/course";
 
 import { styles } from "../../styles";
 
@@ -27,7 +27,7 @@ function SingleCourseHeader({
   membersCount,
   shortDescription,
   recordingFinished,
-}: coursePreview) {
+}: coursePreviewType) {
   const pathname = usePathname();
 
   const addToCartHandler = () => {
