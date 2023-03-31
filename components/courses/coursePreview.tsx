@@ -12,7 +12,7 @@ function CoursePreview(props: coursePreviewType) {
   return (
     <div className="mx-auto p-[.75rem] w-full sm:w-[23.5rem] box-shadow rounded-xl">
       <div className="relative">
-        <img src={cover} alt={title} className="w-full rounded-xl" />
+        <img src={cover} alt={title} className="w-full object-cover rounded-xl" />
 
         <div className="absolute left-3 bottom-3 py-1 px-2 flex items-center gap-x-2 bg-background rounded-lg">
           <AvatarIcon />
