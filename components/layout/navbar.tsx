@@ -28,7 +28,7 @@ function Navbar() {
 
   React.useEffect(() => {
     setLoggedIn(user);
-  }, []);
+  }, [user]);
 
   useEffect(() => {
     setShowNavbar(false);

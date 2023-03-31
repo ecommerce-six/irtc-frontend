@@ -5,6 +5,7 @@ import Input from "../../../../components/login/input";
 import { PanelLayout } from "../../../../components/layout";
 
 import { styles } from "../../../../styles";
+import Header from "../../../head";
 
 type errors = {
   phoneNumber?: string;
@@ -108,6 +109,7 @@ function CreateUser() {
 
   return (
     <div className="p-4 rounded-xl box-shadow">
+      <Header title="IRTC	• ایجاد کاربر" />
       <form onSubmit={formik.handleSubmit} className="w-full">
         <Input
           type="text"
