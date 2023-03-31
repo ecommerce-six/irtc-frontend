@@ -1,29 +1,18 @@
 import React from "react";
 
-import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { PanelLayout } from "../../components/layout";
 
-import { userActions } from "../../store/user-slice";
+import UserProfile from "../../components/user/profile";
+import { StoreType } from "../../store";
+import { userType } from "../../types/user";
 
-function Panel() {
-  const dispatch = useDispatch();
-  return (
-    <>
-      <button
-        onClick={() => {
-          dispatch(userActions.login());
-        }}
-      >
-        login
-      </button>
-      <button
-        onClick={() => {
-          dispatch(userActions.logout());
-        }}
-      >
-        logout
-      </button>
-    </>
-  );
+function Profile() {
+  const user = useSelector((state: StoreType) => state.user.user);
+
+  return <UserProfile user={user} />;
 }
 
-export default Panel;
+Profile.PageLayout = PanelLayout;
+
+export default Profile;

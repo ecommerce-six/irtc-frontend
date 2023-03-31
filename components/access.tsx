@@ -1,4 +1,4 @@
-import { redirect } from "next/navigation";
+import Error404 from "../pages/404";
 
 type props = {
   user?: true;
@@ -20,7 +20,7 @@ function Access({ admin, author, user, children }: props) {
     return children;
   }
 
-  redirect("/404");
+  return <Error404 />;
 }
 
 export default Access;

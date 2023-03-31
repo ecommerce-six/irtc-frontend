@@ -1,28 +1,35 @@
-import { createSlice } from "@reduxjs/toolkit";
 import Cookies from "js-cookie";
 import { HYDRATE } from "next-redux-wrapper";
+import { createSlice } from "@reduxjs/toolkit";
+import { userStoreType, userType } from "../types/user";
 
 type initialStateType = {
-  user: string | null | undefined;
+  user: userStoreType;
 };
 
+const user = Cookies.get("user");
+
 const initialState: initialStateType = {
-  user: Cookies.get("user") ? Cookies.get("user") : null,
+  user: user ? JSON.parse(user) : null,
 };
 
 const userSlice = createSlice({
-  name: "taskbar",
+  name: "user",
   initialState,
   reducers: {
-    login: (state) => {
-      state.user = "hello";
+    login: (state: initialStateType, action: { payload: userType }) => {
+      const user = action.payload;
 
-      Cookies.set("user", JSON.stringify({ role: "user" }));
+      // save user info in browser
+      Cookies.set("user", JSON.stringify(user));
+
+      // set user in redux store
+      state.user = user;
     },
-    logout: (state) => {
-      state.user = "hello";
-
+    logout: (state: initialStateType) => {
       Cookies.remove("user");
+
+      state.user = null;
     },
   },
   extraReducers: {
@@ -37,4 +44,4 @@ const userSlice = createSlice({
 
 export const userActions = userSlice.actions;
 
-export default userSlice;
+export default userSlice.reducer;

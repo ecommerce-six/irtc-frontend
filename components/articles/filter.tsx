@@ -15,7 +15,7 @@ function ArticlesFilter({ searchHandler }: props) {
   };
 
   return (
-    <form onChange={formHandler} className="mt-8">
+    <form onChange={formHandler} className="mt-2">
       <select
         className="px-2 py-2 md:px-4 text-secondary text-base outline-2 outline outline-offset-4 outline-dim-secondary border-none bg-transparent text-[.8rem] rounded-lg"
         ref={time}

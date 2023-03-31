@@ -15,7 +15,7 @@ type props = {
   subLink?: subLink[];
 };
 
-function DashboardLink({ path, title, subLink, pathname }: props) {
+function MenuLink({ path, title, subLink, pathname }: props) {
   const [open, setOpen] = useState(false);
 
   const active = pathname === path;
@@ -49,9 +49,7 @@ function DashboardLink({ path, title, subLink, pathname }: props) {
       <Link
         href={path}
         onClick={openDropDownHandler}
-        className={`px-3 ${
-          active ? "py-3 bg-brand" : "py-3"
-        } w-full flex items-center justify-between rounded-tl-xl rounded-bl-xl`}
+        className={`px-3 ${active ? "py-3 bg-brand" : "py-3"} w-full flex items-center justify-between rounded-xl`}
       >
         <div className="flex items-center gap-x-2">
           <CircleIcon active={active} />
@@ -81,4 +79,4 @@ function DashboardLink({ path, title, subLink, pathname }: props) {
   );
 }
 
-export default DashboardLink;
+export default MenuLink;

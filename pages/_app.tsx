@@ -6,6 +6,9 @@ import { Provider } from "react-redux";
 import { IranYekan } from "../public/fonts";
 
 import "../styles/globals.css";
+import "@uiw/react-md-editor/markdown-editor.css";
+import "@uiw/react-markdown-preview/markdown.css";
+import ErrorBoundary from "./error";
 
 type ComponentWithPageLayout = AppProps & {
   Component: AppProps["Component"] & {
@@ -19,7 +22,9 @@ function MyApp({ Component, pageProps }: ComponentWithPageLayout) {
       <Provider store={store}>
         {Component.PageLayout ? (
           <Component.PageLayout>
-            <Component {...pageProps} />
+            <ErrorBoundary>
+              <Component {...pageProps} />
+            </ErrorBoundary>
           </Component.PageLayout>
         ) : (
           <Component {...pageProps} />

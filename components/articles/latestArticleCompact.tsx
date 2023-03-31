@@ -3,7 +3,7 @@ import Link from "next/link";
 
 function LatestArticleCompact() {
   return (
-    <Link href="articles/react" className="relative pr-6 p-4 space-y-1 bg-background rounded-xl box-shadow">
+    <Link href="/articles/react" className="block relative pr-6 p-4 space-y-1 bg-background rounded-xl box-shadow">
       <h1 className="text-primary w-full text-sm md:text-base font-medium text-ellipsis overflow-hidden whitespace-nowrap">
         ری اکت در دنیای واقعی
       </h1>

@@ -23,7 +23,7 @@ function Prompt({ message, showHandler, submitHandler }: props) {
           </button>
           <button
             onClick={showHandler}
-            className={`${styles.secondaryButton} text-red-500 border-red-500 hover:bg-red-500 py-2 px-8`}
+            className={`${styles.secondaryButton} text-red-500 hover:text-background border-red-500 hover:bg-red-500 py-2 px-8`}
           >
             لغو
           </button>

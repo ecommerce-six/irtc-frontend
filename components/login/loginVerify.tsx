@@ -54,11 +54,11 @@ function LoginVerify({ phoneNumber, loginHandler }: props) {
       </Link>
 
       <div className="mt-8 flex items-center gap-x-4">
-        <Link href={"/login"} className={`${styles.secondaryButton} px-6 py-2`}>
+        <Link href={"/auth/login"} className={`${styles.secondaryButton} px-6 py-2`}>
           ورود
         </Link>
         <Link
-          href={"/register"}
+          href={"/auth/register"}
           className={`${styles.primaryButton} px-6 py-2 bg-brand text-background text-sm font-semibold border-2 border-brand rounded-lg`}
         >
           ثبت نام

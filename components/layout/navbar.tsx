@@ -3,7 +3,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import React, { useState, useEffect } from "react";
 
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 import ToggleAnimate from "../../components/toggleAnimate";
 
@@ -13,15 +13,26 @@ import { LogoIcon, LogoText } from "../../public/common";
 import { CloseIcon, MenuIcon } from "../../public/icons";
 
 import { styles } from "../../styles";
+import { StoreType } from "../../store";
 
 function Navbar() {
   const path = usePathname();
 
-  // const loggedIn = true;
-
-  const role = "admin";
+  const [loggedIn, setLoggedIn] = useState<any>(null);
 
   const [showNavbar, setShowNavbar] = useState<boolean>(false);
+
+  const user = useSelector((state: StoreType) => state.user.user);
+
+  const role = useSelector((state: StoreType) => state.user.user?.role);
+
+  React.useEffect(() => {
+    setLoggedIn(user);
+  }, []);
+
+  useEffect(() => {
+    setShowNavbar(false);
+  }, [path]);
 
   const showNavbarHandler = () => {
     setShowNavbar((prevValue) => !prevValue);
@@ -46,10 +57,6 @@ function Navbar() {
       title: "نقشه ی راه",
     },
   ];
-
-  useEffect(() => {
-    setShowNavbar(false);
-  }, [path]);
 
   return (
     <>
@@ -78,9 +85,16 @@ function Navbar() {
             </ul>
           </div>
 
-          {true ? (
+          {loggedIn ? (
             <div className="hidden lg:flex items-center gap-x-4">
-              {role !== "admin" && (
+              {role === "admin" ? (
+                <Link
+                  href={"/panel"}
+                  className="text-primary max-w-[12rem] overflow-hidden text-ellipsis whitespace-nowrap"
+                >
+                  {loggedIn.firstName} {loggedIn.lastName}
+                </Link>
+              ) : (
                 <Link href="/panel/cart" className="group">
                   <CartIcon className="group-hover:fill-brand transition-all duration-300" />
                 </Link>
@@ -92,11 +106,11 @@ function Navbar() {
             </div>
           ) : (
             <div className="hidden lg:flex items-center gap-x-4">
-              <Link href={"/login"} className={`${styles.brandButton} px-2`}>
+              <Link href={"/auth/login"} className={`${styles.brandButton} px-2`}>
                 ورود
               </Link>
               <Link
-                href={"/register"}
+                href={"/auth/register"}
                 className={`${styles.primaryButton} px-6 py-2 bg-brand text-background text-sm font-semibold border-2 border-brand rounded-lg`}
               >
                 ثبت نام
@@ -137,25 +151,25 @@ function Navbar() {
                   ))}
                 </ul>
 
-                {true ? (
+                {loggedIn ? (
                   <div className="flex items-center gap-x-4">
                     {role !== "admin" && (
-                      <Link href="/panel/cart" className="group">
+                      <Link href="/panel/cart" className="group z-40">
                         <CartIcon className="group-hover:fill-brand transition-all duration-300" />
                       </Link>
                     )}
 
-                    <Link href={"/panel"} className="border-2 border-brand rounded-full box-shadow">
+                    <Link href="/panel" className="border-2 border-brand rounded-full box-shadow">
                       <Image src={AvatarSample} alt="avatar" className="w-10 h-10 rounded-full" />
                     </Link>
                   </div>
                 ) : (
                   <div className="flex flex-col items-center gap-4">
-                    <Link href={"/login"} className={`${styles.brandButton} px-2`}>
+                    <Link href={"/auth/login"} className={`${styles.brandButton} px-2`}>
                       ورود
                     </Link>
                     <Link
-                      href={"/register"}
+                      href={"/auth/register"}
                       className={`${styles.primaryButton} px-6 py-2 bg-brand text-background text-sm font-semibold border-2 border-brand rounded-lg`}
                     >
                       ثبت نام

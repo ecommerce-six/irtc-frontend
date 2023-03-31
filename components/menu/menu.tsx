@@ -1,25 +1,39 @@
-import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
+import React, { useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
 
-import MenuDivider from "./divider";
-import DashboardLink from "./dashboardLink";
+import MenuLink from "./link";
+import Prompt from "../prompt";
+import { StoreType } from "../../store";
+import { userActions } from "../../store/user-slice";
+import { useDispatch, useSelector } from "react-redux";
 
-import { LogoIcon, LogoText } from "../../public/common";
+import { AvatarSample } from "../../public";
+import { LogoutIcon } from "../../public/icons/svgs";
 
 function Menu() {
+  const router = useRouter();
+
   const path = usePathname();
 
-  let role: string = "admin";
+  const dispatch = useDispatch();
 
-  const toggleMenu = true;
+  const [showPrompt, setShowPrompt] = useState(false);
 
-  const toggleMenuHandler = () => {
-    // dispatch(panelActions.toggleMenu());
+  let role: string = useSelector((state: StoreType) => state.user.user!.role);
+
+  const logoutHandler = () => {
+    router.replace("/");
+
+    dispatch(userActions.logout());
   };
 
-  const dashboardLinks =
+  const showPromptHandler = () => {
+    setShowPrompt((prevValue) => !prevValue);
+  };
+
+  const MenuLinks =
     role === "admin"
       ? [
           {
@@ -123,38 +137,42 @@ function Menu() {
         ];
 
   return (
-    <>
-      <aside
-        className={`${
-          toggleMenu ? "block" : "hidden"
-        } fixed pt-2 pl-2 bg-background lg:bg-transparent lg:flex flex-col right-0 top-0 h-screen w-[14rem] z-20`}
-      >
-        <div className="py-4 flex items-center justify-evenly">
-          <Link href="/">
-            <Image src={LogoIcon} alt="IRTC Logo" className="w-14" />
-          </Link>
+    <aside className={"p-4 bg-background lg:flex flex-col w-full lg:w-[20rem] h-fit rounded-xl box-shadow"}>
+      <div className="flex items-center justify-between gap-x-3">
+        <Link href={"/panel"}>
+          <Image src={AvatarSample} alt="" className="w-14 h-14 rounded-xl border-2 border-brand" />
+        </Link>
 
-          <Link href="/">
-            <Image src={LogoText} alt="IRTC Logo" className="w-24" />
-          </Link>
+        <div className="space-y-2 text-sm">
+          <h1 className="w-[7.25rem] font-semibold text-primary overflow-hidden text-ellipsis whitespace-nowrap">
+            ویتو محققیان
+          </h1>
+          <p>09907086274</p>
         </div>
 
-        <div className="mt-3 space-y-1">
-          {dashboardLinks.map((item, index) => (
-            <DashboardLink {...item} key={index} pathname={path} />
-          ))}
+        <button className="group" onClick={showPromptHandler}>
+          <LogoutIcon className="group-hover:fill-brand" />
+        </button>
+      </div>
 
-          {role === "admin" && appsLinks.map((item, index) => <DashboardLink {...item} key={index} pathname={path} />)}
+      <div className="mt-4 space-y-1">
+        {MenuLinks.map((item, index) => (
+          <MenuLink {...item} key={index} pathname={path} />
+        ))}
 
-          {role !== "user" &&
-            contentLinks.map((item, index) => <DashboardLink {...item} key={index} pathname={path} />)}
-        </div>
-      </aside>
-      <button
-        className={`fixed top-0 left-0 ${toggleMenu ? "block lg:hidden" : "hidden"} !lg:hidden h-screen w-full z-10`}
-        onClick={toggleMenuHandler}
-      />
-    </>
+        {role === "admin" && appsLinks.map((item, index) => <MenuLink {...item} key={index} pathname={path} />)}
+
+        {role !== "user" && contentLinks.map((item, index) => <MenuLink {...item} key={index} pathname={path} />)}
+      </div>
+
+      {showPrompt && (
+        <Prompt
+          submitHandler={logoutHandler}
+          showHandler={showPromptHandler}
+          message="آیا مطمنید که میخواهید از حساب خود خارج شوید؟"
+        />
+      )}
+    </aside>
   );
 }
 

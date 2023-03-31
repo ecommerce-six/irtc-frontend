@@ -5,9 +5,10 @@ import Image from "next/image";
 import Input from "./input";
 import { useFormik } from "formik";
 
+import { styles } from "../../styles";
+
 import { LogoIcon } from "../../public/common";
 
-import { styles } from "../../styles";
 
 type props = {
   phoneNumber: string;
@@ -52,11 +53,11 @@ function RegisterVerify({ phoneNumber, loginHandler }: props) {
       <Image src={LogoIcon} alt="logo" className="w-16 md:w-32" />
 
       <div className="mt-8 flex items-center gap-x-4">
-        <Link href={"/login"} className={`${styles.secondaryButton} px-6 py-2`}>
+        <Link href={"/auth/login"} className={`${styles.secondaryButton} px-6 py-2`}>
           ورود
         </Link>
         <Link
-          href={"/register"}
+          href={"/auth/register"}
           className={`${styles.primaryButton} px-6 py-2 bg-brand text-background text-sm font-semibold border-2 border-brand rounded-lg`}
         >
           ثبت نام

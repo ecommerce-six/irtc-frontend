@@ -2,15 +2,15 @@ import Link from "next/link";
 import Image from "next/image";
 import React, { useState } from "react";
 
+import Input from "./input";
 import { useFormik } from "formik";
 
-import Input from "./input";
 import { styles } from "../../styles";
 
 import { LogoIcon } from "../../public/common";
 
 type props = {
-  sendCodeHandler: (number: string) => void;
+  submitHandler: (number: string) => void;
 };
 
 type errors = {
@@ -27,7 +27,7 @@ type formDataType = {
   repeatPassword: string;
 };
 
-function RegisterSection({ sendCodeHandler }: props) {
+function RegisterSection({ submitHandler }: props) {
   const [showPassword, setShowPassword] = useState(false);
 
   const showPasswordHandler = () => {
@@ -43,7 +43,7 @@ function RegisterSection({ sendCodeHandler }: props) {
 
     const includeNumbers = !/^\d+$/.test(formData.phoneNumber);
 
-    const inValidEmail = !formData.email.includes("../..");
+    const inValidEmail = !formData.email.includes("@");
 
     const inValidPassword = formData.password.length < 8;
 
@@ -107,7 +107,7 @@ function RegisterSection({ sendCodeHandler }: props) {
     validate: validateForm,
     validateOnChange: false,
     onSubmit: (values: formDataType) => {
-      sendCodeHandler(values.phoneNumber);
+      submitHandler(values.phoneNumber);
     },
   });
 
@@ -117,11 +117,11 @@ function RegisterSection({ sendCodeHandler }: props) {
         <Image src={LogoIcon} alt="logo" className="w-16 md:w-32" />
       </Link>
       <div className="mt-8 flex items-center gap-x-4">
-        <Link href={"/login"} className={`${styles.secondaryButton} px-6 py-2`}>
+        <Link href={"/auth/login"} className={`${styles.secondaryButton} px-6 py-2`}>
           ورود
         </Link>
         <Link
-          href={"/register"}
+          href={"/auth/register"}
           className={`${styles.primaryButton} px-6 py-2 bg-brand text-background text-sm font-semibold border-2 border-brand rounded-lg`}
         >
           ثبت نام

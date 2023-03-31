@@ -2,11 +2,13 @@ import Link from "next/link";
 import Image from "next/image";
 import React, { useState } from "react";
 
+import { userStoreType } from "../../types/user";
+
 import { styles } from "../../styles";
 
 import { AvatarSample, UserProfileHeaderImage } from "../../public";
 
-function UserHeader() {
+function UserProfile({ user }: { user: userStoreType }) {
   const [editing, setEditing] = useState(false);
 
   const editingHandler = () => {
@@ -29,10 +31,10 @@ function UserHeader() {
 
           <div className="space-y-2">
             <h1 className="text-primary font-semibold text-sm md:text-lg w-full overflow-hidden text-ellipsis whitespace-nowrap">
-              ویتو محققیان
+              {user?.firstName} {user?.lastName}
             </h1>
             <h2 className="text-secondary text-xs md:text-base w-full overflow-hidden text-ellipsis whitespace-nowrap">
-              ّFront-end Developer
+              {user?.phoneNumber}
             </h2>
           </div>
         </div>
@@ -48,14 +50,10 @@ function UserHeader() {
       <div className="mt-4 md:mt-10 pr-4 md:pr-8">
         <h1 className="text-primary font-semibold text-base md:text-xl">درباره ی من</h1>
 
-        <p className="pr-2 mt-2 text-secondary text-xs md:text-sm !leading-loose">
-          آیا می خواهید برای بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنیدآیا می خواهید برای
-          بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنید آیا می خواهید برای بهبود عملکرد خود در
-          محل کار، باید با کمک
-        </p>
+        <p className="pr-2 mt-2 text-secondary text-xs md:text-sm !leading-loose">{user?.description}</p>
       </div>
     </section>
   );
 }
 
-export default UserHeader;
+export default UserProfile;
