@@ -1,11 +1,13 @@
 import React from "react";
 
+import Header from "../../head";
 import { useDispatch } from "react-redux";
 import { userActions } from "../../../store/user-slice";
 import { AuthLayout } from "../../../components/layout";
 import NumberLogin from "../../../components/login/login";
-import { userType } from "../../../types/user";
 // import LoginVerify from "@/app/components/login/loginVerify";
+
+import { userType } from "../../../types/user";
 
 type formDataType = {
   password: string;
@@ -38,6 +40,7 @@ function Login() {
 
   return (
     <main className="w-full grid place-items-center">
+      <Header title="IRTC	• ورود" />
       {/* {codeSent ? (
         <LoginVerify loginHandler={loginHandler} phoneNumber={phoneNumber} />
       ) : ( */}

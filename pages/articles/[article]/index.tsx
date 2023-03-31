@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 
 import { marked } from "marked";
+import Header from "../../head";
 import { MainLayout } from "../../../components/layout";
 import FocusButton from "../../../components/articles/focusButton";
 import ArticleRate from "../../../components/articles/articleRate";
@@ -41,6 +42,8 @@ function Article() {
 
   return (
     <main className="flex justify-between flex-col lg:flex-row gap-5">
+      <Header title={`IRTC	• ${article.title}`} />
+
       <article id="article" className="p-4 w-full lg:w-[80%] rounded-xl box-shadow">
         <div className="relative">
           <img src={article.cover} alt={article.title} className="w-full rounded-xl" />

@@ -1,5 +1,6 @@
 import React from "react";
 
+import Header from "../../head";
 import Access from "../../../components/access";
 import AllUsers from "../../../components/user/allUsers";
 import { PanelLayout } from "../../../components/layout";
@@ -10,6 +11,8 @@ function Roles() {
 
   return (
     <Access admin>
+      <Header title="IRTC	• مقام ها" />
+
       <main>
         <UsersFilter searchHandler={searchHandler} />
 

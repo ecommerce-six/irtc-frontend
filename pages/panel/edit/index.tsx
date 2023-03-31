@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React, { useState } from "react";
 
+import Header from "../../head";
 import { useFormik } from "formik";
 import Access from "../../../components/access";
 import Input from "../../../components/user/input";
@@ -79,6 +80,8 @@ function EditProfile() {
 
   return (
     <Access admin author user>
+      <Header title="IRTC	• تغییر پروفایل" />
+
       <section className="p-5 rounded-xl box-shadow">
         <form onSubmit={formik.handleSubmit}>
           <Input id="name" name="name" title="نام" type="text" placeHolder="برای مثال احمد" />

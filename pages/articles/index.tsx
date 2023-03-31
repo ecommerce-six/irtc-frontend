@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 
-import ReactPaginate from "react-paginate";
 
+import Header from "../head";
+import ReactPaginate from "react-paginate";
 import { MainLayout } from "../../components/layout";
 import Heading from "../../components/elements/heading";
 import ArticlesFilter from "../../components/articles/filter";
@@ -83,6 +84,8 @@ function Articles() {
 
   return (
     <main>
+      <Header title="IRTC	• مقاله ها" />
+
       <div className="mt-6">
         <Heading
           title="جست و جو برای مقاله ها"

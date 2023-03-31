@@ -7,6 +7,7 @@ import RegisterSection from "../../../components/login/register";
 import RegisterVerify from "../../../components/login/registerVerify";
 
 import { userType } from "../../../types/user";
+import Header from "../../head";
 
 function Register() {
   const dispatch = useDispatch();
@@ -34,6 +35,8 @@ function Register() {
 
   return (
     <main className="w-full grid place-items-center">
+      <Header title="IRTC	• ثبت نام" />
+      
       {/* {codeSent ? (
         <RegisterVerify loginHandler={loginHandler} phoneNumber={phoneNumber} />
       ) : ( */}

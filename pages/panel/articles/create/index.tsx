@@ -1,6 +1,7 @@
 import dynamic from "next/dynamic";
 import { ChangeEvent, useState, Suspense } from "react";
 
+import Header from "../../../head";
 import { useMutate } from "restful-react";
 import Access from "../../../../components/access";
 import { PanelLayout } from "../../../../components/layout";
@@ -64,6 +65,8 @@ function CreateArticles() {
   return (
     <Access admin author>
       <div className="p-4 space-y-4 rounded-xl box-shadow">
+        <Header title="IRTC	• ایجاد کردن مقاله" />
+
         <input
           type={"text"}
           name={"title"}

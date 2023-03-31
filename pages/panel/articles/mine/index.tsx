@@ -4,6 +4,7 @@ import Access from "../../../../components/access";
 import { PanelLayout } from "../../../../components/layout";
 import ArticlesFilter from "../../../../components/articles/filter";
 import ArticlePreviewEdit from "../../../../components/articles/articlePreviewEdit";
+import Header from "../../../head";
 
 function MyArticles() {
   const articles = [
@@ -41,6 +42,8 @@ function MyArticles() {
 
   return (
     <Access admin author>
+      <Header title="IRTC	• مقاله های من" />
+
       <ArticlesFilter searchHandler={searchHandler} />
 
       <div className="mt-6 flex flex-col items-center gap-y-5">

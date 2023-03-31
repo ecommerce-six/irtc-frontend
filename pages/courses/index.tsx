@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 
+import Header from "../head";
 import { MainLayout } from "../../components/layout";
 import CoursesHeader from "../../components/courses/header";
 import LatestCourses from "../../components/courses/latestCourses";
@@ -11,6 +12,8 @@ import { TopToRightBottom } from "../../public/badges";
 function Courses() {
   return (
     <main>
+      <Header title="IRTC	• دوره ها" />
+
       <CoursesHeader />
 
       <div className="mt-10">

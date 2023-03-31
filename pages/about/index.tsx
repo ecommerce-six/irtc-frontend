@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
+import Header from "../head";
 import { MainLayout } from "../../components/layout";
 import Activity from "../../components/about/activity";
 import Heading from "../../components/elements/heading";
@@ -17,6 +18,8 @@ import { styles } from "../../styles";
 function About() {
   return (
     <main>
+      <Header title="IRTC	• درباره" />
+
       <section>
         <h1 className="mx-auto my-8 flex gap-x-1 text-primary text-[6vw] md:text-[2rem] font-bold w-fit">
           <span className="flex flex-col items-center">

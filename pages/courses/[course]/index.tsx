@@ -1,5 +1,6 @@
 import React from "react";
 
+import Header from "../../head";
 import { MainLayout } from "../../../components/layout";
 import Testimonials from "../../../components/home/testimonials";
 import CourseDescription from "../../../components/courses/courseDescription";
@@ -24,6 +25,8 @@ function Course() {
 
   return (
     <main>
+      <Header title={`IRTC	• ${course.title}`} />
+
       <SingleCourseHeader {...course} />
 
       <CourseDescription description={course.description} />
