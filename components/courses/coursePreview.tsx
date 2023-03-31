@@ -25,6 +25,7 @@ function CoursePreview(props: coursePreviewType) {
         <h1 className="mt-2 text-md text-primary font-semibold">اموزش راه اندازی کیف پول</h1>
         <p className="mt-2 text-[.75rem] h-[4.75rem] text-secondary leading-6 overflow-hidden line-clamp-3">
           {shortDescription}
+          {shortDescription}
         </p>
         <div className="mt-3 flex items-center gap-x-4">
           {recordingFinished && (

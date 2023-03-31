@@ -1,17 +1,10 @@
-import Link from "next/link";
-import Image from "next/image";
 import React, { useState } from "react";
 
-import Input from "./input";
 import { useFormik } from "formik";
+import Input from "../../../../components/login/input";
+import { PanelLayout } from "../../../../components/layout";
 
-import { styles } from "../../styles";
-
-import { LogoIcon } from "../../public/common";
-
-type props = {
-  submitHandler: (number: string) => void;
-};
+import { styles } from "../../../../styles";
 
 type errors = {
   phoneNumber?: string;
@@ -27,12 +20,14 @@ type formDataType = {
   repeatPassword: string;
 };
 
-function RegisterSection({ submitHandler }: props) {
+function CreateUser() {
   const [showPassword, setShowPassword] = useState(false);
 
   const showPasswordHandler = () => {
     setShowPassword((prevValue) => !prevValue);
   };
+
+  const submitHandler = () => {};
 
   const validateForm = (formData: formDataType) => {
     const errors: errors = {};
@@ -103,35 +98,16 @@ function RegisterSection({ submitHandler }: props) {
       password: "",
       repeatPassword: "",
     },
+
     validate: validateForm,
     validateOnChange: false,
     onSubmit: (values: formDataType) => {
-      submitHandler(values.phoneNumber);
+      submitHandler();
     },
   });
 
   return (
-    <div className="px-6 py-8 my-10 md:my-20 w-full lg:w-[25rem] flex flex-col items-center bg-background rounded-xl box-shadow">
-      <Link href={"/"}>
-        <Image src={LogoIcon} alt="logo" className="w-16 md:w-32" />
-      </Link>
-      <div className="mt-8 flex items-center gap-x-4">
-        <Link href={"/auth/login"} className={`${styles.secondaryButton} px-6 py-2`}>
-          ورود
-        </Link>
-        <Link
-          href={"/auth/register"}
-          className={`${styles.primaryButton} px-6 py-2 bg-brand text-background text-sm font-semibold border-2 border-brand rounded-lg`}
-        >
-          ثبت نام
-        </Link>
-      </div>
-
-      <h1 className="mt-6 text-primary text-xl md:text-2xl font-bold">خوش آمدی</h1>
-
-      <p className="px-2 mt-4 text-secondary text-sm md:text-base text-center">
-        به خونه خوش اومدی! اگه عضو مجموعه هستی، وارد شو
-      </p>
+    <div className="p-4 rounded-xl box-shadow">
       <form onSubmit={formik.handleSubmit} className="w-full">
         <Input
           type="text"
@@ -193,4 +169,6 @@ function RegisterSection({ submitHandler }: props) {
   );
 }
 
-export default RegisterSection;
+CreateUser.PageLayout = PanelLayout;
+
+export default CreateUser;

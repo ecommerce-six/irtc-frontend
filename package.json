@@ -1,5 +1,5 @@
 {
-  "name": "irtc",
+  "name": "iran-trading-coaching",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -23,11 +23,11 @@
     "next": "13.2.4",
     "next-redux-wrapper": "^8.1.0",
     "next-remove-imports": "^1.0.10",
-    "next-transpile-modules": "^10.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-paginate": "^8.1.4",
     "react-redux": "^8.0.5",
+    "react-transition-group": "^4.4.5",
     "restful-react": "^15.9.4",
     "swiper": "^9.1.1"
   },

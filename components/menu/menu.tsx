@@ -79,6 +79,10 @@ function Menu() {
           path: "/panel/roles",
           title: "مقام و دسترسی ها",
         },
+        {
+          path: "/panel/users/create",
+          title: "ایجاد کاربر",
+        },
       ],
     },
   ];

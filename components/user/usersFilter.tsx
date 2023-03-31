@@ -45,7 +45,7 @@ function UsersFilter({ searchHandler }: props) {
 
           <option value="admin">ادمین</option>
           <option value="author">نوبسنده</option>
-          <option value="user">کاربر عاذی</option>
+          <option value="user">کاربر عادی</option>
         </select>
       </form>
     </section>

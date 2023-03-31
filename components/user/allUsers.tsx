@@ -15,7 +15,7 @@ function AllUsers() {
 
   const users: userType[] = [
     {
-      email: "vito.mohagheghian../..gmail.com",
+      email: "vito.mohagheghian@gmail.com",
       lastName: "محققیان",
       firstName: "ویتو",
       role: "user",
@@ -25,7 +25,7 @@ function AllUsers() {
       phoneNumber: "09901234123",
     },
     {
-      email: "vito.mohagheghian../..gmail.com",
+      email: "vito.mohagheghian@gmail.com",
       lastName: "احمدی",
       firstName: "احمد",
       role: "user",
@@ -34,7 +34,7 @@ function AllUsers() {
       phoneNumber: "09901234123",
     },
     {
-      email: "vito.mohagheghian../..gmail.com",
+      email: "vito.mohagheghian@gmail.com",
       lastName: "جعفری",
       firstName: "جعفر",
       role: "user",

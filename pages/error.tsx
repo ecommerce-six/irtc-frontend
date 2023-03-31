@@ -37,9 +37,6 @@ class ErrorBoundary extends React.Component<Props, State> {
       // You can render any custom fallback UI
       return (
         <>
-          <span className="purple-gradient" />
-          <Navbar />
-
           <div
             className={`${styles.layout} py-10 lg:py-4 flex items-center flex-col lg:flex-row justify-between gap-x-4 gap-y-10`}
           >
@@ -47,7 +44,7 @@ class ErrorBoundary extends React.Component<Props, State> {
               <h1 className="text-primary text-4xl lg:text-5xl xl:text-6xl font-semibold !leading-relaxed">
                 مشکلی پیش اومد
               </h1>
-              <p className="max-w-[90%] md:max-w-[26rem] text-secondary text-sm md:text-base text-center md:text-start !leading-loose">
+              <p className="max-w-[90%] md:max-w-[22rem] text-secondary text-sm text-center md:text-start !leading-loose">
                 با عرض پوزش مشکلی در سایت بوجود اومد برای رفع آن ابتدا از متصل بودن کیفیت اینترنت خود مطمئن شوید در غیر
                 این صورت مشکل از داخل سایت می باشد.
               </p>
