@@ -2,7 +2,7 @@ import React from "react";
 
 import { styles } from "../../styles";
 
-function FocusButton() {
+function FocusButton({ className }: { className?: string }) {
   const focusHandler = () => {
     document.getElementById("sidebar")!.className = "hidden";
     document.getElementById("article")!.className = "p-4 w-full rounded-xl";
@@ -10,7 +10,7 @@ function FocusButton() {
   };
 
   return (
-    <button className={`${styles.brandButton} w-full py-4 rounded-xl box-shadow`} onClick={focusHandler}>
+    <button className={`${styles.brandButton} w-full py-4 rounded-xl box-shadow ${className}`} onClick={focusHandler}>
       مطالعه با تمرکز بیشتر
     </button>
   );

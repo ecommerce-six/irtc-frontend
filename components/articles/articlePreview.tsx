@@ -9,9 +9,11 @@ function ArticlePreview({ cover, title, description, slug }: articlePreviewType)
     <div className="p-[1rem] w-full md:max-w-[32.5rem] rounded-xl box-shadow">
       <img src={cover} alt={title} className="w-full object-cover rounded-xl" />
 
-      <h1 className="mt-4 px-6 text-xl text-primary font-semibold text-center">{title}</h1>
+      <h1 className="mt-4 px-6 text-base md:text-xl text-primary font-semibold text-center">{title}</h1>
 
-      <p className="mt-3 px-4 text-center text-sm text-secondary leading-7">{description}</p>
+      <p className="mt-0 md:mt-3 px-4 text-center text-xs md:text-sm text-secondary leading-7 line-clamp-4">
+        {description}
+      </p>
 
       <span className="block mt-3 w-full h-[1px] bg-secondary opacity-25" />
 

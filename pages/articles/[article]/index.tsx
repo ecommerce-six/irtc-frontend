@@ -11,6 +11,8 @@ import ArticleRate from "../../../components/articles/articleRate";
 import LatestArticleCompact from "../../../components/articles/latestArticleCompact";
 import CloseFocusTimeButton from "../../../components/articles/closeFocusTimeButton";
 
+import { estimateReadTimeHandler } from "../../../modules/estimateReadTime";
+
 import { AvatarSample } from "../../../public";
 import { CommentsIcon, LikeIcon, RateIcon, TimeIcon } from "../../../public/icons/svgs";
 
@@ -33,7 +35,6 @@ function Article() {
 آیا می خواهید برای بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنیدآیا می خواهید برای بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنید آیا می خواهید برای بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنید آیا می خواهید برای بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنیدآیا می خواهید برای بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنید آیا می خواهید برای بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنیدآیا می خواهید خواهید برای بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنیدآیا می خواهید برای بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنید آیا می خواهید برای بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنید
 
 ![MarineGEO circle logo](https://sabzlearn.ir/wp-content/uploads/2021/12/Com_Security_network-min-247x139.png)`,
-    readTime: "8 دقیقه",
     likesCount: 169,
     comments: [{}, {}],
     rate: 4.5,
@@ -59,7 +60,10 @@ function Article() {
               <TimeIcon />
 
               <h3 className="text-secondary text-xs md:text-sm">
-                ﺯﻣﺎﻥ ﻣﻄﺎﻟﻌﻪ: <span className="text-primary text-sm font-medium">{article.readTime}</span>
+                ﺯﻣﺎﻥ ﻣﻄﺎﻟﻌﻪ:{" "}
+                <span className="text-primary text-xs md:text-sm font-medium">
+                  {estimateReadTimeHandler(article.content)}
+                </span>
               </h3>
             </div>
 
@@ -91,7 +95,7 @@ function Article() {
       </article>
 
       <aside id="sidebar" className="w-full lg:w-[19%]">
-        <FocusButton />
+        <FocusButton className="hidden lg:block" />
 
         <div className="my-6 flex items-center gap-x-2">
           <Image src={AvatarSample} alt="av" className="w-16 h-16 border-2 border-brand rounded-full" />

@@ -86,7 +86,7 @@ function Footer() {
         <div className="w-[20rem] md:w-[30%] space-y-2">
           <h1 className="mb-2 font-bold text-lg">ارتباط با ما</h1>
           <Link href={""} className="inline-block w-full text-secondary text-sm">
-            support../..owlearn.com
+            support@owlearn.com
           </Link>
           <Link href={""} className="inline-block w-full text-secondary text-sm">
             (+62) 85923935983

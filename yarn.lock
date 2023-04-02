@@ -4672,6 +4672,11 @@ nth-check@^2.0.0:
   dependencies:
     boolbase "^1.0.0"
 
+num2persian@^3.2.2:
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/num2persian/-/num2persian-3.2.2.tgz#3d53096920597dc03df45fc1e3c4cc38d58c78fd"
+  integrity sha512-xwT+fAiVWq6Nde+JWf5/PlW3qAGRNa0TJEUJwoJmaXjmLp1dewOFiX2+jUSreAsTrX2qi/rzgk3diSt36f6ouQ==
+
 number-is-nan@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/number-is-nan/-/number-is-nan-1.0.1.tgz#097b602b53422a522c1afb8790318336941a011d"

@@ -9,7 +9,7 @@ import { SwiperSlide } from "swiper/react";
 
 function CoursesHeader() {
   return (
-    <section className="py-6 flex flex-col lg:flex-row gap-y-20">
+    <section className="py-6 flex flex-col lg:flex-row gap-y-5">
       <div className="flex items-center justify-center w-full lg:w-[50%]">
         <Slider className="w-full">
           <SwiperSlide>
@@ -22,7 +22,7 @@ function CoursesHeader() {
         </Slider>
       </div>
 
-      <Image src={CoursesHeaderImage} alt="courses hero image" className="mx-auto w-full md:w-[85%] lg:w-[45%]" />
+      <Image src={CoursesHeaderImage} alt="courses hero image" className="mx-auto w-full md:w-[85%] md:h-[85%] lg:w-[45%] lg:h-[45%]" />
     </section>
   );
 }
