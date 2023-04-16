@@ -17,7 +17,7 @@ function ArticlePreview({ cover, title, description, slug }: articlePreviewType)
 
       <span className="block mt-3 w-full h-[1px] bg-secondary opacity-25" />
 
-      <Link href={`/articles/${slug}`} className="pt-3 pb-2 w-full flex justify-center text-brand">
+      <Link href={`/articles/${slug}`} className="pt-3 pb-2 w-full flex justify-center text-brand ">
         <span>مشاهده و خواندن مقاله</span>
       </Link>
     </div>

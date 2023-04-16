@@ -21,6 +21,6 @@ export type articleType = {
 };
 
 export type articlesFilterHandlerType = {
-  basis: string;
   time: string;
+  basis: string;
 };

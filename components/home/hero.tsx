@@ -26,7 +26,7 @@ function Hero() {
           </p>
 
           <div className="mt-4 flex flex-col md:flex-row items-center flex-wrap gap-x-5 gap-y-8">
-            <Link href={"/auth/register"} className={`${styles.primaryButton} py-3 sm:py-4 px-6 md:px-8`}>
+            <Link href={"/auth/register"} className={`${styles.primaryButton} py-3 sm:py-4 px-6 md:px-8 `}>
               مشاهده مقاله ها
             </Link>
 
