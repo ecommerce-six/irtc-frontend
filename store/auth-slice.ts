@@ -1,10 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { setAuthType } from "../types/auth";
 
 type authStateType = {
-  accessToken: string | null;
+  role?: string | null;
+  accessToken?: string | null;
 };
 
 const initialState: authStateType = {
+  role: null,
   accessToken: null,
 };
 
@@ -12,8 +15,8 @@ const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
-    setAuth: (state: authStateType, actions: { payload: string }) => {
-      state.accessToken = actions.payload;
+    setAuth: (state: authStateType, actions: { payload: setAuthType }) => {
+      state = actions.payload;
     },
   },
 });
