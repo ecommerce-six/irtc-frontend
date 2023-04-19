@@ -138,7 +138,7 @@ function EditProfile() {
 
           <Input id="position" name="email" title="کد تایید" type="text" placeHolder="برای مثال 12345" />
 
-          <button className={`${styles.primaryButton} mt-3 py-3 px-10`} type="submit">
+          <button className={`${styles.primaryButton} mt-3 py-3 px-10 hover:scale-[1.05]`} type="submit">
             اعمال تغییر
           </button>
         </form>

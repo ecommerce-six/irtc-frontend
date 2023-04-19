@@ -41,7 +41,7 @@ function UserProfile({ user }: { user: userStoreType }) {
 
         <Link
           href={"/panel/edit"}
-          className={`${styles.primaryButton} sm:absolute left-0 py-3 md:py-4 px-5 md:px-8 h-fit`}
+          className={`${styles.primaryButton} sm:absolute left-0 py-3 md:py-4 px-5 md:px-8 h-fit hover:scale-[1.05]`}
         >
           ویرایش پروفایل
         </Link>

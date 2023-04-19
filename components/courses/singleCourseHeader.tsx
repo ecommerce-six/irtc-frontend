@@ -98,7 +98,7 @@ function SingleCourseHeader({
         </p>
 
         <div className="flex items-center justify-between flex-wrap gap-4">
-          <button className={`${styles.primaryButton} py-3 px-8 md:px-10`} onClick={addToCartHandler}>
+          <button className={`${styles.primaryButton} py-3 px-8 md:px-10 hover:scale-[1.05]`} onClick={addToCartHandler}>
             {true ? "اضافه کردن به سبد خرید" : "ورود و خرید دوره"}
           </button>
           <div className="flex items-center gap-x-2 justify-self-end">

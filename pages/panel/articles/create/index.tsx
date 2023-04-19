@@ -85,7 +85,7 @@ function CreateArticles() {
         <button
           onClick={handleImageUpload}
           disabled={!selectedImage}
-          className={`${styles.primaryButton} block disabled:opacity-50 py-3 px-10`}
+          className={`${styles.primaryButton} block disabled:opacity-50 py-3 px-10 hover:scale-[1.05]`}
         >
           اپلود عکس
         </button>
@@ -100,7 +100,7 @@ function CreateArticles() {
       <button
         onClick={handleImageUpload}
         disabled={!selectedImage || !value || !title}
-        className={`${styles.primaryButton} mt-4 block disabled:opacity-50 py-3 px-10`}
+        className={`${styles.primaryButton} mt-4 block disabled:opacity-50 py-3 px-10 hover:scale-[1.05]`}
       >
         منتشر کردن مقاله
       </button>

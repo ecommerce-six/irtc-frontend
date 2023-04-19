@@ -163,7 +163,7 @@ function CreateUser() {
           <li className="my-2 text-red-500">{formik.errors.repeatPassword}</li>
         </ul>
 
-        <button className={`${styles.primaryButton} mt-2 w-full py-3 bg-brand rounded-xl`} type="submit">
+        <button className={`${styles.primaryButton} mt-2 w-full py-3 bg-brand rounded-xl hover:scale-[1.05]`} type="submit">
           ثبت نام
         </button>
       </form>

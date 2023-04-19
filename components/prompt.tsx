@@ -18,7 +18,7 @@ function Prompt({ message, showHandler, submitHandler }: props) {
         </p>
 
         <div className="mt-5 flex items-center gap-x-5">
-          <button onClick={submitHandler} className={`${styles.primaryButton} py-2 px-8`}>
+          <button onClick={submitHandler} className={`${styles.primaryButton} py-2 px-8 hover:scale-[1.05]`}>
             تایید
           </button>
           <button

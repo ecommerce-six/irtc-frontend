@@ -21,7 +21,7 @@ function Error404() {
           <p className="max-w-[95%] md:max-w-[22rem] text-secondary text-sm md:text-base xl:text-lg text-center md:text-start !leading-loose">
             با عرض پوزش از شما، چنین صفحه‌ای در سایت وجود ندارد یا این صفحه از سایت پاک شده است.
           </p>
-          <Link href="/" className={`${styles.primaryButton} inline-block py-4 px-10`}>
+          <Link href="/" className={`${styles.primaryButton} inline-block py-4 px-10 hover:scale-[1.05]`}>
             بازگشت به خانه
           </Link>
         </div>

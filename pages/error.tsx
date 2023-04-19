@@ -48,7 +48,7 @@ class ErrorBoundary extends React.Component<Props, State> {
                 با عرض پوزش مشکلی در سایت بوجود اومد برای رفع آن ابتدا از متصل بودن کیفیت اینترنت خود مطمئن شوید در غیر
                 این صورت مشکل از داخل سایت می باشد.
               </p>
-              <Link href="/" className={`${styles.primaryButton} inline-block py-3 px-8`}>
+              <Link href="/" className={`${styles.primaryButton} inline-block py-3 px-8 hover:scale-[1.05]`}>
                 بازگشت به خانه
               </Link>
             </div>

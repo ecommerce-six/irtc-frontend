@@ -50,7 +50,7 @@ function User({
         </select>
       </form>
 
-      <button className={`${styles.primaryButton} py-2 px-4 bg-red-500 border-red-500`}>موقوف کردن</button>
+      <button className={`${styles.primaryButton} py-2 px-4 bg-red-500 border-red-500 hover:scale-[1.05]`}>موقوف کردن</button>
     </div>
   );
 }

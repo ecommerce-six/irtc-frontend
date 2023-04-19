@@ -111,7 +111,7 @@ function Navbar() {
               </Link>
               <Link
                 href={"/auth/register"}
-                className={`${styles.primaryButton} px-6 py-2 bg-brand text-background text-sm font-semibold border-2 border-brand rounded-lg`}
+                className={`${styles.primaryButton} px-6 py-2 bg-brand text-background text-sm font-semibold border-2 border-brand rounded-lg hover:scale-[1.05]`}
               >
                 ثبت نام
               </Link>
@@ -170,7 +170,7 @@ function Navbar() {
                     </Link>
                     <Link
                       href={"/auth/register"}
-                      className={`${styles.primaryButton} px-6 py-2 bg-brand text-background text-sm font-semibold border-2 border-brand rounded-lg`}
+                      className={`${styles.primaryButton} px-6 py-2 bg-brand text-background text-sm font-semibold border-2 border-brand rounded-lg hover:scale-[1.05]`}
                     >
                       ثبت نام
                     </Link>

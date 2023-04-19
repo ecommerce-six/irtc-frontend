@@ -21,7 +21,7 @@ function EditProfile() {
           ></textarea>
         </div>
 
-        <button className={`${styles.primaryButton} mt-2 py-3 px-10`}>اعمال تغییر</button>
+        <button className={`${styles.primaryButton} mt-2 py-3 px-10 hover:scale-[1.05]`}>اعمال تغییر</button>
       </form>
     </section>
   );

@@ -53,12 +53,12 @@ function RegisterVerify({ phoneNumber, loginHandler }: props) {
       <Image src={LogoIcon} alt="logo" className="w-16 md:w-32" />
 
       <div className="mt-8 flex items-center gap-x-4">
-        <Link href={"/auth/login"} className={`${styles.secondaryButton} px-6 py-2`}>
+        <Link href={"/auth/login"} className={`${styles.secondaryButton} px-6 py-2 hover:bg-brand`}>
           ورود
         </Link>
         <Link
           href={"/auth/register"}
-          className={`${styles.primaryButton} px-6 py-2 bg-brand text-background text-sm font-semibold border-2 border-brand rounded-lg`}
+          className={`${styles.primaryButton} px-6 py-2 bg-brand text-background text-sm font-semibold border-2 border-brand rounded-lg hover:scale-[1.05]`}
         >
           ثبت نام
         </Link>
@@ -83,7 +83,7 @@ function RegisterVerify({ phoneNumber, loginHandler }: props) {
 
         <p className="my-2 text-red-500">{formik.errors.verifyCode}</p>
 
-        <button className={`${styles.primaryButton} mt-4 w-full py-3 bg-brand rounded-xl`} type="submit">
+        <button className={`${styles.primaryButton} mt-4 w-full py-3 bg-brand rounded-xl hover:scale-[1.05]`} type="submit">
           ورود
         </button>
       </form>
