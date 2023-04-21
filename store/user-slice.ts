@@ -7,10 +7,11 @@ type initialStateType = {
   user: userStoreType;
 };
 
-const user = Cookies.get("user");
+// const user = Cookies.get("user");
 
 const initialState: initialStateType = {
-  user: user ? JSON.parse(user) : null,
+  // user: user ? JSON.parse(user) : null,
+  user: null,
 };
 
 const userSlice = createSlice({

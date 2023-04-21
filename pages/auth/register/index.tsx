@@ -1,46 +1,52 @@
 import React, { useState } from "react";
 
-import { useDispatch } from "react-redux";
-import { userActions } from "../../../store/user-slice";
+import Header from "../../head";
 import { AuthLayout } from "../../../components/layout";
 import RegisterSection from "../../../components/login/register";
-import RegisterVerify from "../../../components/login/registerVerify";
 
-import { userType } from "../../../types/user";
-import Header from "../../head";
+import axios from "../../../modules/axios";
+import useUser from "../../../hooks/useUser";
+import { registerHandlerType } from "../../../types/register";
+import { checkConnectivity } from "../../../modules/checkConnection";
+
+const REGISTER_URL = "/usesrs/create";
 
 function Register() {
-  const dispatch = useDispatch();
+  const { setUser } = useUser();
 
-  // const [codeSent, setCodeSent] = useState<boolean>(false);
+  const [error, setError] = useState<string | null>(null);
 
-  // const [phoneNumber, setPhoneNumber] = useState<string>("");
+  const signupHandler = async (user: registerHandlerType) => {
+    try {
+      const isConnected = await checkConnectivity();
 
-  const signupHandler = (number: string) => {
-    // setPhoneNumber(number);
-    // setCodeSent((prevValue) => !prevValue);
+      if (isConnected) {
+        const response = await axios.post(REGISTER_URL, JSON.stringify(user), {
+          headers: { "Content-Type": "application/json" },
+          // ! withCredentials: true,
+        });
 
-    const user: userType = {
-      role: "admin",
-      firstName: "ویتو",
-      lastName: "محققیان",
-      email: "vito.mohagheghian@gmail.com",
-      phoneNumber: "09907086274",
-      description:
-        "پای تو پای در انتخاب مدرسان  خود بسیار سخت گیر است و تمامی دوره های حود را سعی کرده است در بیشتر کیفیت علمی و لوخود بسیار سخت گیر است و تمامی دوره های حود را سعی کرده است در بیشتر کیفیت علمی و لوخود بسیار سخت گیر است و تمامی دوره های حود را سعی کرده است در بیشتر کیفیت علمی و لوخود بسیار سخت گیر است و تمامی دوره های حود را سعی کرده است در بیشتر کیفیت علمی و لو",
-    };
-
-    dispatch(userActions.login(user));
+        response?.status === 201 ? setUser({ ...user, role: "user" }) : setError(response?.data.message);
+      }
+    } catch (err: any) {
+      if (!err?.response) {
+        setError("خطا در ارتباط با سرور");
+      } else if (err.response?.status === 409) {
+        setError("شماره یا ایمیل قبلا استفاده وارد شده");
+      } else {
+        setError("ثبت نام به مشکل برخورد");
+      }
+    }
   };
 
   return (
     <main className="w-full grid place-items-center">
       <Header title="IRTC	• ثبت نام" />
-      
+
       {/* {codeSent ? (
         <RegisterVerify loginHandler={loginHandler} phoneNumber={phoneNumber} />
       ) : ( */}
-      <RegisterSection submitHandler={signupHandler} />
+      <RegisterSection submitHandler={signupHandler} error={error} />
       {/* )} */}
     </main>
   );
@@ -48,4 +54,4 @@ function Register() {
 
 Register.PageLayout = AuthLayout;
 
-export default Register;
+export default Register;``
