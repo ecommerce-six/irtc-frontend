@@ -6,15 +6,16 @@ import RegisterSection from "../../../components/login/register";
 
 import axios from "../../../modules/axios";
 import useUser from "../../../hooks/useUser";
+import useError from "../../../hooks/useError";
 import { registerHandlerType } from "../../../types/register";
 import { checkConnectivity } from "../../../modules/checkConnection";
 
-const REGISTER_URL = "/usesrs/create";
+const REGISTER_URL = "/users/create";
 
 function Register() {
   const { setUser } = useUser();
 
-  const [error, setError] = useState<string | null>(null);
+  const { error, setError } = useError();
 
   const signupHandler = async (user: registerHandlerType) => {
     try {
@@ -27,11 +28,14 @@ function Register() {
         });
 
         response?.status === 201 ? setUser({ ...user, role: "user" }) : setError(response?.data.message);
+
+        setError(null);
       }
     } catch (err: any) {
       if (!err?.response) {
         setError("خطا در ارتباط با سرور");
       } else if (err.response?.status === 409) {
+        console.log("af");
         setError("شماره یا ایمیل قبلا استفاده وارد شده");
       } else {
         setError("ثبت نام به مشکل برخورد");
@@ -54,4 +58,5 @@ function Register() {
 
 Register.PageLayout = AuthLayout;
 
-export default Register;``
+export default Register;
+``;
