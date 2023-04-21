@@ -23,19 +23,9 @@ function Login() {
 
   const loginHandler = ({ phoneNumber, password }: formDataType) => {
     // setPhoneNumber(number);
-    // setCodeSent((prevValue) => !prevValue);
+    // setCodeSent((prevValue) => !prevValue)
 
-    const user: userType = {
-      role: "admin",
-      firstName: "ویتو",
-      lastName: "محققیان",
-      email: "vito.mohagheghian@gmail.com",
-      phoneNumber: "09907086274",
-      description:
-        "پای تو پای در انتخاب مدرسان  خود بسیار سخت گیر است و تمامی دوره های حود را سعی کرده است در بیشتر کیفیت علمی و لوخود بسیار سخت گیر است و تمامی دوره های حود را سعی کرده است در بیشتر کیفیت علمی و لوخود بسیار سخت گیر است و تمامی دوره های حود را سعی کرده است در بیشتر کیفیت علمی و لوخود بسیار سخت گیر است و تمامی دوره های حود را سعی کرده است در بیشتر کیفیت علمی و لو",
-    };
-
-    dispatch(userActions.login(user));
+    // dispatch(userActions.login(user));
   };
 
   return (

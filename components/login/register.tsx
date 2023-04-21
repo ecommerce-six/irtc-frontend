@@ -8,9 +8,11 @@ import { useFormik } from "formik";
 import { styles } from "../../styles";
 
 import { LogoIcon } from "../../public/common";
+import { registerHandlerType } from "../../types/register";
 
 type props = {
-  submitHandler: (number: string) => void;
+  error: string | null;
+  submitHandler: (user: registerHandlerType) => void;
 };
 
 type errors = {
@@ -27,7 +29,7 @@ type formDataType = {
   repeatPassword: string;
 };
 
-function RegisterSection({ submitHandler }: props) {
+function RegisterSection({ submitHandler, error }: props) {
   const [showPassword, setShowPassword] = useState(false);
 
   const showPasswordHandler = () => {
@@ -106,7 +108,13 @@ function RegisterSection({ submitHandler }: props) {
     validate: validateForm,
     validateOnChange: false,
     onSubmit: (values: formDataType) => {
-      submitHandler(values.phoneNumber);
+      const user = {
+        email: values.email,
+        phoneNumber: values.phoneNumber,
+        password: values.password,
+      };
+
+      submitHandler(user);
     },
   });
 
@@ -185,7 +193,12 @@ function RegisterSection({ submitHandler }: props) {
           <li className="my-2 text-red-500">{formik.errors.repeatPassword}</li>
         </ul>
 
-        <button className={`${styles.primaryButton} mt-2 w-full py-3 bg-brand rounded-xl hover:scale-[1.05]`} type="submit">
+        {error && <p className="mt-3 mb-1 p-3 bg-red-100 text-red-500 rounded-md">{error}</p>}
+
+        <button
+          className={`${styles.primaryButton} mt-2 w-full py-3 bg-brand rounded-xl hover:scale-[1.05]`}
+          type="submit"
+        >
           ثبت نام
         </button>
       </form>
