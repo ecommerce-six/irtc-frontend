@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import Header from "../../head";
 import { AuthLayout } from "../../../components/layout";
@@ -6,6 +6,7 @@ import RegisterSection from "../../../components/login/register";
 
 import axios from "../../../modules/axios";
 import useUser from "../../../hooks/useUser";
+import useAuth from "../../../hooks/useAuth";
 import useError from "../../../hooks/useError";
 import { registerHandlerType } from "../../../types/register";
 import { checkConnectivity } from "../../../modules/checkConnection";
@@ -14,6 +15,8 @@ const REGISTER_URL = "/users/create";
 
 function Register() {
   const { setUser } = useUser();
+
+  const { setAuth } = useAuth();
 
   const { error, setError } = useError();
 
@@ -24,10 +27,15 @@ function Register() {
       if (isConnected) {
         const response = await axios.post(REGISTER_URL, JSON.stringify(user), {
           headers: { "Content-Type": "application/json" },
-          // ! withCredentials: true,
         });
 
-        response?.status === 201 ? setUser({ ...user, role: "user" }) : setError(response?.data.message);
+        setAuth({ accessToken: response?.data.token });
+
+        let userClone = Object.assign({}, response?.data.data);
+        delete userClone.token;
+
+        // ! delete role
+        response?.status === 201 ? setUser({ ...userClone, role: "user" }) : setError(response?.data.message);
 
         setError(null);
       }
@@ -35,7 +43,6 @@ function Register() {
       if (!err?.response) {
         setError("خطا در ارتباط با سرور");
       } else if (err.response?.status === 409) {
-        console.log("af");
         setError("شماره یا ایمیل قبلا استفاده وارد شده");
       } else {
         setError("ثبت نام به مشکل برخورد");

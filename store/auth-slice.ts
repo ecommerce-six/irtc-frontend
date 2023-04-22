@@ -1,13 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { setAuthType } from "../types/auth";
+import { HYDRATE } from "next-redux-wrapper";
 
 type authStateType = {
-  role?: string | null;
+  rememberMe?: boolean;
   accessToken?: string | null;
 };
 
+const rememberMe = typeof window !== "undefined" && localStorage?.getItem("rememberMe");
+console.log(rememberMe);
 const initialState: authStateType = {
-  role: null,
+  rememberMe: rememberMe === "true",
   accessToken: null,
 };
 
@@ -16,7 +19,14 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     setAuth: (state: authStateType, actions: { payload: setAuthType }) => {
-      state = actions.payload;
+      const payload = actions.payload;
+      state.accessToken = payload.accessToken ?? state.accessToken;
+
+      state.rememberMe = payload.rememberMe ?? state.rememberMe;
+
+      if (payload.rememberMe) {
+        localStorage.setItem("rememberMe", payload.rememberMe.toString());
+      }
     },
   },
 });

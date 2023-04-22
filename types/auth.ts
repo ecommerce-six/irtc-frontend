@@ -1,4 +1,4 @@
 export type setAuthType = {
+  rememberMe?: boolean;
   accessToken?: string | null;
-  role?: string | null;
 };

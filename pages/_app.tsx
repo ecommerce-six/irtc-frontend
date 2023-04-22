@@ -1,4 +1,4 @@
-import React, { ReactNode, ReactElement } from "react";
+import React, { ReactNode, ReactElement, useEffect } from "react";
 import type { AppProps } from "next/app";
 
 import { store } from "../store";
@@ -17,6 +17,8 @@ type ComponentWithPageLayout = AppProps & {
 };
 
 function MyApp({ Component, pageProps }: ComponentWithPageLayout) {
+  useEffect(() => {}, []);
+
   return (
     <div className={`${IranYekan.className}`}>
       <Provider store={store}>

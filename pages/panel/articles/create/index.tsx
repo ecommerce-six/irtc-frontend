@@ -23,7 +23,7 @@ function CreateArticles() {
 
   const [article, setArticle] = useState<articleType>({
     slug: "/",
-    title: "ری اکت در دنیای واقعی",
+    title: "دروه اموزش تخصصی redux",
     description: "",
     cover: "",
     content: value,

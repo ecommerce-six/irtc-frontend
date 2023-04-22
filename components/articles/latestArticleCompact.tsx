@@ -5,7 +5,7 @@ function LatestArticleCompact() {
   return (
     <Link href="/articles/react" className="block relative pr-6 p-4 space-y-1 bg-background rounded-xl box-shadow">
       <h1 className="text-primary w-full text-xs md:text-sm font-medium text-ellipsis overflow-hidden whitespace-nowrap">
-        ری اکت در دنیای واقعی
+        دروه اموزش تخصصی redux
       </h1>
       <p className="text-secondary w-full text-[.5rem] md:text-xs text-ellipsis overflow-hidden whitespace-nowrap">
         آیا می خواهید برای بهبود عملکردآیا می خواهید برای بهبود عملکردآیا می خواهید برای بهبود عملکرد

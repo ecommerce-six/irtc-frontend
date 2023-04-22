@@ -1,6 +1,7 @@
 import { coursePreviewType } from "./course";
 
 export type userType = {
+  id: number;
   email?: string;
   lastName?: string;
   firstName?: string;

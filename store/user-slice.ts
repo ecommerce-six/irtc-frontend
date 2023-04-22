@@ -7,10 +7,7 @@ type initialStateType = {
   user: userStoreType;
 };
 
-// const user = Cookies.get("user");
-
 const initialState: initialStateType = {
-  // user: user ? JSON.parse(user) : null,
   user: null,
 };
 
@@ -22,13 +19,13 @@ const userSlice = createSlice({
       const user = action.payload;
 
       // save user info in browser
-      Cookies.set("user", JSON.stringify(user));
+      Cookies.set("userID", user.id.toString());
 
       // set user in redux store
       state.user = user;
     },
     logout: (state: initialStateType) => {
-      Cookies.remove("user");
+      Cookies.remove("userID");
 
       state.user = null;
     },

@@ -21,16 +21,16 @@ function LatestArticle() {
       <div className="mt-10 flex items-center justify-center flex-wrap gap-x-14 gap-y-10">
         <ArticlePreview
           slug="react"
-          title="ری اکت در دنیای واقعی"
+          title="دروه اموزش تخصصی redux"
           description="آیا می خواهید برای بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنیدآیا می خواهید برای بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنید آیا می خواهید برای بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنید"
-          cover="https://sabzlearn.ir/wp-content/uploads/2021/11/Com_react-247x139.png"
+          cover="https://sabzlearn.ir/wp-content/uploads/2023/02/sabz-redux.png"
         />
 
         <ArticlePreview
           slug="react"
-          title="ری اکت در دنیای واقعی"
+          title="دروه اموزش تخصصی redux"
           description="آیا می خواهید برای بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنیدآیا می خواهید برای بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنید آیا می خواهید برای بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنید"
-          cover="https://sabzlearn.ir/wp-content/uploads/2021/11/Com_react-247x139.png"
+          cover="https://sabzlearn.ir/wp-content/uploads/2023/02/sabz-redux.png"
         />
       </div>
     </section>

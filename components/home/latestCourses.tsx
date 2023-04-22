@@ -24,7 +24,7 @@ function LatestCourses() {
           <CoursePreview
             key={index}
             slug={"react"}
-            cover={"https://sabzlearn.ir/wp-content/uploads/2022/06/Com_project_price-247x139.png"}
+            cover={"https://sabzlearn.ir/wp-content/uploads/2022/06/Free-852x479-1.png"}
             title={"اموزش راه اندازی کیف پول"}
             rate={4.5}
             price={690000}

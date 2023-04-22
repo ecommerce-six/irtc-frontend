@@ -9,9 +9,13 @@ import { styles } from "../../styles";
 
 import { LogoIcon } from "../../public/common";
 
-type props = {
-  submitHandler: ({ phoneNumber, password }: formDataType) => void;
+type submitHandlerPropsType = {
+  password: string;
+  phoneNumber: string;
+  rememberMe: boolean;
 };
+
+type props = { error: string | null; submitHandler: (body: submitHandlerPropsType) => void };
 
 type errors = {
   password?: string;
@@ -23,7 +27,9 @@ type formDataType = {
   phoneNumber: string;
 };
 
-function NumberLogin({ submitHandler }: props) {
+function NumberLogin({ submitHandler, error }: props) {
+  const [rememberMe, setRememberMe] = useState(false);
+
   const [showPassword, setShowPassword] = useState(false);
 
   const showPasswordHandler = () => {
@@ -74,14 +80,19 @@ function NumberLogin({ submitHandler }: props) {
     validate: validateForm,
     validateOnChange: false,
     onSubmit: (values: formDataType) => {
-      const user = {
+      const submitValues = {
         password: values.password,
         phoneNumber: values.phoneNumber,
+        rememberMe: rememberMe,
       };
 
-      submitHandler(user);
+      submitHandler(submitValues);
     },
   });
+
+  const rememberMeHandler = (e: any) => {
+    setRememberMe(e.target.checked);
+  };
 
   return (
     <div className="px-6 py-8 my-10 md:my-20 w-full lg:w-[25rem] flex flex-col items-center bg-background rounded-xl box-shadow">
@@ -131,10 +142,24 @@ function NumberLogin({ submitHandler }: props) {
           showPasswordHandler={showPasswordHandler}
         />
 
+        <div className="mt-2 flex items-center gap-x-2">
+          <input
+            type="checkbox"
+            id="free"
+            className="w-4 h-4 !bg-dim-secondary accent-brand"
+            onChange={rememberMeHandler}
+          />
+          <label htmlFor="free" className="text-md text-secondary">
+            مرا به خاطر بسپار :)
+          </label>
+        </div>
+
         <ul>
           <li className="my-2 text-red-500">{formik.errors.phoneNumber}</li>
           <li className="my-2 text-red-500">{formik.errors.password}</li>
         </ul>
+
+        {error && <p className="mt-3 mb-1 p-3 bg-red-100 text-red-500 rounded-md">{error}</p>}
 
         <button
           className={`${styles.primaryButton} mt-2 w-full py-3 bg-brand rounded-xl hover:scale-[1.05]`}
