@@ -31,6 +31,7 @@ function Login() {
       if (isConnected) {
         const response = await axios.post(LOGIN_URL, JSON.stringify(body), {
           headers: { "Content-Type": "application/json" },
+          // withCredentials: true,
         });
 
         if (response?.status === 200) {
@@ -45,6 +46,7 @@ function Login() {
         setError(response?.data.message);
       }
     } catch (err: any) {
+      console.log(err, err.response?.status);
       if (!err?.response) {
         setError("خطا در ارتباط با سرور");
       } else if (err.response?.status === 401) {
@@ -52,6 +54,7 @@ function Login() {
       } else if (err.response?.status === 404) {
         setError("کاربری با این شماره پیدا نشد :)");
       }
+
       setError("ورود به مشکل خورد :(");
     }
   };

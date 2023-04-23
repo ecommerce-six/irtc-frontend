@@ -17,13 +17,7 @@ function UserWrapper({ children }: { children: ReactNode }) {
     if (rememberMe) {
       const verifyRefreshToken = async () => {
         try {
-          // ! await refresh();
-          // * ***********
-          setAuth({
-            accessToken:
-              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NzAsInBob25lTnVtYmVyIjoiMDk5MDg2NzAyNzQiLCJlbWFpbCI6InZ0aW9AZ21haWwuY29tIiwiaWF0IjoxNjgyMjM4OTc1LCJleHAiOjE2ODIzMjUzNzV9.hn1b-bOG4kyIL9ZY2BPwzVBLC_UG5D-O_eE0-PjLnjY",
-          });
-          // * ***********
+          await refresh();
 
           if (!user) {
             await getUser();
