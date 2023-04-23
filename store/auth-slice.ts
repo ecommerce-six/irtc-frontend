@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
+
 import { setAuthType } from "../types/auth";
-import { HYDRATE } from "next-redux-wrapper";
 
 type authStateType = {
   rememberMe?: boolean;
@@ -8,7 +8,7 @@ type authStateType = {
 };
 
 const rememberMe = typeof window !== "undefined" && localStorage?.getItem("rememberMe");
-console.log(rememberMe);
+
 const initialState: authStateType = {
   rememberMe: rememberMe === "true",
   accessToken: null,
