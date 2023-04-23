@@ -18,7 +18,7 @@ type submitHandlerPropsType = {
 const LOGIN_URL = "/users/login";
 
 function Login() {
-  const { setUser } = useUser();
+  const { getUser } = useUser();
 
   const { setAuth } = useAuth();
 
@@ -33,13 +33,10 @@ function Login() {
           headers: { "Content-Type": "application/json" },
         });
 
-        let userClone = Object.assign({}, response?.data.data);
-        delete userClone.token;
-
         if (response?.status === 200) {
-          setUser({ ...userClone, role: "user" });
-
           setAuth({ accessToken: response.data.data.token, rememberMe: body.rememberMe });
+
+          await getUser();
 
           setError(null);
           return;

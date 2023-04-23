@@ -14,7 +14,7 @@ import { checkConnectivity } from "../../../modules/checkConnection";
 const REGISTER_URL = "/users/create";
 
 function Register() {
-  const { setUser } = useUser();
+  const { setUser, getUser } = useUser();
 
   const { setAuth } = useAuth();
 
@@ -29,15 +29,16 @@ function Register() {
           headers: { "Content-Type": "application/json" },
         });
 
-        setAuth({ accessToken: response?.data.token });
+        if (response?.status === 200) {
+          setAuth({ accessToken: response.data.data.token, rememberMe: user.rememberMe });
 
-        let userClone = Object.assign({}, response?.data.data);
-        delete userClone.token;
+          await getUser();
 
-        // ! delete role
-        response?.status === 201 ? setUser({ ...userClone, role: "user" }) : setError(response?.data.message);
+          setError(null);
+          return;
+        }
 
-        setError(null);
+        setError(response?.data.message);
       }
     } catch (err: any) {
       if (!err?.response) {

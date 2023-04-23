@@ -122,6 +122,7 @@ function EditProfile() {
                   checked={index === profile}
                   value={index}
                   className="peer hidden"
+                  defaultChecked={index === 0}
                 />
                 <label
                   htmlFor={`${index}`}
