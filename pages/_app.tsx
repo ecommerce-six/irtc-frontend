@@ -17,8 +17,6 @@ type ComponentWithPageLayout = AppProps & {
 };
 
 function MyApp({ Component, pageProps }: ComponentWithPageLayout) {
-  useEffect(() => {}, []);
-
   return (
     <div className={`${IranYekan.className}`}>
       <Provider store={store}>
