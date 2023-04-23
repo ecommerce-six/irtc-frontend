@@ -30,6 +30,8 @@ type formDataType = {
 };
 
 function RegisterSection({ submitHandler, error }: props) {
+  const [rememberMe, setRememberMe] = useState(false);
+
   const [showPassword, setShowPassword] = useState(false);
 
   const showPasswordHandler = () => {
@@ -112,11 +114,16 @@ function RegisterSection({ submitHandler, error }: props) {
         email: values.email,
         phoneNumber: values.phoneNumber,
         password: values.password,
+        rememberMe: rememberMe,
       };
 
       submitHandler(user);
     },
   });
+
+  const rememberMeHandler = (e: any) => {
+    setRememberMe(e.target.checked);
+  };
 
   return (
     <div className="px-6 py-8 my-10 md:my-20 w-full lg:w-[25rem] flex flex-col items-center bg-background rounded-xl box-shadow">
@@ -185,6 +192,18 @@ function RegisterSection({ submitHandler, error }: props) {
           placeHolder="برای مثال 12345678"
           showPasswordHandler={showPasswordHandler}
         />
+
+        <div className="mt-2 flex items-center gap-x-2">
+          <input
+            type="checkbox"
+            id="free"
+            className="w-4 h-4 !bg-dim-secondary accent-brand"
+            onChange={rememberMeHandler}
+          />
+          <label htmlFor="free" className="text-md text-secondary">
+            مرا به خاطر بسپار :)
+          </label>
+        </div>
 
         <ul>
           <li className="my-2 text-red-500">{formik.errors.phoneNumber}</li>

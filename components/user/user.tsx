@@ -21,6 +21,10 @@ function User({
 
   const otherRoles = roles.filter((item) => item !== role);
 
+  const userChangeHandler = async () => {
+    
+  };
+
   return (
     <div className="pb-5 flex items-center gap-4 justify-between flex-wrap border-b border-dim-secondary">
       <Image
@@ -50,7 +54,9 @@ function User({
         </select>
       </form>
 
-      <button className={`${styles.primaryButton} py-2 px-4 bg-red-500 border-red-500 hover:scale-[1.05]`}>موقوف کردن</button>
+      <button className={`${styles.primaryButton} py-2 px-4 bg-red-500 border-red-500 hover:scale-[1.05]`}>
+        موقوف کردن
+      </button>
     </div>
   );
 }

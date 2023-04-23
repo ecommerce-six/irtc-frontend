@@ -3,17 +3,15 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import React, { useState, useEffect } from "react";
 
-import { useSelector } from "react-redux";
-
 import ToggleAnimate from "../../components/toggleAnimate";
 
+import useUser from "../../hooks/useUser";
 import { AvatarSample } from "../../public";
 import { CartIcon } from "../../public/icons/svgs";
 import { LogoIcon, LogoText } from "../../public/common";
 import { CloseIcon, MenuIcon } from "../../public/icons";
 
 import { styles } from "../../styles";
-import { StoreType } from "../../store";
 
 function Navbar() {
   const path = usePathname();
@@ -21,10 +19,9 @@ function Navbar() {
   const [loggedIn, setLoggedIn] = useState<any>(null);
 
   const [showNavbar, setShowNavbar] = useState<boolean>(false);
-
-  const user = useSelector((state: StoreType) => state.user.user);
-
-  const role = useSelector((state: StoreType) => state.user.user?.role);
+ 
+ 
+  const { user } = useUser();
 
   React.useEffect(() => {
     setLoggedIn(user);
@@ -87,7 +84,7 @@ function Navbar() {
 
           {loggedIn ? (
             <div className="hidden lg:flex items-center gap-x-4">
-              {role === "admin" ? (
+              {user?.role === "admin" ? (
                 <Link
                   href={"/panel"}
                   className="text-primary max-w-[12rem] overflow-hidden text-ellipsis whitespace-nowrap"
@@ -153,7 +150,7 @@ function Navbar() {
 
                 {loggedIn ? (
                   <div className="flex items-center gap-x-4">
-                    {role !== "admin" && (
+                    {user?.role !== "admin" && (
                       <Link href="/panel/cart" className="group z-40">
                         <CartIcon className="group-hover:fill-brand transition-all duration-300" />
                       </Link>

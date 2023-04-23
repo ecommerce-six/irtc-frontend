@@ -18,7 +18,7 @@ type submitHandlerPropsType = {
 const LOGIN_URL = "/users/login";
 
 function Login() {
-  const { setUser } = useUser();
+  const { getUser } = useUser();
 
   const { setAuth } = useAuth();
 
@@ -31,15 +31,13 @@ function Login() {
       if (isConnected) {
         const response = await axios.post(LOGIN_URL, JSON.stringify(body), {
           headers: { "Content-Type": "application/json" },
+          // withCredentials: true,
         });
 
-        let userClone = Object.assign({}, response?.data.data);
-        delete userClone.token;
-
         if (response?.status === 200) {
-          setUser({ ...userClone, role: "user" });
-
           setAuth({ accessToken: response.data.data.token, rememberMe: body.rememberMe });
+
+          await getUser();
 
           setError(null);
           return;
@@ -48,6 +46,7 @@ function Login() {
         setError(response?.data.message);
       }
     } catch (err: any) {
+      console.log(err, err.response?.status);
       if (!err?.response) {
         setError("خطا در ارتباط با سرور");
       } else if (err.response?.status === 401) {
@@ -55,6 +54,7 @@ function Login() {
       } else if (err.response?.status === 404) {
         setError("کاربری با این شماره پیدا نشد :)");
       }
+
       setError("ورود به مشکل خورد :(");
     }
   };

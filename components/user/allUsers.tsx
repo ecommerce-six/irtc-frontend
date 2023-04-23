@@ -1,58 +1,24 @@
 import React, { useState } from "react";
-import User from "./user";
 
-import { userType } from "../../types/user";
+import User from "./user";
 import ReactPaginate from "react-paginate";
+import useGetUsers from "../../hooks/useGetUsers";
 
 function AllUsers() {
-  const [countPage, setCountPage] = useState<number>(1);
-
   const [selectedPage, setSelectedPage] = useState<number>(1);
+
+  const { users, fetchedCountPage } = useGetUsers(selectedPage);
 
   const handlePageClick = (selectedItem: { selected: number }) => {
     setSelectedPage(selectedItem.selected + 1);
   };
 
-  const users: userType[] = [
-    {
-      email: "vito.mohagheghian@gmail.com",
-      lastName: "محققیان",
-      firstName: "ویتو",
-      role: "user",
-      emailVerified: true,
-      phoneNumberVerified: true,
-      coverImage: "",
-      phoneNumber: "09901234123",
-    },
-    {
-      email: "vito.mohagheghian@gmail.com",
-      lastName: "احمدی",
-      firstName: "احمد",
-      role: "user",
-      phoneNumberVerified: true,
-      coverImage: "",
-      phoneNumber: "09901234123",
-    },
-    {
-      email: "vito.mohagheghian@gmail.com",
-      lastName: "جعفری",
-      firstName: "جعفر",
-      role: "user",
-      phoneNumberVerified: true,
-      coverImage: "",
-      phoneNumber: "09901234123",
-    },
-  ];
   return (
     <>
-      <div className="space-y-8">
-        {users.map((item, index) => (
-          <User {...item} key={index} />
-        ))}
-      </div>
+      <div className="space-y-8">{users && users.map((item, index) => <User {...item} key={index} />)}</div>
 
       <ReactPaginate
-        pageCount={countPage}
+        pageCount={fetchedCountPage}
         breakLabel="..."
         nextLabel="بعدی"
         previousLabel="قبلی"
