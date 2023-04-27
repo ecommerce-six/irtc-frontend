@@ -17,10 +17,10 @@ function UserWrapper({ children }: { children: ReactNode }) {
   //   if (rememberMe) {
   //     const verifyRefreshToken = async () => {
   //       try {
-  //         // await refresh();
+  //         await refresh();
 
   //         if (!user) {
-  //           // await getUser();
+  //           await getUser();
   //         }
   //       } catch (err) {
   //         console.log(err);

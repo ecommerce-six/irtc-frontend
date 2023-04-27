@@ -6,10 +6,10 @@ import { usePathname, useRouter } from "next/navigation";
 import MenuLink from "./link";
 import Prompt from "../prompt";
 import { StoreType } from "../../store";
-import { userActions } from "../../store/user-slice";
 import { useDispatch, useSelector } from "react-redux";
 
 import { AvatarSample } from "../../public";
+import useLogout from "../../hooks/useLogout";
 import { LogoutIcon } from "../../public/icons/svgs";
 
 function Menu() {
@@ -17,16 +17,16 @@ function Menu() {
 
   const path = usePathname();
 
-  const dispatch = useDispatch();
+  const logout = useLogout();
 
   const [showPrompt, setShowPrompt] = useState(false);
 
   let role: string = useSelector((state: StoreType) => state.user.user!.role);
 
-  const logoutHandler = () => {
-    router.replace("/");
+  const logoutHandler = async () => {
+    await logout();
 
-    dispatch(userActions.logout());
+    router.replace("/");
   };
 
   const showPromptHandler = () => {

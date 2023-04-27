@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
 
+import useAuth from "./useAuth";
 import { StoreType } from "../store";
 import { userType } from "../types/user";
 import { userActions } from "../store/user-slice";
 import useAxiosPrivate from "./useAxiosPrivate";
-import useAuth from "./useAuth";
 
 const useUser = () => {
   const dispatch = useDispatch();
@@ -22,6 +22,7 @@ const useUser = () => {
   const getUser = async () => {
     try {
       const response = await axiosPrivate.get("/users/me");
+      console.log(auth);
 
       setUser(response.data.data);
     } catch (err) {

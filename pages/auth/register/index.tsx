@@ -27,6 +27,7 @@ function Register() {
       if (isConnected) {
         const response = await axios.post(REGISTER_URL, JSON.stringify(user), {
           headers: { "Content-Type": "application/json" },
+          withCredentials: true,
         });
 
         if (response?.status === 200) {

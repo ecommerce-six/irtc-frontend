@@ -8,6 +8,7 @@ import useError from "../../../hooks/useError";
 import { AuthLayout } from "../../../components/layout";
 import NumberLogin from "../../../components/login/login";
 import { checkConnectivity } from "../../../modules/checkConnection";
+import useRefreshToken from "../../../hooks/useRefreshToken";
 
 type submitHandlerPropsType = {
   password: string;
@@ -22,11 +23,15 @@ function Login() {
 
   const { setAuth, auth } = useAuth();
 
+  const refresh = useRefreshToken();
+
   const { error, setError } = useError();
 
   const loginHandler = async (body: submitHandlerPropsType) => {
     try {
       const isConnected = await checkConnectivity();
+
+      console.log(body);
 
       if (isConnected) {
         const response = await axios.post(LOGIN_URL, JSON.stringify(body), {
@@ -34,29 +39,22 @@ function Login() {
           withCredentials: true,
         });
 
-        // const response = await fetch("https://itc.iran.liara.run/users/login", {
-        //   method: "POST",
-        //   headers: {
-        //     "Content-Type": "application/json",
-        //     Accept: "application/json",
-        //   },
-        //   credentials: "include",
-        //   body: JSON.stringify(body),
-        // }).then((response) => response.json());
+        const token = response.data.data.token;
 
-        if (response?.status === 200) {
-          const token = response.data.data.token;
+        setAuth({ accessToken: token, rememberMe: body.rememberMe });
 
-          setAuth({ accessToken: token, rememberMe: body.rememberMe });
+        // if (response?.status === 200) {
+        console.log("loginAuth", auth);
 
-          console.log(auth);
-          await getUser();
+        await getUser();
 
-          setError(null);
-          return;
-        }
+        // setError(null);
 
-        setError(response?.data.message);
+        // await refresh();
+        //   return;
+        // }
+
+        // setError(response?.data.message);
       }
     } catch (err: any) {
       console.log(err, err.response?.status);
