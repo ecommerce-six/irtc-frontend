@@ -12,7 +12,10 @@ const useAxiosPrivate = () => {
     const requestIntercept = axiosPrivate.interceptors.request.use(
       (config) => {
         if (!config.headers["Authorization"]) {
-          config.headers["Authorization"] = `Bearer ${auth?.accessToken}`;
+          // config.headers["Authorization"] = `Bearer ${auth?.accessToken}`;
+          config.headers[
+            "Authorization"
+          ] = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NzAsInBob25lTnVtYmVyIjoiMDk5MDg2NzAyNzQiLCJlbWFpbCI6InZ0aW9AZ21haWwuY29tIiwiaWF0IjoxNjgyNTk5OTMyLCJleHAiOjE2ODI2ODYzMzJ9.FlU4Inar_BT-cGhXf3zUI5aMKdpZOMCT3i-oRmgo5RU`;
         }
         return config;
       },
@@ -27,8 +30,10 @@ const useAxiosPrivate = () => {
           prevRequest.sent = true;
           const newAccessToken = await refresh();
 
+          prevRequest.headers[
+            "Authorization"
+          ] = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NzAsInBob25lTnVtYmVyIjoiMDk5MDg2NzAyNzQiLCJlbWFpbCI6InZ0aW9AZ21haWwuY29tIiwiaWF0IjoxNjgyNTk5OTMyLCJleHAiOjE2ODI2ODYzMzJ9.FlU4Inar_BT-cGhXf3zUI5aMKdpZOMCT3i-oRmgo5RU`;
           // prevRequest.headers["Authorization"] = `Bearer ${newAccessToken}`;
-          prevRequest.headers["Authorization"] = `Bearer ${newAccessToken}`;
 
           return axiosPrivate(prevRequest);
         }

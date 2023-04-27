@@ -122,13 +122,12 @@ function EditProfile() {
                   checked={index === profile}
                   value={index}
                   className="peer hidden"
-                  defaultChecked={index === 0}
+                  onChange={() => {
+                    profileHandler(index);
+                  }}
                 />
                 <label
                   htmlFor={`${index}`}
-                  onClick={() => {
-                    profileHandler(index);
-                  }}
                   className="block peer-checked:border-brand peer-checked:border-2 rounded-xl cursor-pointer"
                 >
                   <Image src={AvatarSample} alt="" className="rounded-xl" />

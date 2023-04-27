@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 
 import User from "./user";
+import { styles } from "../../styles";
 import ReactPaginate from "react-paginate";
 import useGetUsers from "../../hooks/useGetUsers";
+import { exportToExcel } from "../../modules/exportUsersToExcel";
 
 function AllUsers() {
   const [selectedPage, setSelectedPage] = useState<number>(1);
@@ -13,9 +15,23 @@ function AllUsers() {
     setSelectedPage(selectedItem.selected + 1);
   };
 
+  const exportToExcelHandler = () => {
+    exportToExcel(users);
+  };
+
   return (
     <>
-      <div className="space-y-8">{users && users.map((item, index) => <User {...item} key={index} />)}</div>
+      <button onClick={exportToExcelHandler} className={`${styles.secondaryButton} py-3 px-6 `}>
+        استخراج کاربر ها به صورت فایل اکسل
+      </button>
+
+      <div className="my-6 h-[2px] w-full bg-dim-secondary rounded-md" />
+
+      <div className="space-y-8">
+        {users.map((item, index) => (
+          <User {...item} key={index} />
+        ))}
+      </div>
 
       <ReactPaginate
         pageCount={fetchedCountPage}

@@ -16,10 +16,4 @@ export type userType = {
   role: "admin" | "author" | "user" | string;
 };
 
-export type userFilterType = {
-  name: string;
-  role: string;
-  phoneNumber: string;
-};
-
 export type userStoreType = null | undefined | userType;

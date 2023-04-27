@@ -4,7 +4,7 @@ import axios from "../modules/axios";
 import { userType } from "../types/user";
 
 const useGetUsers = (page: number) => {
-  const [users, setUsers] = useState<userType[] | null>(null);
+  const [users, setUsers] = useState<userType[]>([]);
 
   const [fetchedCountPage, setFetchedCountPage] = useState<number>(3);
 
@@ -28,7 +28,9 @@ const useGetUsers = (page: number) => {
     getUsersHandler();
   }, [page]);
 
-  return { users, fetchedCountPage };
+  const data: { users: userType[]; fetchedCountPage: any } = { users, fetchedCountPage };
+
+  return data;
 };
 
 export default useGetUsers;
