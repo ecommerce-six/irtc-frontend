@@ -20,7 +20,7 @@ const LOGIN_URL = "/users/login";
 function Login() {
   const { getUser } = useUser();
 
-  const { setAuth } = useAuth();
+  const { setAuth, auth } = useAuth();
 
   const { error, setError } = useError();
 
@@ -31,12 +31,25 @@ function Login() {
       if (isConnected) {
         const response = await axios.post(LOGIN_URL, JSON.stringify(body), {
           headers: { "Content-Type": "application/json" },
-          // withCredentials: true,
+          withCredentials: true,
         });
 
-        if (response?.status === 200) {
-          setAuth({ accessToken: response.data.data.token, rememberMe: body.rememberMe });
+        // const response = await fetch("https://itc.iran.liara.run/users/login", {
+        //   method: "POST",
+        //   headers: {
+        //     "Content-Type": "application/json",
+        //     Accept: "application/json",
+        //   },
+        //   credentials: "include",
+        //   body: JSON.stringify(body),
+        // }).then((response) => response.json());
 
+        if (response?.status === 200) {
+          const token = response.data.data.token;
+
+          setAuth({ accessToken: token, rememberMe: body.rememberMe });
+
+          console.log(auth);
           await getUser();
 
           setError(null);
