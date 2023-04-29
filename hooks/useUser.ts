@@ -22,7 +22,7 @@ const useUser = () => {
   const getUser = async () => {
     try {
       const response = await axiosPrivate.get("/users/me");
-      console.log(auth);
+      console.log("-------------- users get ran -------------");
 
       setUser(response.data.data);
     } catch (err) {

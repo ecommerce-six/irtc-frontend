@@ -31,7 +31,7 @@ function Register() {
         });
 
         if (response?.status === 200) {
-          setAuth({ accessToken: response.data.data.token, rememberMe: user.rememberMe });
+          setAuth(response.data.data.token);
 
           await getUser();
 

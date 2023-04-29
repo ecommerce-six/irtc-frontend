@@ -1,14 +1,15 @@
 import React from "react";
 
 import Header from "../../head";
+import { useDispatch } from "react-redux";
 import axios from "../../../modules/axios";
 import useUser from "../../../hooks/useUser";
 import useAuth from "../../../hooks/useAuth";
 import useError from "../../../hooks/useError";
 import { AuthLayout } from "../../../components/layout";
 import NumberLogin from "../../../components/login/login";
-import { checkConnectivity } from "../../../modules/checkConnection";
 import useRefreshToken from "../../../hooks/useRefreshToken";
+import { checkConnectivity } from "../../../modules/checkConnection";
 
 type submitHandlerPropsType = {
   password: string;
@@ -19,6 +20,8 @@ type submitHandlerPropsType = {
 const LOGIN_URL = "/users/login";
 
 function Login() {
+  const dispatch = useDispatch();
+
   const { getUser } = useUser();
 
   const { setAuth, auth } = useAuth();
@@ -39,22 +42,20 @@ function Login() {
           withCredentials: true,
         });
 
+        // await dispatch(authActions.setAuth({ accessToken: token, rememberMe: true }));
         const token = response.data.data.token;
 
-        setAuth({ accessToken: token, rememberMe: body.rememberMe });
+        if (response?.status === 200) {
+          await setAuth({ accessToken: token });
 
-        // if (response?.status === 200) {
-        console.log("loginAuth", auth);
+          await getUser();
 
-        await getUser();
+          setError(null);
 
-        // setError(null);
+          return;
+        }
 
-        // await refresh();
-        //   return;
-        // }
-
-        // setError(response?.data.message);
+        setError(response?.data.message);
       }
     } catch (err: any) {
       console.log(err, err.response?.status);

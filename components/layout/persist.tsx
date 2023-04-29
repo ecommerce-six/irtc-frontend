@@ -5,7 +5,7 @@ import useUser from "../../hooks/useUser";
 import useRefreshToken from "../../hooks/useRefreshToken";
 
 function UserWrapper({ children }: { children: ReactNode }) {
-  const { auth, rememberMe, setAuth } = useAuth();
+  const { auth, rememberMe } = useAuth();
 
   const { user, getUser } = useUser();
 
@@ -28,6 +28,7 @@ function UserWrapper({ children }: { children: ReactNode }) {
       };
 
       if (!auth.accessToken && rememberMe && isMounted) {
+        console.warn("persist file ran");
         verifyRefreshToken();
       }
     }

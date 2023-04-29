@@ -1,24 +1,20 @@
 import useAuth from "./useAuth";
 import axios from "../modules/axios";
-import useRefreshToken from "./useRefreshToken";
 
 const useLogout = () => {
   const { setAuth } = useAuth();
 
-  // const logout = async () => {
-  //   setAuth({});
+  const logout = async () => {
+    setAuth({ accessToken: null, rememberMe: false });
 
-  //   try {
-  //     const response = await axios("/users/logout", {
-  //       withCredentials: true,
-  //     });
-  //     console.log(response);
-  //   } catch (err) {
-  //     console.error(err);
-  //   }
-  // };
-
-  const logout = useRefreshToken();
+    try {
+      await axios("/users/logout", {
+        withCredentials: true,
+      });
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   return logout;
 };

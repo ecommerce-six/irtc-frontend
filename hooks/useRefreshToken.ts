@@ -8,9 +8,8 @@ const useRefreshToken = () => {
     const response = await axios.get("/users/refresh", {
       withCredentials: true,
     });
-    console.log("refresh", response);
 
-    setAuth({ accessToken: response.data.accessToken });
+    setAuth({ accessToken: response.data.data.token });
 
     return response.data.accessToken;
   };
