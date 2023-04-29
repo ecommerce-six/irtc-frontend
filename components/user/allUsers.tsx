@@ -15,46 +15,10 @@ function AllUsers() {
     setSelectedPage(selectedItem.selected + 1);
   };
 
-<<<<<<< HEAD
-  const users: userType[] = [
-    {
-      id: 1,
-      email: "vito.mohagheghian@gmail.com",
-      lastName: "محققیان",
-      firstName: "ویتو",
-      role: "user",
-      emailVerified: true,
-      phoneNumberVerified: true,
-      coverImage: "",
-      phoneNumber: "09901234123",
-    },
-    {
-      id: 2,
-      email: "vito.mohagheghian@gmail.com",
-      lastName: "احمدی",
-      firstName: "احمد",
-      role: "user",
-      phoneNumberVerified: true,
-      coverImage: "",
-      phoneNumber: "09901234123",
-    },
-    {
-      id: 3,
-      email: "vito.mohagheghian@gmail.com",
-      lastName: "جعفری",
-      firstName: "جعفر",
-      role: "user",
-      phoneNumberVerified: true,
-      coverImage: "",
-      phoneNumber: "09901234123",
-    },
-  ];
-=======
   const exportToExcelHandler = () => {
     exportToExcel(users);
   };
 
->>>>>>> main
   return (
     <>
       <button onClick={exportToExcelHandler} className={`${styles.secondaryButton} py-3 px-6 `}>

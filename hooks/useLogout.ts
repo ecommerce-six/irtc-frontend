@@ -1,16 +1,22 @@
 import useAuth from "./useAuth";
 import axios from "../modules/axios";
+import { useDispatch } from "react-redux";
+import { userActions } from "../store/user-slice";
 
 const useLogout = () => {
   const { setAuth } = useAuth();
 
-  const logout = async () => {
-    setAuth({ accessToken: null, rememberMe: false });
+  const dispatch = useDispatch();
 
+  const logout = async () => {
     try {
       await axios("/users/logout", {
         withCredentials: true,
       });
+
+      setAuth({ accessToken: null, rememberMe: false });
+
+      dispatch(userActions.logout());
     } catch (err) {
       console.error(err);
     }
