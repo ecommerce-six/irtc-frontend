@@ -1,5 +1,5 @@
-import * as XLSX from "xlsx";
 
+import * as XLSX from "xlsx";
 import { userType } from "../types/user";
 import { deleteProperties } from "./deleteProperties";
 
@@ -7,11 +7,7 @@ export const exportToExcel = (users: userType[]) => {
   const excelUsers: userType[] = [...users];
 
   excelUsers.forEach((item) => {
-    // ! remove password from user type
-
-    const propertiesToDelete = ["cart", "password", "token", "profileImage", "coverImage", "description"];
-
-    // ! remove accessToken, and password from users information
+    const propertiesToDelete = ["cart", "profileImage", "coverImage", "description"];
 
     deleteProperties(item, propertiesToDelete);
   });
@@ -54,6 +50,6 @@ export const exportToExcel = (users: userType[]) => {
   ws["!cols"] = wscols;
 
   XLSX.utils.book_append_sheet(wb, ws, "کاربر ها");
-  
+
   XLSX.writeFile(wb, "irtc-users.xlsx");
 };

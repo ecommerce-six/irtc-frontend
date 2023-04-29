@@ -1,13 +1,12 @@
-import { useSelector, useDispatch } from "react-redux";
-
-import { setAuthType } from "../types/auth";
-
 import { StoreType } from "../store";
+import { setAuthType } from "../types/auth";
 import { authActions } from "../store/auth-slice";
+import { useSelector, useDispatch } from "react-redux";
 
 const useAuth = () => {
   const dispatch = useDispatch();
 
+  
   const auth = useSelector((state: StoreType) => state.auth);
 
   const setAuth = (newAuth: setAuthType) => {

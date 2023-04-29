@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react";
-
 import axios from "../modules/axios";
 import { userType } from "../types/user";
+import { useEffect, useState } from "react";
 
 const useGetUsers = (page: number) => {
   const [users, setUsers] = useState<userType[]>([]);
