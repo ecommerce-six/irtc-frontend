@@ -1,11 +1,11 @@
-import { axiosPrivate } from "../modules/axios";
 import { useEffect } from "react";
-import useRefreshToken from "./useRefreshToken";
+import { axiosPrivate } from "../modules/axios";
 import useAuth from "./useAuth";
+import useRefreshToken from "./useRefreshToken";
 
 const useAxiosPrivate = () => {
   const { auth } = useAuth();
-  
+
   const refresh = useRefreshToken();
 
   useEffect(() => {
@@ -13,6 +13,10 @@ const useAxiosPrivate = () => {
       (config) => {
         if (!config.headers["Authorization"]) {
           config.headers["Authorization"] = `Bearer ${auth?.accessToken}`;
+          // ! remove static token
+          // config.headers[
+          //   "Authorization"
+          // ] = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NzAsInBob25lTnVtYmVyIjoiMDk5MDg2NzAyNzQiLCJlbWFpbCI6InZ0aW9AZ21haWwuY29tIiwiaWF0IjoxNjgyNTk5OTMyLCJleHAiOjE2ODI2ODYzMzJ9.FlU4Inar_BT-cGhXf3zUI5aMKdpZOMCT3i-oRmgo5RU`;
         }
         return config;
       },
@@ -26,7 +30,12 @@ const useAxiosPrivate = () => {
         if (error?.response?.status === 403 && !prevRequest?.sent) {
           prevRequest.sent = true;
           const newAccessToken = await refresh();
+
+          // prevRequest.headers[
+          //   "Authorization"
+          // ] = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NzAsInBob25lTnVtYmVyIjoiMDk5MDg2NzAyNzQiLCJlbWFpbCI6InZ0aW9AZ21haWwuY29tIiwiaWF0IjoxNjgyNTk5OTMyLCJleHAiOjE2ODI2ODYzMzJ9.FlU4Inar_BT-cGhXf3zUI5aMKdpZOMCT3i-oRmgo5RU`;
           prevRequest.headers["Authorization"] = `Bearer ${newAccessToken}`;
+
           return axiosPrivate(prevRequest);
         }
         return Promise.reject(error);

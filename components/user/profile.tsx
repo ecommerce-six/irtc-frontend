@@ -1,19 +1,13 @@
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import React, { useState } from "react";
-
-import { userStoreType } from "../../types/user";
 
 import { styles } from "../../styles";
-
+import useUser from "../../hooks/useUser";
 import { AvatarSample, UserProfileHeaderImage } from "../../public";
 
-function UserProfile({ user }: { user: userStoreType }) {
-  const [editing, setEditing] = useState(false);
-
-  const editingHandler = () => {
-    setEditing((prevValue) => !prevValue);
-  };
+function UserProfile() {
+  const { user } = useUser();
 
   return (
     <section className="p-5 rounded-xl box-shadow">
@@ -31,7 +25,7 @@ function UserProfile({ user }: { user: userStoreType }) {
 
           <div className="space-y-2">
             <h1 className="text-primary font-semibold text-sm md:text-lg w-full overflow-hidden text-ellipsis whitespace-nowrap">
-              {user?.firstName} {user?.lastName}
+              {user?.firstName || user?.lastName ? `${user?.firstName} ${user?.lastName}` : user?.phoneNumber}
             </h1>
             <h2 className="text-secondary text-xs md:text-base w-full overflow-hidden text-ellipsis whitespace-nowrap">
               {user?.phoneNumber}

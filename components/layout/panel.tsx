@@ -2,19 +2,16 @@ import { ReactNode, useState, useEffect } from "react";
 
 import Navbar from "./navbar";
 import Menu from "../menu/menu";
-import { StoreType } from "../../store";
 import ScrollToTop from "../scrollToTop";
-import { useSelector } from "react-redux";
-
-import { userStoreType } from "../../types/user";
 
 import { styles } from "../../styles";
 import Error404 from "../../pages/404";
+import useUser from "../../hooks/useUser";
 
 const PanelLayout = ({ children }: { children: ReactNode }) => {
-  const [hasMounted, setHasMounted] = useState(false);
+  const { user } = useUser();
 
-  let loggedIn: userStoreType = useSelector((state: StoreType) => state.user.user);
+  const [hasMounted, setHasMounted] = useState(false);
 
   useEffect(() => {
     setHasMounted(true);
@@ -24,7 +21,7 @@ const PanelLayout = ({ children }: { children: ReactNode }) => {
     return <Error404 />;
   }
 
-  if (!loggedIn || !hasMounted) return <Error404 />;
+  if (!user?.role || !hasMounted) return <Error404 />;
 
   return (
     <>

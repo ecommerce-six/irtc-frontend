@@ -19,13 +19,13 @@ const userSlice = createSlice({
       const user = action.payload;
 
       // save user info in browser
-      Cookies.set("userID", user.id.toString());
+      // Cookies.set("userID", user.id.toString());
 
       // set user in redux store
       state.user = user;
     },
     logout: (state: initialStateType) => {
-      Cookies.remove("userID");
+      // Cookies.remove("userID");
 
       state.user = null;
     },

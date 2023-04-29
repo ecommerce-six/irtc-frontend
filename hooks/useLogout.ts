@@ -5,10 +5,10 @@ const useLogout = () => {
   const { setAuth } = useAuth();
 
   const logout = async () => {
-    setAuth({});
+    setAuth({ accessToken: null, rememberMe: false });
 
     try {
-      await axios("/logout", {
+      await axios("/users/logout", {
         withCredentials: true,
       });
     } catch (err) {

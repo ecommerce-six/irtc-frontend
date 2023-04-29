@@ -1,15 +1,14 @@
-import { useSelector } from "react-redux";
-import { styles } from "../../styles";
-
 import { useRouter } from "next/navigation";
-import { StoreType } from "../../store";
+
+import { styles } from "../../styles";
+import useUser from "../../hooks/useUser";
 
 const AuthLayout = ({ children }: { children: any }) => {
   const router = useRouter();
 
-  const loggedIn = useSelector((state: StoreType) => state.user.user?.role);
+    const { user } = useUser();
 
-  if (loggedIn) {
+  if (user?.role) {
     router.push("/");
   }
 

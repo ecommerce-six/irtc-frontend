@@ -1,10 +1,11 @@
-import React, { ReactNode, ReactElement, useEffect } from "react";
+import React, { ReactNode, ReactElement } from "react";
 import type { AppProps } from "next/app";
 
 import { store } from "../store";
 import ErrorBoundary from "./error";
 import { Provider } from "react-redux";
 import { IranYekan } from "../public/fonts";
+import UserWrapper from "../components/layout/persist";
 
 import "../styles/globals.css";
 import "@uiw/react-md-editor/markdown-editor.css";
@@ -21,11 +22,13 @@ function MyApp({ Component, pageProps }: ComponentWithPageLayout) {
     <div className={`${IranYekan.className}`}>
       <Provider store={store}>
         {Component.PageLayout ? (
-          <Component.PageLayout>
-            <ErrorBoundary>
-              <Component {...pageProps} />
-            </ErrorBoundary>
-          </Component.PageLayout>
+          <UserWrapper>
+            <Component.PageLayout>
+              <ErrorBoundary>
+                <Component {...pageProps} />
+              </ErrorBoundary>
+            </Component.PageLayout>
+          </UserWrapper>
         ) : (
           <Component {...pageProps} />
         )}

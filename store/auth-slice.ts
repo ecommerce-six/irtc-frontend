@@ -19,13 +19,16 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     setAuth: (state: authStateType, actions: { payload: setAuthType }) => {
-      const payload = actions.payload;
-      state.accessToken = payload.accessToken ?? state.accessToken;
+      if (actions.payload.accessToken) {
+        console.log(actions.payload.accessToken);
 
-      state.rememberMe = payload.rememberMe ?? state.rememberMe;
+        state.accessToken = actions.payload.accessToken?.toString();
+      }
 
-      if (payload.rememberMe) {
-        localStorage.setItem("rememberMe", payload.rememberMe.toString());
+      if (actions.payload.rememberMe) {
+        state.rememberMe = actions.payload.rememberMe ?? state.rememberMe;
+
+        localStorage.setItem("rememberMe", actions.payload.rememberMe.toString());
       }
     },
   },

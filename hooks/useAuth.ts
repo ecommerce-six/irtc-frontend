@@ -16,7 +16,7 @@ const useAuth = () => {
 
   const rememberMe = auth.rememberMe;
 
-  return { auth, setAuth,rememberMe };
+  return { auth, setAuth, rememberMe };
 };
 
 export default useAuth;
