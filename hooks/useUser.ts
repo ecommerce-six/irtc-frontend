@@ -9,7 +9,7 @@ const useUser = () => {
 
   const axiosPrivate = useAxiosPrivate();
 
-  const user = useSelector((state: StoreType) => state.user.user);
+  const user: userType | null = useSelector((state: StoreType) => state.user.user);
 
   const setUser = (user: userType) => {
     dispatch(userActions.login(user));

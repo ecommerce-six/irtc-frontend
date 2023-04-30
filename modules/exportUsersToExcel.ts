@@ -1,4 +1,3 @@
-
 import * as XLSX from "xlsx";
 import { userType } from "../types/user";
 import { deleteProperties } from "./deleteProperties";
@@ -11,8 +10,6 @@ export const exportToExcel = (users: userType[]) => {
 
     deleteProperties(item, propertiesToDelete);
   });
-
-  console.log(excelUsers);
 
   const wb = XLSX.utils.book_new();
   const ws = XLSX.utils.json_to_sheet(excelUsers);

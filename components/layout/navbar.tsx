@@ -19,8 +19,7 @@ function Navbar() {
   const [loggedIn, setLoggedIn] = useState<any>(null);
 
   const [showNavbar, setShowNavbar] = useState<boolean>(false);
- 
- 
+
   const { user } = useUser();
 
   React.useEffect(() => {
@@ -89,7 +88,7 @@ function Navbar() {
                   href={"/panel"}
                   className="text-primary max-w-[12rem] overflow-hidden text-ellipsis whitespace-nowrap"
                 >
-                  {loggedIn.firstName} {loggedIn.lastName}
+                  {user?.firstName} {user?.lastName} {!(user?.firstName || user?.lastName) && user?.phoneNumber}
                 </Link>
               ) : (
                 <Link href="/panel/cart" className="group">

@@ -5,9 +5,8 @@ import ReactPaginate from "react-paginate";
 import { MainLayout } from "../../components/layout";
 import Heading from "../../components/elements/heading";
 import ArticlesFilter from "../../components/articles/filter";
-import ArticlePreview from "../../components/articles/articlePreview";
-
 import { articlesFilterHandlerType } from "../../types/article";
+import ArticlePreview from "../../components/articles/articlePreview";
 
 function Articles() {
   const [countPage, setCountPage] = useState<number>(1);

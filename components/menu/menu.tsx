@@ -6,8 +6,8 @@ import { usePathname, useRouter } from "next/navigation";
 import MenuLink from "./link";
 import Prompt from "../prompt";
 import { StoreType } from "../../store";
-import { useDispatch, useSelector } from "react-redux";
-
+import { useSelector } from "react-redux";
+import useUser from "../../hooks/useUser";
 import { AvatarSample } from "../../public";
 import useLogout from "../../hooks/useLogout";
 import { LogoutIcon } from "../../public/icons/svgs";
@@ -18,6 +18,8 @@ function Menu() {
   const path = usePathname();
 
   const logout = useLogout();
+
+  const { user } = useUser();
 
   const [showPrompt, setShowPrompt] = useState(false);
 
@@ -63,11 +65,11 @@ function Menu() {
               { path: "/panel/cart", title: "سبد خرید" },
             ],
           },
-          {
-            path: "/panel/purchased-courses",
-            title: "دوره ها",
-            subLink: [{ path: "/panel/purchased-courses", title: "دوره ها خریداری شده" }],
-          },
+          // {
+          //   path: "/panel/purchased-courses",
+          //   title: "دوره ها",
+          //   subLink: [{ path: "/panel/purchased-courses", title: "دوره ها خریداری شده" }],
+          // },
         ];
   const appsLinks = [
     {
@@ -75,10 +77,6 @@ function Menu() {
       title: "کاربر ها",
       subLink: [
         { path: "/panel/users", title: "همه ی کاربر ها" },
-        {
-          path: "/panel/roles",
-          title: "مقام و دسترسی ها",
-        },
         {
           path: "/panel/users/create",
           title: "ایجاد کاربر",
@@ -90,20 +88,20 @@ function Menu() {
   const contentLinks =
     role === "admin"
       ? [
-          {
-            path: "/panel/courses",
-            title: "دوره ها",
-            subLink: [
-              {
-                path: "/panel/courses",
-                title: "همه ی دوره ها",
-              },
-              {
-                path: "/panel/courses/create",
-                title: "اضافه کردن دوره",
-              },
-            ],
-          },
+          // {
+          //   path: "/panel/courses",
+          //   title: "دوره ها",
+          //   subLink: [
+          //     {
+          //       path: "/panel/courses",
+          //       title: "همه ی دوره ها",
+          //     },
+          //     {
+          //       path: "/panel/courses/create",
+          //       title: "اضافه کردن دوره",
+          //     },
+          //   ],
+          // },
           {
             path: "/panel/articles",
             title: "مقاله ها",
@@ -149,9 +147,10 @@ function Menu() {
 
         <div className="space-y-2 text-sm">
           <h1 className="w-[7.25rem] font-semibold text-primary overflow-hidden text-ellipsis whitespace-nowrap">
-            ویتو محققیان
+            {user?.firstName} {user?.lastName} {!(user?.firstName || user?.lastName) && user?.phoneNumber}
           </h1>
-          <p>09907086274</p>
+
+          <p>{user?.phoneNumber}</p>
         </div>
 
         <button className="group" onClick={showPromptHandler}>

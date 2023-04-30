@@ -25,13 +25,15 @@ function Register() {
       const isConnected = await checkConnectivity();
 
       if (isConnected) {
-        const response = await axios.post(REGISTER_URL, JSON.stringify(user), {
+        const response = await axios.post(REGISTER_URL, JSON.stringify({ ...user, gender: "male" }), {
           headers: { "Content-Type": "application/json" },
           withCredentials: true,
         });
 
+        const token = response.data.data.token;
+
         if (response?.status === 200) {
-          setAuth(response.data.data.token);
+          setAuth({ accessToken: token });
 
           await getUser();
 

@@ -1,14 +1,12 @@
 import React from "react";
 
 import Header from "../../head";
-import { useDispatch } from "react-redux";
 import axios from "../../../modules/axios";
 import useUser from "../../../hooks/useUser";
 import useAuth from "../../../hooks/useAuth";
 import useError from "../../../hooks/useError";
 import { AuthLayout } from "../../../components/layout";
 import NumberLogin from "../../../components/login/login";
-import useRefreshToken from "../../../hooks/useRefreshToken";
 import { checkConnectivity } from "../../../modules/checkConnection";
 
 type submitHandlerPropsType = {
@@ -20,13 +18,9 @@ type submitHandlerPropsType = {
 const LOGIN_URL = "/users/login";
 
 function Login() {
-  const dispatch = useDispatch();
-
   const { getUser } = useUser();
 
-  const { setAuth, auth } = useAuth();
-
-  const refresh = useRefreshToken();
+  const { setAuth } = useAuth();
 
   const { error, setError } = useError();
 
@@ -42,7 +36,6 @@ function Login() {
           withCredentials: true,
         });
 
-        // await dispatch(authActions.setAuth({ accessToken: token, rememberMe: true }));
         const token = response.data.data.token;
 
         if (response?.status === 200) {
@@ -58,16 +51,16 @@ function Login() {
         setError(response?.data.message);
       }
     } catch (err: any) {
-      console.log(err, err.response?.status);
       if (!err?.response) {
         setError("خطا در ارتباط با سرور");
       } else if (err.response?.status === 401) {
+        console.log("object");
         setError("شماره یا رمز اشتباه هست :)");
       } else if (err.response?.status === 404) {
         setError("کاربری با این شماره پیدا نشد :)");
+      } else {
+        setError("ورود به مشکل خورد :(");
       }
-
-      setError("ورود به مشکل خورد :(");
     }
   };
 

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import Image from "next/image";
 import React, { useState } from "react";
 
@@ -10,22 +11,33 @@ import { PanelLayout } from "../../../components/layout";
 import { AvatarSample } from "../../../public";
 
 import { styles } from "../../../styles";
+import useUser from "../../../hooks/useUser";
+import useUpdateUser from "../../../hooks/useUpdateUser";
 
-type errors = {
+// !
+type formDataType = {
+  id?: number | undefined | null;
+  firstName?: string | null;
+  lastName?: string | null;
+  confirmEmail?: boolean;
+  email?: string;
+  confirmPhoneNumber?: boolean;
   phoneNumber?: string;
-  email?: string | null;
+  description?: string | null;
+  role?: "user" | "admin";
+  profileImage?: string;
+  coverImage?: string;
+  createdAt?: string;
   password?: string;
   repeatPassword?: string;
 };
-
-type formDataType = {
-  phoneNumber: string;
-  email?: string | null;
-  password: string;
-  repeatPassword: string;
-};
+// !
 
 function EditProfile() {
+  const { user } = useUser();
+
+  const { useUpdateMe, message, error } = useUpdateUser();
+
   const [profile, setProfile] = useState(0);
 
   const avatars = ["", "", "", ""];
@@ -34,45 +46,16 @@ function EditProfile() {
     setProfile(index);
   };
 
-  const initialValues: formDataType = {
-    phoneNumber: "09900000000",
-    email: null,
-    password: "",
-    repeatPassword: "",
+  const initialValues = {};
+
+  const submitHandler = (values: formDataType) => {
+    console.log(values);
+
+    useUpdateMe(values);
   };
-
-  const validateForm = (formData: formDataType) => {
-    const errors: errors = {};
-
-    const inValidPhoneNumberID = formData.phoneNumber.slice(0, 2) !== "09";
-
-    const inValidPhoneNumberLength = formData.phoneNumber.length !== 11;
-
-    const inValidPassword = formData.password.length < 8;
-
-    const includeCapitalLetter = !/[A-Z]/.test(formData.password);
-
-    const includeSmallLetter = !/[a-z]/.test(formData.password);
-
-    const inValidRepeatPassword = formData.password !== formData.repeatPassword;
-
-    if (!formData.phoneNumber) {
-      errors.phoneNumber = "لطفا فیلد شماره همراه را وارد کنید.";
-    } else if (inValidPhoneNumberID) {
-      errors.phoneNumber = "لطفا شماره همراه معتبر وارد کنید.";
-    } else if (inValidPhoneNumberLength) {
-      errors.phoneNumber = "لطفا شماره همراه معتبر وارد کنید.";
-    }
-
-    return errors;
-  };
-
-  const submitHandler = (values: formDataType) => {};
 
   const formik: any = useFormik({
     initialValues,
-    validate: validateForm,
-    validateOnChange: false,
     onSubmit: (values: formDataType) => {
       submitHandler(values);
     },
@@ -84,30 +67,61 @@ function EditProfile() {
 
       <section className="p-5 rounded-xl box-shadow">
         <form onSubmit={formik.handleSubmit}>
-          <Input id="name" name="name" title="نام" type="text" placeHolder="برای مثال احمد" />
-
-          <Input id="name" name="name" title="نام خانوادگی" type="text" placeHolder="برای مثال موسوی" />
-
-          <Input id="position" name="position" title="عنوان" type="text" placeHolder="برای مثال دانش جو" />
+          <Input
+            id="firstName"
+            name="firstName"
+            title="نام"
+            type="text"
+            placeHolder="برای مثال احمد"
+            value={formik.firstName}
+            onChange={formik.handleChange}
+            defaultValue={user?.firstName}
+          />
 
           <Input
-            id="position"
+            id="lastName"
+            name="lastName"
+            title="نام خانوادگی"
+            type="text"
+            placeHolder="برای مثال موسوی"
+            value={formik.lastName}
+            defaultValue={user?.lastName}
+            onChange={formik.handleChange}
+          />
+
+          <Input
+            id="phoneNumber"
             name="phoneNumber"
             title="شماره همراه"
             type="text"
             placeHolder="برای مثال *************0990 "
+            value={formik.phoneNumber}
+            defaultValue={user?.phoneNumber}
+            onChange={formik.handleChange}
           />
 
-          <Input id="position" name="email" title="ایمیل" type="text" placeHolder="برای مثال *************0990 " />
+          <Input
+            id="email"
+            name="email"
+            title="ایمیل"
+            type="text"
+            placeHolder="برای مثال ahmad@gamil.com"
+            value={formik.email}
+            defaultValue={user?.email}
+            onChange={formik.handleChange}
+          />
 
           <div className="mt-3 w-full space-y-2">
             <label htmlFor={"about"} className="block text-secondary">
               درباره ی من
             </label>
             <textarea
-              id={"about"}
-              name={"about"}
+              id={"description"}
+              name={"description"}
               placeholder={"برای مثال یک دانشجو..."}
+              value={formik.description}
+              defaultValue={user?.description}
+              onChange={formik.handleChange}
               className={`p-3 w-full text-sm md:text-base text-secondary bg-dim-secondary rounded-xl outline-none min-h-[10rem] max-h-[15rem]`}
             ></textarea>
           </div>
@@ -136,7 +150,31 @@ function EditProfile() {
             ))}
           </div>
 
-          <Input id="position" name="email" title="کد تایید" type="text" placeHolder="برای مثال 12345" />
+          <Input
+            id="password"
+            name="password"
+            title="پسورد"
+            type={"password"}
+            placeHolder="برای مثال *************0990 "
+            value={formik.password}
+            onChange={(e: any) => {
+              formik.handleChange(e);
+            }}
+          />
+
+          <Input
+            id="oldPassword"
+            name="oldPassword"
+            title="پسورد قبلی"
+            type={"password"}
+            placeHolder="برای مثال *************0990 "
+            value={formik.oldPassword}
+            onChange={formik.handleChange}
+          />
+
+          {error && <p className="mt-3 mb-1 p-3 bg-red-100 text-red-500 rounded-md">{error}</p>}
+
+          {message && <p className="mt-3 mb-1 p-3 bg-red-100 text-green-600 rounded-md">{message}</p>}
 
           <button className={`${styles.primaryButton} mt-3 py-3 px-10 hover:scale-[1.05]`} type="submit">
             اعمال تغییر

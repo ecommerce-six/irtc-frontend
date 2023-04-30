@@ -52,7 +52,7 @@ function AllUsers() {
         disabledClassName={"hidden"}
       />
 
-      <div className="space-y-8">
+      <div className="mt-8 space-y-8">
         {users.map((item, index) => (
           <User {...item} key={index} />
         ))}

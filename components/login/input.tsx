@@ -56,13 +56,13 @@ function Input(props: props) {
       <div className="absolute left-4 top-9">
         {password ? (
           type === "password" ? (
-            <button onClick={showPasswordHandler}>
+            <div onClick={showPasswordHandler}>
               <CloseEyesIcon />
-            </button>
+            </div>
           ) : (
-            <button onClick={showPasswordHandler}>
+            <div onClick={showPasswordHandler}>
               <OpenEyesIcon />
-            </button>
+            </div>
           )
         ) : null}
       </div>

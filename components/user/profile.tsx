@@ -25,7 +25,7 @@ function UserProfile() {
 
           <div className="space-y-2">
             <h1 className="text-primary font-semibold text-sm md:text-lg w-full overflow-hidden text-ellipsis whitespace-nowrap">
-              {user?.firstName || user?.lastName ? `${user?.firstName} ${user?.lastName}` : user?.phoneNumber}
+              {user?.firstName} {user?.lastName} {!(user?.firstName || user?.lastName) && user?.phoneNumber}
             </h1>
             <h2 className="text-secondary text-xs md:text-base w-full overflow-hidden text-ellipsis whitespace-nowrap">
               {user?.phoneNumber}
