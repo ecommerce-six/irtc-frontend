@@ -174,7 +174,7 @@ function EditProfile() {
 
           {error && <p className="mt-3 mb-1 p-3 bg-red-100 text-red-500 rounded-md">{error}</p>}
 
-          {message && <p className="mt-3 mb-1 p-3 bg-red-100 text-green-600 rounded-md">{message}</p>}
+          {message && <p className="mt-3 mb-1 p-3 bg-green-100 text-green-600 rounded-md">{message}</p>}
 
           <button className={`${styles.primaryButton} mt-3 py-3 px-10 hover:scale-[1.05]`} type="submit">
             اعمال تغییر
