@@ -46,7 +46,7 @@ function CreateArticles() {
   };
 
   const handleImageUpload = () => {
-    console.log(URL.createObjectURL(selectedImage));
+    // console.log(URL.createObjectURL(selectedImage));
     if (!selectedImage) {
       return;
     }
@@ -58,7 +58,7 @@ function CreateArticles() {
     uploadImage(formData)
       .then((uploadedImage: any) => {})
       .catch((_) => {
-        console.log("Oooops, something went wrong!");
+        // console.log("Oooops, something went wrong!");
       });
   };
 

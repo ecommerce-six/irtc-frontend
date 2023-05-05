@@ -9,6 +9,7 @@ import { styles } from "../../styles";
 
 import { LogoIcon } from "../../public/common";
 import { registerHandlerType } from "../../types/register";
+import { userGenderType } from "../../types/user";
 
 type props = {
   error: string | null;
@@ -27,7 +28,7 @@ type formDataType = {
   password: string;
   phoneNumber: string;
   repeatPassword: string;
-  gender: "male" | "female" | "others";
+  gender: userGenderType;
 };
 
 function RegisterSection({ submitHandler, error }: props) {
@@ -178,7 +179,7 @@ function RegisterSection({ submitHandler, error }: props) {
           value={formik.email}
           error={formik.errors.email}
           onChange={formik.handleChange}
-          placeHolder="برای مثال ahmad.mamad../..gmail.com"
+          placeHolder="برای مثال ahmad.avatar@gmail.com"
         />
 
         <Input

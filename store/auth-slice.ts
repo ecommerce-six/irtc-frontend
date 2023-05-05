@@ -20,8 +20,6 @@ const authSlice = createSlice({
   reducers: {
     setAuth: (state: authStateType, actions: { payload: setAuthType }) => {
       if (actions.payload.accessToken) {
-        console.log(actions.payload.accessToken);
-
         state.accessToken = actions.payload.accessToken?.toString();
       }
 

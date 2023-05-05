@@ -49,8 +49,6 @@ function EditProfile() {
   const initialValues = {};
 
   const submitHandler = (values: formDataType) => {
-    console.log(values);
-
     useUpdateMe(values);
   };
 

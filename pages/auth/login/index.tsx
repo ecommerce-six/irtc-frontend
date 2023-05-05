@@ -28,8 +28,6 @@ function Login() {
     try {
       const isConnected = await checkConnectivity();
 
-      console.log(body);
-
       if (isConnected) {
         const response = await axios.post(LOGIN_URL, JSON.stringify(body), {
           headers: { "Content-Type": "application/json" },

@@ -24,4 +24,6 @@ export type userFilterType = {
   role: "admin" | "user" | string;
 };
 
+export type userGenderType = "male" | "female" | "others";
+
 export type userStoreType = null | userType;

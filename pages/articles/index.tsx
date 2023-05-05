@@ -18,7 +18,6 @@ function Articles() {
   };
 
   const searchHandler = ({ time, basis }: articlesFilterHandlerType) => {
-    // console.log(time, basis);
   };
 
   const articles = [

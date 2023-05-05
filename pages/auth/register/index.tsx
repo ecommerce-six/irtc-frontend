@@ -11,7 +11,7 @@ import useError from "../../../hooks/useError";
 import { registerHandlerType } from "../../../types/register";
 import { checkConnectivity } from "../../../modules/checkConnection";
 
-const REGISTER_URL = "/users/create";
+const REGISTER_URL = "/users/register";
 
 function Register() {
   const { getUser } = useUser();
