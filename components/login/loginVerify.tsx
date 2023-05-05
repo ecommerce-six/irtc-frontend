@@ -84,7 +84,10 @@ function LoginVerify({ phoneNumber, loginHandler }: props) {
 
         <p className="my-2 text-red-500">{formik.errors.verifyCode}</p>
 
-        <button className={`${styles.primaryButton} mt-4 w-full py-3 bg-brand rounded-xl hover:scale-[1.05]`} type="submit">
+        <button
+          className={`${styles.primaryButton} mt-4 w-full py-3 bg-brand rounded-xl hover:scale-[1.05]`}
+          type="submit"
+        >
           ورود
         </button>
       </form>

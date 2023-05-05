@@ -16,26 +16,33 @@ type props = {
 };
 
 type errors = {
-  phoneNumber?: string;
   email?: string;
   password?: string;
+  phoneNumber?: string;
   repeatPassword?: string;
 };
 
 type formDataType = {
-  phoneNumber: string;
   email: string;
   password: string;
+  phoneNumber: string;
   repeatPassword: string;
+  gender: "male" | "female" | "others";
 };
 
 function RegisterSection({ submitHandler, error }: props) {
   const [rememberMe, setRememberMe] = useState(false);
 
+  const [gender, setGender] = useState("male");
+
   const [showPassword, setShowPassword] = useState(false);
 
   const showPasswordHandler = () => {
     setShowPassword((prevValue) => !prevValue);
+  };
+
+  const genderHandler = (e: any) => {
+    setGender(e.target.id);
   };
 
   const validateForm = (formData: formDataType) => {
@@ -102,10 +109,11 @@ function RegisterSection({ submitHandler, error }: props) {
 
   const formik: any = useFormik({
     initialValues: {
-      phoneNumber: "",
       email: "",
       password: "",
+      phoneNumber: "",
       repeatPassword: "",
+      gender: "male",
     },
     validate: validateForm,
     validateOnChange: false,
@@ -115,6 +123,7 @@ function RegisterSection({ submitHandler, error }: props) {
         phoneNumber: values.phoneNumber,
         password: values.password,
         rememberMe: rememberMe,
+        gender: gender,
       };
 
       submitHandler(user);
@@ -126,28 +135,31 @@ function RegisterSection({ submitHandler, error }: props) {
   };
 
   return (
-    <div className="px-6 py-8 my-10 md:my-20 w-full lg:w-[25rem] flex flex-col items-center bg-background rounded-xl box-shadow">
-      <Link href={"/"}>
-        <Image src={LogoIcon} alt="logo" className="w-16 md:w-32" />
-      </Link>
-      <div className="mt-8 flex items-center gap-x-4">
-        <Link href={"/auth/login"} className={`${styles.secondaryButton} px-6 py-2 hover:bg-brand `}>
-          ورود
+    <div className="px-6 py-8 my-10 md:my-20 w-full lg:w-fit flex flex-col lg:flex-row-reverse items-center gap-x-7 bg-background rounded-xl box-shadow">
+      <div className="flex flex-col items-center">
+        <Link href={"/"}>
+          <Image src={LogoIcon} alt="logo" className="w-24 sm:w-28 md:w-32" />
         </Link>
-        <Link
-          href={"/auth/register"}
-          className={`${styles.primaryButton} px-6 py-2 bg-brand text-background text-sm font-semibold border-2 border-brand rounded-lg hover:scale-[1.05]`}
-        >
-          ثبت نام
-        </Link>
+        <div className="mt-8 flex items-center gap-x-4">
+          <Link href={"/auth/login"} className={`${styles.secondaryButton} px-6 py-2 hover:bg-brand`}>
+            ورود
+          </Link>
+          <Link
+            href={"/auth/register"}
+            className={`${styles.primaryButton} px-6 py-2 bg-brand text-background text-sm font-semibold border-2 border-brand rounded-lg hover:scale-[1.05]`}
+          >
+            ثبت نام
+          </Link>
+        </div>
+
+        <h1 className="mt-6 text-primary text-xl md:text-2xl font-bold">خوش آمدی</h1>
+
+        <p className="px-2 mt-4 text-secondary text-sm md:text-base text-center max-w-[22rem]">
+          به خونه خوش اومدی! اگه عضو مجموعه هستی، وارد شو
+        </p>
       </div>
 
-      <h1 className="mt-6 text-primary text-xl md:text-2xl font-bold">خوش آمدی</h1>
-
-      <p className="px-2 mt-4 text-secondary text-sm md:text-base text-center">
-        به خونه خوش اومدی! اگه عضو مجموعه هستی، وارد شو
-      </p>
-      <form onSubmit={formik.handleSubmit} className="w-full">
+      <form onSubmit={formik.handleSubmit} className="w-full lg:w-[23rem]">
         <Input
           type="text"
           maxlength={11}
@@ -193,6 +205,55 @@ function RegisterSection({ submitHandler, error }: props) {
           showPasswordHandler={showPasswordHandler}
         />
 
+        <div className="my-2 space-y-2">
+          <p className="block text-secondary">جنسیت:</p>
+
+          <div className="flex items-center justify-between text-xs lg:text-sm">
+            <label
+              htmlFor="male"
+              className="py-3 px-3 sm:px-5 flex items-center gap-x-2 text-secondary bg-dim-secondary rounded-xl"
+            >
+              <input
+                type="radio"
+                name="gender"
+                id="male"
+                className="accent-brand bg-primary"
+                defaultChecked
+                onClick={genderHandler}
+              />
+              <span>مرد 👨</span>
+            </label>
+
+            <label
+              htmlFor="female"
+              className="py-3 px-3 sm:px-5 flex items-center gap-x-2 text-secondary bg-dim-secondary rounded-xl"
+            >
+              <input
+                type="radio"
+                name="gender"
+                id="female"
+                className="accent-brand bg-primary"
+                onClick={genderHandler}
+              />
+              <span>زن 👩</span>
+            </label>
+
+            <label
+              htmlFor="others"
+              className="py-3 px-3 sm:px-5 flex items-center gap-x-2 text-secondary bg-dim-secondary rounded-xl"
+            >
+              <input
+                type="radio"
+                name="gender"
+                id="others"
+                className="accent-brand bg-primary"
+                onClick={genderHandler}
+              />
+              <span>غیره 🎉</span>
+            </label>
+          </div>
+        </div>
+
         <div className="mt-2 flex items-center gap-x-2">
           <input
             type="checkbox"
@@ -200,7 +261,7 @@ function RegisterSection({ submitHandler, error }: props) {
             className="w-4 h-4 !bg-dim-secondary accent-brand"
             onChange={rememberMeHandler}
           />
-          <label htmlFor="free" className="text-md text-secondary">
+          <label htmlFor="free" className="text-sm sm:text-md text-secondary">
             مرا به خاطر بسپار :)
           </label>
         </div>
@@ -212,7 +273,7 @@ function RegisterSection({ submitHandler, error }: props) {
           <li className="my-2 text-red-500">{formik.errors.repeatPassword}</li>
         </ul>
 
-        {error && <p className="mt-3 mb-1 p-3 bg-red-100 text-red-500 rounded-md">{error}</p>}
+        {error && <p className="mt-5 mb-1 p-3 bg-red-100 text-red-500 rounded-md">{error}</p>}
 
         <button
           className={`${styles.primaryButton} mt-2 w-full py-3 bg-brand rounded-xl hover:scale-[1.05]`}

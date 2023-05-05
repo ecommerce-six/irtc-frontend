@@ -117,6 +117,7 @@ function NumberLogin({ submitHandler, error }: props) {
       <p className="px-2 mt-4 text-secondary text-sm md:text-base text-center">
         به خونه خوش اومدی! اگه عضو مجموعه هستی، وارد شو
       </p>
+
       <form onSubmit={formik.handleSubmit} className="w-full">
         <Input
           type="text"

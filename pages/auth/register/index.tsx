@@ -14,7 +14,7 @@ import { checkConnectivity } from "../../../modules/checkConnection";
 const REGISTER_URL = "/users/create";
 
 function Register() {
-  const { setUser, getUser } = useUser();
+  const { getUser } = useUser();
 
   const { setAuth } = useAuth();
 
@@ -25,7 +25,7 @@ function Register() {
       const isConnected = await checkConnectivity();
 
       if (isConnected) {
-        const response = await axios.post(REGISTER_URL, JSON.stringify({ ...user, gender: "male" }), {
+        const response = await axios.post(REGISTER_URL, JSON.stringify({ ...user }), {
           headers: { "Content-Type": "application/json" },
           withCredentials: true,
         });

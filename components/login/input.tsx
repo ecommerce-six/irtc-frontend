@@ -48,7 +48,7 @@ function Input(props: props) {
         maxLength={maxlength}
         minLength={minLength}
         placeholder={placeHolder}
-        className={`p-3 w-full text-sm md:text-base text-secondary bg-dim-secondary rounded-xl focus:border-2 focus:border-dim-secondary outline-none ${
+        className={`p-3 w-full text-sm md:text-base text-secondary bg-dim-secondary rounded-xl outline-none ${
           error && "border-2 border-red-600 !bg-red-100"
         }`}
       />
