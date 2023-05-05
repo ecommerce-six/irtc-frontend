@@ -150,7 +150,7 @@ function Menu() {
             {user?.firstName} {user?.lastName} {!(user?.firstName || user?.lastName) && user?.phoneNumber}
           </h1>
 
-          <p>{user?.phoneNumber}</p>
+          {user?.firstName && user?.lastName && <p>{user?.phoneNumber}</p>}
         </div>
 
         <button className="group" onClick={showPromptHandler}>

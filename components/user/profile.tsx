@@ -28,7 +28,7 @@ function UserProfile() {
               {user?.firstName} {user?.lastName} {!(user?.firstName || user?.lastName) && user?.phoneNumber}
             </h1>
             <h2 className="text-secondary text-xs md:text-base w-full overflow-hidden text-ellipsis whitespace-nowrap">
-              {user?.phoneNumber}
+            {user?.firstName && user?.lastName && user?.phoneNumber}
             </h2>
           </div>
         </div>
