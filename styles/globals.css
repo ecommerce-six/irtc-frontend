@@ -183,6 +183,15 @@ body {
   border-radius: 1rem;
 }
 
+.article-body a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.article-body a:hover {
+  color: #8001ff;
+}
+
 @media screen and (max-width: 640px) {
   .article-body h1 {
     font-size: large;
@@ -244,10 +253,22 @@ body {
 
 /* 
 
-    Markdown editor Classes
+    filepond classes
 
 */
 
-.w-md-editor-content {
-  height: 35rem !important;
+.filepond--credits {
+  display: none;
+}
+
+.filepond--file {
+  background-color: #8001ff;
+}
+
+.filepond-action {
+  cursor: pointer;
+  text-decoration: underline;
+}
+.filepond-action:hover {
+  color: #8001ff;
 }
