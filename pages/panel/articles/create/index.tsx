@@ -17,9 +17,13 @@ function CreateArticles() {
 
   const [preview, setPreview] = useState<boolean>(false);
 
+  const [uploadArticleImage, setUploadArticleImage] = useState<boolean>(false);
+
   const [title, setTitle] = useState<string>("");
 
-  const [files, setFiles] = useState<any>();
+  const [cover, setCover] = useState<any>();
+
+  const [images, setImages] = useState<any>();
 
   const titleHandler = (e: ChangeEvent<HTMLInputElement>) => {
     setTitle(e.target.value);
@@ -27,6 +31,10 @@ function CreateArticles() {
 
   const previewHandler = () => {
     setPreview((prevValue) => !prevValue);
+  };
+
+  const uploadArticleImageHandler = () => {
+    setUploadArticleImage((prevValue) => !prevValue);
   };
 
   const EditorCommandHandler = (command: void) => {
@@ -48,8 +56,8 @@ function CreateArticles() {
         />
 
         <FilePond
-          files={files}
-          onupdatefiles={setFiles}
+          files={cover}
+          onupdatefiles={setCover}
           allowMultiple={false}
           labelIdle='عکس های خود را بکشید و رها کنید یا <span class="filepond-action">کلیک کنید</span>.'
           // server={{
@@ -67,7 +75,11 @@ function CreateArticles() {
       </div>
 
       <div className="mt-4 p-4 rounded-xl box-shadow sticky" data-color-mode="light">
-        <CreateArticleControllers textRef={textRef} EditorCommandHandler={EditorCommandHandler} />
+        <CreateArticleControllers
+          textRef={textRef}
+          EditorCommandHandler={EditorCommandHandler}
+          setUploadArticleImage={setUploadArticleImage}
+        />
 
         <textarea
           name=""
@@ -92,6 +104,36 @@ function CreateArticles() {
       </div>
 
       {preview && <CreateArticlePreview title={title} content={content} />}
+
+      {uploadArticleImage && (
+        <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center">
+          <button
+            onClick={(e: any) => {
+              uploadArticleImageHandler();
+            }}
+            className="fixed top-0 left-0 w-full h-full bg-primary opacity-90"
+          />
+          <div className="w-full lg:w-fit max-w-[90%] min-w-[50%] grid items-center">
+            <FilePond
+              files={images}
+              onupdatefiles={setImages}
+              allowMultiple={false}
+              labelIdle='عکس های خود را بکشید و رها کنید یا <span class="filepond-action">کلیک کنید</span>.'
+              // server={{
+              //   process: {
+              //     url: "https://api.upload.io/v2/accounts/W142hrD/uploads/binary",
+              //     headers: {
+              //       Authorization: " Bearer public_W142hrD6cMFKNSEmK4YbMZFVFVX1",
+              //     },
+              //     onload: (response): any => {
+              //       console.log(response);
+              //     },
+              //   },
+              // }}
+            />
+          </div>
+        </div>
+      )}
     </Access>
   );
 }

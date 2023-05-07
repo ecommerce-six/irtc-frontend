@@ -1,4 +1,4 @@
-import React, { RefObject } from "react";
+import React, { Dispatch, RefObject, SetStateAction } from "react";
 
 import { styles } from "../../../../styles";
 import { editor } from "../../../../modules/editor";
@@ -14,9 +14,10 @@ import {
 type props = {
   EditorCommandHandler: any;
   textRef: null | RefObject<HTMLTextAreaElement>;
+  setUploadArticleImage: Dispatch<SetStateAction<boolean>>;
 };
 
-function CreateArticleControllers({ textRef, EditorCommandHandler }: props) {
+function CreateArticleControllers({ textRef, EditorCommandHandler, setUploadArticleImage }: props) {
   return (
     <div className="flex items-stretch gap-2 flex-wrap">
       <button
@@ -117,7 +118,12 @@ function CreateArticleControllers({ textRef, EditorCommandHandler }: props) {
         <QuoteIcon />
       </button>
 
-      <button className={`${styles.secondaryButton} py-[9px] px-[9px]`}>
+      <button
+        onClick={() => {
+          setUploadArticleImage(true);
+        }}
+        className={`${styles.secondaryButton} py-[9px] px-[9px]`}
+      >
         <ImageIcon />
       </button>
     </div>
