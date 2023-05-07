@@ -35,7 +35,10 @@ function CreateArticlePreview({ title, content }: props) {
         </div>
       </div>
 
-      <div className="mt-5 article-body" dangerouslySetInnerHTML={{ __html: marked(content, { breaks: true }) }} />
+      <div
+        className="mt-5 article-body"
+        dangerouslySetInnerHTML={{ __html: marked(content ?? "", { breaks: true }) }}
+      />
     </article>
   );
 }

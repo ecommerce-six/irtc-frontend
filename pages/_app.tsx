@@ -8,8 +8,6 @@ import { IranYekan } from "../public/fonts";
 import UserWrapper from "../components/layout/persist";
 
 import "../styles/globals.css";
-import "@uiw/react-md-editor/markdown-editor.css";
-import "@uiw/react-markdown-preview/markdown.css";
 
 type ComponentWithPageLayout = AppProps & {
   Component: AppProps["Component"] & {
