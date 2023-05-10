@@ -37,7 +37,6 @@ export const editor = {
 
     const endIndex = element.current?.selectionEnd;
 
-    console.log(element.current);
     if (element.current) {
       const value = element.current?.value;
 
@@ -77,7 +76,6 @@ export const editor = {
         }
       }
     } else {
-      console.log(lines[lines.length - 1]);
       if (lines[lines.length - 1] !== ` ${divider}`) {
         lines[lines.length] = `${divider} `;
 

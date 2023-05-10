@@ -40,14 +40,10 @@ function User({
       if (isConnected) {
         const body = { id: id, role: roleState };
 
-        console.log(body);
-
         const response = await axiosPrivate.post(USER_UPDATE_ADMIN, JSON.stringify(body), {
           headers: { "Content-Type": "application/json" },
           withCredentials: true,
         });
-
-        console.log(response);
 
         // if (response?.status === 200) {
         //   return;

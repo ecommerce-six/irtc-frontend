@@ -2,9 +2,9 @@ import React from "react";
 import Image from "next/image";
 import { marked } from "marked";
 
-import { TimeIcon } from "../../../../public/icons/svgs";
-import { estimateReadTimeHandler } from "../../../../modules/estimateReadTime";
-import CloseFocusTimeButton from "../../../../components/articles/closeFocusTimeButton";
+import { TimeIcon } from "../../public/icons/svgs";
+import { estimateReadTimeHandler } from "../../modules/estimateReadTime";
+import CloseFocusTimeButton from "./closeFocusTimeButton";
 
 type props = {
   title: string;

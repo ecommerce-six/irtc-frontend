@@ -3,9 +3,9 @@ import { ChangeEvent, useState, useRef } from "react";
 
 import Header from "../../../head";
 import { styles } from "../../../../styles";
-import CreateArticlePreview from "./preview";
+import CreateArticlePreview from "../../../../components/articles/preview";
 import Access from "../../../../components/access";
-import CreateArticleControllers from "./controllers";
+import CreateArticleControllers from "../../../../components/articles/controllers";
 import { PanelLayout } from "../../../../components/layout";
 
 import "filepond/dist/filepond.min.css";

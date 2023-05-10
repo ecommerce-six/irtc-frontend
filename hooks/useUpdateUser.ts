@@ -24,8 +24,6 @@ const useUpdateUser = () => {
     } catch (err: any) {
       const statusCode = err?.response.status;
 
-      console.log(statusCode);
-
       switch (statusCode) {
         case 403:
           setError("شما ورود به سایت ورود نکرده اید.");

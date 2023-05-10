@@ -28,7 +28,6 @@ function UserWrapper({ children }: { children: ReactNode }) {
       };
 
       if (!auth.accessToken && rememberMe && isMounted) {
-        console.warn("persist file ran");
         verifyRefreshToken();
       }
     }

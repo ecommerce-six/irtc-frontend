@@ -52,7 +52,6 @@ function Login() {
       if (!err?.response) {
         setError("خطا در ارتباط با سرور");
       } else if (err.response?.status === 401) {
-        console.log("object");
         setError("شماره یا رمز اشتباه هست :)");
       } else if (err.response?.status === 404) {
         setError("کاربری با این شماره پیدا نشد :)");

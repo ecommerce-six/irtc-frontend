@@ -1,15 +1,8 @@
 import React, { Dispatch, RefObject, SetStateAction } from "react";
 
-import { styles } from "../../../../styles";
-import { editor } from "../../../../modules/editor";
-import {
-  ItalicIcon,
-  LineThroughIcon,
-  DividerIcon,
-  LinkIcon,
-  QuoteIcon,
-  ImageIcon,
-} from "../../../../public/icons/svgs";
+import { styles } from "../../styles";
+import { editor } from "../../modules/editor";
+import { ItalicIcon, LineThroughIcon, DividerIcon, LinkIcon, QuoteIcon, ImageIcon } from "../../public/icons/svgs";
 
 type props = {
   EditorCommandHandler: any;
