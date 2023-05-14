@@ -1,10 +1,12 @@
-import React, { ReactNode, useEffect } from "react";
+import React, { ReactNode, useEffect, useState } from "react";
 
 import useAuth from "../../hooks/useAuth";
 import useUser from "../../hooks/useUser";
 import useRefreshToken from "../../hooks/useRefreshToken";
 
 function UserWrapper({ children }: { children: ReactNode }) {
+  const [loading, setLoading] = useState(true);
+
   const { auth, rememberMe } = useAuth();
 
   const { user, getUser } = useUser();
@@ -24,11 +26,15 @@ function UserWrapper({ children }: { children: ReactNode }) {
           }
         } catch (err) {
           console.log(err);
+        } finally {
+          isMounted && setLoading(false);
         }
       };
 
       if (!auth.accessToken && rememberMe && isMounted) {
         verifyRefreshToken();
+
+        setLoading(false);
       }
     }
 
@@ -37,7 +43,7 @@ function UserWrapper({ children }: { children: ReactNode }) {
     };
   }, [auth.accessToken, getUser, user, rememberMe, refresh]);
 
-  return <>{children}</>;
+  return <>{loading ? <div className="loading-navbar" /> : children}</>;
 }
 
 export default React.memo(UserWrapper);

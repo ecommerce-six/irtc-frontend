@@ -272,3 +272,20 @@ body {
 .filepond-action:hover {
   color: #8001ff;
 }
+
+.loading-navbar {
+  position: fixed;
+  inset: 0 auto auto 0;
+  height: 2px;
+  background-color: #8001ff;
+  animation: loading 1s linear;
+}
+
+@keyframes loading {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
