@@ -1,16 +1,22 @@
+import { useRouter } from "next/router";
 import { FilePond } from "react-filepond";
 import { ChangeEvent, useState, useRef } from "react";
 
 import Header from "../../../head";
 import { styles } from "../../../../styles";
-import CreateArticlePreview from "../../../../components/articles/preview";
 import Access from "../../../../components/access";
-import CreateArticleControllers from "../../../../components/articles/controllers";
+import { axiosPrivate } from "../../../../modules/axios";
 import { PanelLayout } from "../../../../components/layout";
+import { checkConnectivity } from "../../../../modules/checkConnection";
+import CreateArticlePreview from "../../../../components/articles/preview";
+import { estimateReadTimeHandler } from "../../../../modules/estimateReadTime";
+import CreateArticleControllers from "../../../../components/articles/controllers";
 
 import "filepond/dist/filepond.min.css";
 
 function CreateArticles() {
+  const router = useRouter();
+
   const textRef = useRef<HTMLTextAreaElement>(null);
 
   const [content, setContent] = useState<string>(``);
@@ -24,6 +30,10 @@ function CreateArticles() {
   const [cover, setCover] = useState<any>();
 
   const [images, setImages] = useState<any>();
+
+  const [error, setError] = useState<string | null>("");
+
+  const [message, setMessage] = useState<string | null>("");
 
   const titleHandler = (e: ChangeEvent<HTMLInputElement>) => {
     setTitle(e.target.value);
@@ -42,6 +52,49 @@ function CreateArticles() {
 
     setContent(textRef.current!.value);
   };
+
+  const createArticleHandler = async () => {
+    const slug = title.replaceAll(" ", "-");
+
+    const article = {
+      title: title,
+      slug: slug,
+      content: content,
+      readTime: estimateReadTimeHandler(content),
+      cover: "asdfasdfasdf",
+      description: "asdfasd",
+    };
+
+    console.log(JSON.stringify(article));
+
+    const isConnected = await checkConnectivity();
+
+    if (isConnected) {
+      try {
+        const response = await axiosPrivate.post("/articles/create", JSON.stringify(article), {
+          headers: { "Content-Type": "application/json" },
+          withCredentials: true,
+        });
+
+        if (response.status) setMessage(response.data.message), setError(null), router.push(slug);
+      } catch (err: any) {
+        setMessage(null);
+
+        const statusCode = err.response.status;
+
+        if (statusCode === 403) {
+          setError("شما سطح دسترسی به قابلیت رو ندارید");
+        } else if (statusCode === 502) {
+          setError("از سمت دیتابیس مشکلی پیش اومد");
+        } else if (statusCode === 400) {
+          setError("اطلاعات کامل وارد نشده است یا قبلا با این موضوع مقاله ای ایجاد شده است.");
+        } else {
+          setError("مشکلی از سمت دیتابیس پیش اومد.");
+        }
+      }
+    }
+  };
+
   return (
     <Access admin author>
       <div className="p-4 space-y-4 rounded-xl box-shadow">
@@ -93,8 +146,15 @@ function CreateArticles() {
         />
       </div>
 
+      {message && <p className="mt-3 mb-1 p-3 bg-green-100 text-green-600 rounded-md">{message}</p>}
+
+      {error && <p className="mt-3 mb-1 p-3 bg-red-100 text-red-600 rounded-md">{error}</p>}
+
       <div className="my-4 flex items-center gap-x-3">
-        <button className={`${styles.primaryButton} disabled:opacity-50 py-3 px-10 hover:scale-[1.05]`}>
+        <button
+          className={`${styles.primaryButton} disabled:opacity-50 py-3 px-10 hover:scale-[1.05]`}
+          onClick={createArticleHandler}
+        >
           منتشر کردن مقاله
         </button>
 
