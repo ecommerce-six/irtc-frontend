@@ -11,7 +11,7 @@ function ArticlePreview({ cover, title, description, slug }: articlePreviewType)
 
       <h1 className="mt-4 px-6 text-base md:text-xl text-primary font-semibold text-center">{title}</h1>
 
-      <p className="mt-0 md:mt-3 px-4 text-center text-xs md:text-sm text-secondary leading-7 line-clamp-4">
+      <p className="mt-2 md:mt-3 px-4 text-center text-xs md:text-sm lg:min-h-[5rem] text-secondary leading-5 lg:leading-7 line-clamp-3">
         {description}
       </p>
 
@@ -25,3 +25,21 @@ function ArticlePreview({ cover, title, description, slug }: articlePreviewType)
 }
 
 export default ArticlePreview;
+
+export function ArticlePreviewLoading() {
+  return (
+    <div className="p-[1rem] w-full md:max-w-[32.5rem] rounded-xl box-shadow">
+      <div className="w-full h-[10rem] lg:h-[17rem] loading" />
+
+      <div className="mt-4 mx-auto w-[85%] h-[1.25rem] loading" />
+
+      <div className="mt-5 mx-auto w-[95%] h-[.8rem] loading" />
+      <div className="mt-3 mx-auto w-[95%] h-[.8rem] loading" />
+      <div className="mt-3 mx-auto w-[75%] h-[.8rem] loading" />
+
+      <span className="block mt-4 w-full h-[1px] bg-secondary opacity-25" />
+
+      <div className="mt-3 mx-auto w-[10rem] h-[1.75rem] loading" />
+    </div>
+  );
+}

@@ -2,82 +2,23 @@ import React, { useState } from "react";
 
 import Header from "../head";
 import ReactPaginate from "react-paginate";
+import useGetDataArray from "../../hooks/getData";
 import { MainLayout } from "../../components/layout";
 import Heading from "../../components/elements/heading";
 import ArticlesFilter from "../../components/articles/filter";
-import { articlesFilterHandlerType } from "../../types/article";
 import ArticlePreview from "../../components/articles/articlePreview";
+import { articleType, articlesFilterHandlerType } from "../../types/article";
 
 function Articles() {
-  const [countPage, setCountPage] = useState<number>(1);
-
   const [selectedPage, setSelectedPage] = useState<number>(1);
 
   const handlePageClick = (selectedItem: { selected: number }) => {
     setSelectedPage(selectedItem.selected + 1);
   };
 
-  const searchHandler = ({ time, basis }: articlesFilterHandlerType) => {
-  };
+  const searchHandler = ({ time, basis }: articlesFilterHandlerType) => {};
 
-  const articles = [
-    {
-      slug: "react",
-      title: "دروه اموزش تخصصی redux",
-      description:
-        "آیا می خواهید برای بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنیدآیا می خواهید برای بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنید آیا می خواهید برای بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنید",
-      cover: "https://sabzlearn.ir/wp-content/uploads/2023/02/sabz-redux.png",
-    },
-    {
-      slug: "react",
-      title: "دروه اموزش تخصصی redux",
-      description:
-        "آیا می خواهید برای بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنیدآیا می خواهید برای بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنید آیا می خواهید برای بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنید",
-      cover: "https://sabzlearn.ir/wp-content/uploads/2023/02/sabz-redux.png",
-    },
-    {
-      slug: "react",
-      title: "دروه اموزش تخصصی redux",
-      description:
-        "آیا می خواهید برای بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنیدآیا می خواهید برای بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنید آیا می خواهید برای بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنید",
-      cover: "https://sabzlearn.ir/wp-content/uploads/2023/02/sabz-redux.png",
-    },
-    {
-      slug: "react",
-      title: "دروه اموزش تخصصی redux",
-      description:
-        "آیا می خواهید برای بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنیدآیا می خواهید برای بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنید آیا می خواهید برای بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنید",
-      cover: "https://sabzlearn.ir/wp-content/uploads/2023/02/sabz-redux.png",
-    },
-    {
-      slug: "react",
-      title: "دروه اموزش تخصصی redux",
-      description:
-        "آیا می خواهید برای بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنیدآیا می خواهید برای بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنید آیا می خواهید برای بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنید",
-      cover: "https://sabzlearn.ir/wp-content/uploads/2023/02/sabz-redux.png",
-    },
-    {
-      slug: "react",
-      title: "دروه اموزش تخصصی redux",
-      description:
-        "آیا می خواهید برای بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنیدآیا می خواهید برای بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنید آیا می خواهید برای بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنید",
-      cover: "https://sabzlearn.ir/wp-content/uploads/2023/02/sabz-redux.png",
-    },
-    {
-      slug: "react",
-      title: "دروه اموزش تخصصی redux",
-      description:
-        "آیا می خواهید برای بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنیدآیا می خواهید برای بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنید آیا می خواهید برای بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنید",
-      cover: "https://sabzlearn.ir/wp-content/uploads/2023/02/sabz-redux.png",
-    },
-    {
-      slug: "react",
-      title: "دروه اموزش تخصصی redux",
-      description:
-        "آیا می خواهید برای بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنیدآیا می خواهید برای بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنید آیا می خواهید برای بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنید",
-      cover: "https://sabzlearn.ir/wp-content/uploads/2023/02/sabz-redux.png",
-    },
-  ];
+  const { data, fetchedCountPage } = useGetDataArray("/articles", selectedPage);
 
   return (
     <main>
@@ -94,14 +35,14 @@ function Articles() {
 
       <div className="mt-10 ">
         <div className="flex justify-center flex-wrap gap-20">
-          {articles.map((item, index) => (
+          {data.map((item: articleType, index: number) => (
             <ArticlePreview {...item} key={index} />
           ))}
         </div>
 
         <div className="flex items-center justify-center h-20 overflow-x-hidden">
           <ReactPaginate
-            pageCount={countPage}
+            pageCount={fetchedCountPage}
             breakLabel="..."
             nextLabel="بعدی"
             previousLabel="قبلی"

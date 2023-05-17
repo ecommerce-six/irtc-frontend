@@ -289,3 +289,18 @@ body {
     width: 100%;
   }
 }
+
+.loading {
+  background: linear-gradient(90deg, #eeeeee 0%, #eeeeee 35%, #dddddd 45%, #dddddd 55%, #eee 65%, #eee 100%);
+  background-size: 400%;
+  animation: loading 1.5s infinite linear;
+  border-radius: 1rem;
+}
+@keyframes loading {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}

@@ -2,11 +2,15 @@ import React from "react";
 import Link from "next/link";
 
 import Heading from "../elements/heading";
-import ArticlePreview from "../articles/articlePreview";
+import ArticlePreview, { ArticlePreviewLoading } from "../articles/articlePreview";
 
 import { styles } from "../../styles";
+import useGetDataArray from "../../hooks/getData";
+import { articleType } from "../../types/article";
 
 function LatestArticle() {
+  const { data } = useGetDataArray("/articles", 1, 2);
+
   return (
     <section className="mt-10">
       <Heading
@@ -19,19 +23,9 @@ function LatestArticle() {
       </Heading>
 
       <div className="mt-10 flex items-center justify-center flex-wrap gap-x-14 gap-y-10">
-        <ArticlePreview
-          slug="react"
-          title="دروه اموزش تخصصی redux"
-          description="آیا می خواهید برای بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنیدآیا می خواهید برای بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنید آیا می خواهید برای بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنید"
-          cover="https://sabzlearn.ir/wp-content/uploads/2023/02/sabz-redux.png"
-        />
-
-        <ArticlePreview
-          slug="react"
-          title="دروه اموزش تخصصی redux"
-          description="آیا می خواهید برای بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنیدآیا می خواهید برای بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنید آیا می خواهید برای بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنید"
-          cover="https://sabzlearn.ir/wp-content/uploads/2023/02/sabz-redux.png"
-        />
+        {data.length
+          ? data.map((item: articleType, index: number) => <ArticlePreview {...item} key={index} />)
+          : [...new Array(4)].map((index) => <ArticlePreviewLoading key={index} />)}
       </div>
     </section>
   );

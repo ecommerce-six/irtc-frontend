@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import Header from "../../head";
+import ReactPaginate from "react-paginate";
 import Access from "../../../components/access";
+import useGetDataArray from "../../../hooks/getData";
 import { PanelLayout } from "../../../components/layout";
 import ArticlesFilter from "../../../components/articles/filter";
-import useGetDataArray from "../../../hooks/getData";
 import ArticlePreviewEdit from "../../../components/articles/articlePreviewEdit";
-import ReactPaginate from "react-paginate";
 
 function Articles() {
   const [selectedPage, setSelectedPage] = useState<number>(1);

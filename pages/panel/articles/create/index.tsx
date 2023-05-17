@@ -13,6 +13,7 @@ import { estimateReadTimeHandler } from "../../../../modules/estimateReadTime";
 import CreateArticleControllers from "../../../../components/articles/controllers";
 
 import "filepond/dist/filepond.min.css";
+import { marked } from "marked";
 
 function CreateArticles() {
   const router = useRouter();
@@ -27,16 +28,22 @@ function CreateArticles() {
 
   const [title, setTitle] = useState<string>("");
 
+  const [description, setDescription] = useState<string>("");
+
   const [cover, setCover] = useState<any>();
 
   const [images, setImages] = useState<any>();
 
-  const [error, setError] = useState<string | null>("");
+  const [error, setError] = useState<{ message: string; title?: string } | null>(null);
 
   const [message, setMessage] = useState<string | null>("");
 
   const titleHandler = (e: ChangeEvent<HTMLInputElement>) => {
     setTitle(e.target.value);
+  };
+
+  const descriptionHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    setDescription(e.target.value);
   };
 
   const previewHandler = () => {
@@ -56,16 +63,30 @@ function CreateArticles() {
   const createArticleHandler = async () => {
     const slug = title.replaceAll(" ", "-");
 
-    const article = {
-      title: title,
-      slug: slug,
-      content: content,
-      readTime: estimateReadTimeHandler(content),
-      cover: "asdfasdfasdf",
-      description: "asdfasd",
-    };
+    if (title === "" || !title) {
+      setError({ message: "لطفا عنوانی برای مقاله خود انتخاب کنید.", title: "title" });
+      return;
+    } else if (description === "" || !description) {
+      setError({ message: "لطفا توضیح کوتاهی برای مقاله خود انتخاب کنید.", title: "description" });
+      return;
+    } else if (description === "" || !description) {
+      setError({ message: "لطفا توضیح کوتاهی برای مقاله خود بنویسید." });
+      return;
+    } else if (content === "" || !content) {
+      setError({ message: "لطفا محتوایی برای مقاله خود بنویسید." });
+      return;
+    }
 
-    console.log(JSON.stringify(article));
+    setError(null);
+
+    const article = {
+      slug: slug,
+      title: title,
+      content: content,
+      description: description,
+      readTime: estimateReadTimeHandler(content),
+      cover: "https://sabzlearn.ir/wp-content/uploads/2023/02/sabz-redux.png",
+    };
 
     const isConnected = await checkConnectivity();
 
@@ -83,13 +104,13 @@ function CreateArticles() {
         const statusCode = err.response.status;
 
         if (statusCode === 403) {
-          setError("شما سطح دسترسی به قابلیت رو ندارید");
+          setError({ message: "شما سطح دسترسی به قابلیت رو ندارید" });
         } else if (statusCode === 502) {
-          setError("از سمت دیتابیس مشکلی پیش اومد");
+          setError({ message: "از سمت دیتابیس مشکلی پیش اومد" });
         } else if (statusCode === 400) {
-          setError("اطلاعات کامل وارد نشده است یا قبلا با این موضوع مقاله ای ایجاد شده است.");
+          setError({ message: "اطلاعات کامل وارد نشده است یا قبلا با این موضوع مقاله ای ایجاد شده است." });
         } else {
-          setError("مشکلی از سمت دیتابیس پیش اومد.");
+          setError({ message: "مشکلی از سمت دیتابیس پیش اومد." });
         }
       }
     }
@@ -105,7 +126,18 @@ function CreateArticles() {
           name={"title"}
           placeholder={"عنوان مقاله"}
           onChange={titleHandler}
-          className="p-3 w-full text-sm md:text-base text-secondary bg-dim-secondary rounded-xl outline-none invalid:border-2 invalid:border-red-600"
+          className={`p-3 w-full text-sm md:text-base text-secondary bg-dim-secondary justify-start rounded-xl outline-none ${
+            error?.title === "title" && "border-2 border-red-600"
+          } resize-none`}
+        />
+
+        <textarea
+          placeholder={"توضیح کوتاهی از مقاله یا چرا باید این مقاله را بخوانند"}
+          onChange={descriptionHandler}
+          className={`p-3 w-full h-[7rem] text-sm md:text-base text-secondary bg-dim-secondary justify-start rounded-xl outline-none ${
+            error?.title === "description" && "border-2 border-red-600"
+          } resize-none`}
+          maxLength={200}
         />
 
         <FilePond
@@ -148,7 +180,7 @@ function CreateArticles() {
 
       {message && <p className="mt-3 mb-1 p-3 bg-green-100 text-green-600 rounded-md">{message}</p>}
 
-      {error && <p className="mt-3 mb-1 p-3 bg-red-100 text-red-600 rounded-md">{error}</p>}
+      {error && <p className="mt-3 mb-1 p-3 bg-red-100 text-red-600 rounded-md">{error.message}</p>}
 
       <div className="my-4 flex items-center gap-x-3">
         <button
