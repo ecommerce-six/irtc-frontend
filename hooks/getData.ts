@@ -1,7 +1,8 @@
-import { axiosPrivate } from "../modules/axios";
-import { userType } from "../types/user";
 import { useEffect, useState } from "react";
+
 import useAuth from "./useAuth";
+import { userType } from "../types/user";
+import { axiosPrivate } from "../modules/axios";
 
 const useGetDataArray = (URL: string, page: number, limit?: number) => {
   const [data, setData] = useState<userType[]>([]);
@@ -15,8 +16,7 @@ const useGetDataArray = (URL: string, page: number, limit?: number) => {
 
     const getUsersHandler = async () => {
       try {
-        const response = await axiosPrivate.get(`${URL}/?page=${page}`);
-        // const response = await axiosPrivate.get(`${URL}/?page=${page}&limit=${limit}`);
+        const response = await axiosPrivate.get(`${URL}/?page=${page}&limit=${limit}`);
 
         console.log(response);
 

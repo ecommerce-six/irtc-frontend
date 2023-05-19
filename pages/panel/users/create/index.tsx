@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 
-import Input from "../../../../components/login/input";
-import { PanelLayout } from "../../../../components/layout";
-
 import Header from "../../../head";
 import { useFormik } from "formik";
-import { userGenderType } from "../../../../types/user";
-import { axiosPrivate } from "../../../../modules/axios";
-import { checkConnectivity } from "../../../../modules/checkConnection";
-
 import { styles } from "../../../../styles";
+import Input from "../../../../components/login/input";
+import { userGenderType } from "../../../../types/user";
+``;
+import { axiosPrivate } from "../../../../modules/axios";
+import { PanelLayout } from "../../../../components/layout";
+import { checkConnectivity } from "../../../../modules/checkConnection";
 
 type errors = {
   name?: string;
@@ -53,6 +52,7 @@ function CreateUser() {
       const isConnected = await checkConnectivity();
 
       if (isConnected) {
+        console.log(user);
         const response = await axiosPrivate.post(CREATE_URL, JSON.stringify({ ...user }), {
           headers: { "Content-Type": "application/json" },
           withCredentials: true,
@@ -64,8 +64,6 @@ function CreateUser() {
           setMessage("کاربر با موفقیت ایجاد شد :)");
           return;
         }
-
-        // ! no error for not selected genders like animal
 
         setError(response?.data.message);
       }
@@ -155,7 +153,7 @@ function CreateUser() {
       lastName: "",
       password: "",
       firstName: "",
-      gender: "male",
+      gender: gender,
       repeatPassword: "",
     },
 

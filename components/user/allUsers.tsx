@@ -1,23 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-import User from "./user";
+import User, { UserLoading } from "./user";
 import { styles } from "../../styles";
 import ReactPaginate from "react-paginate";
 import useGetUsers from "../../hooks/useGetUsers";
 import { exportToExcel } from "../../modules/exportUsersToExcel";
+import useGetDataArray from "../../hooks/getData";
+import { userType } from "../../types/user";
+
+const USERS_URL = "/users";
 
 function AllUsers() {
   const [selectedPage, setSelectedPage] = useState<number>(1);
 
-  const { users, fetchedCountPage } = useGetUsers(selectedPage);
+  // const { users, fetchedCountPage } = useGetUsers(selectedPage);
+
+  const { data, fetchedCountPage } = useGetDataArray(USERS_URL, selectedPage, 20);
 
   const handlePageClick = (selectedItem: { selected: number }) => {
     setSelectedPage(selectedItem.selected + 1);
   };
 
   const exportToExcelHandler = () => {
-    exportToExcel(users);
+    exportToExcel(data);
   };
+
+  useEffect(() => {
+    console.log(fetchedCountPage);
+  }, [fetchedCountPage]);
 
   return (
     <>
@@ -53,9 +63,9 @@ function AllUsers() {
       />
 
       <div className="mt-8 space-y-8">
-        {users.map((item, index) => (
-          <User {...item} key={index} />
-        ))}
+        {data.users
+          ? data.users.map((item: userType, index: number) => <User {...item} key={index} />)
+          : [...new Array(4)].map((index) => <UserLoading key={index} />)}
       </div>
 
       <ReactPaginate
