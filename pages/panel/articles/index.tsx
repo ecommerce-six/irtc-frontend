@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Header from "../../head";
 import ReactPaginate from "react-paginate";
 import Access from "../../../components/access";
-import useGetDataArray from "../../../hooks/getData";
+import useFetchData from "../../../hooks/useFetchData";
 import { PanelLayout } from "../../../components/layout";
 import ArticlesFilter from "../../../components/articles/filter";
 import ArticlePreviewEdit, { ArticlePreviewEditLoading } from "../../../components/articles/articlePreviewEdit";
@@ -17,7 +17,7 @@ function Articles() {
     setSelectedPage(selectedItem.selected + 1);
   };
 
-  const { data, fetchedCountPage } = useGetDataArray("/articles", selectedPage, 20);
+  const { data, fetchedCountPage } = useFetchData("/articles", selectedPage, 20);
 
   return (
     <Access admin author>

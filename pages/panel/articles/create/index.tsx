@@ -13,7 +13,6 @@ import { estimateReadTimeHandler } from "../../../../modules/estimateReadTime";
 import CreateArticleControllers from "../../../../components/articles/controllers";
 
 import "filepond/dist/filepond.min.css";
-import { marked } from "marked";
 
 function CreateArticles() {
   const router = useRouter();
@@ -195,7 +194,7 @@ function CreateArticles() {
         </button>
       </div>
 
-      {preview && <CreateArticlePreview title={title} content={content} />}
+      {preview && <CreateArticlePreview title={title} content={content} previewHandler={previewHandler} />}
 
       {uploadArticleImage && (
         <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center">

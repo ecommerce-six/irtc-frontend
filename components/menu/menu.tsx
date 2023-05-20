@@ -49,10 +49,12 @@ function Menu() {
           {
             path: "/panel/analytics",
             title: "تحلیل و تجزیه",
+            disabled: true,
           },
           {
             path: "/panel/invoice",
             title: "تجارت",
+            disabled: true,
           },
         ]
       : [
@@ -88,20 +90,6 @@ function Menu() {
   const contentLinks =
     role === "admin"
       ? [
-          // {
-          //   path: "/panel/courses",
-          //   title: "دوره ها",
-          //   subLink: [
-          //     {
-          //       path: "/panel/courses",
-          //       title: "همه ی دوره ها",
-          //     },
-          //     {
-          //       path: "/panel/courses/create",
-          //       title: "اضافه کردن دوره",
-          //     },
-          //   ],
-          // },
           {
             path: "/panel/articles",
             title: "مقاله ها",
@@ -117,6 +105,23 @@ function Menu() {
               {
                 path: "/panel/articles/create",
                 title: "ایجاد کردن مقاله",
+              },
+            ],
+          },
+          {
+            path: "/panel/courses",
+            title: "دوره ها",
+            disabled: true,
+            subLink: [
+              {
+                path: "/panel/courses",
+                title: "همه ی دوره ها",
+                disabled: true,
+              },
+              {
+                path: "/panel/courses/create",
+                title: "اضافه کردن دوره",
+                disabled: true,
               },
             ],
           },

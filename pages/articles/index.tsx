@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import Header from "../head";
 import ReactPaginate from "react-paginate";
-import useGetDataArray from "../../hooks/getData";
+import useFetchData from "../../hooks/useFetchData";
 import { MainLayout } from "../../components/layout";
 import Heading from "../../components/elements/heading";
 import ArticlesFilter from "../../components/articles/filter";
@@ -18,7 +18,7 @@ function Articles() {
 
   const searchHandler = ({ time, basis }: articlesFilterHandlerType) => {};
 
-  const { data, fetchedCountPage } = useGetDataArray("/articles", selectedPage);
+  const { data, fetchedCountPage } = useFetchData("/articles", selectedPage);
 
   return (
     <main>

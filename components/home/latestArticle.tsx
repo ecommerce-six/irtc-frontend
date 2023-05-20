@@ -5,11 +5,11 @@ import Heading from "../elements/heading";
 import ArticlePreview, { ArticlePreviewLoading } from "../articles/articlePreview";
 
 import { styles } from "../../styles";
-import useGetDataArray from "../../hooks/getData";
+import useFetchData from "../../hooks/useFetchData";
 import { articleType } from "../../types/article";
 
 function LatestArticle() {
-  const { data } = useGetDataArray("/articles", 1, 2);
+  const { data } = useFetchData("/articles", 1, 2);
 
   return (
     <section className="mt-10">

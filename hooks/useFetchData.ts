@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 
 import useAuth from "./useAuth";
-import { userType } from "../types/user";
 import { axiosPrivate } from "../modules/axios";
 
-const useGetDataArray = (URL: string, page: number, limit?: number) => {
+const useFetchData = (URL: string, page: number = 1, limit?: number) => {
   const [data, setData] = useState<any | null>(null);
 
   const { auth } = useAuth();
@@ -12,8 +11,6 @@ const useGetDataArray = (URL: string, page: number, limit?: number) => {
   const [fetchedCountPage, setFetchedCountPage] = useState<number>(3);
 
   useEffect(() => {
-    console.log("get articles run");
-
     const getUsersHandler = async () => {
       try {
         // ! const response = await axiosPrivate.get(`${URL}/?page=${page}&limit=${limit ?? 10}`);
@@ -42,4 +39,4 @@ const useGetDataArray = (URL: string, page: number, limit?: number) => {
   return fetchedData;
 };
 
-export default useGetDataArray;
+export default useFetchData;

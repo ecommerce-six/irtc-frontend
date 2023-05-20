@@ -4,10 +4,11 @@ import { ChangeEvent, useState, useRef, useEffect } from "react";
 
 import Header from "../../../head";
 import { styles } from "../../../../styles";
+import EditArticlesLoading from "./loading";
 import Access from "../../../../components/access";
-import useGetDataArray from "../../../../hooks/getData";
 import { articleType } from "../../../../types/article";
 import { axiosPrivate } from "../../../../modules/axios";
+import useFetchData from "../../../../hooks/useFetchData";
 import { PanelLayout } from "../../../../components/layout";
 import { checkConnectivity } from "../../../../modules/checkConnection";
 import CreateArticlePreview from "../../../../components/articles/preview";
@@ -17,7 +18,7 @@ import CreateArticleControllers from "../../../../components/articles/controller
 import "filepond/dist/filepond.min.css";
 
 function EditArticles() {
-  const { data }: { data: articleType } = useGetDataArray("/articles/اموزش-کشیدن-نمودار-های-ترید", 1, 2);
+  const { data }: { data: articleType } = useFetchData("/articles/اموزش-کشیدن-نمودار-های-ترید");
 
   const router = useRouter();
 
@@ -100,8 +101,6 @@ function EditArticles() {
           withCredentials: true,
         });
 
-        console.log(response);
-
         if (response.status) setMessage("مقاله با موفقیت اپدیت شد"), setError(null), router.push(slug);
       } catch (err: any) {
         setMessage(null);
@@ -145,10 +144,10 @@ function EditArticles() {
             name={"title"}
             placeholder={"عنوان مقاله"}
             onChange={titleHandler}
-            defaultValue={data.title}
             className={`p-3 w-full text-sm md:text-base text-secondary bg-dim-secondary justify-start rounded-xl outline-none ${
               error?.title === "title" && "border-2 border-red-600"
             } resize-none`}
+            defaultValue={data.title}
           />
 
           <textarea
@@ -251,6 +250,7 @@ function EditArticles() {
       </Access>
     );
   }
+  return <EditArticlesLoading />;
 }
 
 EditArticles.PageLayout = PanelLayout;

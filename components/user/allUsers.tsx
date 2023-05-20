@@ -4,7 +4,7 @@ import { styles } from "../../styles";
 import ReactPaginate from "react-paginate";
 import { userType } from "../../types/user";
 import User, { UserLoading } from "./user";
-import useGetDataArray from "../../hooks/getData";
+import useFetchData from "../../hooks/useFetchData";
 import { exportToExcel } from "../../modules/exportUsersToExcel";
 
 const USERS_URL = "/users";
@@ -12,7 +12,7 @@ const USERS_URL = "/users";
 function AllUsers() {
   const [selectedPage, setSelectedPage] = useState<number>(1);
 
-  const { data, fetchedCountPage } = useGetDataArray(USERS_URL, selectedPage, 2);
+  const { data, fetchedCountPage } = useFetchData(USERS_URL, selectedPage, 2);
 
   const handlePageClick = (selectedItem: { selected: number }) => {
     setSelectedPage(selectedItem.selected + 1);

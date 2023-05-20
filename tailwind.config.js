@@ -7,6 +7,7 @@ module.exports = {
         brand: "#8001FF",
         primary: "#161D27",
         secondary: "#2F3F56",
+        "dim-primary": "#161D2775",
         "dim-secondary": "#2F3F5625",
         background: "#FFFFFF",
       },
