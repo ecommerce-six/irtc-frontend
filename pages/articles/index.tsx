@@ -6,8 +6,8 @@ import useFetchData from "../../hooks/useFetchData";
 import { MainLayout } from "../../components/layout";
 import Heading from "../../components/elements/heading";
 import ArticlesFilter from "../../components/articles/filter";
-import ArticlePreview from "../../components/articles/articlePreview";
 import { articleType, articlesFilterHandlerType } from "../../types/article";
+import ArticlePreview, { ArticlePreviewLoading } from "../../components/articles/articlePreview";
 
 function Articles() {
   const [selectedPage, setSelectedPage] = useState<number>(1);
@@ -35,9 +35,9 @@ function Articles() {
 
       <div className="mt-10 ">
         <div className="flex justify-center flex-wrap gap-20">
-          {data.map((item: articleType, index: number) => (
-            <ArticlePreview {...item} key={index} />
-          ))}
+          {data
+            ? data.map((item: articleType, index: number) => <ArticlePreview {...item} key={index} />)
+            : [...new Array(4)].map((index) => <ArticlePreviewLoading key={index} />)}
         </div>
 
         <div className="flex items-center justify-center h-20 overflow-x-hidden">

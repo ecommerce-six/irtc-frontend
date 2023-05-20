@@ -96,10 +96,14 @@ function EditArticles() {
 
     if (isConnected) {
       try {
+        console.log(article);
+
         const response = await axiosPrivate.post(`/articles/update/${data.id}`, JSON.stringify(article), {
           headers: { "Content-Type": "application/json" },
           withCredentials: true,
         });
+
+console.log(response);
 
         if (response.status) setMessage("مقاله با موفقیت اپدیت شد"), setError(null), router.push(slug);
       } catch (err: any) {

@@ -17,8 +17,6 @@ const useFetchData = (URL: string, page: number = 1, limit?: number) => {
 
         const response = await axiosPrivate.get(`${URL}/?page=${page}`);
 
-        console.log(response);
-
         const data = response.data.data;
 
         if (response.status === 200) {

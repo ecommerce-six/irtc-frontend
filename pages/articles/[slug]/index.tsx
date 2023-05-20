@@ -18,7 +18,6 @@ import { CommentsIcon, LikeIcon, RateIcon, TimeIcon } from "../../../public/icon
 type props = { article: articleType };
 
 function Article({ article }: props) {
-  console.log(article);
 
   return (
     <main className="flex justify-between flex-col lg:flex-row gap-5">

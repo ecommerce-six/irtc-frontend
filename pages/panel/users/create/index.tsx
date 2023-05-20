@@ -52,7 +52,6 @@ function CreateUser() {
       const isConnected = await checkConnectivity();
 
       if (isConnected) {
-        console.log(user);
         const response = await axiosPrivate.post(CREATE_URL, JSON.stringify({ ...user }), {
           headers: { "Content-Type": "application/json" },
           withCredentials: true,
