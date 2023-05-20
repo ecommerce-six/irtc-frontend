@@ -1,21 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
-import User, { UserLoading } from "./user";
 import { styles } from "../../styles";
 import ReactPaginate from "react-paginate";
-import useGetUsers from "../../hooks/useGetUsers";
-import { exportToExcel } from "../../modules/exportUsersToExcel";
-import useGetDataArray from "../../hooks/getData";
 import { userType } from "../../types/user";
+import User, { UserLoading } from "./user";
+import useGetDataArray from "../../hooks/getData";
+import { exportToExcel } from "../../modules/exportUsersToExcel";
 
 const USERS_URL = "/users";
 
 function AllUsers() {
   const [selectedPage, setSelectedPage] = useState<number>(1);
 
-  // const { users, fetchedCountPage } = useGetUsers(selectedPage);
-
-  const { data, fetchedCountPage } = useGetDataArray(USERS_URL, selectedPage, 20);
+  const { data, fetchedCountPage } = useGetDataArray(USERS_URL, selectedPage, 2);
 
   const handlePageClick = (selectedItem: { selected: number }) => {
     setSelectedPage(selectedItem.selected + 1);
@@ -24,10 +21,6 @@ function AllUsers() {
   const exportToExcelHandler = () => {
     exportToExcel(data);
   };
-
-  useEffect(() => {
-    console.log(fetchedCountPage);
-  }, [fetchedCountPage]);
 
   return (
     <>
@@ -63,7 +56,7 @@ function AllUsers() {
       />
 
       <div className="mt-8 space-y-8">
-        {data.users
+        {data
           ? data.users.map((item: userType, index: number) => <User {...item} key={index} />)
           : [...new Array(4)].map((index) => <UserLoading key={index} />)}
       </div>

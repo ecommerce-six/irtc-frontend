@@ -101,7 +101,7 @@ function CreateArticles() {
       } catch (err: any) {
         setMessage(null);
 
-        const statusCode = err.response.status;
+        const statusCode = err.response?.status;
 
         if (statusCode === 403) {
           setError({ message: "شما سطح دسترسی به قابلیت رو ندارید" });

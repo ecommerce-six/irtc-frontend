@@ -14,7 +14,6 @@ function UserWrapper({ children }: { children: ReactNode }) {
   const refresh = useRefreshToken();
 
   useEffect(() => {
-    console.log("persist file run");
     var isMounted = true;
 
     if (rememberMe) {

@@ -6,7 +6,7 @@ import Access from "../../../components/access";
 import useGetDataArray from "../../../hooks/getData";
 import { PanelLayout } from "../../../components/layout";
 import ArticlesFilter from "../../../components/articles/filter";
-import ArticlePreviewEdit from "../../../components/articles/articlePreviewEdit";
+import ArticlePreviewEdit, { ArticlePreviewEditLoading } from "../../../components/articles/articlePreviewEdit";
 
 function Articles() {
   const [selectedPage, setSelectedPage] = useState<number>(1);
@@ -17,7 +17,7 @@ function Articles() {
     setSelectedPage(selectedItem.selected + 1);
   };
 
-  const { data, fetchedCountPage } = useGetDataArray("/articles", selectedPage);
+  const { data, fetchedCountPage } = useGetDataArray("/articles", selectedPage, 20);
 
   return (
     <Access admin author>
@@ -26,7 +26,9 @@ function Articles() {
       <ArticlesFilter searchHandler={searchHandler} />
 
       <div className="mt-6 flex flex-col items-center gap-y-5">
-        {data && data.map((item: any, index: number) => <ArticlePreviewEdit {...item} key={index} />)}
+        {data
+          ? data.map((item: any, index: number) => <ArticlePreviewEdit {...item} key={index} />)
+          : [...new Array(4)].map((index) => <ArticlePreviewEditLoading key={index} />)}
       </div>
 
       <ReactPaginate

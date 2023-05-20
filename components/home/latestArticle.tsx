@@ -23,7 +23,7 @@ function LatestArticle() {
       </Heading>
 
       <div className="mt-10 flex items-center justify-center flex-wrap gap-x-14 gap-y-10">
-        {data.length
+        {data
           ? data.map((item: articleType, index: number) => <ArticlePreview {...item} key={index} />)
           : [...new Array(4)].map((index) => <ArticlePreviewLoading key={index} />)}
       </div>

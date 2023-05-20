@@ -68,13 +68,15 @@ function CreateUser() {
         setError(response?.data.message);
       }
     } catch (err: any) {
+      const statusCode = err.response?.status;
+
       if (!err?.response) {
         setError("خطا در ارتباط با سرور");
-      } else if (err.response.status === 400) {
+      } else if (statusCode === 400) {
         setError("فرمت اطلاعات وارد شده درست نیست. :(");
-      } else if (err.response.status === 409) {
+      } else if (statusCode === 409) {
         setError("شماره یا ایمیل قبلا استفاده شده");
-      } else if (err.response.status === 500 || err.response.status === 502) {
+      } else if (statusCode === 500 || statusCode === 502) {
         setError("خطا در ارتباط با سرور");
       } else {
         setError("ثبت نام کاربر به مشکل برخورد");

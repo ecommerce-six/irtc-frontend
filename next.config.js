@@ -7,6 +7,15 @@ const nextConfig = {
     locales: ["fa"],
     defaultLocale: "fa",
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "sabzlearn.ir",
+        pathname: "/wp-content/uploads/**",
+      },
+    ],
+  },
 };
 
 module.exports = nextConfig;

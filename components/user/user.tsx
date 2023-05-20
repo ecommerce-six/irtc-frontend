@@ -49,13 +49,15 @@ function User({
         setError(response?.data.message);
       }
     } catch (err: any) {
+      const statusCode = err.response?.status;
+
       if (!err?.response) {
         setError("خطا در ارتباط با سرور");
         return;
-      } else if (err.response.status === 403) {
+      } else if (statusCode === 403) {
         setError("شما سطح دسترسی به این مورد را ندارید");
         return;
-      } else if (err.response.status === 500 || err.response.status === 502) {
+      } else if (statusCode === 500 || statusCode === 502) {
         setError("خطا در ارتباط با سرور");
         return;
       }
@@ -91,7 +93,7 @@ function User({
       />
 
       <h1 className="font-medium min-w-[10rem] max-w-[12rem] overflow-hidden text-ellipsis text-center">
-        {firstName || lastName ? `${firstName} ${lastName}` : ""}
+        {firstName || lastName ? `${firstName} ${lastName}` : "-"}
       </h1>
 
       <h2 className={`py-1 px-2 rounded-full ${phoneNumberVerified && "text-sm text-green-500 bg-green-200"}`}>
