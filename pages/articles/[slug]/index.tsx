@@ -18,6 +18,7 @@ import { CommentsIcon, LikeIcon, RateIcon, TimeIcon } from "../../../public/icon
 type props = { article: articleType };
 
 function Article({ article }: props) {
+  const { user } = article;
 
   return (
     <main className="flex justify-between flex-col lg:flex-row gap-5">
@@ -48,7 +49,7 @@ function Article({ article }: props) {
             <div className="flex items-center gap-x-3">
               <LikeIcon />
 
-              <h3 className="text-secondary text-xs md:text-sm">{article.likesCount}</h3>
+              <h3 className="text-secondary text-xs md:text-sm">{article.likesCount ?? "فعلا 0"}</h3>
             </div>
 
             {article.comments && (
@@ -59,11 +60,13 @@ function Article({ article }: props) {
               </div>
             )}
 
-            <div className="flex items-center gap-x-3">
-              <RateIcon />
+            {article.rate && (
+              <div className="flex items-center gap-x-3">
+                <RateIcon />
 
-              <h3 className="text-secondary text-xs md:text-sm">{article.rate}</h3>
-            </div>
+                <h3 className="text-secondary text-xs md:text-sm">{article.rate}</h3>
+              </div>
+            )}
           </div>
 
           <time className="text-secondary text-sm">{article.time}</time>
@@ -82,10 +85,10 @@ function Article({ article }: props) {
 
           <div className="space-y-2">
             <h1 className="text-primary font-semibold w-full text-sm md:text-base text-ellipsis overflow-hidden whitespace-nowrap">
-              ویتو محققیان
+              {user?.firstName} {user?.lastName} {!(user?.firstName || user?.lastName) && user?.phoneNumber}
             </h1>
             <h2 className="text-secondary w-full text-xs text-ellipsis overflow-hidden whitespace-nowrap">
-              Front-end Developer
+              {user?.role === "admin" ? "ادمین" : "نویسنده"}
             </h2>
           </div>
         </div>
@@ -112,7 +115,7 @@ export async function getStaticPaths() {
 
   const articles = response.data.data;
 
-  const paths = articles.map((item: articleType) => {
+  const paths = articles.article.map((item: articleType) => {
     return {
       params: {
         slug: item.slug,

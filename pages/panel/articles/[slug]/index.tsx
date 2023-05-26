@@ -103,7 +103,7 @@ function EditArticles() {
           withCredentials: true,
         });
 
-console.log(response);
+        console.log(response);
 
         if (response.status) setMessage("مقاله با موفقیت اپدیت شد"), setError(null), router.push(slug);
       } catch (err: any) {

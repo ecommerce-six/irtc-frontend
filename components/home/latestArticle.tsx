@@ -24,7 +24,7 @@ function LatestArticle() {
 
       <div className="mt-10 flex items-center justify-center flex-wrap gap-x-14 gap-y-10">
         {data
-          ? data.map((item: articleType, index: number) => <ArticlePreview {...item} key={index} />)
+          ? data.article.map((item: articleType, index: number) => <ArticlePreview {...item} key={index} />)
           : [...new Array(4)].map((index) => <ArticlePreviewLoading key={index} />)}
       </div>
     </section>

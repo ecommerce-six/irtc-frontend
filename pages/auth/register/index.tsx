@@ -20,12 +20,12 @@ function Register() {
 
   const { error, setError } = useError();
 
-  const signupHandler = async (user: registerHandlerType) => {
+  const signupHandler = async (body: registerHandlerType) => {
     try {
       const isConnected = await checkConnectivity();
 
       if (isConnected) {
-        const response = await axios.post(REGISTER_URL, JSON.stringify({ ...user }), {
+        const response = await axios.post(REGISTER_URL, JSON.stringify({ ...body }), {
           headers: { "Content-Type": "application/json" },
           withCredentials: true,
         });
@@ -33,7 +33,7 @@ function Register() {
         const token = response.data.data.token;
 
         if (response?.status === 200) {
-          setAuth({ accessToken: token });
+          setAuth({ accessToken: token, rememberMe: body.rememberMe });
 
           await getUser();
 

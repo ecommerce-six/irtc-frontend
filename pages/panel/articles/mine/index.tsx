@@ -27,7 +27,7 @@ function MyArticles() {
 
       <div className="mt-6 flex flex-col items-center gap-y-5">
         {data
-          ? data.map((item: any, index: number) => <ArticlePreviewEdit {...item} key={index} />)
+          ? data.article.map((item: any, index: number) => <ArticlePreviewEdit {...item} key={index} />)
           : [...new Array(4)].map((index) => <ArticlePreviewEditLoading key={index} />)}
       </div>
 

@@ -19,6 +19,13 @@ export type articleType = {
   likesCount: number;
   description: string;
   comments: articleCommentType[];
+  user?: {
+    lastName: string;
+    firstName: string;
+    phoneNumber: string;
+    profileImage: string;
+    role: "admin" | "author";
+  };
 };
 
 export type articlesFilterHandlerType = {

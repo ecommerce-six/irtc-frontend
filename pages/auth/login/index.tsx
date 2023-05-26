@@ -37,7 +37,7 @@ function Login() {
         const token = response.data.data.token;
 
         if (response?.status === 200) {
-          await setAuth({ accessToken: token });
+          await setAuth({ accessToken: token, rememberMe: body.rememberMe });
 
           await getUser();
 

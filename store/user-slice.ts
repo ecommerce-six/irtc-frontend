@@ -4,10 +4,12 @@ import { userStoreType, userType } from "../types/user";
 
 type initialStateType = {
   user: userStoreType;
+  loading: boolean;
 };
 
 const initialState: initialStateType = {
-  user: null,
+  user: undefined,
+  loading: false,
 };
 
 const userSlice = createSlice({
@@ -21,6 +23,14 @@ const userSlice = createSlice({
     },
     logout: (state: initialStateType) => {
       state.user = null;
+    },
+    setLoading: (
+      state: initialStateType,
+      action: {
+        payload: boolean;
+      }
+    ) => {
+      state.loading = action.payload;
     },
   },
   extraReducers: {
