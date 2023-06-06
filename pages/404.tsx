@@ -5,7 +5,7 @@ import Image from "next/image";
 import Navbar from "../components/layout/navbar";
 
 import { styles } from "../styles";
-import { ErrorImage, NotFoundImage } from "../public";
+import { NotFoundImage } from "../public";
 
 function Error404() {
   return (

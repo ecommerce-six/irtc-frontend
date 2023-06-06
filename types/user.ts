@@ -26,4 +26,4 @@ export type userFilterType = {
 
 export type userGenderType = "male" | "female" | "others";
 
-export type userStoreType = null | userType;
+export type userStoreType = null | userType | undefined;

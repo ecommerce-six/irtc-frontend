@@ -19,17 +19,17 @@ function MyApp({ Component, pageProps }: ComponentWithPageLayout) {
   return (
     <div className={`${IranYekan.className}`}>
       <Provider store={store}>
-        {Component.PageLayout ? (
-          <UserWrapper>
+        <UserWrapper>
+          {Component.PageLayout ? (
             <Component.PageLayout>
               <ErrorBoundary>
                 <Component {...pageProps} />
               </ErrorBoundary>
             </Component.PageLayout>
-          </UserWrapper>
-        ) : (
-          <Component {...pageProps} />
-        )}
+          ) : (
+            <Component {...pageProps} />
+          )}
+        </UserWrapper>
       </Provider>
     </div>
   );

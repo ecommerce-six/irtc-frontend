@@ -1,8 +1,11 @@
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 
 import { FilledStarIcon, StarOutlineIcon } from "../../public/icons";
+import useUser from "../../hooks/useUser";
+import { useRouter } from "next/router";
+import { checkConnectivity } from "../../modules/checkConnection";
 // import { routeActions } from "../../app/store/route-slice";
 
 // type props = {
@@ -11,13 +14,33 @@ import { FilledStarIcon, StarOutlineIcon } from "../../public/icons";
 // };
 
 function ArticleRate() {
-  // const LoggedIn = useSelector((state: RootState) => state.user.user);
+  const { user } = useUser();
+
+  const router = useRouter();
 
   const [rate, setRate] = useState(3);
 
   const rateHandler = (rate: number) => {
     setRate(rate);
   };
+
+  const submitHandler = async () => {
+    const isConnected = await checkConnectivity();
+
+    if (isConnected) {
+      console.log("adsf");
+    }
+  };
+
+  useEffect(() => {
+    const timeoutTimer = setTimeout(() => {
+      submitHandler();
+    }, 2000);
+
+    return () => {
+      clearTimeout(timeoutTimer);
+    };
+  }, [rate]);
 
   return (
     <div className="mt-4 p-4 flex items-center justify-between flex-col md:flex-row gap-4 bg-dim-secondary rounded-xl">
@@ -28,12 +51,11 @@ function ArticleRate() {
           <button
             key={index}
             onClick={() => {
-              // if (LoggedIn) {
-              //   rateHandler(index + 1);
-              //   return;
-              // }
-              // dispatch(redirectActions.redirect(pathname));
-              // router.push("/login");
+              if (user?.role) {
+                rateHandler(index + 1);
+                return;
+              }
+              router.push("login");
             }}
           >
             <Image src={index < rate ? FilledStarIcon : StarOutlineIcon} alt="star" className="w-5 h-5" />

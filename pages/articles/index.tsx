@@ -36,7 +36,7 @@ function Articles() {
       <div className="mt-10 ">
         <div className="flex justify-center flex-wrap gap-20">
           {data
-            ? data.map((item: articleType, index: number) => <ArticlePreview {...item} key={index} />)
+            ? data.article.map((item: articleType, index: number) => <ArticlePreview {...item} key={index} />)
             : [...new Array(4)].map((index) => <ArticlePreviewLoading key={index} />)}
         </div>
 

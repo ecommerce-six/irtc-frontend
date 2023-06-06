@@ -296,6 +296,7 @@ body {
   animation: loading 1.5s infinite linear;
   border-radius: 1rem;
 }
+
 @keyframes loading {
   0% {
     background-position: 0 0;

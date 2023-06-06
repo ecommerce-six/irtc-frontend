@@ -16,6 +16,8 @@ const useLogout = () => {
 
       setAuth({ accessToken: null, rememberMe: false });
 
+      localStorage.removeItem("rememberMe");
+
       dispatch(userActions.logout());
     } catch (err) {
       console.error(err);

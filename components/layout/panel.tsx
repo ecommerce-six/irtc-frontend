@@ -1,4 +1,4 @@
-import { ReactNode, useState, useEffect } from "react";
+import { ReactNode } from "react";
 
 import Navbar from "./navbar";
 import Menu from "../menu/menu";
@@ -6,36 +6,37 @@ import ScrollToTop from "../scrollToTop";
 
 import { styles } from "../../styles";
 import Error404 from "../../pages/404";
+import useAuth from "../../hooks/useAuth";
 import useUser from "../../hooks/useUser";
 
 const PanelLayout = ({ children }: { children: ReactNode }) => {
   const { user } = useUser();
 
-  const [hasMounted, setHasMounted] = useState(false);
+  const { rememberMe } = useAuth();
 
-  useEffect(() => {
-    setHasMounted(true);
-  }, []);
+  if (rememberMe || user?.role) {
+    if (!user?.role) return <div suppressHydrationWarning={true}>در حال بارگذاری</div>;
 
-  if (!hasMounted) {
-    return <Error404 />;
+    return (
+      <div suppressHydrationWarning={true}>
+        <span className="purple-gradient" />
+        <Navbar />
+
+        <div className={`${styles.layout} pb-6 flex flex-col lg:flex-row gap-5`}>
+          <Menu />
+
+          <div className="w-full">{children}</div>
+        </div>
+
+        <ScrollToTop />
+      </div>
+    );
   }
 
-  if (!user?.role || !hasMounted) return <Error404 />;
-
   return (
-    <>
-      <span className="purple-gradient" />
-      <Navbar />
-
-      <div className={`${styles.layout} pb-6 flex flex-col lg:flex-row gap-5`}>
-        <Menu />
-
-        <div className="w-full">{children}</div>
-      </div>
-
-      <ScrollToTop />
-    </>
+    <div suppressHydrationWarning={true}>
+      <Error404 />
+    </div>
   );
 };
 export default PanelLayout;

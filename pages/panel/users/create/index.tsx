@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 
 import Header from "../../../head";
 import { useFormik } from "formik";
@@ -45,42 +45,6 @@ function CreateUser() {
 
   const genderHandler = (e: any) => {
     setGender(e.target.id);
-  };
-
-  const submitHandler = async (user: formDataType) => {
-    try {
-      const isConnected = await checkConnectivity();
-
-      if (isConnected) {
-        const response = await axiosPrivate.post(CREATE_URL, JSON.stringify({ ...user }), {
-          headers: { "Content-Type": "application/json" },
-          withCredentials: true,
-        });
-
-        if (response?.status === 200) {
-          setError(null);
-
-          setMessage("کاربر با موفقیت ایجاد شد :)");
-          return;
-        }
-
-        setError(response?.data.message);
-      }
-    } catch (err: any) {
-      const statusCode = err.response?.status;
-
-      if (!err?.response) {
-        setError("خطا در ارتباط با سرور");
-      } else if (statusCode === 400) {
-        setError("فرمت اطلاعات وارد شده درست نیست. :(");
-      } else if (statusCode === 409) {
-        setError("شماره یا ایمیل قبلا استفاده شده");
-      } else if (statusCode === 500 || statusCode === 502) {
-        setError("خطا در ارتباط با سرور");
-      } else {
-        setError("ثبت نام کاربر به مشکل برخورد");
-      }
-    }
   };
 
   const validateForm = (formData: formDataType) => {
@@ -149,16 +113,23 @@ function CreateUser() {
 
   const formik: any = useFormik({
     initialValues: {
-      phoneNumber: "",
       email: "",
       lastName: "",
       password: "",
       firstName: "",
       gender: gender,
+      phoneNumber: "",
       repeatPassword: "",
     },
-
     validate: validateForm,
+    onReset: (values: formDataType) => {
+      values.email = "";
+      values.phoneNumber = "";
+      values.password = "";
+      values.repeatPassword = "";
+      values.lastName = "";
+      values.firstName = "";
+    },
     validateOnChange: false,
     onSubmit: (values: formDataType) => {
       const user = {
@@ -173,6 +144,43 @@ function CreateUser() {
       submitHandler(user);
     },
   });
+
+  const submitHandler = async (user: formDataType) => {
+    try {
+      const isConnected = await checkConnectivity();
+
+      if (isConnected) {
+        const response = await axiosPrivate.post(CREATE_URL, JSON.stringify({ ...user }), {
+          headers: { "Content-Type": "application/json" },
+          withCredentials: true,
+        });
+
+        if (response?.status === 201) {
+          setError(null);
+
+          setMessage("کاربر با موفقیت ایجاد شد :)");
+
+          return;
+        }
+
+        setError(response?.data.message);
+      }
+    } catch (err: any) {
+      const statusCode = err.response?.status;
+
+      if (!err?.response) {
+        setError("خطا در ارتباط با سرور");
+      } else if (statusCode === 400) {
+        setError("فرمت اطلاعات وارد شده درست نیست. :(");
+      } else if (statusCode === 409) {
+        setError("شماره یا ایمیل قبلا استفاده شده");
+      } else if (statusCode === 500 || statusCode === 502) {
+        setError("خطا در ارتباط با سرور");
+      } else {
+        setError("ثبت نام کاربر به مشکل برخورد");
+      }
+    }
+  };
 
   return (
     <div className="p-4 rounded-xl box-shadow">
