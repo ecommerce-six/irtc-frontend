@@ -13,28 +13,7 @@ import { estimateReadTimeHandler } from "../../../../modules/estimateReadTime";
 import CreateArticleControllers from "../../../../components/articles/controllers";
 
 import "filepond/dist/filepond.min.css";
-
 function CreateArticles() {
-  // const [image, setImage] = useState(null);
-
-  // const handleUpload = async (event:any) => {
-  //   const file = event.target.files[0];
-  //   const formData = new FormData();
-  //   formData.append('file', file);
-  //   formData.append('upload_preset', 'your_upload_preset');
-
-  //   const response = await fetch(
-  //     'https://api.cloudinary.com/v1_1/your_cloud_name/image/upload',
-  //     {
-  //       method: 'POST',
-  //       body: formData
-  //     }
-  //   );
-
-  //   const data = await response.json();
-  //   setImage(data.secure_url);
-  // };
-
   const router = useRouter();
 
   const textRef = useRef<HTMLTextAreaElement>(null);
@@ -48,6 +27,8 @@ function CreateArticles() {
   const [title, setTitle] = useState<string>("");
 
   const [description, setDescription] = useState<string>("");
+
+  const [coverFile, setCoverFile] = useState<any>();
 
   const [cover, setCover] = useState<any>();
 
@@ -158,24 +139,37 @@ function CreateArticles() {
           } resize-none`}
           maxLength={200}
         />
-
         <FilePond
-          files={cover}
-          onupdatefiles={setCover}
+          files={coverFile}
+          chunkUploads={true}
           allowMultiple={false}
+          onupdatefiles={setCoverFile}
           labelIdle='عکس های خود را بکشید و رها کنید یا <span class="filepond-action">کلیک کنید</span>.'
-          // server={{
-          //   process: {
-          //     url: "https://api.upload.io/v2/accounts/W142hrD/uploads/binary",
-          //     headers: {
-          //       Authorization: " Bearer public_W142hrD6cMFKNSEmK4YbMZFVFVX1",
-          //     },
-          //     onload: (response): any => {
-          //       console.log(response);
-          //     },
-          //   },
-          // }}
+          onremovefile={() => {
+            setCover(null);
+          }}
+          server={{
+            process: {
+              url: "https://api.cloudinary.com/v1_1/dpuwpqd0c/image/upload",
+              onerror: (error: any) => {
+                console.log(error);
+              },
+              ondata: (data: any) => {
+                data.append("file", coverFile[0]?.file);
+                data.append("could_name", "dpuwpqd0c");
+                data.append("upload_preset", "chat-app");
+                return data;
+              },
+              onload: (state: any) => {
+                console.log(state);
+                setCover(JSON.parse(state).url);
+                return 0;
+              },
+            },
+          }}
         />
+
+        {cover && <img src={cover} alt="" className="w-full max-h-[25rem] object-cover rounded-xl" />}
       </div>
 
       <div className="mt-4 p-4 rounded-xl box-shadow sticky" data-color-mode="light">
