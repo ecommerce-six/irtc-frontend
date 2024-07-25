@@ -1,17 +1,19 @@
 import Header from "./head";
-import Hero from "../components/home/hero";
-import QAndA from "../components/home/Q&A";
-import Roadmap from "../components/home/roadmap";
+import {
+  Hero,
+  QAndA,
+  Roadmap,
+  Testimonials,
+  LatestArticle,
+  LatestCourses,
+  InstagramPage,
+  GraduatesCompanies,
+} from "../components/home";
 import MainLayout from "../components/layout/main";
-import Testmonials from "../components/home/testimonials";
-import LatestArticle from "../components/home/latestArticle";
-import LatestCourses from "../components/home/latestCourses";
-import InstagramPage from "../components/home/instagramPage";
-import GraduatesCompanies from "../components/home/graduatesCompanies";
 
 function Home() {
   return (
-    <main className="">
+    <main>
       <Header title="IRTC" />
 
       <Hero />
@@ -24,7 +26,7 @@ function Home() {
 
       <GraduatesCompanies />
 
-      <Testmonials />
+      <Testimonials />
 
       <InstagramPage />
 

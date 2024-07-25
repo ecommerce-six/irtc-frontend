@@ -1,14 +1,18 @@
 import Error404 from "../pages/404";
 
+import useUser from "../hooks/useUser";
+
 type props = {
-  user?: true;
   admin?: true;
   author?: true;
   children: any;
+  normalUser?: true;
 };
 
-function Access({ admin, author, user, children }: props) {
-  const role: string = "admin";
+function Access({ admin, author, normalUser, children }: props) {
+  const { user } = useUser();
+
+  const role: string | undefined = user?.role;
 
   if (role === "admin" && admin) {
     return children;
@@ -16,7 +20,7 @@ function Access({ admin, author, user, children }: props) {
   if (role === "author" && author) {
     return children;
   }
-  if (role === "user" && user) {
+  if (role === "user" && normalUser) {
     return children;
   }
 

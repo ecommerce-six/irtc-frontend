@@ -2,8 +2,6 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-import Navbar from "../components/layout/navbar";
-
 import { styles } from "../styles";
 import { ErrorImage } from "../public";
 
@@ -19,21 +17,13 @@ class ErrorBoundary extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
 
-    // Define a state variable to track whether is an error or not
     this.state = { hasError: false };
   }
-  static getDerivedStateFromError(error: Error) {
-    // Update state so the next render will show the fallback UI
-
+  static getDerivedStateFromError() {
     return { hasError: true };
   }
-  componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
-    // You can use your own error logging service here
-  }
   render() {
-    // Check if the error is thrown
     if (this.state.hasError) {
-      // You can render any custom fallback UI
       return (
         <>
           <div
@@ -44,10 +34,14 @@ class ErrorBoundary extends React.Component<Props, State> {
                 مشکلی پیش اومد
               </h1>
               <p className="max-w-[90%] md:max-w-[22rem] text-secondary text-sm text-center md:text-start !leading-loose">
-                با عرض پوزش مشکلی در سایت بوجود اومد برای رفع آن ابتدا از متصل بودن کیفیت اینترنت خود مطمئن شوید در غیر
-                این صورت مشکل از داخل سایت می باشد.
+                با عرض پوزش مشکلی در سایت بوجود اومد برای رفع آن ابتدا از متصل
+                بودن کیفیت اینترنت خود مطمئن شوید در غیر این صورت مشکل از داخل
+                سایت می باشد.
               </p>
-              <Link href="/" className={`${styles.primaryButton} inline-block py-3 px-8 hover:scale-[1.05]`}>
+              <Link
+                href="/"
+                className={`${styles.primaryButton} inline-block py-3 px-8 hover:scale-[1.05]`}
+              >
                 بازگشت به خانه
               </Link>
             </div>

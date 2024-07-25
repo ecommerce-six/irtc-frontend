@@ -1,6 +1,5 @@
-import React, { ReactNode } from "react";
-
 import Head from "next/head";
+import React, { ReactNode } from "react";
 
 type props = {
   title: string;
@@ -13,7 +12,10 @@ function Header({ title, description, children }: props) {
     <Head>
       <title>{title}</title>
       <link rel="icon" href="common/logo-icon.svg" />
-      <meta name="description" content={description ?? "IRTC a website for learning trading"} />
+      <meta
+        name="description"
+        content={description ?? "IRTC a website for learning trading"}
+      />
       {children}
     </Head>
   );

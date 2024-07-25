@@ -94,11 +94,13 @@ function RegisterSection({ submitHandler, error }: props) {
     }
 
     if (includeCapitalLetter) {
-      errors.password = "لطفا پسورد انتخابی حداقل دارای یک حروف بزرگ لاتین باشد :)";
+      errors.password =
+        "لطفا پسورد انتخابی حداقل دارای یک حروف بزرگ لاتین باشد :)";
     }
 
     if (includeSmallLetter) {
-      errors.password = "لطفا پسورد انتخابی حداقل دارای یک حروف کوچک لاتین باشد :)";
+      errors.password =
+        "لطفا پسورد انتخابی حداقل دارای یک حروف کوچک لاتین باشد :)";
     }
 
     if (inValidRepeatPassword) {
@@ -142,18 +144,23 @@ function RegisterSection({ submitHandler, error }: props) {
           <Image src={LogoIcon} alt="logo" className="w-24 sm:w-28 md:w-32" />
         </Link>
         <div className="mt-8 flex items-center gap-x-4">
-          <Link href={"/auth/login"} className={`${styles.secondaryButton} px-6 py-2 hover:bg-brand`}>
+          <Link
+            href={"/auth/login"}
+            className={`${styles.primaryButton} px-6 py-2 hover:bg-brand`}
+          >
             ورود
           </Link>
           <Link
             href={"/auth/register"}
-            className={`${styles.primaryButton} px-6 py-2 bg-brand text-background text-sm font-semibold border-2 border-brand rounded-lg hover:scale-[1.05]`}
+            className={`${styles.secondaryButton} px-6 py-2 text-background text-sm font-semibold border-2 border-brand rounded-lg hover:scale-[1.05]`}
           >
             ثبت نام
           </Link>
         </div>
 
-        <h1 className="mt-6 text-primary text-xl md:text-2xl font-bold">خوش آمدی</h1>
+        <h1 className="mt-6 text-primary text-xl md:text-2xl font-bold">
+          خوش آمدی
+        </h1>
 
         <p className="px-2 mt-4 text-secondary text-sm md:text-base text-center max-w-[22rem]">
           به خونه خوش اومدی! اگه عضو مجموعه هستی، وارد شو
@@ -274,7 +281,11 @@ function RegisterSection({ submitHandler, error }: props) {
           <li className="my-2 text-red-500">{formik.errors.repeatPassword}</li>
         </ul>
 
-        {error && <p className="mt-5 mb-1 p-3 bg-red-100 text-red-500 rounded-md">{error}</p>}
+        {error && (
+          <p className="mt-5 mb-1 p-3 bg-red-100 text-red-500 rounded-md">
+            {error}
+          </p>
+        )}
 
         <button
           className={`${styles.primaryButton} mt-2 w-full py-3 bg-brand rounded-xl hover:scale-[1.05]`}
