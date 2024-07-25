@@ -13,7 +13,12 @@ const useFetchData = (URL: string, page: number = 1, limit?: number) => {
   useEffect(() => {
     const getUsersHandler = async () => {
       try {
-        const response = await axiosPrivate.get(`${URL}/?page=${page}&limit=${limit ?? 10}`);
+        const response = await axiosPrivate.get(`${URL}`, {
+          params: {
+            page: page,
+            limit: limit ?? 10,
+          },
+        });
 
         const data = response.data.data;
 
@@ -30,7 +35,10 @@ const useFetchData = (URL: string, page: number = 1, limit?: number) => {
     getUsersHandler();
   }, [URL, page, auth.accessToken, limit]);
 
-  const fetchedData: { data: any; fetchedCountPage: any } = { data, fetchedCountPage };
+  const fetchedData: { data: any; fetchedCountPage: any } = {
+    data,
+    fetchedCountPage,
+  };
 
   return fetchedData;
 };

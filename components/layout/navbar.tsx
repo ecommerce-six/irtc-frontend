@@ -57,7 +57,9 @@ function Navbar() {
   return (
     <>
       <nav className="">
-        <div className={`py-5 flex items-center justify-between ${styles.layout}`}>
+        <div
+          className={`py-5 flex items-center justify-between ${styles.layout}`}
+        >
           <div className="flex items-center gap-x-10">
             <Link href="/" className="flex items-center gap-x-4">
               <Image src={LogoIcon} alt="logo" className="w-12 lg:w-16" />
@@ -88,7 +90,8 @@ function Navbar() {
                   href={"/panel"}
                   className="text-primary max-w-[12rem] overflow-hidden text-ellipsis whitespace-nowrap"
                 >
-                  {user?.firstName} {user?.lastName} {!(user?.firstName || user?.lastName) && user?.phoneNumber}
+                  {user?.firstName} {user?.lastName}{" "}
+                  {!(user?.firstName || user?.lastName) && user?.phoneNumber}
                 </Link>
               ) : (
                 <Link href="/panel/cart" className="group">
@@ -96,13 +99,23 @@ function Navbar() {
                 </Link>
               )}
 
-              <Link href="/panel" className="border-2 border-brand rounded-full box-shadow">
-                <Image src={AvatarSample} alt="avatar" className="w-10 h-10 rounded-full" />
+              <Link
+                href="/panel"
+                className="border-2 border-brand rounded-full box-shadow"
+              >
+                <Image
+                  src={AvatarSample}
+                  alt="avatar"
+                  className="w-10 h-10 rounded-full"
+                />
               </Link>
             </div>
           ) : (
             <div className="hidden lg:flex items-center gap-x-4">
-              <Link href={"/auth/login"} className={`${styles.brandButton} px-2`}>
+              <Link
+                href={"/auth/login"}
+                className={`${styles.brandButton} px-2`}
+              >
                 ورود
               </Link>
               <Link
@@ -122,11 +135,14 @@ function Navbar() {
 
       {showNavbar && (
         <>
-          <div className="fixed left-0 top-0 h-screen w-full z-10" onClick={showNavbarHandler} />
+          <div
+            className="fixed left-0 top-0 h-screen w-full z-10"
+            onClick={showNavbarHandler}
+          />
 
           <ToggleAnimate className="navbar" toggle={showNavbar}>
             <div>
-              <nav className="py-10 fixed left-0 top-0 h-screen w-36 flex flex-col items-center justify-between bg-background z-10 box-shadow">
+              <nav className="py-10 fixed left-0 top-0 h-[100dvh] w-36 flex flex-col items-center justify-between bg-background z-10 box-shadow">
                 <button className="lg:hidden" onClick={showNavbarHandler}>
                   <Image src={CloseIcon} alt="close icon" className="w-9" />
                 </button>
@@ -155,13 +171,23 @@ function Navbar() {
                       </Link>
                     )}
 
-                    <Link href="/panel" className="border-2 border-brand rounded-full box-shadow">
-                      <Image src={AvatarSample} alt="avatar" className="w-10 h-10 rounded-full" />
+                    <Link
+                      href="/panel"
+                      className="border-2 border-brand rounded-full box-shadow"
+                    >
+                      <Image
+                        src={AvatarSample}
+                        alt="avatar"
+                        className="w-10 h-10 rounded-full"
+                      />
                     </Link>
                   </div>
                 ) : (
                   <div className="flex flex-col items-center gap-4">
-                    <Link href={"/auth/login"} className={`${styles.brandButton} px-2`}>
+                    <Link
+                      href={"/auth/login"}
+                      className={`${styles.brandButton} px-2`}
+                    >
                       ورود
                     </Link>
                     <Link

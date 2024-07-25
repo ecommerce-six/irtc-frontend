@@ -1,5 +1,5 @@
-import React, { ReactNode, ReactElement } from "react";
 import type { AppProps } from "next/app";
+import React, { ReactNode, ReactElement } from "react";
 
 import { store } from "../store";
 import ErrorBoundary from "./error";

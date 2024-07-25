@@ -25,10 +25,14 @@ function Register() {
       const isConnected = await checkConnectivity();
 
       if (isConnected) {
-        const response = await axios.post(REGISTER_URL, JSON.stringify({ ...body }), {
-          headers: { "Content-Type": "application/json" },
-          withCredentials: true,
-        });
+        const response = await axios.post(
+          REGISTER_URL,
+          JSON.stringify({ ...body }),
+          {
+            headers: { "Content-Type": "application/json" },
+            withCredentials: true,
+          }
+        );
 
         const token = response.data.data.token;
 

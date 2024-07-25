@@ -27,7 +27,7 @@ function UserWrapper({ children }: { children: ReactNode }) {
         }
       };
 
-      if (!auth.accessToken && rememberMe && isMounted) {
+      if (!auth.accessToken && isMounted) {
         verifyRefreshToken();
       }
     }

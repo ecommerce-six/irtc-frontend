@@ -1,10 +1,9 @@
 import React from "react";
 import Image from "next/image";
-
 import { marked } from "marked";
+
 import Header from "../../head";
 import axios from "../../../modules/axios";
-import { articleType } from "../../../types/article";
 import { MainLayout } from "../../../components/layout";
 import FocusButton from "../../../components/articles/focusButton";
 import ArticleRate from "../../../components/articles/articleRate";
@@ -13,7 +12,13 @@ import LatestArticleCompact from "../../../components/articles/latestArticleComp
 import CloseFocusTimeButton from "../../../components/articles/closeFocusTimeButton";
 
 import { AvatarSample } from "../../../public";
-import { CommentsIcon, LikeIcon, RateIcon, TimeIcon } from "../../../public/icons/svgs";
+import { articleType } from "../../../types/article";
+import {
+  CommentsIcon,
+  LikeIcon,
+  RateIcon,
+  TimeIcon,
+} from "../../../public/icons/svgs";
 
 type props = { article: articleType };
 
@@ -22,16 +27,27 @@ function Article({ article }: props) {
 
   return (
     <main className="flex justify-between flex-col lg:flex-row gap-5">
-      <Header title={`IRTC	• ${article.title}`} />
+      <Header title={`IRTC • ${article.title}`} />
 
-      <article id="article" className="p-4 w-full lg:w-[80%] rounded-xl box-shadow">
+      <article
+        id="article"
+        className="p-4 w-full lg:w-[80%] rounded-xl box-shadow"
+      >
         <div className="relative">
-          <Image src={article.cover} alt={article.title} className="w-full rounded-xl" width={1200} height={675} />
+          <Image
+            src={article.cover}
+            alt={article.title}
+            className="w-full rounded-xl"
+            width={1200}
+            height={675}
+          />
 
           <CloseFocusTimeButton />
         </div>
 
-        <h1 className="my-4 pl-4 text-base md:text-2xl font-semibold md:font-extrabold ">{article.title}</h1>
+        <h1 className="my-4 pl-4 text-base md:text-2xl font-semibold md:font-extrabold ">
+          {article.title}
+        </h1>
 
         <div className="flex items-center justify-between flex-wrap gap-4">
           <div className="flex items-center gap-4 flex-wrap">
@@ -49,14 +65,18 @@ function Article({ article }: props) {
             <div className="flex items-center gap-x-3">
               <LikeIcon />
 
-              <h3 className="text-secondary text-xs md:text-sm">{article.likesCount ?? "فعلا 0"}</h3>
+              <h3 className="text-secondary text-xs md:text-sm">
+                {article.likesCount ?? "فعلا 0"}
+              </h3>
             </div>
 
             {article.comments && (
               <div className="flex items-center gap-x-3">
                 <CommentsIcon />
 
-                <h3 className="text-secondary text-xs md:text-sm">{article.comments.length}</h3>
+                <h3 className="text-secondary text-xs md:text-sm">
+                  {article.comments.length}
+                </h3>
               </div>
             )}
 
@@ -64,7 +84,9 @@ function Article({ article }: props) {
               <div className="flex items-center gap-x-3">
                 <RateIcon />
 
-                <h3 className="text-secondary text-xs md:text-sm">{article.rate}</h3>
+                <h3 className="text-secondary text-xs md:text-sm">
+                  {article.rate}
+                </h3>
               </div>
             )}
           </div>
@@ -72,7 +94,10 @@ function Article({ article }: props) {
           <time className="text-secondary text-sm">{article.time}</time>
         </div>
 
-        <div className="mt-5 article-body" dangerouslySetInnerHTML={{ __html: marked(article.content) }} />
+        <div
+          className="mt-5 article-body"
+          dangerouslySetInnerHTML={{ __html: marked(article.content) }}
+        />
 
         <ArticleRate />
       </article>
@@ -81,11 +106,16 @@ function Article({ article }: props) {
         <FocusButton className="hidden lg:block" />
 
         <div className="my-6 flex items-center gap-x-2">
-          <Image src={AvatarSample} alt="av" className="w-16 h-16 border-2 border-brand rounded-full" />
+          <Image
+            src={AvatarSample}
+            alt="av"
+            className="w-16 h-16 border-2 border-brand rounded-full"
+          />
 
           <div className="space-y-2">
             <h1 className="text-primary font-semibold w-full text-sm md:text-base text-ellipsis overflow-hidden whitespace-nowrap">
-              {user?.firstName} {user?.lastName} {!(user?.firstName || user?.lastName) && user?.phoneNumber}
+              {user?.firstName} {user?.lastName}{" "}
+              {!(user?.firstName || user?.lastName) && user?.phoneNumber}
             </h1>
             <h2 className="text-secondary w-full text-xs text-ellipsis overflow-hidden whitespace-nowrap">
               {user?.role === "admin" ? "ادمین" : "نویسنده"}
@@ -93,7 +123,9 @@ function Article({ article }: props) {
           </div>
         </div>
 
-        <h1 className="text-primary text-base md:text-lg font-semibold">مقاله های اخیر ...</h1>
+        <h1 className="text-primary text-base md:text-lg font-semibold">
+          مقاله های اخیر ...
+        </h1>
 
         <div className="mt-4 space-y-3">
           <LatestArticleCompact />
@@ -111,34 +143,42 @@ Article.PageLayout = MainLayout;
 export default Article;
 
 export async function getStaticPaths() {
-  const response = await axios("/articles");
+  try {
+    const response = await axios("/articles");
 
-  const articles = response.data.data;
+    const articles = response.data.data;
 
-  const paths = articles.article.map((item: articleType) => {
+    const paths = articles.article.map((item: articleType) => {
+      return {
+        params: {
+          slug: item.slug,
+        },
+      };
+    });
     return {
-      params: {
-        slug: item.slug,
-      },
+      paths,
+      fallback: false,
     };
-  });
-
-  return {
-    paths,
-    fallback: false,
-  };
+  } catch {
+    return {
+      paths: [],
+      fallback: false,
+    };
+  }
 }
 
 export async function getStaticProps({ params }: any) {
-  const { slug } = params;
+  if (params.slug) {
+    const { slug } = params;
 
-  const response = await axios(`articles/${slug}`);
+    const response = await axios(`articles/${slug}`);
 
-  const article = response.data.data;
+    const article = response.data.data;
 
-  return {
-    props: {
-      article,
-    },
-  };
+    return {
+      props: {
+        article,
+      },
+    };
+  }
 }

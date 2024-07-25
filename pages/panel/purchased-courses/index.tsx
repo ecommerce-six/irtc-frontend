@@ -6,7 +6,7 @@ import { PanelLayout } from "../../../components/layout";
 
 function PurchasedCourses() {
   return (
-    <Access user author>
+    <Access normalUser author>
       <Header title="IRTC	• دوره های خریداری شده" />
       PurchasedCourses
     </Access>

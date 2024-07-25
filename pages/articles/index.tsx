@@ -1,13 +1,15 @@
 import React, { useState } from "react";
+import ReactPaginate from "react-paginate";
 
 import Header from "../head";
-import ReactPaginate from "react-paginate";
 import useFetchData from "../../hooks/useFetchData";
 import { MainLayout } from "../../components/layout";
 import Heading from "../../components/elements/heading";
 import ArticlesFilter from "../../components/articles/filter";
 import { articleType, articlesFilterHandlerType } from "../../types/article";
-import ArticlePreview, { ArticlePreviewLoading } from "../../components/articles/articlePreview";
+import ArticlePreview, {
+  ArticlePreviewLoading,
+} from "../../components/articles/articlePreview";
 
 function Articles() {
   const [selectedPage, setSelectedPage] = useState<number>(1);
@@ -36,8 +38,12 @@ function Articles() {
       <div className="mt-10 ">
         <div className="flex justify-center flex-wrap gap-20">
           {data
-            ? data.article.map((item: articleType, index: number) => <ArticlePreview {...item} key={index} />)
-            : [...new Array(4)].map((index) => <ArticlePreviewLoading key={index} />)}
+            ? data.article.map((item: articleType, index: number) => (
+                <ArticlePreview {...item} key={index} />
+              ))
+            : [...new Array(4)].map((_, index) => (
+                <ArticlePreviewLoading key={index} />
+              ))}
         </div>
 
         <div className="flex items-center justify-center h-20 overflow-x-hidden">
@@ -48,7 +54,9 @@ function Articles() {
             previousLabel="قبلی"
             pageRangeDisplayed={3}
             onPageChange={handlePageClick}
-            containerClassName={"mt-6 lg:mr-2 flex items-center justify-end flex-row-reverse gap-x-2 lg:gap-x-3 "}
+            containerClassName={
+              "mt-6 lg:mr-2 flex items-center justify-end flex-row-reverse gap-x-2 lg:gap-x-3 "
+            }
             pageClassName={
               "flex items-center justify-center h-6 lg:h-8 text-[.75rem] lg:text-base rounded-full text-brand border-brand border"
             }
