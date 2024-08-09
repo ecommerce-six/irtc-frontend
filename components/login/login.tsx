@@ -15,7 +15,10 @@ type submitHandlerPropsType = {
   rememberMe: boolean;
 };
 
-type props = { error: string | null; submitHandler: (body: submitHandlerPropsType) => void };
+type props = {
+  error: string | null;
+  submitHandler: (body: submitHandlerPropsType) => void;
+};
 
 type errors = {
   password?: string;
@@ -43,12 +46,6 @@ function NumberLogin({ submitHandler, error }: props) {
 
     const inValidPhoneNumberLength = formData.phoneNumber.length !== 11;
 
-    const inValidPassword = formData.password.length < 8;
-
-    const includeCapitalLetter = !/[A-Z]/.test(formData.password);
-
-    const includeSmallLetter = !/[a-z]/.test(formData.password);
-
     if (!formData.phoneNumber) {
       errors.phoneNumber = "لطفا فیلد شماره همراه را وارد کنید.";
     } else if (inValidPhoneNumberID) {
@@ -57,16 +54,8 @@ function NumberLogin({ submitHandler, error }: props) {
       errors.phoneNumber = "لطفا شماره همراه معتبر وارد کنید.";
     }
 
-    if (inValidPassword) {
-      errors.password = "لطفا پسورد انتخابی حداقل 8 کاراکتر باشد :)";
-    }
-
-    if (includeCapitalLetter) {
-      errors.password = "لطفا پسورد انتخابی حداقل دارای یک حروف بزرگ لاتین باشد :)";
-    }
-
-    if (includeSmallLetter) {
-      errors.password = "لطفا پسورد انتخابی حداقل دارای یک حروف کوچک لاتین باشد :)";
+    if (!formData.password) {
+      errors.password = "لطفا فیلد رمز را وارد کنید.";
     }
 
     return errors;
@@ -101,7 +90,10 @@ function NumberLogin({ submitHandler, error }: props) {
       </Link>
 
       <div className="mt-8 flex items-center gap-x-4">
-        <Link href={"/auth/login"} className={`${styles.secondaryButton} px-6 py-2 hover:bg-brand `}>
+        <Link
+          href={"/auth/login"}
+          className={`${styles.secondaryButton} px-6 py-2 hover:bg-brand `}
+        >
           ورود
         </Link>
         <Link
@@ -112,7 +104,9 @@ function NumberLogin({ submitHandler, error }: props) {
         </Link>
       </div>
 
-      <h1 className="mt-6 text-primary text-xl md:text-2xl font-bold">خوش برگشتی</h1>
+      <h1 className="mt-6 text-primary text-xl md:text-2xl font-bold">
+        خوش برگشتی
+      </h1>
 
       <p className="px-2 mt-4 text-secondary text-sm md:text-base text-center">
         به خونه خوش اومدی! اگه عضو مجموعه هستی، وارد شو
@@ -160,7 +154,11 @@ function NumberLogin({ submitHandler, error }: props) {
           <li className="my-2 text-red-500">{formik.errors.password}</li>
         </ul>
 
-        {error && <p className="mt-3 mb-1 p-3 bg-red-100 text-red-500 rounded-md">{error}</p>}
+        {error && (
+          <p className="mt-3 mb-1 p-3 bg-red-100 text-red-500 rounded-md">
+            {error}
+          </p>
+        )}
 
         <button
           className={`${styles.primaryButton} mt-2 w-full py-3 bg-brand rounded-xl hover:scale-[1.05]`}

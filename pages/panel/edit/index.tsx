@@ -60,7 +60,8 @@ function EditProfile() {
   });
 
   return (
-    <Access admin author user>
+    // ! removed user ?
+    <Access admin author normalUser>
       <Header title="IRTC	• تغییر پروفایل" />
 
       <section className="p-5 rounded-xl box-shadow">
@@ -170,11 +171,22 @@ function EditProfile() {
             onChange={formik.handleChange}
           />
 
-          {error && <p className="mt-3 mb-1 p-3 bg-red-100 text-red-500 rounded-md">{error}</p>}
+          {error && (
+            <p className="mt-3 mb-1 p-3 bg-red-100 text-red-500 rounded-md">
+              {error}
+            </p>
+          )}
 
-          {message && <p className="mt-3 mb-1 p-3 bg-green-100 text-green-600 rounded-md">{message}</p>}
+          {message && (
+            <p className="mt-3 mb-1 p-3 bg-green-100 text-green-600 rounded-md">
+              {message}
+            </p>
+          )}
 
-          <button className={`${styles.primaryButton} mt-3 py-3 px-10 hover:scale-[1.05]`} type="submit">
+          <button
+            className={`${styles.primaryButton} mt-3 py-3 px-10 hover:scale-[1.05]`}
+            type="submit"
+          >
             اعمال تغییر
           </button>
         </form>
