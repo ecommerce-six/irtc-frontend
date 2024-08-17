@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import ReactPaginate from "react-paginate";
 
-import useFetchData from "@/hooks/useFetchData";
+import { useFetchData } from "@/hooks";
 import Heading from "@/components/elements/heading";
 import ArticlesFilter from "@/components/articles/filter";
 

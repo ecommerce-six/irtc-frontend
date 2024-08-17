@@ -6,7 +6,7 @@ import { styles } from "@/styles";
 import ReactPaginate from "react-paginate";
 import User, { UserLoading } from "./user";
 import { userType } from "@/types/user";
-import useFetchData from "@/hooks/useFetchData";
+import { useFetchData } from "@/hooks";
 import { exportToExcel } from "@/utils/exportUsersToExcel";
 
 const USERS_URL = "/users";

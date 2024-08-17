@@ -6,8 +6,7 @@ import ScrollToTop from "../scrollToTop";
 
 import { styles } from "@/styles";
 import Error404 from "@/components/404";
-import useAuth from "@/hooks/useAuth";
-import useUser from "@/hooks/useUser";
+import { useAuth, useUser } from "@/hooks";
 
 const PanelLayout = ({ children }: { children: ReactNode }) => {
   const { user } = useUser();

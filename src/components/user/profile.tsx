@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 import { styles } from "@/styles";
-import useUser from "@/hooks/useUser";
+import { useUser } from "@/hooks";
 import { AvatarSample, UserProfileHeaderImage } from "@/assets";
 
 function UserProfile() {

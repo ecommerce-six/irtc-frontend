@@ -17,7 +17,7 @@ type props = {
   showPasswordHandler?: () => void;
 };
 
-function Input(props: props) {
+function LoginInput(props: props) {
   const {
     id,
     type,
@@ -70,4 +70,4 @@ function Input(props: props) {
   );
 }
 
-export default Input;
+export default LoginInput;

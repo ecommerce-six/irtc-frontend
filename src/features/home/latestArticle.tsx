@@ -8,7 +8,7 @@ import ArticlePreview, {
 } from "@/components/articles/articlePreview";
 
 import { styles } from "@/styles";
-import useFetchData from "@/hooks/useFetchData";
+import { useFetchData } from "@/hooks";
 import { articleType } from "@/types/article";
 
 function LatestArticle() {

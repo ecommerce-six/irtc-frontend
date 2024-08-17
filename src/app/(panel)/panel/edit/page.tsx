@@ -9,9 +9,8 @@ import Access from "@/components/access";
 import Input from "@/components/user/input";
 
 import { styles } from "@/styles";
-import useUser from "@/hooks/useUser";
 import { AvatarSample } from "@/assets";
-import useUpdateUser from "@/hooks/useUpdateUser";
+import { useUser, useUpdateUser } from "@/hooks";
 
 // !
 type formDataType = {

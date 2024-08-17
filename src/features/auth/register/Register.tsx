@@ -1,17 +1,15 @@
 "use client";
 
-import Link from "next/link";
-import Image from "next/image";
+import { useFormik } from "formik";
 import React, { useState } from "react";
 
-import Input from "./input";
-import { useFormik } from "formik";
+import Input from "@/components/input";
+import WelcomeMessage from "../WelcomeMessage";
+import RegisterAuthLinks from "./RegisterAuthLinks";
 
 import { styles } from "@/styles";
-
-import { LogoIcon } from "@/assets/common";
-import { registerHandlerType } from "@/types/register";
 import { userGenderType } from "@/types/user";
+import { registerHandlerType } from "@/types/register";
 
 type props = {
   error: string | null;
@@ -34,82 +32,16 @@ type formDataType = {
 };
 
 function RegisterSection({ submitHandler, error }: props) {
-  const [rememberMe, setRememberMe] = useState(false);
-
+  const [isRememberMeChecked, setIsRememberMeChecked] = useState(false);
   const [gender, setGender] = useState("male");
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
-  const [showPassword, setShowPassword] = useState(false);
-
-  const showPasswordHandler = () => {
-    setShowPassword((prevValue) => !prevValue);
+  const togglePasswordVisibility = () => {
+    setIsPasswordVisible((prevValue) => !prevValue);
   };
 
   const genderHandler = (e: any) => {
     setGender(e.target.id);
-  };
-
-  const validateForm = (formData: formDataType) => {
-    const errors: errors = {};
-
-    const inValidPhoneNumberID = formData.phoneNumber.slice(0, 2) !== "09";
-
-    const inValidPhoneNumberLength = formData.phoneNumber.length !== 11;
-
-    const includeNumbers = !/^\d+$/.test(formData.phoneNumber);
-
-    const inValidEmail = !formData.email.includes("@");
-
-    const inValidPassword = formData.password.length < 8;
-
-    const includeCapitalLetter = !/[A-Z]/.test(formData.password);
-
-    const includeSmallLetter = !/[a-z]/.test(formData.password);
-
-    function hasNumber(str: string) {
-      return /\d/.test(str);
-    }
-
-    const inValidRepeatPassword = formData.password !== formData.repeatPassword;
-
-    if (!formData.phoneNumber) {
-      errors.phoneNumber = "لطفا فیلد شماره همراه را وارد کنید.";
-    }
-
-    if (inValidPhoneNumberID) {
-      errors.phoneNumber = "لطفا شماره همراه معتبر وارد کنید.";
-    }
-
-    if (includeNumbers) {
-      errors.phoneNumber = "لطفا شماره همراه معتبر وارد کنید.";
-    }
-
-    if (inValidPhoneNumberLength) {
-      errors.phoneNumber = "لطفا شماره همراه کامل وارد کنید.";
-    }
-
-    if (inValidEmail) {
-      errors.email = "لطفا ایمیل معتبر وارد کنید. :)";
-    }
-
-    if (inValidPassword) {
-      errors.password = "لطفا پسورد انتخابی حداقل 8 کاراکتر باشد :)";
-    }
-
-    if (includeCapitalLetter) {
-      errors.password =
-        "لطفا پسورد انتخابی حداقل دارای یک حروف بزرگ لاتین باشد :)";
-    }
-
-    if (includeSmallLetter) {
-      errors.password =
-        "لطفا پسورد انتخابی حداقل دارای یک حروف کوچک لاتین باشد :)";
-    }
-
-    if (inValidRepeatPassword) {
-      errors.repeatPassword = "لطفا تکرار پسورد را مانند پسورد وارد کنید. :(";
-    }
-
-    return errors;
   };
 
   const formik: any = useFormik({
@@ -120,14 +52,14 @@ function RegisterSection({ submitHandler, error }: props) {
       repeatPassword: "",
       gender: "male",
     },
-    validate: validateForm,
+    validate: validateHandler,
     validateOnChange: false,
     onSubmit: (values: formDataType) => {
       const user = {
         email: values.email,
         phoneNumber: values.phoneNumber,
         password: values.password,
-        rememberMe: rememberMe,
+        rememberMe: isRememberMeChecked,
         gender: gender,
       };
 
@@ -135,38 +67,63 @@ function RegisterSection({ submitHandler, error }: props) {
     },
   });
 
+  function validateHandler(formData: formDataType) {
+    const errors: errors = {};
+
+    const isInvalidPhoneNumberID = formData.phoneNumber.slice(0, 2) !== "09";
+    const isInvalidPhoneNumberLength = formData.phoneNumber.length !== 11;
+    const containsNonNumeric = !/^\d+$/.test(formData.phoneNumber);
+    const isInvalidEmail = !formData.email.includes("@");
+    const isInvalidPasswordLength = formData.password.length < 8;
+    const lacksCapitalLetter = !/[A-Z]/.test(formData.password);
+    const lacksSmallLetter = !/[a-z]/.test(formData.password);
+    const isInvalidRepeatPassword =
+      formData.password !== formData.repeatPassword;
+
+    if (!formData.phoneNumber) {
+      errors.phoneNumber = "لطفا فیلد شماره همراه را وارد کنید.";
+    } else if (
+      isInvalidPhoneNumberID ||
+      containsNonNumeric ||
+      isInvalidPhoneNumberLength
+    ) {
+      errors.phoneNumber = "لطفا شماره همراه معتبر وارد کنید.";
+    }
+
+    if (isInvalidEmail) {
+      errors.email = "لطفا ایمیل معتبر وارد کنید. :)";
+    }
+
+    if (isInvalidPasswordLength) {
+      errors.password = "لطفا پسورد انتخابی حداقل 8 کاراکتر باشد :)";
+    } else {
+      if (lacksCapitalLetter) {
+        errors.password =
+          "لطفا پسورد انتخابی حداقل دارای یک حروف بزرگ لاتین باشد :)";
+      }
+      if (lacksSmallLetter) {
+        errors.password =
+          "لطفا پسورد انتخابی حداقل دارای یک حروف کوچک لاتین باشد :)";
+      }
+    }
+
+    if (isInvalidRepeatPassword) {
+      errors.repeatPassword = "لطفا تکرار پسورد را مانند پسورد وارد کنید. :(";
+    }
+
+    return errors;
+  }
+
   const rememberMeHandler = (e: any) => {
-    setRememberMe(e.target.checked);
+    setIsRememberMeChecked(e.target.checked);
   };
 
   return (
     <div className="px-6 py-8 my-10 md:my-20 w-full lg:w-fit flex flex-col lg:flex-row-reverse items-center gap-x-7 bg-background rounded-xl shadow-dark">
       <div className="flex flex-col items-center">
-        <Link href={"/"}>
-          <Image src={LogoIcon} alt="logo" className="w-24 sm:w-28 md:w-32" />
-        </Link>
-        <div className="mt-8 flex items-center gap-x-4">
-          <Link
-            href={"/auth/login"}
-            className={`${styles.primaryButton} px-6 py-2 hover:bg-brand`}
-          >
-            ورود
-          </Link>
-          <Link
-            href={"/auth/register"}
-            className={`${styles.secondaryButton} px-6 py-2 text-background text-sm font-semibold border-2 border-brand rounded-lg hover:scale-[1.05]`}
-          >
-            ثبت نام
-          </Link>
-        </div>
+        <RegisterAuthLinks />
 
-        <h1 className="mt-6 text-primary text-xl md:text-2xl font-bold">
-          خوش آمدی
-        </h1>
-
-        <p className="px-2 mt-4 text-secondary text-sm md:text-base text-center max-w-[22rem]">
-          به خونه خوش اومدی! اگه عضو مجموعه هستی، وارد شو
-        </p>
+        <WelcomeMessage title="خوش آمدی" />
       </div>
 
       <form onSubmit={formik.handleSubmit} className="w-full lg:w-[23rem]">
@@ -192,7 +149,7 @@ function RegisterSection({ submitHandler, error }: props) {
         />
 
         <Input
-          type={showPassword ? "text" : "password"}
+          type={isPasswordVisible ? "text" : "password"}
           password={true}
           id="password"
           title="پسورد"
@@ -200,11 +157,11 @@ function RegisterSection({ submitHandler, error }: props) {
           error={formik.errors.password}
           onChange={formik.handleChange}
           placeHolder="برای مثال 12345678"
-          showPasswordHandler={showPasswordHandler}
+          showPasswordHandler={togglePasswordVisibility}
         />
 
         <Input
-          type={showPassword ? "text" : "password"}
+          type={isPasswordVisible ? "text" : "password"}
           password={true}
           id="repeatPassword"
           title="تکرار پسورد"
@@ -212,7 +169,7 @@ function RegisterSection({ submitHandler, error }: props) {
           onChange={formik.handleChange}
           error={formik.errors.repeatPassword}
           placeHolder="برای مثال 12345678"
-          showPasswordHandler={showPasswordHandler}
+          showPasswordHandler={togglePasswordVisibility}
         />
 
         <div className="my-2 space-y-2">

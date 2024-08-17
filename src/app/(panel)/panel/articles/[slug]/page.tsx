@@ -10,9 +10,9 @@ import CreateArticlePreview from "@/components/articles/preview";
 import CreateArticleControllers from "@/components/articles/controllers";
 
 import { styles } from "@/styles";
+import { useFetchData } from "@/hooks";
 import { articleType } from "@/types/article";
 import { axiosPrivate } from "@/configs/axios";
-import useFetchData from "@/hooks/useFetchData";
 import { checkConnectivity } from "@/utils/checkConnection";
 import { estimateReadTimeHandler } from "@/utils/estimateReadTime";
 

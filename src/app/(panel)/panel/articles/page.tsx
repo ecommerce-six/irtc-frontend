@@ -8,7 +8,7 @@ import ArticlePreviewEdit, {
 } from "@/components/articles/articlePreviewEdit";
 import ArticlesFilter from "@/components/articles/filter";
 
-import useFetchData from "@/hooks/useFetchData";
+import { useFetchData } from "@/hooks";
 
 function Articles() {
   const [selectedPage, setSelectedPage] = useState<number>(1);

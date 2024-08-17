@@ -9,9 +9,8 @@ import MenuLink from "./link";
 import Prompt from "../prompt";
 import { StoreType } from "../../store";
 import { useSelector } from "react-redux";
-import useUser from "@/hooks/useUser";
+import { useUser, useLogout } from "@/hooks";
 import { AvatarSample } from "@/assets";
-import useLogout from "@/hooks/useLogout";
 import { LogoutIcon } from "@/assets/icons/svgs";
 
 function Menu() {

@@ -7,7 +7,7 @@ import React, { useState, useEffect } from "react";
 
 import ToggleAnimate from "@/components/toggleAnimate";
 
-import useUser from "@/hooks/useUser";
+import { useUser } from "@/hooks";
 import { AvatarSample } from "@/assets";
 import { CartIcon } from "@/assets/icons/svgs";
 import { LogoIcon, LogoText } from "@/assets/common";

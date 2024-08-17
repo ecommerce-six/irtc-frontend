@@ -2,12 +2,12 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-import Input from "./input";
+import Input from "@/components/input";
 import { useFormik } from "formik";
 
-import { LogoIcon } from "@/assets/common";
-
 import { styles } from "@/styles";
+
+import { LogoIcon } from "@/assets/common";
 
 type props = {
   phoneNumber: string;
@@ -22,7 +22,7 @@ type formDataType = {
   verifyCode: number;
 };
 
-function LoginVerify({ phoneNumber, loginHandler }: props) {
+function RegisterVerify({ phoneNumber, loginHandler }: props) {
   const validateEmployee = (empData: formDataType) => {
     const errors: errors = {};
 
@@ -49,14 +49,12 @@ function LoginVerify({ phoneNumber, loginHandler }: props) {
 
   return (
     <div className="px-6 py-8 my-10 md:my-20 w-full lg:w-[25rem] flex flex-col items-center bg-background rounded-xl shadow-dark">
-      <Link href={"/"}>
-        <Image src={LogoIcon} alt="logo" className="w-16 md:w-32" />
-      </Link>
+      <Image src={LogoIcon} alt="logo" className="w-16 md:w-32" />
 
       <div className="mt-8 flex items-center gap-x-4">
         <Link
           href={"/auth/login"}
-          className={`${styles.secondaryButton} px-6 py-2 hover:bg-brand `}
+          className={`${styles.secondaryButton} px-6 py-2 hover:bg-brand`}
         >
           ورود
         </Link>
@@ -81,7 +79,7 @@ function LoginVerify({ phoneNumber, loginHandler }: props) {
           id="verifyCode"
           type="number"
           title="کد تایید"
-          pattern="[0-9]{5}"
+          maxlength={5}
           value={formik.verifyCode}
           onChange={formik.handleChange}
           placeHolder="برای مثال 12345"
@@ -100,4 +98,4 @@ function LoginVerify({ phoneNumber, loginHandler }: props) {
   );
 }
 
-export default LoginVerify;
+export default RegisterVerify;

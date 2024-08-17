@@ -4,7 +4,7 @@ import React, { useState } from "react";
 
 import { useFormik } from "formik";
 import { styles } from "@/styles";
-import Input from "@/components/login/input";
+import Input from "@/components/input";
 import { userGenderType } from "@/types/user";
 ``;
 import { axiosPrivate } from "@/configs/axios";

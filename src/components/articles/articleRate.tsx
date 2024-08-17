@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 import { redirect } from "next/navigation";
 
 import { FilledStarIcon, StarOutlineIcon } from "@/assets/icons";
-import useUser from "@/hooks/useUser";
+import { useUser } from "@/hooks";
 import { checkConnectivity } from "@/utils/checkConnection";
 // import { routeActions } from "../../app/store/route-slice";
 
