@@ -1,31 +1,45 @@
-import React, { ReactNode } from "react";
-
-import { Navigation } from "swiper/modules";
 import { Swiper } from "swiper/react";
+import React, { ReactNode } from "react";
+import { SwiperModule } from "swiper/types";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
 
 import "@/styles/swiper.css";
-// import "swiper/swiper.min.css";
-// import "swiper/swiper-bundle.css";
-// import "swiper/swiper-bundle.min.css";
+
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+
+type props = {
+  loop?: boolean;
+  speed?: number;
+  className?: string;
+  children: ReactNode;
+  AutoplayDelay?: number;
+  modules: SwiperModule[];
+  disableOnInteraction?: boolean | undefined;
+};
 
 function Slider({
+  loop,
+  speed,
+  modules,
   children,
   className,
-}: {
-  children: any;
-  className?: string;
-}) {
+  AutoplayDelay,
+  disableOnInteraction,
+}: props) {
   return (
     <Swiper
-      loop
-      navigation
-      speed={750}
+      speed={speed || 750}
+      loop={loop}
+      modules={[...modules, Autoplay]}
+      className={className}
+      navigation={modules?.includes(Navigation) ? true : false}
+      pagination={modules?.includes(Pagination) ? true : false}
       autoplay={{
-        delay: 4000,
-        disableOnInteraction: true,
+        delay: AutoplayDelay || 4000,
+        disableOnInteraction,
       }}
-      modules={[Navigation]}
-      className={`${className} swiper-comments`}
     >
       {children}
     </Swiper>

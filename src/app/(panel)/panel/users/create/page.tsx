@@ -1,12 +1,12 @@
 "use client";
 
+import { useFormik } from "formik";
 import React, { useState } from "react";
 
-import { useFormik } from "formik";
-import { styles } from "@/styles";
 import Input from "@/components/input";
+
+import { styles } from "@/styles";
 import { userGenderType } from "@/types/user";
-``;
 import { axiosPrivate } from "@/configs/axios";
 import { checkConnectivity } from "@/utils/checkConnection";
 
@@ -190,7 +190,8 @@ function CreateUser() {
 
   return (
     <div className="p-4 rounded-xl shadow-dark">
-      {/* <Header title="IRTC	• ایجاد کاربر" /> */}
+      <title>IRTC • ایجاد کاربر</title>
+
       <form onSubmit={formik.handleSubmit} className="w-full">
         <Input
           type="text"

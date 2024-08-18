@@ -1,17 +1,16 @@
 import React from "react";
 import Timeline from "@mui/lab/Timeline";
-import RoadmapItem from "@/components/roadmap/item";
 import { StyledEngineProvider } from "@mui/material";
 
 import Heading from "@/components/elements/heading";
-import RightRoadmapItem from "@/components/roadmap/item";
+import { RoadmapStation } from "@/components/roadmap";
 
 import { Roadmap1 } from "@/assets/icons/svgs";
 
 function Roadmap() {
   return (
     <section className="mt-16">
-      {/* <Header title="IRTC	• نقشه ی راه" /> */}
+      <title>IRTC • نقشه ی راه</title>
 
       <Heading
         title="مسیر یادگیری"
@@ -21,54 +20,42 @@ function Roadmap() {
       <div className="mt-6 ltr">
         <StyledEngineProvider>
           <Timeline position="alternate">
-            <RoadmapItem
+            <RoadmapStation
               link="/courses/react"
               icon={<Roadmap1 />}
               header="اموزش ری اکت"
               description="...جاوااسکریپت از مهمترین ابزارهای توسعه وب به شمار می‌رود که"
             />
 
-            <RoadmapItem
+            <RoadmapStation
               link="/courses/react"
               icon={<Roadmap1 />}
               header="اموزش ری اکت"
               description="...جاوااسکریپت از مهمترین ابزارهای توسعه وب به شمار می‌رود که"
             />
 
-            <RoadmapItem
-              link="/courses/react"
-              icon={<Roadmap1 />}
-              header="اموزش ری اکت"
-              description="...جاوااسکریپت از مهمترین ابزارهای توسعه وب به شمار می‌رود که"
-            />
-            <RightRoadmapItem
+            <RoadmapStation
               link="/courses/react"
               icon={<Roadmap1 />}
               header="اموزش ری اکت"
               description="...جاوااسکریپت از مهمترین ابزارهای توسعه وب به شمار می‌رود که"
             />
 
-            <RoadmapItem
+            <RoadmapStation
               link="/courses/react"
               icon={<Roadmap1 />}
               header="اموزش ری اکت"
               description="...جاوااسکریپت از مهمترین ابزارهای توسعه وب به شمار می‌رود که"
             />
 
-            <RoadmapItem
+            <RoadmapStation
               link="/courses/react"
               icon={<Roadmap1 />}
               header="اموزش ری اکت"
               description="...جاوااسکریپت از مهمترین ابزارهای توسعه وب به شمار می‌رود که"
             />
 
-            <RoadmapItem
-              link="/courses/react"
-              icon={<Roadmap1 />}
-              header="اموزش ری اکت"
-              description="...جاوااسکریپت از مهمترین ابزارهای توسعه وب به شمار می‌رود که"
-            />
-            <RightRoadmapItem
+            <RoadmapStation
               link="/courses/react"
               icon={<Roadmap1 />}
               header="اموزش ری اکت"

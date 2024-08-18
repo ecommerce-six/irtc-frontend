@@ -1,48 +1,43 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import Image from "next/image";
 import { FilePond } from "react-filepond";
+import { useRouter } from "next/navigation";
 import { ChangeEvent, useState, useRef } from "react";
 
+import {
+  CreateArticleTools,
+  ArticlePanelEditingPreview,
+} from "@/features/articles/panel";
 import Access from "@/components/access";
-import CreateArticlePreview from "@/components/articles/preview";
-import CreateArticleControllers from "@/components/articles/controllers";
 
-import { styles } from "@/styles";
 import { axiosPrivate } from "@/configs/axios";
 import { checkConnectivity } from "@/utils/checkConnection";
 import { estimateReadTimeHandler } from "@/utils/estimateReadTime";
 
+import { styles } from "@/styles";
+
 import "@/styles/filepond.css";
 import "filepond/dist/filepond.min.css";
 
-function CreateArticles() {
+function CreateArticle() {
   const router = useRouter();
 
-  const textRef = useRef<HTMLTextAreaElement>(null);
-
+  const [error, setError] = useState<{
+    title?: string;
+    message: string;
+  } | null>(null);
+  const [cover, setCover] = useState<any>();
+  const [images, setImages] = useState<any>();
+  const [title, setTitle] = useState<string>("");
+  const [coverFile, setCoverFile] = useState<any>();
   const [content, setContent] = useState<string>(``);
-
   const [preview, setPreview] = useState<boolean>(false);
-
+  const [message, setMessage] = useState<string | null>("");
+  const [description, setDescription] = useState<string>("");
   const [uploadArticleImage, setUploadArticleImage] = useState<boolean>(false);
 
-  const [title, setTitle] = useState<string>("");
-
-  const [description, setDescription] = useState<string>("");
-
-  const [coverFile, setCoverFile] = useState<any>();
-
-  const [cover, setCover] = useState<any>();
-
-  const [images, setImages] = useState<any>();
-
-  const [error, setError] = useState<{
-    message: string;
-    title?: string;
-  } | null>(null);
-
-  const [message, setMessage] = useState<string | null>("");
+  const textRef = useRef<HTMLTextAreaElement>(null);
 
   const titleHandler = (e: ChangeEvent<HTMLInputElement>) => {
     setTitle(e.target.value);
@@ -97,7 +92,8 @@ function CreateArticles() {
       content: content,
       description: description,
       readTime: estimateReadTimeHandler(content),
-      cover: "https://sabzlearn.ir/wp-content/uploads/2023/02/sabz-redux.png",
+      cover:
+        "https://sabzlearn.ir/wp-content/uploads/2023/12/IMAGE-1402-09-30-20_33_36-1.webp",
     };
 
     const isConnected = await checkConnectivity();
@@ -139,7 +135,7 @@ function CreateArticles() {
   return (
     <Access admin author>
       <div className="p-4 space-y-4 rounded-xl shadow-dark">
-        {/* <Header title="IRTC	• ایجاد کردن مقاله" /> */}
+        <title>IRTC • ایجاد کردن مقاله</title>
 
         <input
           type={"text"}
@@ -190,9 +186,11 @@ function CreateArticles() {
         />
 
         {cover && (
-          <img
+          <Image
             src={cover}
-            alt=""
+            alt={title}
+            width={1000}
+            height={600}
             className="w-full max-h-[25rem] object-cover rounded-xl"
           />
         )}
@@ -202,7 +200,7 @@ function CreateArticles() {
         className="mt-4 p-4 rounded-xl shadow-dark sticky"
         data-color-mode="light"
       >
-        <CreateArticleControllers
+        <CreateArticleTools
           textRef={textRef}
           EditorCommandHandler={EditorCommandHandler}
           setUploadArticleImage={setUploadArticleImage}
@@ -249,7 +247,7 @@ function CreateArticles() {
       </div>
 
       {preview && (
-        <CreateArticlePreview
+        <ArticlePanelEditingPreview
           title={title}
           content={content}
           previewHandler={previewHandler}
@@ -289,4 +287,4 @@ function CreateArticles() {
   );
 }
 
-export default CreateArticles;
+export default CreateArticle;

@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -9,6 +11,7 @@ import { SwiperSlide } from "swiper/react";
 
 import { Avatar, TestimonialsImage } from "@/assets";
 import { RedirectArrowIcon } from "@/assets/icons/svgs";
+import { Navigation } from "swiper/modules";
 
 function Testimonials() {
   return (
@@ -20,7 +23,12 @@ function Testimonials() {
 
       <div className="flex items-center flex-col lg:flex-row justify-between">
         <div>
-          {/* <Slider className="w-[95vw] lg:w-[32.5rem] max-w-screen-sm lg:max-w-[32.5rem]">
+          <Slider
+            loop
+            disableOnInteraction
+            modules={[Navigation]}
+            className="w-[95vw] lg:w-[32.5rem] max-w-screen-sm lg:max-w-[32.5rem] swiper-comments"
+          >
             <SwiperSlide>
               <div className="px-10 md:px-14 py-6 w-[95vw] max-w-screen-sm lg:max-w-[32.5rem]">
                 <div className="flex items-center">
@@ -103,7 +111,7 @@ function Testimonials() {
                 </div>
               </div>
             </SwiperSlide>
-          </Slider> */}
+          </Slider>
         </div>
 
         <Image

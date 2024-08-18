@@ -1,12 +1,13 @@
 import React from "react";
 import Link from "next/link";
-
 import Timeline from "@mui/lab/Timeline";
-import Heading from "@/components/elements/heading";
-import RoadmapItem from "@/components/roadmap/item";
 import { StyledEngineProvider } from "@mui/material";
 
+import Heading from "@/components/elements/heading";
+import { RoadmapStation } from "@/components/roadmap";
+
 import { styles } from "@/styles";
+
 import { Roadmap1 } from "@/assets/icons/svgs";
 
 function Roadmap() {
@@ -27,27 +28,27 @@ function Roadmap() {
       <div className="mt-6 ltr">
         <StyledEngineProvider>
           <Timeline position="alternate">
-            <RoadmapItem
+            <RoadmapStation
               link="/courses/react"
               icon={<Roadmap1 />}
               header="اموزش ری اکت"
               description="...جاوااسکریپت از مهمترین ابزارهای توسعه وب به شمار می‌رود که"
             />
 
-            <RoadmapItem
+            <RoadmapStation
               link="/courses/react"
               icon={<Roadmap1 />}
               header="اموزش ری اکت"
               description="...جاوااسکریپت از مهمترین ابزارهای توسعه وب به شمار می‌رود که"
             />
-            <RoadmapItem
+            <RoadmapStation
               link="/courses/react"
               icon={<Roadmap1 />}
               header="اموزش ری اکت"
               description="...جاوااسکریپت از مهمترین ابزارهای توسعه وب به شمار می‌رود که"
             />
 
-            <RoadmapItem
+            <RoadmapStation
               link="/courses/react"
               icon={<Roadmap1 />}
               header="اموزش ری اکت"

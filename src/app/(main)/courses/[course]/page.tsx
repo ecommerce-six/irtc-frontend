@@ -1,15 +1,13 @@
 import React from "react";
 
-import { MainLayout } from "@/components/layout";
 import Testimonials from "@/components/testimonials/testimonials";
-import CourseDescription from "@/components/courses/courseDescription";
-import SingleCourseHeader from "@/components/courses/singleCourseHeader";
+import { CourseDetails, CourseDescription } from "@/features/courses/course";
 
 function Course() {
   const course = {
     slug: "react",
     rate: 4.5,
-    price: 690000,
+    price: 350000,
     credit: true,
     membersCount: 1269,
     title: "اموزش راه اندازی کیف پول",
@@ -24,11 +22,11 @@ function Course() {
 
   return (
     <main>
-      {/* <Header title={`IRTC	• ${course.title}`} /> */}
+      <title>IRTC • {course.title}</title>
 
-      <SingleCourseHeader {...course} />
+      <CourseDetails {...course} />
 
-      <CourseDescription description={course.description} />
+      <CourseDescription slug={course.slug} description={course.description} />
 
       <Testimonials />
     </main>

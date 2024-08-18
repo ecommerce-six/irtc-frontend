@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-export type RoadmapItemType = {
+export type RoadmapStationType = {
   link: string;
   header: string;
   icon: ReactNode;

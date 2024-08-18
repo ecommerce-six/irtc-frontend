@@ -3,14 +3,15 @@
 import React, { useState } from "react";
 import ReactPaginate from "react-paginate";
 
-import { useFetchData } from "@/hooks";
 import Heading from "@/components/elements/heading";
-import ArticlesFilter from "@/components/articles/filter";
 
-import ArticlePreview, {
-  ArticlePreviewLoading,
-} from "@/components/articles/articlePreview";
+import { useFetchData } from "@/hooks";
 import { articleType, articlesFilterHandlerType } from "@/types/article";
+import {
+  ArticleCard,
+  ArticleCardLoading,
+  ArticlesFilter,
+} from "@/features/articles";
 
 function Articles() {
   const [selectedPage, setSelectedPage] = useState<number>(1);
@@ -25,7 +26,7 @@ function Articles() {
 
   return (
     <main>
-      {/* <Header title="IRTC	• مقاله ها" /> */}
+      <title>IRTC • مقاله ها</title>
 
       <div className="mt-6">
         <Heading
@@ -40,10 +41,10 @@ function Articles() {
         <div className="flex justify-center flex-wrap gap-20">
           {data
             ? data.article.map((item: articleType, index: number) => (
-                <ArticlePreview {...item} key={index} />
+                <ArticleCard {...item} key={index} />
               ))
             : [...new Array(4)].map((_, index) => (
-                <ArticlePreviewLoading key={index} />
+                <ArticleCardLoading key={index} />
               ))}
         </div>
 

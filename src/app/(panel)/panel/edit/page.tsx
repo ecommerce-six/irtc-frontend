@@ -6,11 +6,12 @@ import { useFormik } from "formik";
 import React, { useState } from "react";
 
 import Access from "@/components/access";
-import Input from "@/components/user/input";
+import { UserEditInput } from "@/features/panel/user";
 
 import { styles } from "@/styles";
-import { AvatarSample } from "@/assets";
 import { useUser, useUpdateUser } from "@/hooks";
+
+import { AvatarSample } from "@/assets";
 
 // !
 type formDataType = {
@@ -60,11 +61,11 @@ function EditProfile() {
   return (
     // ! removed user ?
     <Access admin author normalUser>
-      {/* <Header title="IRTC	• تغییر پروفایل" /> */}
+      <title>IRTC • تغییر پروفایل</title>
 
       <section className="p-5 rounded-xl shadow-dark">
         <form onSubmit={formik.handleSubmit}>
-          <Input
+          <UserEditInput
             id="firstName"
             name="firstName"
             title="نام"
@@ -75,7 +76,7 @@ function EditProfile() {
             defaultValue={user?.firstName}
           />
 
-          <Input
+          <UserEditInput
             id="lastName"
             name="lastName"
             title="نام خانوادگی"
@@ -86,7 +87,7 @@ function EditProfile() {
             onChange={formik.handleChange}
           />
 
-          <Input
+          <UserEditInput
             id="phoneNumber"
             name="phoneNumber"
             title="شماره همراه"
@@ -97,7 +98,7 @@ function EditProfile() {
             onChange={formik.handleChange}
           />
 
-          <Input
+          <UserEditInput
             id="email"
             name="email"
             title="ایمیل"
@@ -147,7 +148,7 @@ function EditProfile() {
             ))}
           </div>
 
-          <Input
+          <UserEditInput
             id="password"
             name="password"
             title="پسورد"
@@ -159,7 +160,7 @@ function EditProfile() {
             }}
           />
 
-          <Input
+          <UserEditInput
             id="oldPassword"
             name="oldPassword"
             title="پسورد قبلی"
