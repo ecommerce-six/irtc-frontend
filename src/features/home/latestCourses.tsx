@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 
 import Heading from "@/components/elements/heading";
-import CoursePreview from "@/components/courses/coursePreview";
+import CourseCard from "@/features/courses/CourseCard";
 
 import { styles } from "@/styles";
 
@@ -24,7 +24,7 @@ function LatestCourses() {
 
       <div className="mt-10 w-full flex items-center justify-center flex-wrap gap-5">
         {courses.map((item, index) => (
-          <CoursePreview
+          <CourseCard
             key={index}
             slug={"react"}
             cover={
@@ -32,7 +32,7 @@ function LatestCourses() {
             }
             title={"اموزش راه اندازی کیف پول"}
             rate={4.5}
-            price={690000}
+            price={100000}
             credit={true}
             duration={"100 ساعت و 67 دقیقه"}
             membersCount={1269}

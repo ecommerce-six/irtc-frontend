@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 
 import { styles } from "@/styles";
-import useUser from "@/hooks/useUser";
+import { useUser } from "@/hooks";
 
 const AuthLayout = ({ children }: { children: any }) => {
   const { user } = useUser();

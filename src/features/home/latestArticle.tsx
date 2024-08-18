@@ -3,12 +3,10 @@ import React from "react";
 import Link from "next/link";
 
 import Heading from "@/components/elements/heading";
-import ArticlePreview, {
-  ArticlePreviewLoading,
-} from "@/components/articles/articlePreview";
+import { ArticleCard, ArticleCardLoading } from "@/features/articles";
 
 import { styles } from "@/styles";
-import useFetchData from "@/hooks/useFetchData";
+import { useFetchData } from "@/hooks";
 import { articleType } from "@/types/article";
 
 function LatestArticle() {
@@ -31,10 +29,10 @@ function LatestArticle() {
       <div className="mt-10 flex items-center justify-center flex-wrap gap-x-14 gap-y-10">
         {data
           ? data.article.map((item: articleType, index: number) => (
-              <ArticlePreview {...item} key={index} />
+              <ArticleCard {...item} key={index} />
             ))
           : [...new Array(4)].map((index) => (
-              <ArticlePreviewLoading key={index} />
+              <ArticleCardLoading key={index} />
             ))}
       </div>
     </section>

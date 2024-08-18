@@ -2,17 +2,11 @@
 
 import React from "react";
 
-import axios from "@/configs/axios";
-import useUser from "@/hooks/useUser";
-import useAuth from "@/hooks/useAuth";
-import useError from "@/hooks/useError";
-import NumberLogin from "@/components/login/login";
-import { checkConnectivity } from "@/utils/checkConnection";
+import { NumberLogin, NumberLoginVerify } from "@/features/auth";
 
-// export const metadata: Metadata = {
-//   title: "IRTC	• ورود",
-//   description: "IRTC a website for learning trading",
-// };
+import axios from "@/configs/axios";
+import { useUser, useAuth, useError } from "@/hooks";
+import { checkConnectivity } from "@/utils/checkConnection";
 
 type submitHandlerPropsType = {
   password: string;
@@ -24,9 +18,7 @@ const LOGIN_URL = "/users/login";
 
 function Login() {
   const { getUser } = useUser();
-
   const { setAuth } = useAuth();
-
   const { error, setError } = useError();
 
   const loginHandler = async (body: submitHandlerPropsType) => {
@@ -43,7 +35,6 @@ function Login() {
 
         if (response?.status === 200) {
           setAuth({ accessToken: token, rememberMe: body.rememberMe });
-
           await getUser();
 
           setError(null);
@@ -52,6 +43,8 @@ function Login() {
         }
 
         setError(response?.data.message);
+      } else {
+        setError("خطا در اتصال به اینترنت");
       }
     } catch (err: any) {
       if (!err?.response) {
@@ -68,7 +61,13 @@ function Login() {
 
   return (
     <main className="w-full grid place-items-center">
+      <title>IRTC • ورود</title>
+
+      {/* {codeSent ? ( */}
+      {/* <NumberLoginVerify loginHandler={() => {}} phoneNumber={"09907086274"} /> */}
+      {/* ) : ( */}
       <NumberLogin submitHandler={loginHandler} error={error} />
+      {/* )} */}
     </main>
   );
 }

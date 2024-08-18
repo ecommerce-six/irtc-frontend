@@ -3,21 +3,20 @@
 import React from "react";
 
 import Access from "@/components/access";
-import AllUsers from "@/components/user/allUsers";
-import UsersFilter from "@/components/user/usersFilter";
+import { Users, UsersFilter } from "@/features/panel/user";
 
 function PanelUsers() {
   const searchHandler = () => {};
 
   return (
     <Access admin>
-      {/* <Header title="IRTC	• کاربر ها" /> */}
+      <title>IRTC • کاربران</title>
 
       <main>
         <UsersFilter searchHandler={searchHandler} />
 
         <section className="mt-6 p-5  bg-background rounded-xl shadow-dark">
-          <AllUsers />
+          <Users />
         </section>
       </main>
     </Access>

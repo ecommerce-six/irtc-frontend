@@ -1,25 +1,29 @@
 import React from "react";
 import Image from "next/image";
 
-import CoursesHeader from "@/components/courses/header";
-import LatestCourses from "@/components/courses/latestCourses";
-import CoursesFilter from "@/components/courses/coursesFilter";
+import { CoursesHero, LatestCourses, CoursesFilter } from "@/features/courses";
 
 import { TopToRightBottom } from "@/assets/badges";
 
 function Courses() {
   return (
     <main>
-      {/* <Header title="IRTC	• دوره ها" /> */}
+      <title>IRTC • دوره ها</title>
 
-      <CoursesHeader />
+      <CoursesHero />
 
       <div className="mt-10">
         <LatestCourses />
       </div>
 
       <div className="mt-10 grid justify-items-center">
-        <Image src={TopToRightBottom} alt="spiral badge" className="w-16" />
+        <Image
+          src={TopToRightBottom}
+          width={64}
+          height={64}
+          className="w-16"
+          alt="spiral badge"
+        />
       </div>
 
       <CoursesFilter />

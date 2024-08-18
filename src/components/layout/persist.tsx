@@ -2,9 +2,7 @@
 
 import React, { ReactNode, useEffect } from "react";
 
-import useAuth from "@/hooks/useAuth";
-import useUser from "@/hooks/useUser";
-import useRefreshToken from "@/hooks/useRefreshToken";
+import { useAuth, useUser, useRefreshToken } from "@/hooks";
 
 function UserWrapper({ children }: { children: ReactNode }) {
   const { auth, rememberMe } = useAuth();

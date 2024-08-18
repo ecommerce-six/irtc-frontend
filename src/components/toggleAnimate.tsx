@@ -1,5 +1,4 @@
 import React, { ReactNode } from "react";
-
 import { CSSTransition } from "react-transition-group";
 
 import "@/styles/transition-group.css";

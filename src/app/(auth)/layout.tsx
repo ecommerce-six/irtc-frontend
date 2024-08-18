@@ -3,16 +3,14 @@
 import { useRouter } from "next/navigation";
 
 import { styles } from "@/styles";
-import useUser from "@/hooks/useUser";
+import { useUser } from "@/hooks";
 
 const AuthLayout = ({ children }: { children: any }) => {
   const router = useRouter();
 
   const { user } = useUser();
 
-  if (user?.role) {
-    router.push("/");
-  }
+  if (user?.role) router.push("/");
 
   return (
     <>
@@ -22,4 +20,5 @@ const AuthLayout = ({ children }: { children: any }) => {
     </>
   );
 };
+
 export default AuthLayout;

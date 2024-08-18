@@ -1,51 +1,51 @@
 "use client";
 
-import { redirect } from "next/navigation";
 import { FilePond } from "react-filepond";
+import { redirect } from "next/navigation";
 import { ChangeEvent, useState, useRef, useEffect } from "react";
 
+import {
+  CreateArticleTools,
+  ArticlePanelEditingPreview,
+} from "@/features/articles/panel";
 import Access from "@/components/access";
-import EditArticlesLoading from "./loading";
-import CreateArticlePreview from "@/components/articles/preview";
-import CreateArticleControllers from "@/components/articles/controllers";
+import { PanelArticleEditLoading } from "@/features/panel/articles";
 
 import { styles } from "@/styles";
+import { useFetchData } from "@/hooks";
 import { articleType } from "@/types/article";
 import { axiosPrivate } from "@/configs/axios";
-import useFetchData from "@/hooks/useFetchData";
 import { checkConnectivity } from "@/utils/checkConnection";
 import { estimateReadTimeHandler } from "@/utils/estimateReadTime";
 
 import "@/styles/filepond.css";
 import "filepond/dist/filepond.min.css";
 
-function EditArticles() {
+type props = {
+  params: {
+    slug: string;
+  };
+};
+
+function EditArticles({ params }: props) {
   const { data }: { data: articleType } = useFetchData(
-    "/articles/اموزش-کشیدن-نمودار-های-ترید"
+    `articles/${params.slug}`
   );
 
-  const textRef = useRef<HTMLTextAreaElement>(null);
-
+  const [error, setError] = useState<{
+    title?: string;
+    message: string;
+  } | null>(null);
+  const [cover, setCover] = useState<any>();
+  const [images, setImages] = useState<any>();
+  const [title, setTitle] = useState<string>("");
   const [content, setContent] = useState<string>(``);
-
   const [preview, setPreview] = useState<boolean>(false);
-
+  const [message, setMessage] = useState<string | null>("");
+  const [description, setDescription] = useState<string>("");
   const [uploadArticleImage, setUploadArticleImage] = useState<boolean>(false);
 
-  const [title, setTitle] = useState<string>("");
-
-  const [description, setDescription] = useState<string>("");
-
-  const [cover, setCover] = useState<any>();
-
-  const [images, setImages] = useState<any>();
-
-  const [error, setError] = useState<{
-    message: string;
-    title?: string;
-  } | null>(null);
-
-  const [message, setMessage] = useState<string | null>("");
+  const textRef = useRef<HTMLTextAreaElement>(null);
 
   const titleHandler = (e: ChangeEvent<HTMLInputElement>) => {
     setTitle(e.target.value);
@@ -107,8 +107,6 @@ function EditArticles() {
 
     if (isConnected) {
       try {
-        console.log(article);
-
         const response = await axiosPrivate.post(
           `/articles/update/${data.id}`,
           JSON.stringify(article),
@@ -158,11 +156,11 @@ function EditArticles() {
     }
   }, [data]);
 
-  if (data) {
+  if (data?.slug) {
     return (
       <Access admin author>
         <div className="p-4 space-y-4 rounded-xl shadow-dark">
-          {/* <Header title="IRTC	• ایجاد کردن مقاله" /> */}
+          <title>IRTC • ${title}</title>
 
           <input
             type={"text"}
@@ -210,7 +208,7 @@ function EditArticles() {
           className="mt-4 p-4 rounded-xl shadow-dark sticky"
           data-color-mode="light"
         >
-          <CreateArticleControllers
+          <CreateArticleTools
             textRef={textRef}
             EditorCommandHandler={EditorCommandHandler}
             setUploadArticleImage={setUploadArticleImage}
@@ -258,7 +256,7 @@ function EditArticles() {
         </div>
 
         {preview && (
-          <CreateArticlePreview
+          <ArticlePanelEditingPreview
             title={title}
             content={content}
             previewHandler={previewHandler}
@@ -297,7 +295,8 @@ function EditArticles() {
       </Access>
     );
   }
-  return <EditArticlesLoading />;
+
+  return <PanelArticleEditLoading />;
 }
 
 export default EditArticles;

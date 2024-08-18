@@ -2,7 +2,7 @@
 
 import Error404 from "@/components/404";
 
-import useUser from "@/hooks/useUser";
+import { useUser } from "@/hooks";
 
 type props = {
   admin?: true;

@@ -1,14 +1,16 @@
 "use client";
+
 import React, { useState } from "react";
 import ReactPaginate from "react-paginate";
 
+import {
+  ArticleCardPanelEditingLoading,
+  ArticlePanelEditingPreview,
+} from "@/features/articles/panel";
 import Access from "@/components/access";
-import ArticlesFilter from "@/components/articles/filter";
-import ArticlePreviewEdit, {
-  ArticlePreviewEditLoading,
-} from "@/components/articles/articlePreviewEdit";
+import { ArticlesFilter } from "@/features/articles";
 
-import useFetchData from "@/hooks/useFetchData";
+import { useFetchData } from "@/hooks";
 
 function MyArticles() {
   const [selectedPage, setSelectedPage] = useState<number>(1);
@@ -27,17 +29,17 @@ function MyArticles() {
 
   return (
     <Access admin author>
-      {/* <Header title="IRTC	• مقاله ها" /> */}
+      <title>IRTC • مقاله ها</title>
 
       <ArticlesFilter searchHandler={searchHandler} />
 
       <div className="mt-6 flex flex-col items-center gap-y-5">
         {data
           ? data.article.map((item: any, index: number) => (
-              <ArticlePreviewEdit {...item} key={index} />
+              <ArticlePanelEditingPreview {...item} key={index} />
             ))
           : [...new Array(4)].map((index) => (
-              <ArticlePreviewEditLoading key={index} />
+              <ArticleCardPanelEditingLoading key={index} />
             ))}
       </div>
 

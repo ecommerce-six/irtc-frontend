@@ -1,15 +1,15 @@
 import React from "react";
 
-import UserProfile from "@/components/user/profile";
+import { Profile } from "@/features/panel/user";
 
-function Profile() {
+function ProfilePage() {
   return (
     <>
-      {/* <Header title="IRTC	• پروفایل" /> */}
+      <title>IRTC • پروفایل</title>
 
-      <UserProfile />
+      <Profile />
     </>
   );
 }
 
-export default Profile;
+export default ProfilePage;
