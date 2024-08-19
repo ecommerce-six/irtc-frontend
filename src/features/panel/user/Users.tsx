@@ -24,7 +24,7 @@ function Users() {
   };
 
   const exportToExcelHandler = () => {
-    exportToExcel(data);
+    exportToExcel(data.users);
   };
 
   return (

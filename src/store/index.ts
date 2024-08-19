@@ -12,7 +12,7 @@ export const store = configureStore({
     getDefaultMiddleware({
       serializableCheck: false,
     }),
-  devTools: process.env.NODE_ENV !== "production", // disable devTools in production
+  // devTools: process.env.NODE_ENV !== "production", // disable devTools in production
 });
 
 export type StoreType = ReturnType<typeof store.getState>;

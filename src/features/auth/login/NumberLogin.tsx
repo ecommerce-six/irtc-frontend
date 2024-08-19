@@ -86,6 +86,8 @@ function NumberLogin({ submitHandler, error }: props) {
       <form onSubmit={formik.handleSubmit} className="w-full">
         <Input
           type="text"
+          autoComplete={"username"}
+          name="phoneNumber"
           maxlength={11}
           id="phoneNumber"
           title="شماره همراه"
@@ -98,6 +100,8 @@ function NumberLogin({ submitHandler, error }: props) {
 
         <Input
           type={isPasswordVisible ? "text" : "password"}
+          autoComplete={"password"}
+          name="password"
           password={true}
           id="password"
           title="پسورد"

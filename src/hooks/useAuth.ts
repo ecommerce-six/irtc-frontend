@@ -9,7 +9,7 @@ const useAuth = () => {
   const auth = useSelector((state: StoreType) => state.auth);
 
   const setAuth = (newAuth: setAuthType) => {
-    dispatch(authActions.setAuth(newAuth));
+    dispatch(authActions.setAuth({ ...auth, ...newAuth }));
   };
 
   const rememberMe = auth.rememberMe;

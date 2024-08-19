@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { useRouter } from "next/navigation";
 
 import { NumberLogin, NumberLoginVerify } from "@/features/auth";
 
@@ -17,8 +18,9 @@ type submitHandlerPropsType = {
 const LOGIN_URL = "/users/login";
 
 function Login() {
-  const { getUser } = useUser();
+  const router = useRouter();
   const { setAuth } = useAuth();
+  const { user, getUser } = useUser();
   const { error, setError } = useError();
 
   const loginHandler = async (body: submitHandlerPropsType) => {
@@ -34,10 +36,15 @@ function Login() {
         const token = response.data.data.token;
 
         if (response?.status === 200) {
-          setAuth({ accessToken: token, rememberMe: body.rememberMe });
-          await getUser();
-
           setError(null);
+
+          setAuth({ accessToken: token, rememberMe: body.rememberMe });
+
+          await getUser(token);
+
+          if (user?.id) {
+            router.push("/");
+          }
 
           return;
         }

@@ -128,7 +128,9 @@ function RegisterSection({ submitHandler, error }: props) {
 
       <form onSubmit={formik.handleSubmit} className="w-full lg:w-[23rem]">
         <Input
+          autoComplete={"username"}
           type="text"
+          name="phoneNumber"
           maxlength={11}
           id="phoneNumber"
           title="شماره همراه"
@@ -150,6 +152,8 @@ function RegisterSection({ submitHandler, error }: props) {
 
         <Input
           type={isPasswordVisible ? "text" : "password"}
+          autoComplete={"password"}
+          name="password"
           password={true}
           id="password"
           title="پسورد"
@@ -248,7 +252,7 @@ function RegisterSection({ submitHandler, error }: props) {
 
         <button
           className={`${styles.primaryButton} mt-2 w-full py-3 bg-brand rounded-xl hover:scale-[1.05]`}
-          type="submit"
+          // type="submit"
         >
           ثبت نام
         </button>
