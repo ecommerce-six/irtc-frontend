@@ -1,6 +1,8 @@
 import * as XLSX from "xlsx";
-import { userType } from "@/types/user";
+
 import { deleteProperties } from "./deleteProperties";
+
+import { userType } from "@/types/user";
 
 export const exportToExcel = (users: userType[]) => {
   const excelUsers: userType[] = [...users];

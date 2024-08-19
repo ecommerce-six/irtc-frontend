@@ -6,11 +6,11 @@ import Image from "next/image";
 import { SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 
-import Slider from "./Slider";
 import Heading from "./Heading";
 
 import { Avatar, TestimonialsImage } from "@/assets";
 import { RedirectArrowIcon } from "@/assets/icons/svgs";
+import Slider from "./Slider";
 
 function Testimonials() {
   return (

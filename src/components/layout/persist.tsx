@@ -35,7 +35,7 @@ function UserWrapper({ children }: { children: ReactNode }) {
     return () => {
       isMounted = false;
     };
-  }, [auth.accessToken, getUser, rememberMe, refresh]);
+  }, [auth.accessToken, getUser, rememberMe, refresh, user]);
 
   return <>{children}</>;
 }

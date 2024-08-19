@@ -5,15 +5,15 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import React, { useState, useEffect } from "react";
 
-import { ToggleAnimate } from "@/components";
-
 import { useUser } from "@/hooks";
+
 import { AvatarSample } from "@/assets";
 import { CartIcon } from "@/assets/icons/svgs";
 import { LogoIcon, LogoText } from "@/assets/common";
 import { CloseIcon, MenuIcon } from "@/assets/icons";
 
 import { styles } from "@/styles";
+import ToggleAnimate from "../ToggleAnimate";
 
 function Navbar() {
   const path = usePathname();

@@ -1,7 +1,8 @@
+import { useDispatch } from "react-redux";
+
 import useAuth from "./useAuth";
 import axios from "@/configs/axios";
-import { useDispatch } from "react-redux";
-import { userActions } from "../store/user-slice";
+import { userActions } from "@/store/user-slice";
 
 const useLogout = () => {
   const { setAuth } = useAuth();
