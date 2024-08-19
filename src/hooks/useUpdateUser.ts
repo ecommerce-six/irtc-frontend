@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 import useUser from "./useUser";
-import { axiosPrivate } from "../configs/axios";
+import { axiosPrivate } from "@/configs/axios";
 
 const useUpdateUser = () => {
   const [error, setError] = useState<string | null>(null);

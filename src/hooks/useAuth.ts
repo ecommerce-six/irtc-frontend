@@ -1,7 +1,8 @@
-import { StoreType } from "../store";
-import { setAuthType } from "@/types/auth";
-import { authActions } from "../store/auth-slice";
 import { useSelector, useDispatch } from "react-redux";
+
+import { StoreType } from "@/store";
+import { setAuthType } from "@/types/auth";
+import { authActions } from "@/store/auth-slice";
 
 const useAuth = () => {
   const dispatch = useDispatch();

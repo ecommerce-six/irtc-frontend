@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 
 import useAuth from "./useAuth";
-import { axiosPrivate } from "../configs/axios";
+import { axiosPrivate } from "@/configs/axios";
 
 const useFetchData = (URL: string, page: number = 1, limit?: number) => {
   const [data, setData] = useState<any | null>(null);

@@ -3,10 +3,10 @@
 import { useDispatch, useSelector } from "react-redux";
 
 import axios from "@/configs/axios";
-import { StoreType } from "../store";
+import { StoreType } from "@/store";
 import { userType } from "@/types/user";
 import useAxiosPrivate from "./useAxiosPrivate";
-import { userActions } from "../store/user-slice";
+import { userActions } from "@/store/user-slice";
 
 const useUser = () => {
   const dispatch = useDispatch();

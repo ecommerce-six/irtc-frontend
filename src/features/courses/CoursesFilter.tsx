@@ -39,7 +39,7 @@ function CoursesFilter() {
     {
       slug: "react",
       cover:
-        "https://sabzlearn.ir/wp-content/uploads/2024/01/Freelancer32-1.webp",
+        "https://sabzlearn.ir/wp-content/uploads/2023/12/ezgif.com-jpg-to-webp-converted-25-1.webp",
       title: "اموزش راه اندازی کیف پول",
       rate: 4.5,
       price: 100000,
@@ -81,7 +81,7 @@ function CoursesFilter() {
     {
       slug: "react",
       cover:
-        "https://sabzlearn.ir/wp-content/uploads/2024/01/Freelancer32-1.webp",
+        "https://sabzlearn.ir/wp-content/uploads/2023/12/ezgif.com-jpg-to-webp-converted-25-1.webp",
       title: "اموزش راه اندازی کیف پول",
       rate: 4.5,
       price: 100000,

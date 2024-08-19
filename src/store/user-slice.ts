@@ -1,5 +1,6 @@
 import { HYDRATE } from "next-redux-wrapper";
 import { createSlice } from "@reduxjs/toolkit";
+
 import { userStoreType, userType } from "@/types/user";
 
 type userStateType = {
