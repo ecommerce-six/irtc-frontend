@@ -1,9 +1,9 @@
-import Hero from "./hero";
+import Hero from "./Hero";
 import QAndA from "./Q&A";
-import Roadmap from "./roadmap";
-import LatestArticle from "./latestArticle";
-import LatestCourses from "./latestCourses";
-import GraduatesCompanies from "./graduatesCompanies";
+import Roadmap from "./Roadmap";
+import LatestArticle from "./LatestArticle";
+import LatestCourses from "./LatestCourses";
+import GraduatesCompanies from "./GraduatesCompanies";
 
 export {
   Hero,
