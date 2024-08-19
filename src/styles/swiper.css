@@ -1,0 +1,25 @@
+.swiper {
+  overflow-y: visible !important;
+}
+.swiper-pagination {
+  bottom: -0px !important;
+}
+.swiper-button-next {
+  opacity: 25%;
+  color: #161d27;
+  font-size: 0.5rem !important;
+}
+.swiper-button-next::after {
+  font-size: 1.5rem !important;
+}
+.swiper-button-prev {
+  opacity: 25%;
+  color: #161d27;
+  font-size: 0.5rem !important;
+}
+.swiper-button-prev::after {
+  font-size: 1.5rem !important;
+}
+.swiper-pagination-bullet-active {
+  background-color: #8001ff !important;
+}
