@@ -8,7 +8,7 @@ import {
   CreateArticleTools,
   ArticlePanelEditingPreview,
 } from "@/features/articles/panel";
-import Access from "@/components/access";
+import { Access } from "@/components";
 import { PanelArticleEditLoading } from "@/features/panel/articles";
 
 import { styles } from "@/styles";

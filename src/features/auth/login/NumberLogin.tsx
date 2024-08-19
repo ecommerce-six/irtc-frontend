@@ -3,7 +3,7 @@
 import { useFormik } from "formik";
 import React, { useState } from "react";
 
-import Input from "@/components/input";
+import { Input } from "@/components";
 import LoginAuthLinks from "./LoginAuthLinks";
 import WelcomeMessage from "../WelcomeMessage";
 

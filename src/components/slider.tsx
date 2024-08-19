@@ -1,3 +1,5 @@
+"use client";
+
 import { Swiper } from "swiper/react";
 import React, { ReactNode } from "react";
 import { SwiperModule } from "swiper/types";

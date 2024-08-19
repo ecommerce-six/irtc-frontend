@@ -7,7 +7,7 @@ import {
   ArticleCardPanelEditing,
   ArticleCardPanelEditingLoading,
 } from "@/features/articles/panel";
-import Access from "@/components/access";
+import { Access } from "@/components";
 import { ArticlesFilter } from "@/features/articles";
 
 import { useFetchData } from "@/hooks";

@@ -5,7 +5,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import React, { useState, useEffect } from "react";
 
-import ToggleAnimate from "@/components/toggleAnimate";
+import { ToggleAnimate } from "@/components";
 
 import { useUser } from "@/hooks";
 import { AvatarSample } from "@/assets";

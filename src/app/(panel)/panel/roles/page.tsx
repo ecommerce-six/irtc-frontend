@@ -2,7 +2,7 @@
 
 import React from "react";
 
-import Access from "@/components/access";
+import { Access } from "@/components";
 import { Users, UsersFilter } from "@/features/panel/user";
 
 function Roles() {

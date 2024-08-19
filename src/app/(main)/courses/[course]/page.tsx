@@ -1,6 +1,6 @@
 import React from "react";
 
-import Testimonials from "@/components/testimonials/testimonials";
+import { Testimonials } from "@/components";
 import { CourseDetails, CourseDescription } from "@/features/courses/course";
 
 function Course() {

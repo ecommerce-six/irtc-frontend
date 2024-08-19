@@ -2,7 +2,7 @@
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
 
-import ToggleAnimate from "./toggleAnimate";
+import ToggleAnimate from "./ToggleAnimate";
 
 import { TopIcon } from "@/assets/icons";
 

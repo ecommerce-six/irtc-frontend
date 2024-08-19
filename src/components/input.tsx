@@ -19,7 +19,7 @@ type props = {
   autoComplete?: string | undefined;
 };
 
-function LoginInput(props: props) {
+function Input(props: props) {
   const {
     id,
     type,
@@ -76,4 +76,4 @@ function LoginInput(props: props) {
   );
 }
 
-export default LoginInput;
+export default Input;

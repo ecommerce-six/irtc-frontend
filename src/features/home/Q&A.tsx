@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 
-import Heading from "@/components/elements/heading";
+import { Heading } from "@/components";
 
 import { QAndAImage } from "@/assets";
 import { NineDots } from "@/assets/badges";

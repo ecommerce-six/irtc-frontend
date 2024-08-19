@@ -4,12 +4,12 @@ import {
   Hero,
   QAndA,
   Roadmap,
-  Testimonials,
   InstagramPage,
   LatestArticle,
   LatestCourses,
   GraduatesCompanies,
 } from "@/features/home";
+import { Testimonials } from "@/components";
 
 export const metadata: Metadata = {
   title: "IRTC",

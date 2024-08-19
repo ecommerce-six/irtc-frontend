@@ -3,17 +3,19 @@
 import Link from "next/link";
 import Image from "next/image";
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import { usePathname, useRouter } from "next/navigation";
 
-import MenuLink from "./link";
-import Prompt from "../prompt";
-import { StoreType } from "../../store";
-import { useSelector } from "react-redux";
+import Prompt from "../../Prompt";
+import PanelSidebarLink from "./PanelSidebarLink";
+
+import { StoreType } from "@/store";
 import { useUser, useLogout } from "@/hooks";
+
 import { AvatarSample } from "@/assets";
 import { LogoutIcon } from "@/assets/icons/svgs";
 
-function Menu() {
+function PanelSidebar() {
   const router = useRouter();
 
   const path = usePathname();
@@ -36,7 +38,7 @@ function Menu() {
     setShowPrompt((prevValue) => !prevValue);
   };
 
-  const MenuLinks =
+  const PanelSidebarLinks =
     role === "admin"
       ? [
           {
@@ -174,18 +176,18 @@ function Menu() {
       </div>
 
       <div className="mt-4 space-y-1">
-        {MenuLinks.map((item, index) => (
-          <MenuLink {...item} key={index} pathname={path} />
+        {PanelSidebarLinks.map((item, index) => (
+          <PanelSidebarLink {...item} key={index} pathname={path} />
         ))}
 
         {role === "admin" &&
           appsLinks.map((item, index) => (
-            <MenuLink {...item} key={index} pathname={path} />
+            <PanelSidebarLink {...item} key={index} pathname={path} />
           ))}
 
         {role !== "user" &&
           contentLinks.map((item, index) => (
-            <MenuLink {...item} key={index} pathname={path} />
+            <PanelSidebarLink {...item} key={index} pathname={path} />
           ))}
       </div>
 
@@ -200,4 +202,4 @@ function Menu() {
   );
 }
 
-export default Menu;
+export default PanelSidebar;

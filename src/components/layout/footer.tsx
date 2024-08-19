@@ -2,15 +2,15 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
+import { styles } from "@/styles";
+
 import {
-  InstagramIcon,
-  LinkedInIcon,
   TwitterIcon,
   YoutubeIcon,
+  LinkedInIcon,
+  InstagramIcon,
 } from "@/assets/icons/socials";
 import { ZarinPaalLogo } from "@/assets";
-
-import { styles } from "@/styles";
 
 type FooterLinkType = {
   path: string;
