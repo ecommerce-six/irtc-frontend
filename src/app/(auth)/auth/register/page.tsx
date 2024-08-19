@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { useRouter } from "next/navigation";
 
 import { RegisterSection, RegisterVerify } from "@/features/auth";
 
@@ -12,8 +13,9 @@ import { checkConnectivity } from "@/utils/checkConnection";
 const REGISTER_URL = "/users/register";
 
 function Register() {
-  const { getUser } = useUser();
+  const router = useRouter();
   const { setAuth } = useAuth();
+  const { user, getUser } = useUser();
   const { error, setError } = useError();
 
   const signUpHandler = async (body: registerHandlerType) => {
@@ -34,9 +36,13 @@ function Register() {
 
         if (response?.status === 200) {
           setAuth({ accessToken: token, rememberMe: body.rememberMe });
-          await getUser();
+          await getUser(token);
 
           setError(null);
+
+          if (user?.id) {
+            router.push("/");
+          }
 
           return;
         }

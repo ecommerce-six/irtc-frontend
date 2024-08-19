@@ -21,7 +21,6 @@ const useFetchData = (URL: string, page: number = 1, limit?: number) => {
           },
         });
 
-        console.log("response", response);
         const data = response.data.data;
 
         if (response.status === 200) {

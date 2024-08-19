@@ -1,10 +1,12 @@
 "use client";
 
+import { useDispatch, useSelector } from "react-redux";
+
+import axios from "@/configs/axios";
 import { StoreType } from "../store";
 import { userType } from "@/types/user";
 import useAxiosPrivate from "./useAxiosPrivate";
 import { userActions } from "../store/user-slice";
-import { useDispatch, useSelector } from "react-redux";
 
 const useUser = () => {
   const dispatch = useDispatch();
@@ -27,14 +29,23 @@ const useUser = () => {
     dispatch(userActions.setLoading(loading));
   };
 
-  const getUser = async () => {
+  const getUser = async (token?: string) => {
     try {
       setLoading(true);
 
-      const response = await axiosPrivate.get("/users/me");
+      if (token) {
+        const response = await axios.get("/users/me", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
 
-      console.log(response);
-      setUser(response.data.data);
+        setUser(response.data.data);
+      } else {
+        const response = await axiosPrivate.get("/users/me");
+
+        setUser(response.data.data);
+      }
 
       setLoading(false);
     } catch (err) {

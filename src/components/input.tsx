@@ -5,6 +5,7 @@ import { CloseEyesIcon, OpenEyesIcon } from "@/assets/icons/svgs";
 type props = {
   id: string;
   type: string;
+  name?: string;
   title: string;
   onChange?: any;
   password?: true;
@@ -15,12 +16,14 @@ type props = {
   value?: string | number;
   error?: string | undefined;
   showPasswordHandler?: () => void;
+  autoComplete?: string | undefined;
 };
 
 function LoginInput(props: props) {
   const {
     id,
     type,
+    name,
     title,
     value,
     error,
@@ -30,6 +33,7 @@ function LoginInput(props: props) {
     maxlength,
     minLength,
     placeHolder,
+    autoComplete,
     showPasswordHandler,
   } = props;
 
@@ -42,12 +46,14 @@ function LoginInput(props: props) {
       <input
         id={id}
         type={type}
+        name={name}
         value={value}
         pattern={pattern}
         onChange={onChange}
         maxLength={maxlength}
         minLength={minLength}
         placeholder={placeHolder}
+        autoComplete={autoComplete}
         className={`p-3 w-full text-sm md:text-base text-secondary bg-dim-secondary rounded-xl outline-none ${
           error && "border-2 border-red-600 !bg-red-100"
         }`}
