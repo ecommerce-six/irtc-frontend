@@ -1,0 +1,102 @@
+.article-body h1 {
+  margin: 0.25rem 0;
+  color: #161d27;
+  font-weight: 800;
+  line-height: 200%;
+  font-size: x-large;
+}
+
+.article-body h2 {
+  margin: 0.5rem 0;
+  color: #161d27;
+  font-weight: 700;
+  font-size: x-large;
+  line-height: 200%;
+}
+
+.article-body h3 {
+  margin: 0.75rem 0;
+  color: #161d27;
+  font-weight: 700;
+  font-size: large;
+}
+
+.article-body p {
+  padding: 0 1rem;
+  color: #2f3f56;
+  line-height: 215%;
+}
+
+.article-body img {
+  margin: 1.5rem auto;
+  width: 50%;
+  border-radius: 1rem;
+}
+
+.article-body a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.article-body a:hover {
+  color: #8001ff;
+}
+
+@media screen and (max-width: 640px) {
+  .article-body h1 {
+    font-size: large;
+  }
+
+  .article-body h2 {
+    font-size: large;
+  }
+
+  .article-body h3 {
+    font-size: medium;
+  }
+
+  .article-body p {
+    font-size: small;
+  }
+
+  .article-body img {
+    width: 100% !important;
+  }
+
+  .swiper-button-next::after {
+    font-size: 1rem !important;
+  }
+
+  .swiper-button-prev::after {
+    font-size: 1rem !important;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .article-body h1 {
+    margin: 0.25rem 0;
+    font-size: 1rem;
+  }
+
+  .article-body h2 {
+    margin: 0.25rem 0;
+    line-height: 200%;
+    font-size: 0.9rem;
+  }
+
+  .article-body h3 {
+    margin: 0.5rem 0;
+    font-size: 0.8rem;
+  }
+
+  .article-body p {
+    padding: 0 0.25rem;
+    font-size: 0.75rem;
+    text-align: justify;
+  }
+
+  .article-body img {
+    margin: 1rem auto;
+    width: 100% !important;
+  }
+}
