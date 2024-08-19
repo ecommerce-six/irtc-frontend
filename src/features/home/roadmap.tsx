@@ -3,7 +3,7 @@ import Link from "next/link";
 import Timeline from "@mui/lab/Timeline";
 import { StyledEngineProvider } from "@mui/material";
 
-import Heading from "@/components/elements/heading";
+import { Heading } from "@/components";
 import { RoadmapStation } from "@/components/roadmap";
 
 import { styles } from "@/styles";

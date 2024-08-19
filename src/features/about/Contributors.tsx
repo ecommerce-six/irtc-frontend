@@ -1,7 +1,7 @@
 import React from "react";
 
+import { Heading } from "@/components";
 import Contributor from "./Contributor";
-import Heading from "@/components/elements/heading";
 
 import { AvatarSample } from "@/assets";
 

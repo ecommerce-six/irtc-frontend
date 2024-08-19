@@ -3,15 +3,14 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-
-import Heading from "@/components/elements/heading";
-
-import Slider from "@/components/slider";
 import { SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
+
+import Slider from "./Slider";
+import Heading from "./Heading";
 
 import { Avatar, TestimonialsImage } from "@/assets";
 import { RedirectArrowIcon } from "@/assets/icons/svgs";
-import { Navigation } from "swiper/modules";
 
 function Testimonials() {
   return (

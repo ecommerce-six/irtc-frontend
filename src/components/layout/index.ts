@@ -1,5 +1,18 @@
-import AuthLayout from "./auth";
-import MainLayout from "./main";
-import PanelLayout from "./panel";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
 
-export { MainLayout, PanelLayout, AuthLayout };
+import AuthLayout from "./Auth";
+import MainLayout from "./Main";
+import PanelLayout from "./Panel";
+import UserWrapper from "./Persist";
+import PanelSidebar from "./panelSidebar/PanelSidebar";
+
+export {
+  Navbar,
+  Footer,
+  MainLayout,
+  AuthLayout,
+  PanelLayout,
+  UserWrapper,
+  PanelSidebar,
+};

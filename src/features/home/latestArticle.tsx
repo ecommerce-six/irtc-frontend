@@ -2,7 +2,7 @@
 import React from "react";
 import Link from "next/link";
 
-import Heading from "@/components/elements/heading";
+import { Heading } from "@/components";
 import { ArticleCard, ArticleCardLoading } from "@/features/articles";
 
 import { styles } from "@/styles";

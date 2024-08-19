@@ -9,7 +9,7 @@ import {
   CreateArticleTools,
   ArticlePanelEditingPreview,
 } from "@/features/articles/panel";
-import Access from "@/components/access";
+import { Access } from "@/components";
 
 import { axiosPrivate } from "@/configs/axios";
 import { checkConnectivity } from "@/utils/checkConnection";

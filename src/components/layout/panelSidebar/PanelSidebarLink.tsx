@@ -13,11 +13,11 @@ type props = {
   path: string;
   title: string;
   disabled?: boolean;
-  pathname: string | null;
   subLink?: subLink[];
+  pathname: string | null;
 };
 
-function MenuLink({ path, title, subLink, pathname, disabled }: props) {
+function PanelSidebarLink({ path, title, subLink, pathname, disabled }: props) {
   const [open, setOpen] = useState(false);
 
   const active = pathname === path;
@@ -52,9 +52,7 @@ function MenuLink({ path, title, subLink, pathname, disabled }: props) {
 
   return (
     <div
-      className={`${!open && "h-12"} overflow-hidden ${
-        disabled && "opacity-30"
-      }`}
+      className={`${!open && "h-12"} overflow-hidden ${disabled && "hidden"}`}
     >
       <Link
         href={path}
@@ -108,4 +106,4 @@ function MenuLink({ path, title, subLink, pathname, disabled }: props) {
   );
 }
 
-export default MenuLink;
+export default PanelSidebarLink;

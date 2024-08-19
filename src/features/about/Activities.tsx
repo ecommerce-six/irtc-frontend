@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 
 import Activity from "./Activity";
-import Heading from "@/components/elements/heading";
+import { Heading } from "@/components";
 
 import { Speed } from "@/assets/badges";
 

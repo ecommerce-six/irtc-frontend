@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useFormik } from "formik";
 import React, { useState } from "react";
 
-import Access from "@/components/access";
+import { Access } from "@/components";
 import { UserEditInput } from "@/features/panel/user";
 
 import { styles } from "@/styles";

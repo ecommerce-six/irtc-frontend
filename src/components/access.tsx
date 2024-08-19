@@ -1,6 +1,6 @@
 "use client";
 
-import Error404 from "@/components/404";
+import { Error404 } from "@/components";
 
 import { useUser } from "@/hooks";
 

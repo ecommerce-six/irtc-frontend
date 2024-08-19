@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useFormik } from "formik";
 
-import Input from "@/components/input";
+import { Input } from "@/components";
 
 import { styles } from "@/styles";
 

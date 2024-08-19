@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import ReactPaginate from "react-paginate";
 
 import CourseCard from "./CourseCard";
-import Heading from "../../components/elements/heading";
+import { Heading } from "@/components";
 
 function CoursesFilter() {
   const courses = [

@@ -1,9 +1,13 @@
 import React from "react";
 
-import Testimonials from "@/components/testimonials/testimonials";
-import InstagramPage from "@/components/instagramPage/instagramPage";
-import { AboutHero, Activities, Contributors, Developers, Strategy } from "@/features/about";
-
+import {
+  Strategy,
+  AboutHero,
+  Activities,
+  Developers,
+  Contributors,
+} from "@/features/about";
+import { InstagramPage, Testimonials } from "@/components";
 
 function About() {
   return (

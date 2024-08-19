@@ -1,6 +1,6 @@
 import React from "react";
 
-import Access from "@/components/access";
+import { Access } from "@/components";
 
 function PanelArticleEditLoading() {
   return (

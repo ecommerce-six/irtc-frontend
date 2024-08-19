@@ -1,9 +1,9 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-
-import Input from "@/components/input";
 import { useFormik } from "formik";
+
+import { Input } from "@/components";
 
 import { styles } from "@/styles";
 

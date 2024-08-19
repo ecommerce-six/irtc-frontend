@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
-import Heading from "@/components/elements/heading";
+import { Heading } from "@/components";
 import CourseCard from "@/features/courses/CourseCard";
 
 import { styles } from "@/styles";

@@ -1,11 +1,11 @@
 import { ReactNode } from "react";
 
-import Navbar from "./navbar";
-import Menu from "../menu/menu";
-import ScrollToTop from "../scrollToTop";
+import Navbar from "./Navbar";
+import { Error404 } from "@/components";
+import ScrollToTop from "../ScrollToTop";
+import PanelSidebar from "./panelSidebar/PanelSidebar";
 
 import { styles } from "@/styles";
-import Error404 from "@/components/404";
 import { useAuth, useUser } from "@/hooks";
 
 const PanelLayout = ({ children }: { children: ReactNode }) => {
@@ -25,7 +25,7 @@ const PanelLayout = ({ children }: { children: ReactNode }) => {
         <div
           className={`${styles.layout} pb-6 flex flex-col lg:flex-row gap-5`}
         >
-          <Menu />
+          <PanelSidebar />
 
           <div className="w-full">{children}</div>
         </div>

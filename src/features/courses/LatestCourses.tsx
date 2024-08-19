@@ -1,7 +1,7 @@
 import React from "react";
 
 import CourseCard from "./CourseCard";
-import Heading from "@/components/elements/heading";
+import { Heading } from "@/components";
 
 function LatestCourses() {
   const courses = [{}, {}, {}, {}, {}, {}];

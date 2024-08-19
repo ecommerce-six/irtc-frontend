@@ -1,7 +1,8 @@
-import UserWrapper from "@/components/layout/persist";
+import { UserWrapper } from "@/components/layout";
+
+import ReduxWrapper from "@/store/wrapper";
 
 import { IranYekan } from "@/assets/fonts";
-import ReduxWrapper from "@/store/wrapper";
 
 import "@/styles/global.css";
 import "@/styles/tailwind.css";

@@ -1,6 +1,6 @@
 import React from "react";
 
-import Error404 from "@/components/404";
+import { Error404 } from "@/components";
 import { ArticleContent, ArticleSidebar } from "@/features/articles/article";
 
 import axios from "@/configs/axios";

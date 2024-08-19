@@ -6,7 +6,7 @@ import { SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 
 import CourseCard from "./CourseCard";
-import Slider from "@/components/slider";
+import { Slider } from "@/components";
 
 import { CoursesHeroImage } from "@/assets";
 

@@ -2,10 +2,10 @@ import React from "react";
 import Timeline from "@mui/lab/Timeline";
 import { StyledEngineProvider } from "@mui/material";
 
-import Heading from "@/components/elements/heading";
-import { RoadmapStation } from "@/components/roadmap";
 
 import { Roadmap1 } from "@/assets/icons/svgs";
+import { Heading } from "@/components";
+import { RoadmapStation } from "@/components/roadmap";
 
 function Roadmap() {
   return (

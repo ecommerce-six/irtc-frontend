@@ -1,6 +1,6 @@
-import Footer from "./footer";
-import Navbar from "./navbar";
-import ScrollToTop from "../scrollToTop";
+import Footer from "./Footer";
+import Navbar from "./Navbar";
+import ScrollToTop from "../ScrollToTop";
 
 import { styles } from "@/styles";
 
