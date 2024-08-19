@@ -6,8 +6,8 @@ import Input from "./Input";
 import Error404 from "./Error404";
 import ScrollToTop from "./ScrollToTop";
 import Testimonials from "./Testimonials";
+import InstagramPage from "./InstagramPage";
 import ToggleAnimate from "./ToggleAnimate";
-import InstagramPage from "../features/home/InstagramPage";
 
 export {
   Input,
