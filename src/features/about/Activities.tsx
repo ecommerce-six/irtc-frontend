@@ -8,13 +8,17 @@ import { Speed } from "@/assets/badges";
 
 const Activities = () => {
   return (
-    <section className="my-20">
+    <section className="my-24">
       <Heading
         title="بخشی از فعالیت های ما"
         description="آیا می خواهید برای بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنید"
       />
 
-      <Image src={Speed} alt="speed badge" className="m-5" />
+      <Image
+        src={Speed}
+        alt="speed badge"
+        className="m-5 dark:invert dark:brightness-0"
+      />
 
       <div className="my-5 flex justify-center gap-8 flex-wrap">
         <Activity header="اموزش آنلاین">

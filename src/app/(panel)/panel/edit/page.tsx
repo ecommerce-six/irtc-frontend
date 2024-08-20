@@ -63,7 +63,7 @@ function EditProfile() {
     <Access admin author normalUser>
       <title>IRTC • تغییر پروفایل</title>
 
-      <section className="p-5 rounded-xl shadow-dark">
+      <section className="p-5 rounded-xl shadow-dark dark:shadow-darker">
         <form onSubmit={formik.handleSubmit}>
           <UserEditInput
             id="firstName"
@@ -110,7 +110,10 @@ function EditProfile() {
           />
 
           <div className="mt-3 w-full space-y-2">
-            <label htmlFor={"about"} className="block text-secondary">
+            <label
+              htmlFor={"about"}
+              className="block text-secondary dark:text-secondary-dark"
+            >
               درباره ی من
             </label>
             <textarea
@@ -120,7 +123,7 @@ function EditProfile() {
               value={formik.description}
               defaultValue={user?.description}
               onChange={formik.handleChange}
-              className={`p-3 w-full text-sm md:text-base text-secondary bg-dim-secondary rounded-xl outline-none min-h-[10rem] max-h-[15rem]`}
+              className={`p-3 w-full text-sm md:text-base text-secondary dark:text-secondary-dark bg-dim-secondary rounded-xl outline-none min-h-[10rem] max-h-[15rem]`}
             ></textarea>
           </div>
 

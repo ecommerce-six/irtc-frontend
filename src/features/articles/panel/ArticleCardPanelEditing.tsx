@@ -5,10 +5,10 @@ import { articlePreviewType } from "@/types/article";
 
 function ArticleCardPanelEditing({ slug, title }: articlePreviewType) {
   return (
-    <div className="p-6 flex items-center justify-between gap-y-2 w-full rounded-xl shadow-dark flex-wrap">
+    <div className="p-6 flex items-center justify-between gap-y-2 w-full rounded-xl shadow-dark dark:shadow-darker flex-wrap">
       <Link
         href={`/articles/${slug}`}
-        className="w-full md:w-[25rem] text-sm md:text-base text-primary font-medium overflow-hidden text-ellipsis whitespace-nowrap"
+        className="w-full md:w-[25rem] text-sm md:text-base text-primary dark:text-primary-dark font-medium overflow-hidden text-ellipsis whitespace-nowrap"
       >
         {title}
       </Link>
@@ -42,7 +42,9 @@ function ArticleCardPanelEditing({ slug, title }: articlePreviewType) {
             </defs>
           </svg>
 
-          <h3 className="text-secondary text-xs md:text-sm">{129}</h3>
+          <h3 className="text-secondary dark:text-secondary-dark text-xs md:text-sm">
+            {129}
+          </h3>
         </div>
 
         <div className="flex items-center gap-x-3">
@@ -66,12 +68,14 @@ function ArticleCardPanelEditing({ slug, title }: articlePreviewType) {
             />
           </svg>
 
-          <h3 className="text-secondary flex-1 w-fit text-xs md:text-sm">
+          <h3 className="text-secondary dark:text-secondary-dark flex-1 w-fit text-xs md:text-sm">
             {4.5}
           </h3>
         </div>
 
-        <time className="text-secondary text-sm">3 روز پیش</time>
+        <time className="text-secondary dark:text-secondary-dark text-sm">
+          3 روز پیش
+        </time>
       </div>
 
       <div className="flex items-center gap-x-5">

@@ -149,7 +149,7 @@ function PanelSidebar() {
   return (
     <aside
       className={
-        "p-4 bg-background lg:flex flex-col w-full lg:w-[20rem] h-fit rounded-xl shadow-dark"
+        "p-4 bg-background dark:bg-background-dark lg:flex flex-col w-full lg:w-[20rem] h-fit rounded-xl shadow-dark dark:shadow-darker"
       }
     >
       <div className="flex items-center justify-between gap-x-3">
@@ -162,7 +162,7 @@ function PanelSidebar() {
         </Link>
 
         <div className="space-y-2 text-sm">
-          <h1 className="w-[7.25rem] font-semibold text-primary overflow-hidden text-ellipsis whitespace-nowrap">
+          <h1 className="w-[7.25rem] font-semibold text-primary dark:text-primary-dark overflow-hidden text-ellipsis whitespace-nowrap">
             {user?.firstName} {user?.lastName}{" "}
             {!(user?.firstName || user?.lastName) && user?.phoneNumber}
           </h1>
@@ -171,7 +171,7 @@ function PanelSidebar() {
         </div>
 
         <button className="group" onClick={showPromptHandler}>
-          <LogoutIcon className="group-hover:fill-brand" />
+          <LogoutIcon className="group-hover:fill-brand dark:invert dark:brightness-0" />
         </button>
       </div>
 

@@ -19,7 +19,7 @@ const ArticleContent = ({ article }: { article: articleType }) => {
   return (
     <article
       id="article"
-      className="p-4 w-full lg:w-[80%] rounded-xl shadow-dark"
+      className="p-4 w-full lg:w-[80%] rounded-xl shadow-dark dark:shadow-darker"
     >
       <div className="relative">
         <Image
@@ -42,9 +42,9 @@ const ArticleContent = ({ article }: { article: articleType }) => {
           <div className="flex items-center gap-x-3">
             <TimeIcon />
 
-            <h3 className="text-secondary text-xs md:text-sm">
+            <h3 className="text-secondary dark:text-secondary-dark text-xs md:text-sm">
               ﺯﻣﺎﻥ ﻣﻄﺎﻟﻌﻪ:{" "}
-              <span className="text-primary text-xs md:text-sm font-medium">
+              <span className="text-primary dark:text-primary-dark text-xs md:text-sm font-medium">
                 {estimateReadTimeHandler(article.content)}
               </span>
             </h3>
@@ -53,7 +53,7 @@ const ArticleContent = ({ article }: { article: articleType }) => {
           <div className="flex items-center gap-x-3">
             <LikeIcon />
 
-            <h3 className="text-secondary text-xs md:text-sm">
+            <h3 className="text-secondary dark:text-secondary-dark text-xs md:text-sm">
               {article.likesCount ?? "فعلا 0"}
             </h3>
           </div>
@@ -62,7 +62,7 @@ const ArticleContent = ({ article }: { article: articleType }) => {
             <div className="flex items-center gap-x-3">
               <CommentsIcon />
 
-              <h3 className="text-secondary text-xs md:text-sm">
+              <h3 className="text-secondary dark:text-secondary-dark text-xs md:text-sm">
                 {article.comments.length}
               </h3>
             </div>
@@ -72,14 +72,16 @@ const ArticleContent = ({ article }: { article: articleType }) => {
             <div className="flex items-center gap-x-3">
               <RateIcon />
 
-              <h3 className="text-secondary text-xs md:text-sm">
+              <h3 className="text-secondary dark:text-secondary-dark text-xs md:text-sm">
                 {article.rate}
               </h3>
             </div>
           )}
         </div>
 
-        <time className="text-secondary text-sm">{article.time}</time>
+        <time className="text-secondary dark:text-secondary-dark text-sm">
+          {article.time}
+        </time>
       </div>
 
       <div

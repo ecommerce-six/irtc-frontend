@@ -23,14 +23,17 @@ function EditProfile() {
           placeHolder="برای مثال دانش جو"
         />
         <div className="mt-3 w-full space-y-2">
-          <label htmlFor={"about"} className="block text-secondary">
+          <label
+            htmlFor={"about"}
+            className="block text-secondary dark:text-secondary-dark"
+          >
             درباره ی من
           </label>
           <textarea
             id={"about"}
             name={"about"}
             placeholder={"برای مثال یک دانشجو..."}
-            className={`p-3 w-full text-sm md:text-base text-secondary bg-dim-secondary rounded-xl outline-none min-h-[10rem] max-h-[15rem]`}
+            className={`p-3 w-full text-sm md:text-base text-secondary dark:text-secondary-dark bg-dim-secondary rounded-xl outline-none min-h-[10rem] max-h-[15rem]`}
           ></textarea>
         </div>
 

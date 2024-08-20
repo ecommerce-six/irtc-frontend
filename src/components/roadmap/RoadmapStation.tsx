@@ -12,8 +12,6 @@ import { RoadmapStationType } from "@/types/roadmap";
 
 import { IranYekan } from "@/assets/fonts";
 
-import "@/styles/material-ui.css";
-
 function RoadmapStation({
   icon,
   link,
@@ -35,7 +33,7 @@ function RoadmapStation({
 
       <TimelineSeparator>
         <TimelineConnector className="!bg-secondary opacity-30" />
-        <TimelineDot className="w-fit !bg-[#F4F5FA] !shadow-none">
+        <TimelineDot className="!p-0 w-[fit] !bg-background dark:!bg-background-dark !shadow-none !border-0">
           {icon}
         </TimelineDot>
         <TimelineConnector className="!bg-secondary opacity-30" />
@@ -45,13 +43,13 @@ function RoadmapStation({
         <Typography
           variant="h6"
           component="span"
-          className={`${IranYekan.className} text-primary text-sm md:text-base font-semibold overflow-hidden text-ellipsis whitespace-nowrap`}
+          className={`${IranYekan.className} text-primary dark:text-primary-dark text-sm md:text-base font-semibold overflow-hidden text-ellipsis whitespace-nowrap`}
         >
           {header}
         </Typography>
 
         <Typography
-          className={`${IranYekan.className} text-secondary text-[.5rem] md:text-base opacity-75 line-clamp-1`}
+          className={`${IranYekan.className} text-secondary dark:text-secondary-dark text-[.5rem] md:text-base opacity-75 line-clamp-1`}
         >
           {description}
         </Typography>

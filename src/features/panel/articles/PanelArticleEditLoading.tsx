@@ -5,7 +5,7 @@ import { Access } from "@/components";
 function PanelArticleEditLoading() {
   return (
     <Access admin author>
-      <div className="p-4 space-y-4 rounded-xl shadow-dark">
+      <div className="p-4 space-y-4 rounded-xl shadow-dark dark:shadow-darker">
         <title>IRTC • ایجاد کردن مقاله</title>
 
         <div className="w-full h-[3.5rem] loading" />
@@ -16,7 +16,7 @@ function PanelArticleEditLoading() {
       </div>
 
       <div
-        className="mt-4 p-4 rounded-xl shadow-dark sticky"
+        className="mt-4 p-4 rounded-xl shadow-dark dark:shadow-darker sticky"
         data-color-mode="light"
       >
         <div className="flex items-center gap-x-2">

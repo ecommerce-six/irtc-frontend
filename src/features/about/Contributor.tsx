@@ -9,7 +9,7 @@ type ContributorType = {
 
 function Contributor({ profile, name, position }: ContributorType) {
   return (
-    <div className="py-8 px-16 w-[18rem] flex flex-col items-center gap-y-4 rounded-xl shadow-dark">
+    <div className="py-8 px-16 w-[18rem] flex flex-col items-center gap-y-4 rounded-xl shadow-dark dark:shadow-darker">
       <Image
         src={profile}
         alt="profile"
@@ -20,7 +20,7 @@ function Contributor({ profile, name, position }: ContributorType) {
         {name}
       </h2>
 
-      <p className="text-secondary w-full text-center text-ellipsis overflow-hidden whitespace-nowrap">
+      <p className="text-secondary dark:text-secondary-dark w-full text-center text-ellipsis overflow-hidden whitespace-nowrap">
         {position}
       </p>
     </div>

@@ -14,8 +14,8 @@ function Prompt({ message, showHandler, submitHandler }: props) {
         className="fixed top-0 left-0 bg-gray-400 w-full h-screen opacity-50 z-20"
         onClick={showHandler}
       />
-      <div className="p-5 fixed top-[50%] left-[50%] translate-y-[-50%] translate-x-[-50%] flex flex-col items-center w-[20rem] rounded-xl bg-background shadow-dark z-30">
-        <p className="text-sm lg:text-base text-primary !leading-relaxed text-center">
+      <div className="p-5 fixed top-[50%] left-[50%] translate-y-[-50%] translate-x-[-50%] flex flex-col items-center w-[20rem] rounded-xl bg-background dark:bg-background-dark shadow-dark dark:shadow-darker z-30">
+        <p className="text-sm lg:text-base text-primary dark:text-primary-dark !leading-relaxed text-center">
           <span className="text-brand font-bold">&quot; </span>
           {message} <span className="text-brand font-bold">&quot;</span>
         </p>

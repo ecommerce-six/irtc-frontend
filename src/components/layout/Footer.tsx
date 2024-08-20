@@ -63,95 +63,123 @@ function Footer() {
 
   return (
     <section className={`${styles.layout} mt-16`}>
-      <footer className="p-4 md:p-10 w-full flex justify-between gap-6 md:gap-14 flex-wrap bg-background shadow-dark rounded-2xl">
+      <footer className="p-4 md:p-10 w-full flex justify-between gap-6 md:gap-14 flex-wrap bg-background dark:bg-background-dark shadow-dark dark:shadow-darker rounded-2xl">
         <div className="w-[20rem] md:w-[30%] space-y-2">
-          <h1 className="mb-2 font-bold text-lg">رویداد ها و بوت کمپ</h1>
+          <h1 className="text-primary dark:text-primary-dark mb-2 font-bold text-lg">
+            رویداد ها و بوت کمپ
+          </h1>
           {section1.map((link, index) => (
             <Link
               href={link.path}
               key={index}
-              className="inline-block w-[50%] text-secondary text-sm"
+              className="inline-block w-[50%] text-secondary dark:text-secondary-dark hover:text-primary hover:dark:text-primary-dark text-sm transition-colors duration-300"
             >
               {link.text}
             </Link>
           ))}
         </div>
         <div className="w-[20rem] md:w-[30%] space-y-2">
-          <h1 className="mb-2 font-bold text-lg">دوره ها پیشرفته</h1>
+          <h1 className="text-primary dark:text-primary-dark mb-2 font-bold text-lg">
+            دوره ها پیشرفته
+          </h1>
           {section2.map((link, index) => (
             <Link
               href={link.path}
               key={index}
-              className="inline-block w-[50%] text-secondary text-sm"
+              className="inline-block w-[50%] text-secondary dark:text-secondary-dark hover:text-primary hover:dark:text-primary-dark text-sm transition-colors duration-300"
             >
               {link.text}
             </Link>
           ))}
         </div>
         <div className="w-[10rem] md:w-[15%] space-y-2">
-          <h1 className="mb-2 font-bold text-lg">درباره ی اول لرن</h1>
+          <h1 className="text-primary dark:text-primary-dark mb-2 font-bold text-lg">
+            درباره ی اول لرن
+          </h1>
           {section3.map((link, index) => (
             <Link
               href={link.path}
               key={index}
-              className="inline-block w-[100%] text-secondary text-sm"
+              className="inline-block w-[100%] text-secondary dark:text-secondary-dark hover:text-primary hover:dark:text-primary-dark text-sm transition-colors duration-300"
             >
               {link.text}
             </Link>
           ))}
         </div>
         <div className="w-[20rem] md:w-[30%] space-y-2">
-          <h1 className="mb-2 font-bold text-lg">ارتباط با ما</h1>
+          <h1 className="text-primary dark:text-primary-dark mb-2 font-bold text-lg">
+            ارتباط با ما
+          </h1>
           <Link
             href={""}
-            className="inline-block w-full text-secondary text-sm"
+            className="inline-block w-full text-secondary dark:text-secondary-dark hover:text-primary hover:dark:text-primary-dark text-sm transition-colors duration-300"
           >
             support@owlearn.com
           </Link>
           <Link
             href={""}
-            className="inline-block w-full text-secondary text-sm"
+            className="inline-block w-full text-secondary dark:text-secondary-dark hover:text-primary hover:dark:text-primary-dark text-sm transition-colors duration-300"
           >
             (+62) 85923935983
           </Link>
-          <p className="text-secondary text-sm leading-7">
+          <p className="text-secondary dark:text-secondary-dark text-sm leading-7">
             هدف مجموعه سون لرن افزایش سطح کیفیت آموزش و ساختن راهی برای ورود
             دانشجویان به بازار کار تخصصی است
           </p>
           <div className="flex items-center gap-x-3">
             <Link href={""}>
-              <Image src={YoutubeIcon} alt="Youtube" />
+              <Image
+                src={YoutubeIcon}
+                alt="Youtube"
+                className="dark:invert brightness-0 hover:scale-105"
+              />
             </Link>
             <Link href={""}>
-              <Image src={TwitterIcon} alt="twitter" />
+              <Image
+                src={TwitterIcon}
+                alt="twitter"
+                className="dark:invert brightness-0 hover:scale-105"
+              />
             </Link>
             <Link href={""}>
-              <Image src={LinkedInIcon} alt="linkedin" />
+              <Image
+                src={LinkedInIcon}
+                alt="linkedin"
+                className="dark:invert brightness-0 hover:scale-105"
+              />
             </Link>
             <Link href={""}>
-              <Image src={InstagramIcon} alt="InstagramIcon" />
+              <Image
+                src={InstagramIcon}
+                alt="InstagramIcon"
+                className="dark:invert brightness-0 hover:scale-105"
+              />
             </Link>
           </div>
         </div>
         <div className="w-[20rem] md:w-[30%] space-y-2">
-          <h1 className="mb-2 font-bold text-lg">دوره ها پیشرفته</h1>
+          <h1 className="text-primary dark:text-primary-dark mb-2 font-bold text-lg">
+            دوره ها پیشرفته
+          </h1>
           {section4.map((link, index) => (
             <Link
               href={link.path}
               key={index}
-              className="inline-block w-[50%] text-secondary text-sm"
+              className="inline-block w-[50%] text-secondary dark:text-secondary-dark hover:text-primary hover:dark:text-primary-dark text-sm transition-colors duration-300"
             >
               {link.text}
             </Link>
           ))}
         </div>
         <div className="w-[10rem] md:w-[15%] space-y-2">
-          <h1 className="mb-2 font-bold text-lg">شرکت زمینه</h1>
+          <h1 className="text-primary dark:text-primary-dark mb-2 font-bold text-lg">
+            شرکت زمینه
+          </h1>
           <Image src={ZarinPaalLogo} alt="zarinpaal icon" />
         </div>
       </footer>
 
-      <p className="px-4 my-5 text-xs md:text-sm text-secondary font-medium text-center">
+      <p className="px-4 py-6 text-xs md:text-sm text-secondary dark:text-secondary-dark hover:text-primary hover:dark:text-primary-dark font-medium text-center">
         © تمامی حقوق مادی و معنوی این سایت متعلق به پای تو پای می باشد.
       </p>
     </section>

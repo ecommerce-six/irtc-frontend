@@ -5,12 +5,12 @@ function LatestArticleCompact() {
   return (
     <Link
       href="/articles/react"
-      className="block relative pr-6 p-4 space-y-1 bg-background rounded-xl shadow-dark"
+      className="block relative pr-6 p-4 space-y-1 bg-background dark:bg-background-dark rounded-xl shadow-dark dark:shadow-darker"
     >
-      <h1 className="text-primary w-full text-xs md:text-sm font-medium text-ellipsis overflow-hidden whitespace-nowrap">
+      <h1 className="text-primary dark:text-primary-dark w-full text-xs md:text-sm font-medium text-ellipsis overflow-hidden whitespace-nowrap">
         دروه اموزش تخصصی redux
       </h1>
-      <p className="text-secondary w-full text-[.5rem] md:text-xs text-ellipsis overflow-hidden whitespace-nowrap">
+      <p className="text-secondary dark:text-secondary-dark w-full text-[.5rem] md:text-xs text-ellipsis overflow-hidden whitespace-nowrap">
         آیا می خواهید برای بهبود عملکردآیا می خواهید برای بهبود عملکردآیا می
         خواهید برای بهبود عملکرد
       </p>

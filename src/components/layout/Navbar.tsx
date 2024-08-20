@@ -6,14 +6,15 @@ import { usePathname } from "next/navigation";
 import React, { useState, useEffect } from "react";
 
 import { useUser } from "@/hooks";
+import ToggleAnimate from "../ToggleAnimate";
 
 import { AvatarSample } from "@/assets";
 import { CartIcon } from "@/assets/icons/svgs";
 import { LogoIcon, LogoText } from "@/assets/common";
-import { CloseIcon, MenuIcon } from "@/assets/icons";
+import { CloseIcon, DarkIcon, LightIcon, MenuIcon } from "@/assets/icons";
 
 import { styles } from "@/styles";
-import ToggleAnimate from "../ToggleAnimate";
+import ThemeToggleButton from "./ThemeToggleButton";
 
 function Navbar() {
   const path = usePathname();
@@ -65,7 +66,11 @@ function Navbar() {
           <div className="flex items-center gap-x-10">
             <Link href="/" className="flex items-center gap-x-4">
               <Image src={LogoIcon} alt="logo" className="w-12 lg:w-16" />
-              <Image src={LogoText} alt="logo" className="w-16 lg:w-24" />
+              <Image
+                src={LogoText}
+                alt="logo"
+                className="w-16 lg:w-24 dark:invert dark:brightness-0"
+              />
             </Link>
 
             <ul className="hidden lg:flex items-baseline gap-x-7">
@@ -73,15 +78,16 @@ function Navbar() {
                 <li key={index}>
                   <Link
                     href={link.path}
-                    className={`text-primary hover:text-secondary ${
+                    className={`text-primary dark:text-primary-dark hover:text-secondary hover:dark:text-secondary-dark ${
                       link.path === path &&
-                      "after:block after:right-0 after:bottom-0 after:w-full after:h-[.15rem] after:bg-primary after:rounded-lg"
-                    }`}
+                      "after:block after:right-0 after:bottom-0 after:w-full after:h-[.15rem] after:bg-primary after:dark:bg-primary-dark after:hover:dark:bg-secondary-dark after:rounded-lg"
+                    } transition-colors duration-300 `}
                   >
                     {link.title}
                   </Link>
                 </li>
               ))}
+              <ThemeToggleButton />
             </ul>
           </div>
 
@@ -90,20 +96,19 @@ function Navbar() {
               {user?.role === "admin" ? (
                 <Link
                   href={"/panel"}
-                  className="text-primary max-w-[12rem] overflow-hidden text-ellipsis whitespace-nowrap"
+                  className="text-primary dark:text-primary-dark max-w-[12rem] overflow-hidden text-ellipsis whitespace-nowrap"
                 >
                   {user?.firstName} {user?.lastName}{" "}
                   {!(user?.firstName || user?.lastName) && user?.phoneNumber}
                 </Link>
               ) : (
                 <Link href="/panel/cart" className="group">
-                  <CartIcon className="group-hover:fill-brand transition-all duration-300" />
+                  <CartIcon className="dark:invert dark:brightness-0 group-hover:fill-brand transition-all duration-300" />
                 </Link>
               )}
-
               <Link
                 href="/panel"
-                className="border-2 border-brand rounded-full shadow-dark"
+                className="border-2 border-brand rounded-full shadow-dark dark:shadow-darker"
               >
                 <Image
                   src={AvatarSample}
@@ -144,7 +149,7 @@ function Navbar() {
 
           <ToggleAnimate className="navbar" toggle={showNavbar}>
             <div>
-              <nav className="py-10 fixed left-0 top-0 h-[100dvh] w-36 flex flex-col items-center justify-between bg-background z-10 shadow-dark">
+              <nav className="py-10 fixed left-0 top-0 h-[100dvh] w-36 flex flex-col items-center justify-between bg-background dark:bg-background-dark z-10 shadow-dark dark:shadow-darker">
                 <button className="lg:hidden" onClick={showNavbarHandler}>
                   <Image src={CloseIcon} alt="close icon" className="w-9" />
                 </button>
@@ -154,15 +159,17 @@ function Navbar() {
                     <li key={index} className="w-fit">
                       <Link
                         href={link.path}
-                        className={`text-primary hover:text-secondary ${
+                        className={`text-secondary dark:text-secondary-dark ${
                           link.path === path &&
-                          "after:block after:right-0 after:bottom-0 after:w-full after:h-[.15rem] after:bg-primary after:rounded-lg"
+                          "!text-primary  dark:!text-primary-dark after:block after:right-0 after:bottom-0 after:w-full after:h-[.15rem] after:bg-primary after:rounded-lg"
                         }`}
                       >
                         {link.title}
                       </Link>
                     </li>
                   ))}
+
+                  <ThemeToggleButton />
                 </ul>
 
                 {loggedIn ? (
@@ -175,7 +182,7 @@ function Navbar() {
 
                     <Link
                       href="/panel"
-                      className="border-2 border-brand rounded-full shadow-dark"
+                      className="border-2 border-brand rounded-full shadow-dark dark:shadow-darker"
                     >
                       <Image
                         src={AvatarSample}

@@ -3,15 +3,15 @@
 import React, { useState } from "react";
 import ReactPaginate from "react-paginate";
 
-import { Heading } from "@/components";
-
-import { useFetchData } from "@/hooks";
-import { articleType, articlesFilterHandlerType } from "@/types/article";
 import {
   ArticleCard,
   ArticleCardLoading,
   ArticlesFilter,
 } from "@/features/articles";
+import { Heading } from "@/components";
+
+import { useFetchData } from "@/hooks";
+import { articleType, articlesFilterHandlerType } from "@/types/article";
 
 function Articles() {
   const [selectedPage, setSelectedPage] = useState<number>(1);
@@ -47,7 +47,6 @@ function Articles() {
                 <ArticleCardLoading key={index} />
               ))}
         </div>
-
         <div className="flex items-center justify-center h-20 overflow-x-hidden">
           <ReactPaginate
             pageCount={fetchedCountPage}
@@ -63,7 +62,9 @@ function Articles() {
               "flex items-center justify-center h-6 lg:h-8 text-[.75rem] lg:text-base rounded-full text-brand border-brand border"
             }
             pageLinkClassName={"pt-1 px-2 lg:px-3 w-full h-full rounded-full"}
-            activeClassName={"h-6 lg:h-8 rounded-full !text-white bg-brand"}
+            activeClassName={
+              "h-6 lg:h-8 rounded-full !text-primary-dark dark:!text-primary bg-brand"
+            }
             breakClassName={
               "flex items-center justify-center border-brand pt-1 border px-2 lg:px-3 h-6 lg:h-8 rounded-full text-brand"
             }

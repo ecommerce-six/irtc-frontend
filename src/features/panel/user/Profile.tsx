@@ -13,7 +13,7 @@ function Profile() {
   const { user } = useUser();
 
   return (
-    <section className="p-5 rounded-xl shadow-dark">
+    <section className="p-5 rounded-xl shadow-dark dark:shadow-darker">
       <Image
         src={ProfileHeaderImage}
         alt="user trading cover"
@@ -22,20 +22,18 @@ function Profile() {
 
       <div className="relative sm:pr-4 md:pr-8 mt-4 md:-mt-20 flex items-center md:items-end justify-between gap-y-5 flex-wrap w-full">
         <div className="flex items-center md:items-end gap-4">
-          <div className="bg-background rounded-2xl border-4 border-background">
-            <Image
-              src={AvatarSample}
-              alt="avatar"
-              className="w-14 sm:w-20 md:w-36 h-14 sm:h-20 md:h-36 rounded-2xl"
-            />
-          </div>
+          <Image
+            src={AvatarSample}
+            alt="avatar"
+            className="w-14 sm:w-20 md:w-36 h-14 sm:h-20 md:h-36 rounded-2xl border-4 border-background"
+          />
 
-          <div className="space-y-2">
-            <h1 className="text-primary font-semibold text-sm md:text-lg w-full overflow-hidden text-ellipsis whitespace-nowrap">
+          <div className="space-y-1">
+            <h1 className="text-primary dark:text-primary-dark font-semibold text-sm md:text-lg w-full overflow-hidden text-ellipsis whitespace-nowrap">
               {user?.firstName} {user?.lastName}{" "}
               {!(user?.firstName || user?.lastName) && user?.phoneNumber}
             </h1>
-            <h2 className="text-secondary text-xs md:text-base w-full overflow-hidden text-ellipsis whitespace-nowrap">
+            <h2 className="text-secondary dark:text-secondary-dark text-xs md:text-base w-full overflow-hidden text-ellipsis whitespace-nowrap">
               {user?.firstName && user?.lastName && user?.phoneNumber}
             </h2>
           </div>
@@ -50,11 +48,11 @@ function Profile() {
       </div>
 
       <div className="mt-4 md:mt-10 pr-4 md:pr-8">
-        <h1 className="text-primary font-semibold text-base md:text-xl">
+        <h1 className="text-primary dark:text-primary-dark font-semibold text-base md:text-xl">
           درباره ی من
         </h1>
 
-        <p className="pr-2 mt-2 text-secondary text-xs md:text-sm !leading-loose">
+        <p className="pr-2 mt-2 text-secondary dark:text-secondary-dark text-xs md:text-sm !leading-loose">
           {user?.description}
         </p>
       </div>

@@ -189,7 +189,7 @@ function CreateUser() {
   };
 
   return (
-    <div className="p-4 rounded-xl shadow-dark">
+    <div className="p-4 rounded-xl shadow-dark dark:shadow-darker">
       <title>IRTC • ایجاد کاربر</title>
 
       <form onSubmit={formik.handleSubmit} className="w-full">
@@ -259,12 +259,14 @@ function CreateUser() {
         />
 
         <div className="my-2 space-y-2">
-          <p className="block text-secondary">جنسیت:</p>
+          <p className="block text-secondary dark:text-secondary-dark">
+            جنسیت:
+          </p>
 
           <div className="flex items-center gap-x-4 justify-start sm:gap-x-3 text-xs lg:text-sm">
             <label
               htmlFor="male"
-              className="py-3 px-3 sm:px-5 flex items-center gap-x-2 text-secondary bg-dim-secondary rounded-xl"
+              className="py-3 px-3 sm:px-5 flex items-center gap-x-2 text-secondary dark:text-secondary-dark bg-dim-secondary rounded-xl"
             >
               <input
                 type="radio"
@@ -279,7 +281,7 @@ function CreateUser() {
 
             <label
               htmlFor="female"
-              className="py-3 px-3 sm:px-5 flex items-center gap-x-2 text-secondary bg-dim-secondary rounded-xl"
+              className="py-3 px-3 sm:px-5 flex items-center gap-x-2 text-secondary dark:text-secondary-dark bg-dim-secondary rounded-xl"
             >
               <input
                 type="radio"
@@ -293,7 +295,7 @@ function CreateUser() {
 
             <label
               htmlFor="others"
-              className="py-3 px-3 sm:px-5 flex items-center gap-x-2 text-secondary bg-dim-secondary rounded-xl"
+              className="py-3 px-3 sm:px-5 flex items-center gap-x-2 text-secondary dark:text-secondary-dark bg-dim-secondary rounded-xl"
             >
               <input
                 type="radio"

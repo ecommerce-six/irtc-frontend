@@ -1,6 +1,6 @@
 function ArticleCardLoading() {
   return (
-    <div className="p-[1rem] w-full md:max-w-[32.5rem] rounded-xl shadow-dark">
+    <div className="p-[1rem] w-full md:max-w-[32.5rem] rounded-xl shadow-dark dark:shadow-darker">
       <div className="w-full h-[10rem] lg:h-[17rem] loading" />
 
       <div className="mt-4 mx-auto w-[85%] h-[1.25rem] loading" />

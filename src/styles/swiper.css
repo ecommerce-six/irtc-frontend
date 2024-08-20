@@ -17,9 +17,17 @@
   color: #161d27;
   font-size: 0.5rem !important;
 }
+.dark .swiper-button-prev,
+.dark .swiper-button-next {
+  opacity: 75%;
+  color: #aaaaaa;
+}
 .swiper-button-prev::after {
   font-size: 1.5rem !important;
 }
 .swiper-pagination-bullet-active {
   background-color: #8001ff !important;
+}
+.dark .swiper-pagination-bullet {
+  background-color: #aaaaaa;
 }

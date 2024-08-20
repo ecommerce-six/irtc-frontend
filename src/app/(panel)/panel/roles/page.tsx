@@ -15,12 +15,12 @@ function Roles() {
       <main>
         <UsersFilter searchHandler={searchHandler} />
 
-        <section className="mt-6 p-5  bg-background rounded-xl shadow-dark">
+        <section className="mt-6 p-5  bg-background dark:bg-background-dark rounded-xl shadow-dark dark:shadow-darker">
           <h1 className="mb-4 text-lg font-semibold">ادمین ها</h1>
           <Users />
         </section>
 
-        <section className="mt-6 p-5  bg-background rounded-xl shadow-dark">
+        <section className="mt-6 p-5  bg-background dark:bg-background-dark rounded-xl shadow-dark dark:shadow-darker">
           <h1 className="mb-4 text-lg font-semibold">نویسنده ها</h1>
           <Users />
         </section>

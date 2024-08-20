@@ -15,7 +15,7 @@ function PanelUsers() {
       <main>
         <UsersFilter searchHandler={searchHandler} />
 
-        <section className="mt-6 p-5  bg-background rounded-xl shadow-dark">
+        <section className="mt-6 p-5  bg-background dark:bg-background-dark rounded-xl shadow-dark dark:shadow-darker">
           <Users />
         </section>
       </main>

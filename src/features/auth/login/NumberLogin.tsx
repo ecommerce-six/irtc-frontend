@@ -78,7 +78,7 @@ function NumberLogin({ submitHandler, error }: props) {
   };
 
   return (
-    <div className="px-6 py-8 my-10 md:my-20 w-full lg:w-[25rem] flex flex-col items-center bg-background rounded-xl shadow-dark">
+    <div className="px-6 py-8 my-10 md:my-20 w-full lg:w-[25rem] flex flex-col items-center bg-background dark:bg-background-dark rounded-xl shadow-dark dark:shadow-darker">
       <LoginAuthLinks />
 
       <WelcomeMessage title="خوش برگشتی" />
@@ -116,10 +116,13 @@ function NumberLogin({ submitHandler, error }: props) {
           <input
             type="checkbox"
             id="free"
-            className="w-4 h-4 !bg-dim-secondary accent-brand"
+            className="w-4 h-4 !bg-dim-secondary accent-brand dark:invert dark:checked:invert-0"
             onChange={rememberMeHandler}
           />
-          <label htmlFor="free" className="text-md text-secondary">
+          <label
+            htmlFor="free"
+            className="text-md text-secondary dark:text-secondary-dark"
+          >
             مرا به خاطر بسپار :)
           </label>
         </div>

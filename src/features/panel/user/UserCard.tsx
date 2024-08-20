@@ -91,7 +91,7 @@ function UserCard({
   }, [error]);
 
   return (
-    <div className="pb-5 flex items-center gap-4 justify-between flex-wrap border-b border-dim-secondary">
+    <div className="pb-5 flex items-center gap-4 justify-between flex-wrap border-b border-dim-secondary text-primary dark:text-primary-dark">
       <Image
         src={AvatarSample}
         alt={`${firstName} ${lastName}`}
@@ -121,13 +121,17 @@ function UserCard({
       <form>
         <select
           name="role"
-          className="outline-none border-none w-24"
+          className="outline-none border-none w-24 bg-background dark:bg-background-dark"
           onChange={roleHandler}
         >
           <option value={role}>{role}</option>
 
           {otherRoles.map((item) => (
-            <option value={item} key={item} className="text-secondary">
+            <option
+              value={item}
+              key={item}
+              className="text-secondary dark:text-secondary-dark"
+            >
               {item}
             </option>
           ))}

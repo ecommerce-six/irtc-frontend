@@ -45,3 +45,11 @@ input[type="number"] {
     rgba(255, 255, 255, 0) 100%
   );
 }
+
+.dark .purple-gradient {
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    #b246e6 14.58%,
+    rgba(255, 255, 255, 0) 80%
+  );
+}

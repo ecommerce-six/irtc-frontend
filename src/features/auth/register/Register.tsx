@@ -119,7 +119,7 @@ function RegisterSection({ submitHandler, error }: props) {
   };
 
   return (
-    <div className="px-6 py-8 my-10 md:my-20 w-full lg:w-fit flex flex-col lg:flex-row-reverse items-center gap-x-7 bg-background rounded-xl shadow-dark">
+    <div className="px-6 py-8 my-10 md:my-20 w-full lg:w-fit flex flex-col lg:flex-row-reverse items-center gap-x-7 bg-background dark:bg-background-dark rounded-xl shadow-dark dark:shadow-darker">
       <div className="flex flex-col items-center">
         <RegisterAuthLinks />
 
@@ -177,18 +177,20 @@ function RegisterSection({ submitHandler, error }: props) {
         />
 
         <div className="my-2 space-y-2">
-          <p className="block text-secondary">جنسیت:</p>
+          <p className="block text-secondary dark:text-secondary-dark">
+            جنسیت:
+          </p>
 
           <div className="flex items-center justify-between text-xs lg:text-sm">
             <label
               htmlFor="male"
-              className="py-3 px-3 sm:px-5 flex items-center gap-x-2 text-secondary bg-dim-secondary rounded-xl"
+              className="py-3 px-3 sm:px-5 flex items-center gap-x-2 text-secondary dark:text-secondary-dark bg-dim-secondary rounded-xl"
             >
               <input
                 type="radio"
                 name="gender"
                 id="male"
-                className="accent-brand bg-primary"
+                className="accent-brand bg-primary dark:invert dark:checked:invert-0"
                 defaultChecked
                 onClick={genderHandler}
               />
@@ -197,13 +199,13 @@ function RegisterSection({ submitHandler, error }: props) {
 
             <label
               htmlFor="female"
-              className="py-3 px-3 sm:px-5 flex items-center gap-x-2 text-secondary bg-dim-secondary rounded-xl"
+              className="py-3 px-3 sm:px-5 flex items-center gap-x-2 text-secondary dark:text-secondary-dark bg-dim-secondary rounded-xl"
             >
               <input
                 type="radio"
                 name="gender"
                 id="female"
-                className="accent-brand bg-primary"
+                className="accent-brand bg-primary dark:invert dark:checked:invert-0"
                 onClick={genderHandler}
               />
               <span>زن 👩</span>
@@ -211,13 +213,13 @@ function RegisterSection({ submitHandler, error }: props) {
 
             <label
               htmlFor="others"
-              className="py-3 px-3 sm:px-5 flex items-center gap-x-2 text-secondary bg-dim-secondary rounded-xl"
+              className="py-3 px-3 sm:px-5 flex items-center gap-x-2 text-secondary dark:text-secondary-dark bg-dim-secondary rounded-xl"
             >
               <input
                 type="radio"
                 name="gender"
                 id="others"
-                className="accent-brand bg-primary"
+                className="accent-brand bg-primary dark:invert dark:checked:invert-0"
                 onClick={genderHandler}
               />
               <span>غیره 🎉</span>
@@ -229,10 +231,13 @@ function RegisterSection({ submitHandler, error }: props) {
           <input
             type="checkbox"
             id="free"
-            className="w-4 h-4 !bg-dim-secondary accent-brand"
+            className="w-4 h-4 !bg-dim-secondary accent-brand dark:invert dark:checked:invert-0"
             onChange={rememberMeHandler}
           />
-          <label htmlFor="free" className="text-sm sm:text-md text-secondary">
+          <label
+            htmlFor="free"
+            className="text-sm sm:text-md text-secondary dark:text-secondary-dark"
+          >
             مرا به خاطر بسپار :)
           </label>
         </div>

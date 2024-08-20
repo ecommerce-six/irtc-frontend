@@ -6,7 +6,7 @@ import { articlePreviewType } from "@/types/article";
 
 function ArticleCard({ slug, cover, title, description }: articlePreviewType) {
   return (
-    <div className="p-[1rem] w-full md:max-w-[32.5rem] rounded-xl shadow-dark">
+    <div className="p-[1rem] w-full md:max-w-[32.5rem] rounded-xl shadow-dark dark:shadow-darker">
       <Image
         src={cover}
         alt={title}
@@ -15,11 +15,11 @@ function ArticleCard({ slug, cover, title, description }: articlePreviewType) {
         className="w-full object-cover rounded-xl"
       />
 
-      <h1 className="mt-4 px-6 text-base md:text-xl text-primary font-semibold text-center">
+      <h1 className="mt-4 px-6 text-base md:text-xl text-primary dark:text-primary-dark font-semibold text-center">
         {title}
       </h1>
 
-      <p className="mt-2 md:mt-3 px-4 text-center text-xs md:text-sm lg:min-h-[5rem] text-secondary leading-5 lg:leading-7 line-clamp-3">
+      <p className="mt-2 md:mt-3 px-4 text-center text-xs md:text-sm lg:min-h-[5rem] text-secondary dark:text-secondary-dark leading-5 lg:leading-7 line-clamp-3">
         {description}
       </p>
 

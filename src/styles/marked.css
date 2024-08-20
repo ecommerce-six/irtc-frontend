@@ -34,12 +34,21 @@
 }
 
 .article-body a {
+  color: #8001ff;
   text-decoration: underline;
   text-underline-offset: 2px;
 }
 
-.article-body a:hover {
-  color: #8001ff;
+.dark .article-body h1,
+.dark .article-body h2,
+.dark .article-body h3,
+.dark .article-body h4,
+.dark .article-body h5 {
+  color: #e8e7e9;
+}
+
+.dark .article-body p {
+  color: #aaaaaa;
 }
 
 @media screen and (max-width: 640px) {

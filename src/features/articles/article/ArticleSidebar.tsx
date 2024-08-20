@@ -21,17 +21,17 @@ const ArticleSidebar = ({ user }: { user: userType }) => {
         />
 
         <div className="space-y-2">
-          <h1 className="text-primary font-semibold w-full text-sm md:text-base text-ellipsis overflow-hidden whitespace-nowrap">
+          <h1 className="text-primary dark:text-primary-dark font-semibold w-full text-sm md:text-base text-ellipsis overflow-hidden whitespace-nowrap">
             {user?.firstName} {user?.lastName}{" "}
             {!(user?.firstName || user?.lastName) && user?.phoneNumber}
           </h1>
-          <h2 className="text-secondary w-full text-xs text-ellipsis overflow-hidden whitespace-nowrap">
+          <h2 className="text-secondary dark:text-secondary-dark w-full text-xs text-ellipsis overflow-hidden whitespace-nowrap">
             {user?.role === "admin" ? "ادمین" : "نویسنده"}
           </h2>
         </div>
       </div>
 
-      <h1 className="text-primary text-base md:text-lg font-semibold">
+      <h1 className="text-primary dark:text-primary-dark text-base md:text-lg font-semibold">
         مقاله های اخیر ...
       </h1>
 

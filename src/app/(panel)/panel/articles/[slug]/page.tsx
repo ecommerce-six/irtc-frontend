@@ -159,7 +159,7 @@ function EditArticles({ params }: props) {
   if (data?.slug) {
     return (
       <Access admin author>
-        <div className="p-4 space-y-4 rounded-xl shadow-dark">
+        <div className="p-4 space-y-4 rounded-xl shadow-dark dark:shadow-darker">
           <title>IRTC • ${title}</title>
 
           <input
@@ -167,7 +167,7 @@ function EditArticles({ params }: props) {
             name={"title"}
             placeholder={"عنوان مقاله"}
             onChange={titleHandler}
-            className={`p-3 w-full text-sm md:text-base text-secondary bg-dim-secondary justify-start rounded-xl outline-none ${
+            className={`p-3 w-full text-sm md:text-base text-secondary dark:text-secondary-dark bg-dim-secondary justify-start rounded-xl outline-none ${
               error?.title === "title" && "border-2 border-red-600"
             } resize-none`}
             defaultValue={data.title}
@@ -178,7 +178,7 @@ function EditArticles({ params }: props) {
               "توضیح کوتاهی از مقاله یا چرا باید این مقاله را بخوانند"
             }
             onChange={descriptionHandler}
-            className={`p-3 w-full h-[7rem] text-sm md:text-base text-secondary bg-dim-secondary justify-start rounded-xl outline-none ${
+            className={`p-3 w-full h-[7rem] text-sm md:text-base text-secondary dark:text-secondary-dark bg-dim-secondary justify-start rounded-xl outline-none ${
               error?.title === "description" && "border-2 border-red-600"
             } resize-none`}
             maxLength={200}
@@ -205,7 +205,7 @@ function EditArticles({ params }: props) {
         </div>
 
         <div
-          className="mt-4 p-4 rounded-xl shadow-dark sticky"
+          className="mt-4 p-4 rounded-xl shadow-dark dark:shadow-darker sticky"
           data-color-mode="light"
         >
           <CreateArticleTools

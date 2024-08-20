@@ -9,8 +9,8 @@ type props = {
 
 function CourseDescription({ slug, description }: props) {
   return (
-    <section className="mt-6 p-5 rounded-xl shadow-dark">
-      <h1 className="text-primary text-base md:text-xl font-semibold">
+    <section className="mt-6 p-5 rounded-xl shadow-dark dark:shadow-darker">
+      <h1 className="text-primary dark:text-primary-dark text-base md:text-xl font-semibold">
         توضیحات بیشتر درباره دوره
       </h1>
 

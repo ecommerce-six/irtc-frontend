@@ -22,8 +22,8 @@ function UsersFilter({ searchHandler }: props) {
   };
 
   return (
-    <section className="p-5 bg-background rounded-xl shadow-dark">
-      <h1>فیلتر ها</h1>
+    <section className="p-5 bg-background dark:bg-background-dark rounded-xl shadow-dark dark:shadow-darker">
+      <h1 className="text-primary dark:text-primary-dark">فیلتر ها</h1>
       <form
         onChange={formHandler}
         className="mt-8 flex items-center gap-6 flex-wrap"
@@ -32,18 +32,18 @@ function UsersFilter({ searchHandler }: props) {
           type="text"
           ref={name}
           placeholder="فیلتر نام کاربر"
-          className="px-2 py-2 md:px-4 w-full lg:w-[25%] text-secondary text-base outline-2 outline outline-offset-4 outline-dim-secondary border-none bg-transparent text-[.8rem] rounded-lg"
+          className="px-2 py-2 md:px-4 w-full lg:w-[25%] text-secondary dark:text-secondary-dark text-base outline-2 outline outline-offset-4 outline-dim-secondary border-none bg-transparent text-[.8rem] rounded-lg"
         />
 
         <input
           type="text"
           ref={name}
           placeholder="فیلتر نام کاربر"
-          className="px-2 py-2 md:px-4 w-full lg:w-[25%] text-secondary text-base outline-2 outline outline-offset-4 outline-dim-secondary border-none bg-transparent text-[.8rem] rounded-lg"
+          className="px-2 py-2 md:px-4 w-full lg:w-[25%] text-secondary dark:text-secondary-dark text-base outline-2 outline outline-offset-4 outline-dim-secondary border-none bg-transparent text-[.8rem] rounded-lg"
         />
 
         <select
-          className="px-2 py-2 md:px-4 w-full lg:w-[25%] text-secondary text-base outline-2 outline outline-offset-4 outline-dim-secondary border-none bg-transparent text-[.8rem] rounded-lg"
+          className="px-2 py-2 md:px-4 w-full lg:w-[25%] text-secondary dark:text-secondary-dark text-base bg-background dark:bg-background-dark outline-2 outline outline-offset-4 outline-dim-secondary border-none bg-transparent text-[.8rem] rounded-lg"
           ref={role}
         >
           <option className="hidden">فیلتر مقام</option>

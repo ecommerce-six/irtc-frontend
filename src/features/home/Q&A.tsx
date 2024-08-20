@@ -18,21 +18,21 @@ function QAndA() {
         <div className="mt-2 md:mt-6 lg:w-[45%]">
           <h1 className="mt-4 flex items-center gap-x-2">
             <Image src={NineDots} alt="nine dots" />
-            <span className="text-base md:text-lg text-primary font-semibold">
+            <span className="text-base md:text-lg text-primary dark:text-primary-dark font-semibold">
               پشتیبانی دوره ها به چه صورت است؟
             </span>
           </h1>
-          <p className="mt-3 text-sm md:text-base text-secondary leading-7">
+          <p className="mt-3 text-sm md:text-base text-secondary dark:text-secondary-dark leading-7">
             پشتیبانی دوره اموزشی به صورت دائمی و مادام العمر است.
           </p>
 
           <h1 className="mt-4 flex items-center gap-x-2">
             <Image src={NineDots} alt="nine dots" />
-            <span className="text-base md:text-lg text-primary font-semibold">
+            <span className="text-base md:text-lg text-primary dark:text-primary-dark font-semibold">
               آیا دوره ها کامل است؟
             </span>
           </h1>
-          <p className="mt-3 text-sm md:text-base text-secondary leading-7">
+          <p className="mt-3 text-sm md:text-base text-secondary dark:text-secondary-dark leading-7">
             پای تو پای در انتخاب مدرسان خود بسیار سخت گیر است و تمامی دوره های
             حود را سعی کرده است در بیشتر کیفیت علمی و مفهومی نگه دارد. پس از نظر
             کیفیت خیالتان راحت باشد.
@@ -40,11 +40,11 @@ function QAndA() {
 
           <h1 className="mt-4 flex items-center gap-x-2">
             <Image src={NineDots} alt="nine dots" />
-            <span className="text-base md:text-lg text-primary font-semibold">
+            <span className="text-base md:text-lg text-primary dark:text-primary-dark font-semibold">
               آیا ضمانت بازگشت وجه دارد؟
             </span>
           </h1>
-          <p className="mt-3 text-sm md:text-base text-secondary leading-7">
+          <p className="mt-3 text-sm md:text-base text-secondary dark:text-secondary-dark leading-7">
             بله در صورتی که از ان ناراضی باشید بدون هیچ قید و شرطی مبلغ باز
             میگردد.
           </p>

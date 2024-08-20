@@ -12,7 +12,7 @@ function Hero() {
     <>
       <section className="relative flex flex-col lg:flex-row items-center justify-between gap-y-4">
         <div className="flex flex-col items-center lg:items-start">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl !leading-normal font-semibold text-center lg:text-start">
+          <h1 className="text-primary dark:text-primary-dark text-3xl md:text-4xl lg:text-5xl xl:text-6xl !leading-normal font-semibold text-center lg:text-start">
             هر مهارتی را برای
             <br /> پیشبرد مسیر شغلی <br />
             خود بیاموزید
@@ -21,10 +21,10 @@ function Hero() {
           <Image
             src={Underline}
             alt="underline"
-            className="w-48 lg:w-64 xl:w-80"
+            className="w-48 lg:w-64 xl:w-80 dark:invert"
           />
 
-          <p className="mt-6 px-5 md:px-0 max-w-[24rem] md:max-w-[25rem] text-sm lg:text-base !leading-loose text-secondary text-center lg:text-start">
+          <p className="mt-6 px-5 md:px-0 max-w-[24rem] md:max-w-[25rem] text-sm lg:text-base !leading-loose text-secondary dark:text-secondary-dark text-center lg:text-start">
             آیا می خواهید مهارت های کاری خود را بهبود بخشید؟ برای بهبود عملکرد
             خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنید
           </p>
@@ -50,7 +50,7 @@ function Hero() {
                   alt="stars"
                   className="w-20 md:w-28"
                 />
-                <h2 className="text-secondary text-xs md:text-sm ">
+                <h2 className="text-secondary dark:text-secondary-dark text-xs md:text-sm ">
                   4.5/5 براساس 1200
                 </h2>
               </div>
@@ -66,7 +66,11 @@ function Hero() {
       </section>
 
       <div className="mt-4 md:-mt-10 lg:mt-14 xl:mt-5 grid justify-items-center">
-        <Image src={Spiral} alt="spiral badge" className="w-14 lg:w-24" />
+        <Image
+          src={Spiral}
+          alt="spiral badge"
+          className="w-14 lg:w-24 dark:invert dark:brightness-0"
+        />
       </div>
     </>
   );

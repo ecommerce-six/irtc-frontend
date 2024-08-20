@@ -13,3 +13,4 @@ export { default as HeaderAvatarImage } from "./header-avatars.png";
 export { default as ProfileHeaderImage } from "./profile-header.svg";
 export { default as CoursesHeroImage } from "./courses-hero-image.png";
 export { default as TargetAboutImage } from "./target-about-image.svg";
+export { default as CoursesHeroImageDark } from "./courses-hero-image-dark.png";

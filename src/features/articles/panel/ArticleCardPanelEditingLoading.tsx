@@ -1,6 +1,6 @@
 function ArticleCardPanelEditingLoading() {
   return (
-    <div className="p-6 flex items-center justify-between gap-y-2 w-full rounded-xl shadow-dark flex-wrap">
+    <div className="p-6 flex items-center justify-between gap-y-2 w-full rounded-xl shadow-dark dark:shadow-darker flex-wrap">
       <div className="w-full md:w-[22.5rem] h-[1rem] loading" />
 
       <div className="flex items-center gap-x-5">

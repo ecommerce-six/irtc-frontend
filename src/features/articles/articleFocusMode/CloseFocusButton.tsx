@@ -7,7 +7,7 @@ function CloseFocusTimeButton() {
     document.getElementById("sidebar")!.className = "w-full lg:w-[19%]";
     document.getElementById("closeFocusTimeButton")!.className = "hidden";
     document.getElementById("article")!.className =
-      "p-4 w-full lg:w-[80%] rounded-xl shadow-dark";
+      "p-4 w-full lg:w-[80%] rounded-xl shadow-dark dark:shadow-darker";
   };
 
   return (

@@ -14,11 +14,11 @@ function Activity({ header, children }: props) {
       <div className="flex items-center gap-x-3">
         <Image src={NineDots} alt="w-10 md:w-16" />
 
-        <h2 className="text-primary text-base md:text-lg font-bold">
+        <h2 className="text-primary dark:text-primary-dark text-base md:text-lg font-bold">
           {header}
         </h2>
       </div>
-      <p className="px-2 lg:px-5 text-xs md:text-sm text-secondary !leading-loose text-justify">
+      <p className="px-2 lg:px-5 text-xs md:text-sm text-secondary dark:text-secondary-dark !leading-loose text-justify">
         {children}
       </p>
     </div>

@@ -27,7 +27,7 @@ function CourseCard(props: coursePreviewType) {
   } = props;
 
   return (
-    <div className="mx-auto p-[.75rem] w-full sm:w-[23.5rem] shadow-dark rounded-xl">
+    <div className="mx-auto p-[.75rem] w-full sm:w-[23.5rem] shadow-dark dark:shadow-darker rounded-xl">
       <div className="relative">
         <Image
           src={cover}
@@ -37,7 +37,7 @@ function CourseCard(props: coursePreviewType) {
           className="w-full object-cover rounded-xl"
         />
 
-        <div className="absolute left-3 bottom-3 py-1 px-2 flex items-center gap-x-2 bg-background rounded-lg">
+        <div className="absolute left-3 bottom-3 py-1 px-2 flex items-center gap-x-2 bg-background dark:bg-background-dark rounded-lg">
           <AvatarIcon />
 
           <span className="text-xs h-3">{membersCount}</span>
@@ -45,8 +45,10 @@ function CourseCard(props: coursePreviewType) {
       </div>
 
       <div className="px-2">
-        <h1 className="mt-2 text-md text-primary font-semibold">{title}</h1>
-        <p className="mt-2 text-[.75rem] h-[4.75rem] text-secondary leading-6 overflow-hidden line-clamp-3">
+        <h1 className="mt-2 text-md text-primary dark:text-primary-dark font-semibold">
+          {title}
+        </h1>
+        <p className="mt-2 text-[.75rem] h-[4.75rem] text-secondary dark:text-secondary-dark leading-6 overflow-hidden line-clamp-3">
           {shortDescription}
         </p>
         <div className="mt-3 flex items-center gap-x-4">
@@ -56,7 +58,9 @@ function CourseCard(props: coursePreviewType) {
                 <SmallRecordIcon />
               </div>
 
-              <h3 className="text-secondary text-xs">تکمیل</h3>
+              <h3 className="text-secondary dark:text-secondary-dark text-xs">
+                تکمیل
+              </h3>
             </div>
           )}
           {credit && (
@@ -65,7 +69,7 @@ function CourseCard(props: coursePreviewType) {
                 <CostIcon />
               </div>
 
-              <h3 className="text-secondary text-xs">
+              <h3 className="text-secondary dark:text-secondary-dark text-xs">
                 {credit ? "نقدی - قصدی" : "نقدی"}
               </h3>
             </div>
@@ -76,24 +80,30 @@ function CourseCard(props: coursePreviewType) {
               <SmallRateIcon />
             </div>
 
-            <h3 className="text-secondary text-xs">{rate}</h3>
+            <h3 className="text-secondary dark:text-secondary-dark text-xs">
+              {rate}
+            </h3>
           </div>
         </div>
 
         <div className="mt-2 flex items-center justify-between">
-          <h3 className="text-xs text-secondary">
-            در مجموع
+          <h3 className="text-xs">
+            <span className="text-secondary dark:text-secondary-dark">
+              در مجموع
+            </span>
             <br />
-            <span className="mt-1 !text-primary font-medium">{duration}</span>
+            <span className="mt-1 text-primary dark:text-primary-dark font-medium">
+              {duration}
+            </span>
           </h3>
-          <h4 className="flex items-center gap-x-1  text-2xl font-medium">
+          <h4 className="flex items-center gap-x-1  text-2xl font-medium text-primary dark:text-primary-dark">
             {price}
 
             <TomanIcon />
           </h4>
         </div>
 
-        <span className="block mt-3 w-full h-[1px] bg-secondary opacity-25" />
+        <span className="block mt-3 w-full h-[1px] bg-secondary dark:bg-secondary-dark opacity-25 dark:opacity-60" />
 
         <Link
           href={`/courses/${slug}`}

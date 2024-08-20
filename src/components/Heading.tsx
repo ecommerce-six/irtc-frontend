@@ -15,11 +15,13 @@ function Heading({ title, description, children }: props) {
       <div className="space-y-2">
         <div className="flex items-center gap-x-4">
           <Image src={FourDots} alt="four dots" className="w-5 md:w-7" />
-          <h1 className="text-primary text-xl md:text-2xl font-semibold">
+          <h1 className="text-primary dark:text-primary-dark text-xl md:text-2xl font-semibold">
             {title}
           </h1>
         </div>
-        <p className="text-secondary text-xs md:text-base">{description}</p>
+        <p className="text-secondary dark:text-secondary-dark text-xs md:text-base">
+          {description}
+        </p>
       </div>
 
       <div className="self-end lg:self-auto">{children}</div>

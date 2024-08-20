@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import ReactPaginate from "react-paginate";
 
 import {
+  ArticleCardPanelEditing,
   ArticleCardPanelEditingLoading,
   ArticlePanelEditingPreview,
 } from "@/features/articles/panel";
@@ -36,7 +37,7 @@ function MyArticles() {
       <div className="mt-6 flex flex-col items-center gap-y-5">
         {data
           ? data.article.map((item: any, index: number) => (
-              <ArticlePanelEditingPreview {...item} key={index} />
+              <ArticleCardPanelEditing {...item} key={index} />
             ))
           : [...new Array(4)].map((index) => (
               <ArticleCardPanelEditingLoading key={index} />

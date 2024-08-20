@@ -3,6 +3,8 @@ import { Footer, Navbar } from "@/components/layout";
 
 import { styles } from "@/styles";
 
+import "@/styles/material-ui.css";
+
 const MainLayout = ({ children }: { children: any }) => {
   return (
     <>

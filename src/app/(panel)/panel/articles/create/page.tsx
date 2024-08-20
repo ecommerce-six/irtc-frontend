@@ -11,6 +11,7 @@ import {
 } from "@/features/articles/panel";
 import { Access } from "@/components";
 
+import { useTheme } from "@/hooks";
 import { axiosPrivate } from "@/configs/axios";
 import { checkConnectivity } from "@/utils/checkConnection";
 import { estimateReadTimeHandler } from "@/utils/estimateReadTime";
@@ -38,6 +39,8 @@ function CreateArticle() {
   const [uploadArticleImage, setUploadArticleImage] = useState<boolean>(false);
 
   const textRef = useRef<HTMLTextAreaElement>(null);
+
+  const { theme } = useTheme();
 
   const titleHandler = (e: ChangeEvent<HTMLInputElement>) => {
     setTitle(e.target.value);
@@ -134,7 +137,7 @@ function CreateArticle() {
 
   return (
     <Access admin author>
-      <div className="p-4 space-y-4 rounded-xl shadow-dark">
+      <div className="p-4 space-y-4 rounded-xl shadow-dark dark:shadow-darker">
         <title>IRTC • ایجاد کردن مقاله</title>
 
         <input
@@ -142,7 +145,7 @@ function CreateArticle() {
           name={"title"}
           placeholder={"عنوان مقاله"}
           onChange={titleHandler}
-          className={`p-3 w-full text-sm md:text-base text-secondary bg-dim-secondary justify-start rounded-xl outline-none ${
+          className={`p-3 w-full text-sm md:text-base text-secondary dark:text-secondary-dark bg-dim-secondary justify-start rounded-xl outline-none ${
             error?.title === "title" && "border-2 border-red-600"
           } resize-none`}
         />
@@ -150,7 +153,7 @@ function CreateArticle() {
         <textarea
           placeholder={"توضیح کوتاهی از مقاله یا چرا باید این مقاله را بخوانند"}
           onChange={descriptionHandler}
-          className={`p-3 w-full h-[7rem] text-sm md:text-base text-secondary bg-dim-secondary justify-start rounded-xl outline-none ${
+          className={`p-3 w-full h-[7rem] text-sm md:text-base text-secondary dark:text-secondary-dark bg-dim-secondary justify-start rounded-xl outline-none ${
             error?.title === "description" && "border-2 border-red-600"
           } resize-none`}
           maxLength={200}
@@ -164,6 +167,7 @@ function CreateArticle() {
           onremovefile={() => {
             setCover(null);
           }}
+          className={theme}
           server={{
             process: {
               url: "https://api.cloudinary.com/v1_1/dpuwpqd0c/image/upload",
@@ -197,7 +201,7 @@ function CreateArticle() {
       </div>
 
       <div
-        className="mt-4 p-4 rounded-xl shadow-dark sticky"
+        className="mt-4 p-4 rounded-xl shadow-dark dark:shadow-darker sticky"
         data-color-mode="light"
       >
         <CreateArticleTools
@@ -210,7 +214,7 @@ function CreateArticle() {
           name=""
           id="textareatest"
           ref={textRef}
-          className="mt-3 p-2 w-full min-h-[27.5rem] resize-none outline-none border-t-2 border-dim-secondary"
+          className="mt-3 p-2 w-full min-h-[27.5rem] resize-none outline-none border-t-2 border-dim-secondary dark:border-dim-secondary-dark bg-background dark:bg-background-dark"
           placeholder="متن مقاله ی خود را در اینجا بنویسید..."
           onChange={(e: any) => {
             setContent(e.target.value);

@@ -64,11 +64,11 @@ function PanelSidebarLink({ path, title, subLink, pathname, disabled }: props) {
         }`}
       >
         <div className="flex items-center gap-x-2">
-          <CircleIcon active={active} />
+          <CircleIcon active={active}  />
 
           <span
             className={`${
-              active ? "text-background" : "text-primary"
+              active ? "text-background" : "text-primary dark:text-primary-dark"
             } text-base !leading-none`}
           >
             {title}
@@ -89,7 +89,7 @@ function PanelSidebarLink({ path, title, subLink, pathname, disabled }: props) {
             className={`px-3 pr-8 pt-3 py-2 ${
               item.path === pathname
                 ? "text-brand font-semibold"
-                : "text-secondary opacity-75"
+                : "text-secondary dark:text-secondary-dark opacity-75"
             } w-full text-sm flex items-center gap-x-2 rounded-tl-xl rounded-bl-xl ${
               item.disabled && "cursor-default"
             }`}

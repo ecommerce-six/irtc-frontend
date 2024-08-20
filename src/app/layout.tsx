@@ -1,8 +1,6 @@
-import { UserWrapper } from "@/components/layout";
+import { UserWrapper, ThemeWrapper } from "@/components/layout";
 
 import ReduxWrapper from "@/store/wrapper";
-
-import { IranYekan } from "@/assets/fonts";
 
 import "@/styles/global.css";
 import "@/styles/tailwind.css";
@@ -15,11 +13,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={IranYekan.className}>
-        <ReduxWrapper>
+      <ReduxWrapper>
+        <ThemeWrapper>
           <UserWrapper>{children}</UserWrapper>
-        </ReduxWrapper>
-      </body>
+        </ThemeWrapper>
+      </ReduxWrapper>
     </html>
   );
 }

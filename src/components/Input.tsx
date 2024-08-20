@@ -39,7 +39,10 @@ function Input(props: props) {
 
   return (
     <div className="relative mt-2 w-full space-y-2">
-      <label htmlFor={id} className="block text-secondary">
+      <label
+        htmlFor={id}
+        className="block text-secondary dark:text-secondary-dark"
+      >
         {title}
       </label>
 
@@ -54,7 +57,7 @@ function Input(props: props) {
         minLength={minLength}
         placeholder={placeHolder}
         autoComplete={autoComplete}
-        className={`p-3 w-full text-sm md:text-base text-secondary bg-dim-secondary rounded-xl outline-none ${
+        className={`p-3 w-full text-sm md:text-base text-secondary dark:text-secondary-dark bg-dim-secondary rounded-xl outline-none placeholder:opacity-25 ${
           error && "border-2 border-red-600 !bg-red-100"
         }`}
       />

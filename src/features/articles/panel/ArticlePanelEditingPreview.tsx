@@ -24,7 +24,7 @@ function ArticlePanelEditingPreview({ title, content, previewHandler }: props) {
       >
         <article
           id="article"
-          className="p-4 mx-auto w-[full] lg:w-[65rem] rounded-xl shadow-dark bg-white"
+          className="p-4 mx-auto w-[full] lg:w-[65rem] rounded-xl shadow-dark dark:shadow-darker bg-background dark:bg-background-dark"
           onClick={(e: any) => {
             e.stopPropagation();
           }}
@@ -50,9 +50,9 @@ function ArticlePanelEditingPreview({ title, content, previewHandler }: props) {
               <div className="flex items-center gap-x-3">
                 <TimeIcon />
 
-                <h3 className="text-secondary text-xs md:text-sm">
+                <h3 className="text-secondary dark:text-secondary-dark text-xs md:text-sm">
                   ﺯﻣﺎﻥ ﻣﻄﺎﻟﻌﻪ:{" "}
-                  <span className="text-primary text-xs md:text-sm font-medium">
+                  <span className="text-primary dark:text-primary-dark text-xs md:text-sm font-medium">
                     {estimateReadTimeHandler(content)}
                   </span>
                 </h3>

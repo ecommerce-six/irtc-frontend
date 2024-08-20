@@ -31,7 +31,10 @@ function UserEditInput(props: props) {
 
   return (
     <div className="mt-3 w-full space-y-2">
-      <label htmlFor={id} className="block text-secondary">
+      <label
+        htmlFor={id}
+        className="block text-secondary dark:text-secondary-dark"
+      >
         {title}
       </label>
       <input
@@ -44,7 +47,7 @@ function UserEditInput(props: props) {
         maxLength={maxlength}
         placeholder={placeHolder}
         defaultValue={defaultValue}
-        className={`p-3 w-full text-sm md:text-base text-secondary bg-dim-secondary rounded-xl outline-none ${className}`}
+        className={`p-3 w-full text-sm md:text-base text-secondary dark:text-secondary-dark bg-dim-secondary placeholder:opacity-25 rounded-xl outline-none ${className}`}
       />
     </div>
   );

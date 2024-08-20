@@ -38,7 +38,7 @@ function ArticleRating() {
 
   return (
     <div className="mt-4 p-4 flex items-center justify-between flex-col md:flex-row gap-4 bg-dim-secondary rounded-xl">
-      <p className="text-secondary text-xs md:text-sm">
+      <p className="text-secondary dark:text-secondary-dark text-xs md:text-sm">
         چه امتیازی به این مقاله میدهید؟
       </p>
 

@@ -1,5 +1,5 @@
-.filepond--credits {
-  display: none;
+.dark .filepond--drop-label {
+  background: #101010 !important;
 }
 
 .filepond--file {

@@ -48,7 +48,7 @@ function NumberLoginVerify({ phoneNumber, loginHandler }: props) {
   });
 
   return (
-    <div className="px-6 py-8 my-10 md:my-20 w-full lg:w-[25rem] flex flex-col items-center bg-background rounded-xl shadow-dark">
+    <div className="px-6 py-8 my-10 md:my-20 w-full lg:w-[25rem] flex flex-col items-center bg-background dark:bg-background-dark rounded-xl shadow-dark dark:shadow-darker">
       <Link href={"/"}>
         <Image src={LogoIcon} alt="logo" className="w-16 md:w-32" />
       </Link>
@@ -68,11 +68,11 @@ function NumberLoginVerify({ phoneNumber, loginHandler }: props) {
         </Link>
       </div>
 
-      <h1 className="mt-6 text-primary text-lg md:text-xl font-bold">
+      <h1 className="mt-6 text-primary dark:text-primary-dark text-lg md:text-xl font-bold">
         پیامک های خود را چک کنید
       </h1>
 
-      <p className="px-2 mt-4 text-secondary text-sm md:text-base text-center">
+      <p className="px-2 mt-4 text-secondary dark:text-secondary-dark text-sm md:text-base text-center">
         کد 5 رقمی به شماره {phoneNumber} ارسال شد.
       </p>
 

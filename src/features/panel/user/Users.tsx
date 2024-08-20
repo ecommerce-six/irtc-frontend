@@ -31,7 +31,7 @@ function Users() {
     <>
       <button
         onClick={exportToExcelHandler}
-        className={`${styles.secondaryButton} py-3 px-6 `}
+        className={`${styles.secondaryButton} py-3 px-6`}
       >
         استخراج کاربر ها به صورت فایل اکسل
       </button>
@@ -60,7 +60,9 @@ function Users() {
           "flex items-center justify-center h-6 lg:h-8 text-[.75rem] lg:text-base rounded-full text-brand border-brand border"
         }
         pageLinkClassName={"pt-1 px-2 lg:px-3 w-full h-full rounded-full"}
-        activeClassName={"h-6 lg:h-8 rounded-full !text-white bg-brand"}
+        activeClassName={
+          "h-6 lg:h-8 rounded-full !text-primary-dark dark:!text-primary bg-brand"
+        }
         breakClassName={
           "flex items-center justify-center border-brand pt-1 border px-2 lg:px-3 h-6 lg:h-8 rounded-full text-brand"
         }
