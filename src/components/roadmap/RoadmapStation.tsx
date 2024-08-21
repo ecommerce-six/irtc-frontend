@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import TimelineDot from "@mui/lab/TimelineDot";
 import TimelineItem from "@mui/lab/TimelineItem";
 import Typography from "@mui/material/Typography";
@@ -33,8 +34,8 @@ function RoadmapStation({
 
       <TimelineSeparator>
         <TimelineConnector className="!bg-secondary opacity-30" />
-        <TimelineDot className="!p-0 w-[fit] !bg-background dark:!bg-background-dark !shadow-none !border-0">
-          {icon}
+        <TimelineDot className="!p-0 w-[4rem] h-[4rem] !bg-background dark:!bg-background-dark !shadow-none !border-0">
+          <Image src={icon} alt={header} width={75} height={75} />
         </TimelineDot>
         <TimelineConnector className="!bg-secondary opacity-30" />
       </TimelineSeparator>

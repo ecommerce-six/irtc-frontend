@@ -3,7 +3,7 @@ import Image from "next/image";
 
 import CourseAddToCart from "../CourseAddToCart";
 
-import { coursePreviewType } from "@/types/course";
+import { courseType } from "@/types/course";
 
 import {
   RateIcon,
@@ -14,18 +14,19 @@ import {
   CostPurpleIcon,
 } from "@/assets/icons/svgs";
 
-function CourseDetails(props: coursePreviewType) {
+function CourseDetails(props: courseType) {
   const {
+    id,
     slug,
     rate,
     cover,
     title,
     price,
-    credit,
     duration,
     membersCount,
     shortDescription,
     recordingFinished,
+    isInstallmentAvailable,
   } = props;
 
   return (
@@ -79,7 +80,7 @@ function CourseDetails(props: coursePreviewType) {
             <CostPurpleIcon />
 
             <h2 className="text-secondary dark:text-secondary-dark text-sm md:text-base">
-              {credit ? "نقدی - قصدی" : "نقدی"}
+              {isInstallmentAvailable ? "نقدی - قصدی" : "نقدی"}
             </h2>
           </div>
 

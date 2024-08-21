@@ -58,7 +58,7 @@
   animation: loading 1.5s infinite linear;
   border-radius: 1rem;
 }
-.loading {
+.dark .loading {
   background: linear-gradient(
     90deg,
     #585858 0%,

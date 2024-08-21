@@ -1,5 +1,5 @@
 import CoursesHero from "./CoursesHero";
 import CoursesFilter from "./CoursesFilter";
-import LatestCourses from "./LatestCourses";
+import LatestCourseCompact from "./LatestCourseCompact";
 
-export { CoursesHero, CoursesFilter, LatestCourses };
+export { CoursesHero, CoursesFilter, LatestCourseCompact };

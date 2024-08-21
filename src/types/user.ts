@@ -1,4 +1,4 @@
-import { coursePreviewType } from "./course";
+import { courseType } from "./course";
 
 export type userType = {
   id: number;
@@ -10,7 +10,7 @@ export type userType = {
   phoneNumber: string;
   description: string;
   profileImage: string;
-  cart?: coursePreviewType[];
+  cart?: courseType[];
   emailVerified?: boolean;
   phoneNumberVerified?: boolean;
   confirmEmail?: boolean;

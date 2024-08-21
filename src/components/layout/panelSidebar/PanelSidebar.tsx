@@ -167,7 +167,11 @@ function PanelSidebar() {
             {!(user?.firstName || user?.lastName) && user?.phoneNumber}
           </h1>
 
-          {user?.firstName && user?.lastName && <p>{user?.phoneNumber}</p>}
+          {user?.firstName && user?.lastName && (
+            <p className="text-secondary dark:text-secondary-dark">
+              {user?.phoneNumber}
+            </p>
+          )}
         </div>
 
         <button className="group" onClick={showPromptHandler}>

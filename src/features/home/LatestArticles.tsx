@@ -9,14 +9,14 @@ import { styles } from "@/styles";
 import { useFetchData } from "@/hooks";
 import { articleType } from "@/types/article";
 
-function LatestArticle() {
+function LatestArticles() {
   const { data } = useFetchData("/articles", 1, 2);
 
   return (
     <section className="mt-10">
       <Heading
         title="آخرین مقالات سایت"
-        description="آیا می خواهید برای بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنید"
+        description="آخرین مقالات سایت را بخوانید و دانش و اطلاعات خود را به‌روز نگه دارید."
       >
         <Link
           href={"/articles"}
@@ -39,4 +39,4 @@ function LatestArticle() {
   );
 }
 
-export default LatestArticle;
+export default LatestArticles;

@@ -6,122 +6,9 @@ import ReactPaginate from "react-paginate";
 import CourseCard from "./CourseCard";
 import { Heading } from "@/components";
 
-function CoursesFilter() {
-  const courses = [
-    {
-      slug: "react",
-      cover:
-        "https://sabzlearn.ir/wp-content/uploads/2023/12/ezgif.com-jpg-to-webp-converted-18-1.webp",
-      title: "اموزش راه اندازی کیف پول",
-      rate: 4.5,
-      price: 100000,
-      credit: true,
-      duration: "100 ساعت و 67 دقیقه",
-      membersCount: 1269,
-      shortDescription:
-        "آیا می خواهید برای بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنیدآیا می خواهید برای بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنید",
-      recordingFinished: true,
-    },
-    {
-      slug: "react",
-      cover:
-        "https://sabzlearn.ir/wp-content/uploads/2024/01/Freelancer32-1.webp",
-      title: "اموزش راه اندازی کیف پول",
-      rate: 4.5,
-      price: 100000,
-      credit: true,
-      duration: "100 ساعت و 67 دقیقه",
-      membersCount: 1269,
-      shortDescription:
-        "آیا می خواهید برای بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنیدآیا می خواهید برای بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنید",
-      recordingFinished: true,
-    },
-    {
-      slug: "react",
-      cover:
-        "https://sabzlearn.ir/wp-content/uploads/2023/12/ezgif.com-jpg-to-webp-converted-25-1.webp",
-      title: "اموزش راه اندازی کیف پول",
-      rate: 4.5,
-      price: 100000,
-      credit: true,
-      duration: "100 ساعت و 67 دقیقه",
-      membersCount: 1269,
-      shortDescription:
-        "آیا می خواهید برای بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنیدآیا می خواهید برای بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنید",
-      recordingFinished: true,
-    },
-    {
-      slug: "react",
-      cover:
-        "https://sabzlearn.ir/wp-content/uploads/2023/11/Course-thumbnail-Algorithm-1.webp",
-      title: "اموزش راه اندازی کیف پول",
-      rate: 4.5,
-      price: 100000,
-      credit: true,
-      duration: "100 ساعت و 67 دقیقه",
-      membersCount: 1269,
-      shortDescription:
-        "آیا می خواهید برای بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنیدآیا می خواهید برای بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنید",
-      recordingFinished: true,
-    },
-    {
-      slug: "react",
-      cover:
-        "https://sabzlearn.ir/wp-content/uploads/2023/12/ezgif.com-jpg-to-webp-converted-18-1.webp",
-      title: "اموزش راه اندازی کیف پول",
-      rate: 4.5,
-      price: 100000,
-      credit: true,
-      duration: "100 ساعت و 67 دقیقه",
-      membersCount: 1269,
-      shortDescription:
-        "آیا می خواهید برای بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنیدآیا می خواهید برای بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنید",
-      recordingFinished: true,
-    },
-    {
-      slug: "react",
-      cover:
-        "https://sabzlearn.ir/wp-content/uploads/2023/12/ezgif.com-jpg-to-webp-converted-25-1.webp",
-      title: "اموزش راه اندازی کیف پول",
-      rate: 4.5,
-      price: 100000,
-      credit: true,
-      duration: "100 ساعت و 67 دقیقه",
-      membersCount: 1269,
-      shortDescription:
-        "آیا می خواهید برای بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنیدآیا می خواهید برای بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنید",
-      recordingFinished: true,
-    },
-    {
-      slug: "react",
-      cover:
-        "https://sabzlearn.ir/wp-content/uploads/2024/01/Freelancer32-1.webp",
-      title: "اموزش راه اندازی کیف پول",
-      rate: 4.5,
-      price: 100000,
-      credit: true,
-      duration: "100 ساعت و 67 دقیقه",
-      membersCount: 1269,
-      shortDescription:
-        "آیا می خواهید برای بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنیدآیا می خواهید برای بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنید",
-      recordingFinished: true,
-    },
-    {
-      slug: "react",
-      cover:
-        "https://sabzlearn.ir/wp-content/uploads/2023/11/Course-thumbnail-Algorithm-1.webp",
-      title: "اموزش راه اندازی کیف پول",
-      rate: 4.5,
-      price: 100000,
-      credit: true,
-      duration: "100 ساعت و 67 دقیقه",
-      membersCount: 1269,
-      shortDescription:
-        "آیا می خواهید برای بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنیدآیا می خواهید برای بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنید",
-      recordingFinished: true,
-    },
-  ];
+import { coursesContent } from "@/data/courses";
 
+function CoursesFilter() {
   const [countPage, setCountPage] = useState<number>(1);
 
   const [selectedPage, setSelectedPage] = useState<number>(1);
@@ -355,8 +242,8 @@ function CoursesFilter() {
         </aside>
         <section className="w-full lg:w-[72.5%]">
           <div className="flex items-center justify-center flex-wrap gap-5">
-            {courses.map((item, index) => (
-              <CourseCard {...item} key={index} />
+            {coursesContent.map((course) => (
+              <CourseCard {...course} key={course.id} />
             ))}
           </div>
 
@@ -375,7 +262,9 @@ function CoursesFilter() {
                 "flex items-center justify-center h-6 lg:h-8 text-[.75rem] lg:text-base rounded-full text-brand border-brand border"
               }
               pageLinkClassName={"pt-1 px-2 lg:px-3 w-full h-full rounded-full"}
-              activeClassName={"h-6 lg:h-8 rounded-full !text-primary-dark dark:!text-primary bg-brand"}
+              activeClassName={
+                "h-6 lg:h-8 rounded-full !text-primary-dark dark:!text-primary bg-brand"
+              }
               breakClassName={
                 "flex items-center justify-center border-brand pt-1 border px-2 lg:px-3 h-6 lg:h-8 rounded-full text-brand"
               }

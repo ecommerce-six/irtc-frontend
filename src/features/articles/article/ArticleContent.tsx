@@ -33,7 +33,7 @@ const ArticleContent = ({ article }: { article: articleType }) => {
         <CloseFocusTimeButton />
       </div>
 
-      <h1 className="my-4 pl-4 text-base md:text-2xl font-semibold md:font-extrabold ">
+      <h1 className="my-4 pl-4 text-primary dark:text-primary-dark text-base md:text-2xl font-semibold md:font-extrabold ">
         {article.title}
       </h1>
 
@@ -54,7 +54,7 @@ const ArticleContent = ({ article }: { article: articleType }) => {
             <LikeIcon />
 
             <h3 className="text-secondary dark:text-secondary-dark text-xs md:text-sm">
-              {article.likesCount ?? "فعلا 0"}
+              {article.likesCount ?? "13"}
             </h3>
           </div>
 

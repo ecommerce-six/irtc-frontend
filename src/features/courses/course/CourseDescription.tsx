@@ -14,7 +14,9 @@ function CourseDescription({ slug, description }: props) {
         توضیحات بیشتر درباره دوره
       </h1>
 
-      <p className="mt-4 md:px-2 text-sm leading-7">{description}</p>
+      <p className="mt-4 md:px-2 text-sm text-secondary dark:text-secondary-dark leading-7">
+        {description}
+      </p>
 
       <CourseRate slug={slug} />
     </section>

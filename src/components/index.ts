@@ -8,6 +8,7 @@ import ScrollToTop from "./ScrollToTop";
 import Testimonials from "./Testimonials";
 import InstagramPage from "./InstagramPage";
 import ToggleAnimate from "./ToggleAnimate";
+import LatestCourses from "./LatestCourses";
 
 export {
   Input,
@@ -20,4 +21,5 @@ export {
   Testimonials,
   InstagramPage,
   ToggleAnimate,
+  LatestCourses,
 };

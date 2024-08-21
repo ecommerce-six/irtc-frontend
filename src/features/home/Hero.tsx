@@ -25,8 +25,9 @@ function Hero() {
           />
 
           <p className="mt-6 px-5 md:px-0 max-w-[24rem] md:max-w-[25rem] text-sm lg:text-base !leading-loose text-secondary dark:text-secondary-dark text-center lg:text-start">
-            آیا می خواهید مهارت های کاری خود را بهبود بخشید؟ برای بهبود عملکرد
-            خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنید
+            آیا می‌خواهید مهارت‌های شغلی خود را ارتقا دهید؟ برای افزایش بهره‌وری
+            و بهبود عملکرد در محیط کار، با کمک یک مربی حرفه‌ای به مطالعه و
+            یادگیری بیشتری بپردازید.
           </p>
 
           <div className="mt-4 flex flex-col md:flex-row items-center flex-wrap gap-x-5 gap-y-8">
