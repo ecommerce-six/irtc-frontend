@@ -15,7 +15,7 @@ function ArticleCard({ slug, cover, title, description }: articlePreviewType) {
         className="w-full object-cover rounded-xl"
       />
 
-      <h1 className="mt-4 px-6 text-base md:text-xl text-primary dark:text-primary-dark font-semibold text-center">
+      <h1 className="mt-4 px-6 lg:min-h-[3rem] line-clamp-2 text-base md:text-xl text-primary dark:text-primary-dark font-semibold text-center">
         {title}
       </h1>
 

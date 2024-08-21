@@ -30,7 +30,7 @@ function GraduatesCompanies() {
     <section className="mt-16 py-10 flex flex-col items-center">
       <div className="flex gap-x-2 md:gap-x-4">
         <h1 className="text-primary dark:text-primary-dark text-base md:text-lg font-semibold">
-          دانش اموختگان ما در اینجا ها کار میکنند
+          تحلیل سهام شرکت‌های بزرگ، با ما
         </h1>
         <Image
           src={TurnAround}

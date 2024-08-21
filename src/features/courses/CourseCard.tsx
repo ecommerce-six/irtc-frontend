@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
+import { formatPrice } from "@/utils/priceFormat";
 import { coursePreviewType } from "@/types/course";
 
 import {
@@ -19,11 +20,11 @@ function CourseCard(props: coursePreviewType) {
     title,
     cover,
     price,
-    credit,
     duration,
     membersCount,
     shortDescription,
     recordingFinished,
+    isInstallmentAvailable,
   } = props;
 
   return (
@@ -40,7 +41,9 @@ function CourseCard(props: coursePreviewType) {
         <div className="absolute left-3 bottom-3 py-1 px-2 flex items-center gap-x-2 bg-background dark:bg-background-dark rounded-lg">
           <AvatarIcon />
 
-          <span className="text-xs h-3">{membersCount}</span>
+          <span className="text-xs h-3 text-primary dark:text-primary-dark">
+            {membersCount}
+          </span>
         </div>
       </div>
 
@@ -48,7 +51,7 @@ function CourseCard(props: coursePreviewType) {
         <h1 className="mt-2 text-md text-primary dark:text-primary-dark font-semibold">
           {title}
         </h1>
-        <p className="mt-2 text-[.75rem] h-[4.75rem] text-secondary dark:text-secondary-dark leading-6 overflow-hidden line-clamp-3">
+        <p className="mt-2 text-[.75rem] h-[2.75rem] text-secondary dark:text-secondary-dark leading-6 overflow-hidden line-clamp-2">
           {shortDescription}
         </p>
         <div className="mt-3 flex items-center gap-x-4">
@@ -63,14 +66,14 @@ function CourseCard(props: coursePreviewType) {
               </h3>
             </div>
           )}
-          {credit && (
+          {isInstallmentAvailable && (
             <div className="flex items-center gap-x-2">
               <div className="p-1 bg-[#8000FF10] rounded-md">
                 <CostIcon />
               </div>
 
               <h3 className="text-secondary dark:text-secondary-dark text-xs">
-                {credit ? "نقدی - قصدی" : "نقدی"}
+                {isInstallmentAvailable ? "نقدی - قصدی" : "نقدی"}
               </h3>
             </div>
           )}
@@ -97,7 +100,7 @@ function CourseCard(props: coursePreviewType) {
             </span>
           </h3>
           <h4 className="flex items-center gap-x-1  text-2xl font-medium text-primary dark:text-primary-dark">
-            {price}
+            {formatPrice(price)}
 
             <TomanIcon />
           </h4>

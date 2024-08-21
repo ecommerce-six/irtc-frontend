@@ -8,14 +8,20 @@ import { RoadmapStation } from "@/components/roadmap";
 
 import { styles } from "@/styles";
 
-import { Roadmap1 } from "@/assets/icons/svgs";
+import {
+  BarIcon,
+  CheckIcon,
+  TargetIcon,
+  LineChartIcon,
+  SimulationIcon,
+} from "@/assets/icons/roadmap";
 
 function Roadmap() {
   return (
     <section className="mt-16">
       <Heading
         title="مسیر یادگیری"
-        description="آیا می خواهید برای بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنید"
+        description="پیشرفت در مسیر یادگیری را با گام‌های هدفمند و برنامه‌ریزی شده تجربه کنید."
       >
         <Link
           href={"/roadmap"}
@@ -30,29 +36,22 @@ function Roadmap() {
           <Timeline position="alternate">
             <RoadmapStation
               link="/courses/react"
-              icon={<Roadmap1 />}
-              header="اموزش ری اکت"
-              description="...جاوااسکریپت از مهمترین ابزارهای توسعه وب به شمار می‌رود که"
+              icon={TargetIcon}
+              header="تعیین اهداف استراتژیک"
+              description="اهداف واضح و قابل اندازه‌گیری را برای تریدینگ خود مشخص کنید تا مسیر یادگیری شما متمرکز و هدفمند باشد."
             />
 
             <RoadmapStation
               link="/courses/react"
-              icon={<Roadmap1 />}
-              header="اموزش ری اکت"
-              description="...جاوااسکریپت از مهمترین ابزارهای توسعه وب به شمار می‌رود که"
+              icon={BarIcon}
+              header="بررسی بازارهای مالی"
+              description="با ساختار و عملکرد بازارهای مالی آشنا شوید و اصول پایه تریدینگ را به دقت مطالعه کنید."
             />
             <RoadmapStation
               link="/courses/react"
-              icon={<Roadmap1 />}
-              header="اموزش ری اکت"
-              description="...جاوااسکریپت از مهمترین ابزارهای توسعه وب به شمار می‌رود که"
-            />
-
-            <RoadmapStation
-              link="/courses/react"
-              icon={<Roadmap1 />}
-              header="اموزش ری اکت"
-              description="...جاوااسکریپت از مهمترین ابزارهای توسعه وب به شمار می‌رود که"
+              icon={LineChartIcon}
+              header="تسلط بر تحلیل‌ها"
+              description="مهارت‌های تحلیل تکنیکال و بنیادی را به‌دست آورید تا بتوانید تصمیمات استراتژیک و آگاهانه اتخاذ کنید."
             />
           </Timeline>
         </StyledEngineProvider>

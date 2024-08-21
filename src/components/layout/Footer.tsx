@@ -114,13 +114,13 @@ function Footer() {
             href={""}
             className="inline-block w-full text-secondary dark:text-secondary-dark hover:text-primary hover:dark:text-primary-dark text-sm transition-colors duration-300"
           >
-            support@owlearn.com
+            vito.mohagheghian@gmail.com
           </Link>
           <Link
             href={""}
             className="inline-block w-full text-secondary dark:text-secondary-dark hover:text-primary hover:dark:text-primary-dark text-sm transition-colors duration-300"
           >
-            (+62) 85923935983
+            تلگرام: hereisvito@
           </Link>
           <p className="text-secondary dark:text-secondary-dark text-sm leading-7">
             هدف مجموعه سون لرن افزایش سطح کیفیت آموزش و ساختن راهی برای ورود
@@ -180,7 +180,8 @@ function Footer() {
       </footer>
 
       <p className="px-4 py-6 text-xs md:text-sm text-secondary dark:text-secondary-dark hover:text-primary hover:dark:text-primary-dark font-medium text-center">
-        © تمامی حقوق مادی و معنوی این سایت متعلق به پای تو پای می باشد.
+        © تمامی حقوق مادی و معنوی این سایت متعلق به مجموعه آی آر تی سی کوچینگ می
+        باشد.
       </p>
     </section>
   );

@@ -156,7 +156,6 @@ function CreateArticle() {
           className={`p-3 w-full h-[7rem] text-sm md:text-base text-secondary dark:text-secondary-dark bg-dim-secondary justify-start rounded-xl outline-none ${
             error?.title === "description" && "border-2 border-red-600"
           } resize-none`}
-          maxLength={200}
         />
         <FilePond
           files={coverFile}

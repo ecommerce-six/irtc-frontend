@@ -2,13 +2,12 @@ import type { Metadata } from "next";
 
 import {
   Hero,
-  QAndA,
   Roadmap,
-  LatestArticle,
-  LatestCourses,
+  LatestArticles,
   GraduatesCompanies,
+  FrequentlyAsked,
 } from "@/features/home";
-import { InstagramPage, Testimonials } from "@/components";
+import { InstagramPage, Testimonials, LatestCourses } from "@/components";
 
 export const metadata: Metadata = {
   title: "IRTC",
@@ -20,7 +19,7 @@ function Home() {
     <main>
       <Hero />
 
-      <LatestArticle />
+      <LatestArticles />
 
       <Roadmap />
 
@@ -32,7 +31,7 @@ function Home() {
 
       <InstagramPage />
 
-      <QAndA />
+      <FrequentlyAsked />
     </main>
   );
 }

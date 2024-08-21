@@ -16,16 +16,17 @@ import {
 
 function CourseDetails(props: coursePreviewType) {
   const {
+    id,
     slug,
     rate,
     cover,
     title,
     price,
-    credit,
     duration,
     membersCount,
     shortDescription,
     recordingFinished,
+    isInstallmentAvailable,
   } = props;
 
   return (
@@ -79,7 +80,7 @@ function CourseDetails(props: coursePreviewType) {
             <CostPurpleIcon />
 
             <h2 className="text-secondary dark:text-secondary-dark text-sm md:text-base">
-              {credit ? "نقدی - قصدی" : "نقدی"}
+              {isInstallmentAvailable ? "نقدی - قصدی" : "نقدی"}
             </h2>
           </div>
 
