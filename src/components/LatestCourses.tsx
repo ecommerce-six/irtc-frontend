@@ -3,7 +3,7 @@ import React from "react";
 import { Heading } from "@/components";
 import CourseCard from "../features/courses/CourseCard";
 
-import { coursesPreviewContent } from "@/data/coursesPreview";
+import { coursesContent } from "@/data/courses";
 
 function LatestCourses() {
   return (
@@ -14,7 +14,7 @@ function LatestCourses() {
       />
 
       <div className="mt-10 w-full flex items-center justify-center flex-wrap gap-5">
-        {coursesPreviewContent.slice(0, 3).map((course) => (
+        {coursesContent.slice(0, 3).map((course) => (
           <CourseCard key={course.id} {...course} />
         ))}
       </div>

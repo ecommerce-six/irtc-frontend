@@ -5,7 +5,7 @@ import { LatestCourseCompact } from "@/features/courses";
 import FocusButton from "../articleFocusMode/FocusButton";
 
 import { userType } from "@/types/user";
-import { coursesPreviewContent } from "@/data/coursesPreview";
+import { coursesContent } from "@/data/courses";
 
 import { AvatarSample } from "@/assets";
 
@@ -37,7 +37,7 @@ const ArticleSidebar = ({ user }: { user: userType }) => {
       </h1>
 
       <div className="mt-4 space-y-3">
-        {coursesPreviewContent.slice(5, 9).map((course) => (
+        {coursesContent.slice(5, 9).map((course) => (
           <LatestCourseCompact
             key={course.id}
             slug={course.slug}

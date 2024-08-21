@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 import { formatPrice } from "@/utils/priceFormat";
-import { coursePreviewType } from "@/types/course";
+import { courseType } from "@/types/course";
 
 import {
   CostIcon,
@@ -13,7 +13,7 @@ import {
   SmallRecordIcon,
 } from "@/assets/icons/svgs";
 
-function CourseCard(props: coursePreviewType) {
+function CourseCard(props: courseType) {
   const {
     rate,
     slug,

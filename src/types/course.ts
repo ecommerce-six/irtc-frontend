@@ -1,4 +1,4 @@
-export type coursePreviewType = {
+export type courseType = {
   id?: number;
   rate: number;
   slug: string;
@@ -6,7 +6,7 @@ export type coursePreviewType = {
   price: number;
   title: string;
   duration: string;
-  description?: string;
+  description: string;
   membersCount: number;
   shortDescription: string;
   recordingFinished: boolean;

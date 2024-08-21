@@ -9,7 +9,7 @@ import CourseCard from "./CourseCard";
 import { Slider } from "@/components";
 
 import { useTheme } from "@/hooks";
-import { coursesPreviewContent } from "@/data/coursesPreview";
+import { coursesContent } from "@/data/courses";
 
 import { CoursesHeroImage, CoursesHeroImageDark } from "@/assets";
 
@@ -20,7 +20,7 @@ function CoursesHero() {
     <section className="py-6 flex flex-col lg:flex-row gap-y-5">
       <div className="flex items-center justify-center w-full lg:w-[50%]">
         <Slider loop className="w-full" modules={[Pagination]}>
-          {coursesPreviewContent.slice(6, 9).map((course) => (
+          {coursesContent.slice(6, 9).map((course) => (
             <SwiperSlide key={course.id}>
               <div className="mb-[3rem]">
                 <CourseCard {...course} />

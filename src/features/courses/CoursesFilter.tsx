@@ -6,7 +6,7 @@ import ReactPaginate from "react-paginate";
 import CourseCard from "./CourseCard";
 import { Heading } from "@/components";
 
-import { coursesPreviewContent } from "@/data/coursesPreview";
+import { coursesContent } from "@/data/courses";
 
 function CoursesFilter() {
   const [countPage, setCountPage] = useState<number>(1);
@@ -242,7 +242,7 @@ function CoursesFilter() {
         </aside>
         <section className="w-full lg:w-[72.5%]">
           <div className="flex items-center justify-center flex-wrap gap-5">
-            {coursesPreviewContent.map((course) => (
+            {coursesContent.map((course) => (
               <CourseCard {...course} key={course.id} />
             ))}
           </div>

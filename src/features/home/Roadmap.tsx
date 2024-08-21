@@ -10,10 +10,8 @@ import { styles } from "@/styles";
 
 import {
   BarIcon,
-  CheckIcon,
   TargetIcon,
   LineChartIcon,
-  SimulationIcon,
 } from "@/assets/icons/roadmap";
 
 function Roadmap() {
@@ -35,20 +33,20 @@ function Roadmap() {
         <StyledEngineProvider>
           <Timeline position="alternate">
             <RoadmapStation
-              link="/courses/react"
+              link="/courses/trading-advanced-strategies"
               icon={TargetIcon}
               header="تعیین اهداف استراتژیک"
               description="اهداف واضح و قابل اندازه‌گیری را برای تریدینگ خود مشخص کنید تا مسیر یادگیری شما متمرکز و هدفمند باشد."
             />
 
             <RoadmapStation
-              link="/courses/react"
+              link="/courses/technical-analysis-basics"
               icon={BarIcon}
               header="بررسی بازارهای مالی"
               description="با ساختار و عملکرد بازارهای مالی آشنا شوید و اصول پایه تریدینگ را به دقت مطالعه کنید."
             />
             <RoadmapStation
-              link="/courses/react"
+              link="/courses/risk-management-strategies"
               icon={LineChartIcon}
               header="تسلط بر تحلیل‌ها"
               description="مهارت‌های تحلیل تکنیکال و بنیادی را به‌دست آورید تا بتوانید تصمیمات استراتژیک و آگاهانه اتخاذ کنید."

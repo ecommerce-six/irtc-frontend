@@ -3,7 +3,7 @@ import Image from "next/image";
 
 import CourseAddToCart from "../CourseAddToCart";
 
-import { coursePreviewType } from "@/types/course";
+import { courseType } from "@/types/course";
 
 import {
   RateIcon,
@@ -14,7 +14,7 @@ import {
   CostPurpleIcon,
 } from "@/assets/icons/svgs";
 
-function CourseDetails(props: coursePreviewType) {
+function CourseDetails(props: courseType) {
   const {
     id,
     slug,

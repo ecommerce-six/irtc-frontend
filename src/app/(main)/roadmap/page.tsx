@@ -25,33 +25,33 @@ function Roadmap() {
       <div className="mt-6 ltr">
         <Timeline position="alternate">
           <RoadmapStation
-            link="/courses/react"
+            link="/courses/trading-advanced-strategies"
             icon={TargetIcon}
             header="تعیین اهداف استراتژیک"
             description="اهداف واضح و قابل اندازه‌گیری را برای تریدینگ خود مشخص کنید تا مسیر یادگیری شما متمرکز و هدفمند باشد."
           />
 
           <RoadmapStation
-            link="/courses/react"
+            link="/courses/technical-analysis-basics"
             icon={BarIcon}
             header="بررسی بازارهای مالی"
             description="با ساختار و عملکرد بازارهای مالی آشنا شوید و اصول پایه تریدینگ را به دقت مطالعه کنید."
           />
           <RoadmapStation
-            link="/courses/react"
+            link="/courses/risk-management-strategies"
             icon={LineChartIcon}
             header="تسلط بر تحلیل‌ها"
             description="مهارت‌های تحلیل تکنیکال و بنیادی را به‌دست آورید تا بتوانید تصمیمات استراتژیک و آگاهانه اتخاذ کنید."
           />
 
           <RoadmapStation
-            link="/courses/react"
+            link="/courses/financial-management"
             icon={SimulationIcon}
             header="تمرین در محیط شبیه‌سازی"
             description="با استفاده از پلتفرم‌های شبیه‌سازی، مهارت‌های خود را بدون ریسک مالی تقویت کنید و تجربه عملی کسب کنید."
           />
           <RoadmapStation
-            link="/courses/react"
+            link="/courses/stock-market-fundamentals"
             icon={CheckIcon}
             header="ارزیابی و بهینه‌سازی"
             description="به‌طور منظم عملکرد خود را تحلیل کنید و بر اساس تجربیات و بازخوردها، استراتژی‌های تریدینگ خود را بهبود دهید."
