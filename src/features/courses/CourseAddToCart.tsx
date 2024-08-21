@@ -3,6 +3,7 @@
 import React from "react";
 
 import { styles } from "@/styles";
+import { formatPrice } from "@/utils/priceFormat";
 
 import { TomanIcon } from "@/assets/icons/svgs";
 
@@ -28,9 +29,13 @@ const CourseAddToCart = ({ slug, price }: props) => {
       </button>
       <div className="flex items-center gap-x-2 justify-self-end">
         <p className="font-semibold text-2xl md:text-3xl">
-          <span>100,000</span>
+          <span className="text-primary dark:text-primary-dark">
+            {formatPrice(price)}
+          </span>
 
-          <span className="ml-2 line-through text-xl text-brand">{price}</span>
+          <span className="ml-2 line-through text-xl text-brand">
+            {formatPrice(2000000)}
+          </span>
         </p>
 
         <TomanIcon />

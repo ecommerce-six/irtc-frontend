@@ -57,7 +57,7 @@ function Input(props: props) {
         minLength={minLength}
         placeholder={placeHolder}
         autoComplete={autoComplete}
-        className={`p-3 w-full text-sm md:text-base text-secondary dark:text-secondary-dark bg-dim-secondary rounded-xl outline-none placeholder:opacity-25 ${
+        className={`p-3 w-full text-sm md:text-base text-secondary dark:text-secondary-dark bg-dim-secondary rounded-xl outline-none dark:placeholder:opacity-25 ${
           error && "border-2 border-red-600 !bg-red-100"
         }`}
       />

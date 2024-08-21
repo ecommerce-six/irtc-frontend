@@ -39,6 +39,17 @@
   text-underline-offset: 2px;
 }
 
+.article-body blockquote p {
+  color: #161d27 !important;
+}
+
+.article-body li {
+  margin: 0.5rem 1rem;
+  color: #2f3f56;
+  line-height: 200%;
+  list-style-type: circle;
+}
+
 .dark .article-body h1,
 .dark .article-body h2,
 .dark .article-body h3,
@@ -47,8 +58,13 @@
   color: #e8e7e9;
 }
 
-.dark .article-body p {
+.dark .article-body p,
+.dark .article-body li {
   color: #aaaaaa;
+}
+
+.dark .article-body blockquote p {
+  color: #e8e7e9 !important;
 }
 
 @media screen and (max-width: 640px) {

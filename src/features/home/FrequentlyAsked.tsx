@@ -3,15 +3,15 @@ import Image from "next/image";
 
 import { Heading } from "@/components";
 
-import { QAndAImage } from "@/assets";
+import { FrequentlyAskedImage } from "@/assets";
 import { NineDots } from "@/assets/badges";
 
-function QAndA() {
+function FrequentlyAsked() {
   return (
     <section className="mt-16">
       <Heading
-        title="سوالات متداول شما عزیزان! "
-        description="آیا می خواهید برای بهبود عملکرد خود در محل کار، باید با کمک یک مربی عالی بیشتر مطالعه کنید"
+        title="سوالات متداول شما عزیزان!"
+        description="پاسخ به سوالات رایج و مهم برای کمک به شما در درک بهتر خدمات و دوره‌های ما."
       />
 
       <div className="flex flex-col lg:flex-row justify-between gap-y-8">
@@ -33,9 +33,8 @@ function QAndA() {
             </span>
           </h1>
           <p className="mt-3 text-sm md:text-base text-secondary dark:text-secondary-dark leading-7">
-            پای تو پای در انتخاب مدرسان خود بسیار سخت گیر است و تمامی دوره های
-            حود را سعی کرده است در بیشتر کیفیت علمی و مفهومی نگه دارد. پس از نظر
-            کیفیت خیالتان راحت باشد.
+            بله، دوره‌های ما به‌طور کامل و جامع طراحی شده‌اند و شامل مباحث نظری
+            و عملی همراه با پشتیبانی مستمر هستند.
           </p>
 
           <h1 className="mt-4 flex items-center gap-x-2">
@@ -50,10 +49,14 @@ function QAndA() {
           </p>
         </div>
 
-        <Image src={QAndAImage} alt="QAndA image" className="lg:w-[45%]" />
+        <Image
+          src={FrequentlyAskedImage}
+          alt="QAndA image"
+          className="lg:w-[45%]"
+        />
       </div>
     </section>
   );
 }
 
-export default QAndA;
+export default FrequentlyAsked;

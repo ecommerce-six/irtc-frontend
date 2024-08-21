@@ -1,10 +1,11 @@
 import React from "react";
 import Image from "next/image";
 
+import { LatestCourseCompact } from "@/features/courses";
 import FocusButton from "../articleFocusMode/FocusButton";
-import LatestArticleCompact from "../LatestArticleCompact";
 
 import { userType } from "@/types/user";
+import { coursesContent } from "@/data/courses";
 
 import { AvatarSample } from "@/assets";
 
@@ -32,14 +33,18 @@ const ArticleSidebar = ({ user }: { user: userType }) => {
       </div>
 
       <h1 className="text-primary dark:text-primary-dark text-base md:text-lg font-semibold">
-        مقاله های اخیر ...
+        دوره های مربوطه...
       </h1>
 
       <div className="mt-4 space-y-3">
-        <LatestArticleCompact />
-        <LatestArticleCompact />
-        <LatestArticleCompact />
-        <LatestArticleCompact />
+        {coursesContent.slice(5, 9).map((course) => (
+          <LatestCourseCompact
+            key={course.id}
+            slug={course.slug}
+            title={course.title}
+            shortDescription={course.shortDescription}
+          />
+        ))}
       </div>
     </aside>
   );

@@ -1,13 +1,14 @@
-export type coursePreviewType = {
+export type courseType = {
+  id?: number;
+  rate: number;
   slug: string;
   cover: string;
-  rate: number;
   price: number;
   title: string;
-  credit: boolean;
   duration: string;
-  description?: string;
+  description: string;
   membersCount: number;
   shortDescription: string;
   recordingFinished: boolean;
+  isInstallmentAvailable: boolean;
 };

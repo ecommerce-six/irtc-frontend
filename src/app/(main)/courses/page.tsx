@@ -1,7 +1,8 @@
 import React from "react";
 import Image from "next/image";
 
-import { CoursesHero, LatestCourses, CoursesFilter } from "@/features/courses";
+import { LatestCourses } from "@/components";
+import { CoursesHero, CoursesFilter } from "@/features/courses";
 
 import { TopToRightBottom } from "@/assets/badges";
 

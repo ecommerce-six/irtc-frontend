@@ -123,7 +123,7 @@ function EditProfile() {
               value={formik.description}
               defaultValue={user?.description}
               onChange={formik.handleChange}
-              className={`p-3 w-full text-sm md:text-base text-secondary dark:text-secondary-dark bg-dim-secondary rounded-xl outline-none min-h-[10rem] max-h-[15rem]`}
+              className={`p-3 w-full text-sm md:text-base text-secondary dark:text-secondary-dark bg-dim-secondary rounded-xl outline-none min-h-[10rem] max-h-[15rem] dark:placeholder:opacity-25`}
             ></textarea>
           </div>
 
