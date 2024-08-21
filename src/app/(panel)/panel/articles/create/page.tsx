@@ -147,7 +147,7 @@ function CreateArticle() {
           onChange={titleHandler}
           className={`p-3 w-full text-sm md:text-base text-secondary dark:text-secondary-dark bg-dim-secondary justify-start rounded-xl outline-none ${
             error?.title === "title" && "border-2 border-red-600"
-          } resize-none`}
+          } resize-none dark:placeholder:opacity-50`}
         />
 
         <textarea
@@ -155,7 +155,7 @@ function CreateArticle() {
           onChange={descriptionHandler}
           className={`p-3 w-full h-[7rem] text-sm md:text-base text-secondary dark:text-secondary-dark bg-dim-secondary justify-start rounded-xl outline-none ${
             error?.title === "description" && "border-2 border-red-600"
-          } resize-none`}
+          } resize-none dark:placeholder:opacity-50`}
         />
         <FilePond
           files={coverFile}
@@ -213,7 +213,7 @@ function CreateArticle() {
           name=""
           id="textareatest"
           ref={textRef}
-          className="mt-3 p-2 w-full min-h-[27.5rem] resize-none outline-none border-t-2 border-dim-secondary dark:border-dim-secondary-dark bg-background dark:bg-background-dark"
+          className="mt-3 p-2 text-secondary dark:text-secondary-dark w-full min-h-[27.5rem] resize-none outline-none border-t-2 border-dim-secondary dark:border-dim-secondary-dark bg-background dark:bg-background-dark dark:placeholder:opacity-50"
           placeholder="متن مقاله ی خود را در اینجا بنویسید..."
           onChange={(e: any) => {
             setContent(e.target.value);

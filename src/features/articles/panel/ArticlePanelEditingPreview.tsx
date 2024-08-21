@@ -42,7 +42,7 @@ function ArticlePanelEditingPreview({ title, content, previewHandler }: props) {
 
             <CloseFocusTimeButton />
           </div>
-          <h1 className="my-4 pl-4 text-base md:text-2xl font-semibold md:font-extrabold ">
+          <h1 className="my-4 pl-4 text-primary dark:text-primary-dark text-base md:text-2xl font-semibold md:font-extrabold ">
             {title}
           </h1>
           <div className="flex items-center justify-between flex-wrap gap-4">

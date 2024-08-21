@@ -47,7 +47,7 @@ function UserEditInput(props: props) {
         maxLength={maxlength}
         placeholder={placeHolder}
         defaultValue={defaultValue}
-        className={`p-3 w-full text-sm md:text-base text-secondary dark:text-secondary-dark bg-dim-secondary placeholder:opacity-25 rounded-xl outline-none ${className}`}
+        className={`p-3 w-full text-sm md:text-base text-secondary dark:text-secondary-dark bg-dim-secondary dark:placeholder:opacity-25 rounded-xl outline-none ${className}`}
       />
     </div>
   );
