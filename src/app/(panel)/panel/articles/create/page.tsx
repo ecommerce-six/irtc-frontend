@@ -113,7 +113,9 @@ function CreateArticle() {
         );
 
         if (response.status)
-          setMessage(response.data.message), setError(null), router.push(slug);
+          setMessage(response.data.message),
+            setError(null),
+            router.replace(`/articles/${slug}`);
       } catch (err: any) {
         setMessage(null);
 
