@@ -16,7 +16,7 @@ const AboutHero = () => {
           <Image
             src={Underline}
             alt="underline"
-            className="w-[18vw] md:w-[6rem] dark:invert dark:brightness-0"
+            className="w-[18vw] md:w-[6rem] dark:invert dark:brightness-0 pointer-events-none"
           />
         </span>
         شکل گیری تیم ما
@@ -43,7 +43,7 @@ const AboutHero = () => {
         <Image
           src={AboutHeroImage}
           alt="about iran trading coaching"
-          className="w-full lg:w-[45%]"
+          className="w-full lg:w-[45%] pointer-events-none"
         />
       </div>
 
@@ -51,7 +51,7 @@ const AboutHero = () => {
         <Image
           src={SpiralSpiral}
           alt="spiral spiral"
-          className="hidden sm:block w-24 md:w-32 dark:invert dark:brightness-0"
+          className="hidden sm:block w-24 md:w-32 dark:invert dark:brightness-0 pointer-events-none"
         />
 
         <div className="px-3 py-5 max-w-[16rem] md:max-w-[16rem] flex flex-col items-center gap-y-2 rounded-xl shadow-dark dark:shadow-darker">

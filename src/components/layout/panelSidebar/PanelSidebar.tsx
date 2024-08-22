@@ -157,7 +157,7 @@ function PanelSidebar() {
           <Image
             src={AvatarSample}
             alt=""
-            className="w-14 h-14 rounded-xl border-2 border-brand"
+            className="w-14 h-14 rounded-xl border-2 border-brand pointer-events-none"
           />
         </Link>
 

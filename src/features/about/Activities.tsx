@@ -17,7 +17,7 @@ const Activities = () => {
       <Image
         src={Speed}
         alt="speed badge"
-        className="m-5 w-10 md:w-fit h-10 md:h-fit dark:invert dark:brightness-0"
+        className="m-5 w-10 md:w-fit h-10 md:h-fit dark:invert dark:brightness-0 pointer-events-none"
       />
 
       <div className="my-5 flex justify-center gap-8 flex-wrap">

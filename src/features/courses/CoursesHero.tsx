@@ -33,7 +33,7 @@ function CoursesHero() {
       <Image
         src={theme === "light" ? CoursesHeroImage : CoursesHeroImageDark}
         alt="courses hero image"
-        className="mx-auto w-full md:w-[85%] md:h-[85%] lg:w-[45%] lg:h-[45%]"
+        className="mx-auto w-full md:w-[85%] md:h-[85%] lg:w-[45%] lg:h-[45%] pointer-events-none"
       />
     </section>
   );

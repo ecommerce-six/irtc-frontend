@@ -22,7 +22,7 @@ function Courses() {
           src={TopToRightBottom}
           width={64}
           height={64}
-          className="w-16 dark:invert dark:brightness-0"
+          className="w-16 dark:invert dark:brightness-0 pointer-events-none"
           alt="spiral badge"
         />
       </div>

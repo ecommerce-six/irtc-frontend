@@ -12,7 +12,7 @@ function Activity({ header, children }: props) {
   return (
     <div className="lg:max-w-[45%] space-y-2 rounded-xl">
       <div className="flex items-center gap-x-3">
-        <Image src={NineDots} alt="w-10 md:w-16" />
+        <Image src={NineDots} alt="nine dots" className="pointer-events-none" />
 
         <h2 className="text-primary dark:text-primary-dark text-base md:text-lg font-bold">
           {header}

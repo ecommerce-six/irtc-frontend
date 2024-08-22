@@ -81,7 +81,7 @@ function Testimonials() {
         <Image
           src={TestimonialsImage}
           alt="testmonials image"
-          className="w-full lg:w-[55%]"
+          className="w-full lg:w-[55%] pointer-events-none"
         />
       </div>
     </section>

@@ -104,7 +104,7 @@ function Navbar() {
                 </Link>
               ) : (
                 <Link href="/panel/cart" className="group">
-                  <CartIcon className="dark:invert dark:brightness-0 group-hover:fill-brand transition-all duration-300" />
+                  <CartIcon className="dark:invert dark:brightness-0 group-hover:fill-brand transition-all duration-300 pointer-events-none" />
                 </Link>
               )}
               <Link
@@ -114,7 +114,7 @@ function Navbar() {
                 <Image
                   src={AvatarSample}
                   alt="avatar"
-                  className="w-10 h-10 rounded-full"
+                  className="w-10 h-10 rounded-full pointer-events-none"
                 />
               </Link>
             </div>
@@ -181,7 +181,7 @@ function Navbar() {
                   <div className="flex items-center gap-x-4">
                     {user?.role !== "admin" && (
                       <Link href="/panel/cart" className="group z-40">
-                        <CartIcon className="group-hover:fill-brand transition-all duration-300" />
+                        <CartIcon className="group-hover:fill-brand transition-all duration-300 pointer-events-none" />
                       </Link>
                     )}
 
@@ -192,7 +192,7 @@ function Navbar() {
                       <Image
                         src={AvatarSample}
                         alt="avatar"
-                        className="w-10 h-10 rounded-full"
+                        className="w-10 h-10 rounded-full pointer-events-none"
                       />
                     </Link>
                   </div>
