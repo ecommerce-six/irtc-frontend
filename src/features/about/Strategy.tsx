@@ -14,7 +14,11 @@ const Strategy = () => {
       />
 
       <div className="mt-10 mb-20 flex items-center justify-between flex-col lg:flex-row gap-y-10">
-        <Image src={TargetAboutImage} alt="tra" className="w-full lg:w-[45%]" />
+        <Image
+          src={TargetAboutImage}
+          alt="tra"
+          className="w-full lg:w-[45%] pointer-events-none"
+        />
 
         <p className="px-2 lg:px-5 w-full lg:w-[45%] text-secondary dark:text-secondary-dark text-sm md:text-base !leading-loose text-justify">
           آیا می خواهید مهارت های کاری خود را بهبود بخشید؟ برای بهبود عملکرد خود

@@ -17,7 +17,11 @@ function FrequentlyAsked() {
       <div className="flex flex-col lg:flex-row justify-between gap-y-8">
         <div className="mt-2 md:mt-6 lg:w-[45%]">
           <h1 className="mt-4 flex items-center gap-x-2">
-            <Image src={NineDots} alt="nine dots" />
+            <Image
+              src={NineDots}
+              alt="nine dots"
+              className="pointer-events-none"
+            />
             <span className="text-base md:text-lg text-primary dark:text-primary-dark font-semibold">
               پشتیبانی دوره ها به چه صورت است؟
             </span>
@@ -27,7 +31,11 @@ function FrequentlyAsked() {
           </p>
 
           <h1 className="mt-4 flex items-center gap-x-2">
-            <Image src={NineDots} alt="nine dots" />
+            <Image
+              src={NineDots}
+              alt="nine dots"
+              className="pointer-events-none"
+            />
             <span className="text-base md:text-lg text-primary dark:text-primary-dark font-semibold">
               آیا دوره ها کامل است؟
             </span>
@@ -38,7 +46,11 @@ function FrequentlyAsked() {
           </p>
 
           <h1 className="mt-4 flex items-center gap-x-2">
-            <Image src={NineDots} alt="nine dots" />
+            <Image
+              src={NineDots}
+              alt="nine dots"
+              className="pointer-events-none"
+            />
             <span className="text-base md:text-lg text-primary dark:text-primary-dark font-semibold">
               آیا ضمانت بازگشت وجه دارد؟
             </span>
@@ -52,7 +64,7 @@ function FrequentlyAsked() {
         <Image
           src={FrequentlyAskedImage}
           alt="QAndA image"
-          className="lg:w-[45%]"
+          className="lg:w-[45%] pointer-events-none"
         />
       </div>
     </section>

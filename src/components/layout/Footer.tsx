@@ -131,28 +131,28 @@ function Footer() {
               <Image
                 src={YoutubeIcon}
                 alt="Youtube"
-                className="dark:invert brightness-0 hover:scale-105"
+                className="dark:invert brightness-0 hover:scale-105 pointer-events-none"
               />
             </Link>
             <Link href={""}>
               <Image
                 src={TwitterIcon}
                 alt="twitter"
-                className="dark:invert brightness-0 hover:scale-105"
+                className="dark:invert brightness-0 hover:scale-105 pointer-events-none"
               />
             </Link>
             <Link href={""}>
               <Image
                 src={LinkedInIcon}
                 alt="linkedin"
-                className="dark:invert brightness-0 hover:scale-105"
+                className="dark:invert brightness-0 hover:scale-105 pointer-events-none"
               />
             </Link>
             <Link href={""}>
               <Image
                 src={InstagramIcon}
                 alt="InstagramIcon"
-                className="dark:invert brightness-0 hover:scale-105"
+                className="dark:invert brightness-0 hover:scale-105 pointer-events-none"
               />
             </Link>
           </div>
@@ -175,7 +175,11 @@ function Footer() {
           <h1 className="text-primary dark:text-primary-dark mb-2 font-bold text-lg">
             شرکت زمینه
           </h1>
-          <Image src={ZarinPaalLogo} alt="zarinpaal icon" />
+          <Image
+            src={ZarinPaalLogo}
+            alt="zarinpaal icon"
+            className="pointer-events-none"
+          />
         </div>
       </footer>
 

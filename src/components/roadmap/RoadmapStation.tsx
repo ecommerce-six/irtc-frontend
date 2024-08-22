@@ -35,25 +35,29 @@ function RoadmapStation({
       <TimelineSeparator>
         <TimelineConnector className="!bg-secondary opacity-30" />
         <TimelineDot className="!p-0 w-[4rem] h-[4rem] !bg-background dark:!bg-background-dark !shadow-none !border-0">
-          <Image src={icon} alt={header} width={75} height={75} />
+          <Link href={link}>
+            <Image src={icon} alt={header} width={75} height={75} />
+          </Link>
         </TimelineDot>
         <TimelineConnector className="!bg-secondary opacity-30" />
       </TimelineSeparator>
 
       <TimelineContent className="!flex flex-col !justify-center py-0 sm:py-14 p-2">
-        <Typography
-          variant="h6"
-          component="span"
-          className={`${IranYekan.className} text-primary dark:text-primary-dark text-sm md:text-base font-semibold overflow-hidden text-ellipsis whitespace-nowrap`}
-        >
-          {header}
-        </Typography>
+        <Link href={link}>
+          <Typography
+            variant="h6"
+            component="span"
+            className={`${IranYekan.className} text-primary dark:text-primary-dark text-sm md:text-base font-semibold overflow-hidden text-ellipsis whitespace-nowrap`}
+          >
+            {header}
+          </Typography>
 
-        <Typography
-          className={`${IranYekan.className} text-secondary dark:text-secondary-dark text-[.5rem] md:text-base opacity-75 line-clamp-1`}
-        >
-          {description}
-        </Typography>
+          <Typography
+            className={`${IranYekan.className} text-secondary dark:text-secondary-dark text-[.5rem] md:text-base opacity-75 line-clamp-1`}
+          >
+            {description}
+          </Typography>
+        </Link>
       </TimelineContent>
     </TimelineItem>
   );

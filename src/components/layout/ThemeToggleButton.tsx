@@ -13,7 +13,7 @@ const ThemeToggleButton = () => {
       <Image
         src={theme === "light" ? DarkIcon : LightIcon}
         alt="theme"
-        className="w-5 h-5"
+        className="w-5 h-5 pointer-events-none"
       />
     </button>
   );

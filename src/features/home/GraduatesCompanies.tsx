@@ -35,7 +35,7 @@ function GraduatesCompanies() {
         <Image
           src={TurnAround}
           alt="turn around"
-          className="mt-2 w-12 md:w-24 dark:invert dark:brightness-0"
+          className="mt-2 w-12 md:w-24 dark:invert dark:brightness-0 pointer-events-none"
         />
       </div>
 

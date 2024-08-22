@@ -7,11 +7,13 @@ import { InstagramPhone } from "@/assets";
 function InstagramPage() {
   return (
     <section className="relative lg:pt-8 py-6 px-12 mt-14 lg:h-48 flex flex-col lg:flex-row items-center justify-end gap-5 bg-gradient-to-br from-[#F920C3] to-brand rounded-3xl">
-      <Image
-        src={InstagramPhone}
-        alt="instagram phone"
-        className="absolute -top-20 sm:-top-28 lg:-top-10 lg:right-5 w-52 sm:w-60 lg:w-72 xl:w-80"
-      />
+      <Link href="https://instagram.com/vito.mohagheghian">
+        <Image
+          src={InstagramPhone}
+          alt="instagram phone"
+          className="absolute -top-20 sm:-top-28 lg:-top-10 lg:right-5 w-52 sm:w-60 lg:w-72 xl:w-80 pointer-events-none"
+        />
+      </Link>
 
       <div className="w-40 xl:w-0 h-10"></div>
 
