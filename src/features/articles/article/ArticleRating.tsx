@@ -43,7 +43,7 @@ function ArticleRating() {
       </p>
 
       <div className="flex items-center flex-row-reverse">
-        {[...new Array(5)].map((item, index) => (
+        {[...new Array(5)].map((_, index) => (
           <button
             key={index}
             onClick={() => {
