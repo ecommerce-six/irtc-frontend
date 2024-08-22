@@ -13,6 +13,18 @@ type props = {
     slug: string;
   };
 };
+export async function generateMetadata({ params }: props) {
+  const { slug } = params;
+
+  const response = await axios(`articles/${slug}`);
+
+  const article: articleType = response.data.data;
+
+  return {
+    title: `IRTC • ${article.title}`,
+    description: article.description,
+  };
+}
 
 async function Article({ params }: props) {
   const { slug } = params;
@@ -25,8 +37,6 @@ async function Article({ params }: props) {
 
     return (
       <main className="flex justify-between flex-col lg:flex-row gap-5">
-        <title>IRTC • {article.title}</title>
-
         <ArticleContent article={article} />
 
         <ArticleSidebar user={user} />

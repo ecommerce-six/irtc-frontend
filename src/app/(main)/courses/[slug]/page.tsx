@@ -8,6 +8,19 @@ import { coursesContent } from "@/data/courses";
 
 type params = { params: { slug: string } };
 
+export async function generateMetadata({ params }: params) {
+  const { slug } = params;
+
+  const course: courseType | undefined = coursesContent.find(
+    (course: courseType) => course.slug === slug
+  );
+
+  return {
+    title: `IRTC • ${course?.title}`,
+    description: course?.shortDescription,
+  };
+}
+
 function Course({ params }: params) {
   const { slug } = params;
 
@@ -18,8 +31,6 @@ function Course({ params }: params) {
   if (course) {
     return (
       <main>
-        <title>IRTC • {course.title}</title>
-
         <CourseDetails {...course} />
 
         <CourseDescription
