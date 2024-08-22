@@ -17,7 +17,7 @@ function CoursesHero() {
   const { theme } = useTheme();
 
   return (
-    <section className="py-6 flex flex-col lg:flex-row gap-y-5">
+    <section className="py-6 flex flex-col-reverse lg:flex-row gap-y-5">
       <div className="flex items-center justify-center w-full lg:w-[50%]">
         <Slider loop className="w-full" modules={[Pagination]}>
           {coursesContent.slice(6, 9).map((course) => (

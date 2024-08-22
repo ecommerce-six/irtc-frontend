@@ -10,7 +10,7 @@ const LoginAuthLinks = () => {
   return (
     <>
       <Link href={"/"}>
-        <Image src={LogoIcon} alt="logo" className="w-16 md:w-32" />
+        <Image src={LogoIcon} alt="logo" className="w-28 md:w-32" />
       </Link>
       <div className="mt-8 flex items-center gap-x-4">
         <Link

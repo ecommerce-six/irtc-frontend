@@ -13,7 +13,7 @@ const ThemeWrapper = ({ children }: { children: ReactNode }) => {
   useLayoutEffect(() => {
     const localTheme = localStorage.getItem("theme") as themeType;
 
-    changeTheme(localTheme);
+    changeTheme(localTheme || "light");
   }, []);
 
   return (

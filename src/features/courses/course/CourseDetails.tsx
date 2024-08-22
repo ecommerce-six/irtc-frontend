@@ -30,13 +30,13 @@ function CourseDetails(props: courseType) {
   } = props;
 
   return (
-    <section className="p-5 flex flex-col lg:flex-row items-start gap-8 rounded-xl shadow-dark dark:shadow-darker">
+    <section className="p-5 flex flex-col lg:flex-row items-start gap-8 rounded-xl bg-background dark:bg-background-dark shadow-dark dark:shadow-darker">
       <Image
         src={cover}
         alt={title}
-        className="w-full lg:w-[50%] rounded-xl"
         width={1000}
         height={600}
+        className="w-full lg:w-[50%] rounded-xl"
       />
 
       <div className="space-y-5 md:space-y-3 lg:w-[50%]">

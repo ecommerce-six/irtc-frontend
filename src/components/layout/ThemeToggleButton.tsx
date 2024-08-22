@@ -8,12 +8,8 @@ import { DarkIcon, LightIcon } from "@/assets/icons";
 const ThemeToggleButton = () => {
   const { theme, toggleTheme } = useTheme();
 
-  const toggleThemeHandler = () => {
-    toggleTheme();
-  };
-
   return (
-    <button className="m-auto" onClick={toggleThemeHandler}>
+    <button className="m-auto" onClick={toggleTheme}>
       <Image
         src={theme === "light" ? DarkIcon : LightIcon}
         alt="theme"

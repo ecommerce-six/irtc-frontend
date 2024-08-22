@@ -87,6 +87,7 @@ function Navbar() {
                   </Link>
                 </li>
               ))}
+
               <ThemeToggleButton />
             </ul>
           </div>
@@ -135,7 +136,11 @@ function Navbar() {
           )}
 
           <button className="lg:hidden" onClick={showNavbarHandler}>
-            <Image src={MenuIcon} alt="menu icon" className="w-8" />
+            <Image
+              src={MenuIcon}
+              alt="menu icon"
+              className="w-8 dark:invert dark:brightness-0"
+            />
           </button>
         </div>
       </nav>

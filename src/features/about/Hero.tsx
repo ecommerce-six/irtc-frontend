@@ -9,7 +9,7 @@ import { SpiralSpiral, Underline } from "@/assets/badges";
 
 const AboutHero = () => {
   return (
-    <section className="mb-24">
+    <section className="mb-40 md:mb-28">
       <h1 className="mx-auto my-8 flex gap-x-1 text-primary dark:text-primary-dark text-[6vw] md:text-[2rem] font-bold w-fit">
         <span className="flex flex-col items-center">
           <span>داستان</span>{" "}
@@ -51,7 +51,7 @@ const AboutHero = () => {
         <Image
           src={SpiralSpiral}
           alt="spiral spiral"
-          className="hidden sm:block w-32 dark:invert dark:brightness-0"
+          className="hidden sm:block w-24 md:w-32 dark:invert dark:brightness-0"
         />
 
         <div className="px-3 py-5 max-w-[16rem] md:max-w-[16rem] flex flex-col items-center gap-y-2 rounded-xl shadow-dark dark:shadow-darker">

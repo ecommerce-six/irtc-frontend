@@ -20,26 +20,27 @@ const CourseAddToCart = ({ slug, price }: props) => {
   };
 
   return (
-    <div className="flex items-center justify-between flex-wrap gap-4">
-      <button
-        className={`${styles.primaryButton} py-3 px-8 md:px-10 hover:scale-[1.05]`}
-        onClick={addToCartHandler}
-      >
-        {true ? "اضافه کردن به سبد خرید" : "ورود و خرید دوره"}
-      </button>
+    <div className="flex flex-col sm:flex-row-reverse items-center justify-between gap-4">
       <div className="flex items-center gap-x-2 justify-self-end">
-        <p className="font-semibold text-2xl md:text-3xl">
+        <p className="font-semibold text-xl sm:text-2xl lg:text-3xl">
           <span className="text-primary dark:text-primary-dark">
             {formatPrice(price)}
           </span>
 
-          <span className="ml-2 line-through text-xl text-brand">
+          <span className="ml-2 line-through sm:text-xl text-brand">
             {formatPrice(2000000)}
           </span>
         </p>
 
         <TomanIcon />
       </div>
+
+      <button
+        className={`${styles.primaryButton} py-3 px-14 sm:px-10 hover:scale-[1.05]`}
+        onClick={addToCartHandler}
+      >
+        {true ? "اضافه کردن به سبد خرید" : "ورود و خرید دوره"}
+      </button>
     </div>
   );
 };
