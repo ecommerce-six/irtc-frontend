@@ -2,7 +2,6 @@
 
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 
@@ -11,8 +10,8 @@ import Heading from "./Heading";
 
 import { testimonials } from "@/data/testimonials";
 
-import { Avatar, TestimonialsImage } from "@/assets";
-import { RedirectArrowIcon } from "@/assets/icons/svgs";
+import { RedirectArrowIcon } from "@/assets/icons";
+import { AvatarImage, TestimonialsImage } from "@/assets";
 
 function Testimonials() {
   return (
@@ -34,11 +33,9 @@ function Testimonials() {
               <SwiperSlide key={testimonial.id}>
                 <div className="px-10 md:px-14 py-6 w-[95vw] max-w-screen-sm lg:max-w-[32.5rem]">
                   <div className="flex items-center">
-                    <Image
-                      src={Avatar}
-                      alt="avatar"
-                      className="w-14 md:w-16 h-14 md:h-16"
-                    />
+                    <div className="w-14 md:w-16">
+                      <AvatarImage />
+                    </div>
                     <div className="space-y-2">
                       <h1 className="max-w-[10rem] md:max-w-[15rem] text-sm md:text-base font-semibold text-primary dark:text-primary-dark overflow-hidden text-ellipsis whitespace-nowrap">
                         {testimonial.name}
@@ -78,11 +75,9 @@ function Testimonials() {
           </Slider>
         </div>
 
-        <Image
-          src={TestimonialsImage}
-          alt="testmonials image"
-          className="w-full lg:w-[55%] pointer-events-none"
-        />
+        <div className="w-full lg:w-[45%]">
+          <TestimonialsImage />
+        </div>
       </div>
     </section>
   );

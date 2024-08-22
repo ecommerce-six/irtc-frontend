@@ -1,8 +1,8 @@
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
 
 import { styles } from "@/styles";
+
 import { NotFoundImage } from "@/assets";
 
 function Error404() {
@@ -28,11 +28,9 @@ function Error404() {
           </Link>
         </div>
 
-        <Image
-          src={NotFoundImage}
-          alt="not found"
-          className="w-[75%] lg:w-[50%]"
-        />
+        <div className="w-full lg:w-[45%]">
+          <NotFoundImage />
+        </div>
       </div>
     </>
   );

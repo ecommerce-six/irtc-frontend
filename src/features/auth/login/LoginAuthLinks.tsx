@@ -1,6 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
 
 import { styles } from "@/styles";
 
@@ -9,9 +8,10 @@ import { LogoIcon } from "@/assets/common";
 const LoginAuthLinks = () => {
   return (
     <>
-      <Link href={"/"}>
-        <Image src={LogoIcon} alt="logo" className="w-28 md:w-32" />
+      <Link href={"/"} className="w-20">
+        <LogoIcon />
       </Link>
+
       <div className="mt-8 flex items-center gap-x-4">
         <Link
           href={"/auth/login"}

@@ -1,13 +1,10 @@
 import React from "react";
-import Link from "next/link";
-import Image from "next/image";
 import { useFormik } from "formik";
 
 import { Input } from "@/components";
+import RegisterAuthLinks from "./RegisterAuthLinks";
 
 import { styles } from "@/styles";
-
-import { LogoIcon } from "@/assets/common";
 
 type props = {
   phoneNumber: string;
@@ -49,22 +46,7 @@ function RegisterVerify({ phoneNumber, loginHandler }: props) {
 
   return (
     <div className="px-6 py-8 my-10 md:my-20 w-full lg:w-[25rem] flex flex-col items-center bg-background dark:bg-background-dark rounded-xl shadow-dark dark:shadow-darker">
-      <Image src={LogoIcon} alt="logo" className="w-16 md:w-32" />
-
-      <div className="mt-8 flex items-center gap-x-4">
-        <Link
-          href={"/auth/login"}
-          className={`${styles.secondaryButton} px-6 py-2 hover:bg-brand`}
-        >
-          ورود
-        </Link>
-        <Link
-          href={"/auth/register"}
-          className={`${styles.primaryButton} px-6 py-2 bg-brand text-background text-sm font-semibold border-2 border-brand rounded-lg hover:scale-[1.05]`}
-        >
-          ثبت نام
-        </Link>
-      </div>
+      <RegisterAuthLinks />
 
       <h1 className="mt-6 text-primary dark:text-primary-dark text-lg md:text-xl font-bold">
         پیامک های خود را چک کنید

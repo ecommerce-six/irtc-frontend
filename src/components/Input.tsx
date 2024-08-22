@@ -1,6 +1,6 @@
 import React from "react";
 
-import { CloseEyesIcon, OpenEyesIcon } from "@/assets/icons/svgs";
+import { CloseEyesIcon, OpenEyesIcon } from "@/assets/icons";
 
 type props = {
   id: string;

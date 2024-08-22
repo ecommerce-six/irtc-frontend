@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 
-import { ArrowIcon, CircleIcon } from "@/assets/icons/svgs";
+import { ArrowIcon, CircleIcon } from "@/assets/icons";
 
 type subLink = {
   path: string;
@@ -64,7 +64,7 @@ function PanelSidebarLink({ path, title, subLink, pathname, disabled }: props) {
         }`}
       >
         <div className="flex items-center gap-x-2">
-          <CircleIcon active={active}  />
+          <CircleIcon active={active} />
 
           <span
             className={`${

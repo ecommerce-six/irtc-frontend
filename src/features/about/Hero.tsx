@@ -43,7 +43,7 @@ const AboutHero = () => {
         <Image
           src={AboutHeroImage}
           alt="about iran trading coaching"
-          className="w-full lg:w-[45%] pointer-events-none"
+          className="pointer-events-none"
         />
       </div>
 

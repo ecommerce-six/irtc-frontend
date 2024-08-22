@@ -8,12 +8,7 @@ import CloseFocusTimeButton from "../articleFocusMode/CloseFocusButton";
 import { articleType } from "@/types/article";
 import { estimateReadTimeHandler } from "@/utils/estimateReadTime";
 
-import {
-  CommentsIcon,
-  LikeIcon,
-  RateIcon,
-  TimeIcon,
-} from "@/assets/icons/svgs";
+import { CommentsIcon, LikeIcon, RateIcon, TimeIcon } from "@/assets/icons";
 
 const ArticleContent = ({ article }: { article: articleType }) => {
   return (

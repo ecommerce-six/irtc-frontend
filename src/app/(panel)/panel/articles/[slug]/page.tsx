@@ -117,8 +117,6 @@ function EditArticles({ params }: props) {
           }
         );
 
-        console.log(response);
-
         if (response.status)
           setMessage("مقاله با موفقیت اپدیت شد"),
             setError(null),
@@ -199,7 +197,6 @@ function EditArticles({ params }: props) {
             //       Authorization: " Bearer public_W142hrD6cMFKNSEmK4YbMZFVFVX1",
             //     },
             //     onload: (response): any => {
-            //       console.log(response);
             //     },
             //   },
             // }}
@@ -286,7 +283,6 @@ function EditArticles({ params }: props) {
                 //       Authorization: " Bearer public_W142hrD6cMFKNSEmK4YbMZFVFVX1",
                 //     },
                 //     onload: (response): any => {
-                //       console.log(response);
                 //     },
                 //   },
                 // }}

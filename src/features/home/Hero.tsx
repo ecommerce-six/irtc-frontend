@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 import { Spiral, Underline } from "@/assets/badges";
-import { HeaderAvatarImage, HeaderImage, HeaderStarsImage } from "@/assets";
+import { HeaderAvatarImage, HeaderStarsImage, HomeHeroImage } from "@/assets";
 
 import { styles } from "@/styles";
 
@@ -59,11 +59,9 @@ function Hero() {
           </div>
         </div>
 
-        <Image
-          src={HeaderImage}
-          alt="header image"
-          className="lg:-ml-24 xl:-ml-36 lg:w-[67.5%] pointer-events-none"
-        />
+        <div className="w-full sm:w-fit lg:-ml-16 pointer-events-none">
+          <HomeHeroImage />
+        </div>
       </section>
 
       <div className="mt-4 md:-mt-10 lg:mt-14 xl:mt-5 grid justify-items-center">

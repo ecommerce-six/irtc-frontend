@@ -13,7 +13,7 @@ import { StoreType } from "@/store";
 import { useUser, useLogout } from "@/hooks";
 
 import { AvatarSample } from "@/assets";
-import { LogoutIcon } from "@/assets/icons/svgs";
+import { LogoutIcon } from "@/assets/icons";
 
 function PanelSidebar() {
   const router = useRouter();

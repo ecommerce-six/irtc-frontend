@@ -11,11 +11,11 @@ function ArticleCard({ slug, cover, title, description }: articlePreviewType) {
         <Image
           src={cover}
           alt={title}
-          width={1000}
-          height={600}
-          className="w-full object-cover rounded-xl"
+          width={640}
+          height={360}
+          className="object-cover rounded-xl"
         />
-      </Link>
+      </Link> 
 
       <Link href={`/articles/${slug}`}>
         <h1 className="mt-4 px-6 lg:min-h-[3rem] line-clamp-2 text-base md:text-xl text-primary dark:text-primary-dark font-semibold text-center">

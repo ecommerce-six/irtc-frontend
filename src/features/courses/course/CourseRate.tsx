@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import React, { useState } from "react";
 
 import { FilledStarIcon, StarOutlineIcon } from "@/assets/icons";
@@ -18,7 +17,7 @@ function CourseRate({ slug }: { slug: string }) {
         چه امتیازی به این دوره میدهید؟
       </p>
 
-      <div className="flex items-center flex-row-reverse">
+      <div className="flex items-center flex-row-reverse ga-x-1">
         {[...new Array(5)].map((_, index) => (
           <button
             key={index}
@@ -26,11 +25,7 @@ function CourseRate({ slug }: { slug: string }) {
               rateHandler(index + 1);
             }}
           >
-            <Image
-              src={index < rate ? FilledStarIcon : StarOutlineIcon}
-              alt="star"
-              className="w-5 h-5"
-            />
+            {index < rate ? <FilledStarIcon /> : <StarOutlineIcon />}
           </button>
         ))}
       </div>

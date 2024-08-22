@@ -10,7 +10,7 @@ import {
   ItalicIcon,
   DividerIcon,
   LineThroughIcon,
-} from "@/assets/icons/svgs";
+} from "@/assets/icons";
 
 type props = {
   EditorCommandHandler: any;

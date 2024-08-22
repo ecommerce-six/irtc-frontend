@@ -172,9 +172,7 @@ function CreateArticle() {
           server={{
             process: {
               url: "https://api.cloudinary.com/v1_1/dpuwpqd0c/image/upload",
-              onerror: (error: any) => {
-                console.log(error);
-              },
+              onerror: (error: any) => {},
               ondata: (data: any) => {
                 data.append("file", coverFile[0]?.file);
                 data.append("could_name", "dpuwpqd0c");
@@ -182,7 +180,6 @@ function CreateArticle() {
                 return data;
               },
               onload: (state: any) => {
-                console.log(state);
                 setCover(JSON.parse(state).url);
                 return 0;
               },
@@ -280,7 +277,6 @@ function CreateArticle() {
               //       Authorization: " Bearer public_W142hrD6cMFKNSEmK4YbMZFVFVX1",
               //     },
               //     onload: (response): any => {
-              //       console.log(response);
               //     },
               //   },
               // }}

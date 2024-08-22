@@ -11,7 +11,7 @@ import {
   AvatarIcon,
   SmallRateIcon,
   SmallRecordIcon,
-} from "@/assets/icons/svgs";
+} from "@/assets/icons";
 
 function CourseCard(props: courseType) {
   const {
@@ -33,8 +33,8 @@ function CourseCard(props: courseType) {
         <Image
           src={cover}
           alt={title}
-          width={1000}
-          height={600}
+          width={852}
+          height={479}
           className="w-full object-cover rounded-xl"
         />
 

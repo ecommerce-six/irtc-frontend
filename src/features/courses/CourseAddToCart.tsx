@@ -5,7 +5,7 @@ import React from "react";
 import { styles } from "@/styles";
 import { formatPrice } from "@/utils/priceFormat";
 
-import { TomanIcon } from "@/assets/icons/svgs";
+import { TomanIcon } from "@/assets/icons";
 
 type props = {
   slug: string;

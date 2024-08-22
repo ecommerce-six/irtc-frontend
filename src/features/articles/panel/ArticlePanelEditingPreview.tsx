@@ -5,7 +5,7 @@ import { marked } from "marked";
 import { estimateReadTimeHandler } from "@/utils/estimateReadTime";
 import CloseFocusTimeButton from "../articleFocusMode/CloseFocusButton";
 
-import { TimeIcon } from "@/assets/icons/svgs";
+import { TimeIcon } from "@/assets/icons";
 
 import "@/styles/marked.css";
 

@@ -61,11 +61,9 @@ function FrequentlyAsked() {
           </p>
         </div>
 
-        <Image
-          src={FrequentlyAskedImage}
-          alt="QAndA image"
-          className="lg:w-[45%] pointer-events-none"
-        />
+        <div className="lg:w-[45%]">
+          <FrequentlyAskedImage />
+        </div>
       </div>
     </section>
   );

@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { redirect } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
@@ -42,7 +41,7 @@ function ArticleRating() {
         چه امتیازی به این مقاله میدهید؟
       </p>
 
-      <div className="flex items-center flex-row-reverse">
+      <div className="flex items-center flex-row-reverse gap-x-1">
         {[...new Array(5)].map((_, index) => (
           <button
             key={index}
@@ -54,11 +53,7 @@ function ArticleRating() {
               redirect("/login");
             }}
           >
-            <Image
-              src={index < rate ? FilledStarIcon : StarOutlineIcon}
-              alt="star"
-              className="w-5 h-5"
-            />
+            {index < rate ? <FilledStarIcon /> : <StarOutlineIcon />}
           </button>
         ))}
       </div>

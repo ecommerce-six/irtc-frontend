@@ -12,7 +12,7 @@ import {
   AvatarRedIcon,
   TimePurpleIcon,
   CostPurpleIcon,
-} from "@/assets/icons/svgs";
+} from "@/assets/icons";
 
 function CourseDetails(props: courseType) {
   const {

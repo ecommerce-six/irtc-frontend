@@ -1,2 +1,4 @@
-export { default as LogoIcon } from "./logo-icon.png";
-export { default as LogoText } from "./logo-text.png";
+import LogoIcon from "./LogoIcon";
+import LogoText from "./LogoText";
+
+export { LogoIcon, LogoText };

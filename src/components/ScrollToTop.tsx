@@ -1,5 +1,5 @@
 "use client";
-import Image from "next/image";
+
 import React, { useState, useEffect } from "react";
 
 import ToggleAnimate from "./ToggleAnimate";
@@ -30,7 +30,7 @@ function ScrollToTop() {
         className="fixed bottom-6 right-6 h-10 w-10 flex items-center justify-center bg-brand rounded-lg z-[5] growth"
         onClick={scrollToTopHandler}
       >
-        <Image src={TopIcon} alt="top" className="w-5 dark:invert" />
+        <TopIcon />
       </button>
     </ToggleAnimate>
   );

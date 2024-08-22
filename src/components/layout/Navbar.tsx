@@ -9,9 +9,8 @@ import { useUser } from "@/hooks";
 import ToggleAnimate from "../ToggleAnimate";
 
 import { AvatarSample } from "@/assets";
-import { CartIcon } from "@/assets/icons/svgs";
 import { LogoIcon, LogoText } from "@/assets/common";
-import { CloseIcon, DarkIcon, LightIcon, MenuIcon } from "@/assets/icons";
+import { CartIcon, MenuIcon, CloseIcon } from "@/assets/icons";
 
 import { styles } from "@/styles";
 import ThemeToggleButton from "./ThemeToggleButton";
@@ -59,18 +58,19 @@ function Navbar() {
 
   return (
     <>
-      <nav className="">
+      <nav>
         <div
           className={`py-5 flex items-center justify-between ${styles.layout}`}
         >
           <div className="flex items-center gap-x-10">
-            <Link href="/" className="flex items-center gap-x-4">
-              <Image src={LogoIcon} alt="logo" className="w-12 lg:w-16" />
-              <Image
-                src={LogoText}
-                alt="logo"
-                className="w-16 lg:w-24 dark:invert dark:brightness-0"
-              />
+            <Link href="/" className="flex items-center gap-x-6">
+              <div className="w-10 lg:w-12">
+                <LogoIcon />
+              </div>
+
+              <div className="w-24">
+                <LogoText />
+              </div>
             </Link>
 
             <ul className="hidden lg:flex items-baseline gap-x-7">
@@ -135,12 +135,8 @@ function Navbar() {
             </div>
           )}
 
-          <button className="lg:hidden" onClick={showNavbarHandler}>
-            <Image
-              src={MenuIcon}
-              alt="menu icon"
-              className="w-8 dark:invert dark:brightness-0"
-            />
+          <button className="w-8 lg:hidden" onClick={showNavbarHandler}>
+            <MenuIcon />
           </button>
         </div>
       </nav>
@@ -148,15 +144,15 @@ function Navbar() {
       {showNavbar && (
         <>
           <div
-            className="fixed left-0 top-0 h-screen w-full z-10"
+            className="fixed left-0 top-0 h-[100dvh] w-full z-10"
             onClick={showNavbarHandler}
           />
 
           <ToggleAnimate className="navbar" toggle={showNavbar}>
             <div>
               <nav className="py-10 fixed left-0 top-0 h-[100dvh] w-36 flex flex-col items-center justify-between bg-background dark:bg-background-dark z-10 shadow-dark dark:shadow-darker">
-                <button className="lg:hidden" onClick={showNavbarHandler}>
-                  <Image src={CloseIcon} alt="close icon" className="w-9" />
+                <button className="w-9 lg:hidden" onClick={showNavbarHandler}>
+                  <CloseIcon />
                 </button>
 
                 <ul className="flex items-center flex-col gap-y-4">
