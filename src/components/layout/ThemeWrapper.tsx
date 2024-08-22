@@ -14,7 +14,7 @@ const ThemeWrapper = ({ children }: { children: ReactNode }) => {
     const localTheme = localStorage.getItem("theme") as themeType;
 
     changeTheme(localTheme || "light");
-  }, []);
+  }, [changeTheme]);
 
   return (
     <body

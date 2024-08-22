@@ -37,7 +37,7 @@ function Testimonials() {
                     <Image
                       src={Avatar}
                       alt="avatar"
-                      className="w-14 md:w-fit"
+                      className="w-14 md:w-16 h-14 md:h-16"
                     />
                     <div className="space-y-2">
                       <h1 className="max-w-[10rem] md:max-w-[15rem] text-sm md:text-base font-semibold text-primary dark:text-primary-dark overflow-hidden text-ellipsis whitespace-nowrap">

@@ -1,4 +1,4 @@
-export { default as YoutubeIcon } from "./youtube.svg";
-export { default as InstagramIcon } from "./instagram.svg";
-export { default as TwitterIcon } from "./twitter.svg";
-export { default as LinkedInIcon } from "./linkedin.svg";
+export { default as YoutubeIcon } from "./youtube.png";
+export { default as InstagramIcon } from "./instagram.png";
+export { default as TwitterIcon } from "./twitter.png";
+export { default as LinkedInIcon } from "./linkedin.png";
