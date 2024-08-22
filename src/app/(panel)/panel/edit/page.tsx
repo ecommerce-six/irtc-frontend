@@ -39,7 +39,12 @@ function EditProfile() {
 
   const [profile, setProfile] = useState(0);
 
-  const avatars = ["", "", "", ""];
+  const avatars = [
+    { id: 1, image: AvatarSample },
+    { id: 2, image: AvatarSample },
+    { id: 3, image: AvatarSample },
+    { id: 4, image: AvatarSample },
+  ];
 
   const profileHandler = (index: number) => {
     setProfile(index);
@@ -129,7 +134,7 @@ function EditProfile() {
 
           <div className="my-2 flex items-center gap-4 flex-wrap">
             {avatars.map((avatar, index) => (
-              <div className="w-16 md:w-20 h-16 md:h-20 " key={index}>
+              <div className="w-16 md:w-20 h-16 md:h-20 " key={avatar.id}>
                 <input
                   type="radio"
                   name="profile"
@@ -145,7 +150,7 @@ function EditProfile() {
                   htmlFor={`${index}`}
                   className="block peer-checked:border-brand peer-checked:border-2 rounded-xl cursor-pointer"
                 >
-                  <Image src={AvatarSample} alt="" className="rounded-xl" />
+                  <Image src={avatar.image} alt="" className="rounded-xl" />
                 </label>
               </div>
             ))}

@@ -1,5 +1,3 @@
-import type { Metadata } from "next";
-
 import {
   Hero,
   Roadmap,
@@ -9,14 +7,12 @@ import {
 } from "@/features/home";
 import { InstagramPage, Testimonials, LatestCourses } from "@/components";
 
-export const metadata: Metadata = {
-  title: "IRTC",
-  description: "IRTC a website for learning trading",
-};
-
 function Home() {
   return (
     <main>
+      <title>IRTC</title>
+      <meta name="description" content="IRTC a website for learning trading" />
+
       <Hero />
 
       <LatestArticles />

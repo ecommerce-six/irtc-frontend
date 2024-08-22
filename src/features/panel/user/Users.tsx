@@ -40,9 +40,7 @@ function Users() {
 
       <div className="mt-8 space-y-8">
         {data
-          ? data.users.map((item: userType, index: number) => (
-              <User {...item} key={index} />
-            ))
+          ? data.users.map((item: userType) => <User {...item} key={item.id} />)
           : [...new Array(4)].map((index) => <UserCardLoading key={index} />)}
       </div>
 

@@ -28,10 +28,10 @@ function LatestArticles() {
 
       <div className="mt-10 flex items-center justify-center flex-wrap gap-x-14 gap-y-10">
         {data
-          ? data.article.map((item: articleType, index: number) => (
-              <ArticleCard {...item} key={index} />
+          ? data.article.map((item: articleType) => (
+              <ArticleCard {...item} key={item.id} />
             ))
-          : [...new Array(4)].map((index) => (
+          : [...new Array(4)].map((_, index) => (
               <ArticleCardLoading key={index} />
             ))}
       </div>

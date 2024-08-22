@@ -11,6 +11,7 @@ function Error404() {
       <div
         className={`${styles.layout} py-10 lg:py-4 flex items-center flex-col lg:flex-row justify-between gap-x-4 gap-y-10`}
       >
+        <title>IRTC • این صفحه وجود ندارد</title>
         <div className="md:mt-20 flex md:block flex-col items-center space-y-4">
           <h1 className="text-primary dark:text-primary-dark text-5xl lg:text-7xl xl:text-8xl font-semibold">
             ارور 404
