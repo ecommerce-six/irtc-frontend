@@ -18,7 +18,7 @@ type props = {
 };
 
 function PanelSidebarLink({ path, title, subLink, pathname, disabled }: props) {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState<boolean>(false);
 
   const active = pathname === path;
 

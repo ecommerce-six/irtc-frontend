@@ -3,9 +3,9 @@
 import { useFormik } from "formik";
 import React, { useState } from "react";
 
-import { Input } from "@/components";
 import LoginAuthLinks from "./LoginAuthLinks";
 import WelcomeMessage from "../WelcomeMessage";
+import { Input, LoadingLine } from "@/components";
 
 import { styles } from "@/styles";
 
@@ -26,13 +26,15 @@ type formDataType = {
 };
 
 type props = {
+  loading: boolean;
   error: string | null;
   submitHandler: (body: submitHandlerPropsType) => void;
 };
 
-function NumberLogin({ submitHandler, error }: props) {
-  const [isRememberMeChecked, setIsRememberMeChecked] = useState(false);
-  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+function NumberLogin({ submitHandler, error, loading }: props) {
+  const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
+  const [isRememberMeChecked, setIsRememberMeChecked] =
+    useState<boolean>(false);
 
   const formik: any = useFormik({
     initialValues: {
@@ -139,10 +141,12 @@ function NumberLogin({ submitHandler, error }: props) {
         )}
 
         <button
-          className={`${styles.primaryButton} mt-2 w-full py-3 bg-brand rounded-xl hover:scale-[1.05]`}
+          className={`${styles.primaryButton} mt-2 flex items-center justify-center w-full py-3 bg-brand rounded-xl hover:scale-[1.05]`}
           type="submit"
         >
-          ورود
+          <span className="flex items-center justify-center w-full h-5">
+            {loading ? <LoadingLine /> : "ورود"}
+          </span>
         </button>
       </form>
     </div>

@@ -11,7 +11,7 @@ import { FilledStarIcon, StarOutlineIcon } from "@/assets/icons";
 function ArticleRating() {
   const { user } = useUser();
 
-  const [rate, setRate] = useState(3);
+  const [rate, setRate] = useState<number>(0);
 
   const rateHandler = (rate: number) => {
     setRate(rate);
@@ -19,10 +19,6 @@ function ArticleRating() {
 
   const submitHandler = async () => {
     const isConnected = await checkConnectivity();
-
-    if (isConnected) {
-      console.log("adsf");
-    }
   };
 
   useEffect(() => {

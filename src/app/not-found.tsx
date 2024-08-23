@@ -1,8 +1,9 @@
 import React from "react";
 
 import { Error404 } from "@/components";
-import { styles } from "@/styles";
 import { Footer, Navbar } from "@/components/layout";
+
+import { styles } from "@/styles";
 
 const NotFoundPage = () => {
   return (

@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useFormik } from "formik";
 import React, { useState } from "react";
 
-import { Access } from "@/components";
+import { Access, LoadingLine } from "@/components";
 import { UserEditInput } from "@/features/panel/user";
 
 import { styles } from "@/styles";
@@ -35,9 +35,9 @@ type formDataType = {
 function EditProfile() {
   const { user } = useUser();
 
-  const { useUpdateMe, message, error } = useUpdateUser();
+  const { useUpdateMe, message, error, loading } = useUpdateUser();
 
-  const [profile, setProfile] = useState(0);
+  const [profile, setProfile] = useState<number>(0);
 
   const avatars = [
     { id: 1, image: AvatarSample },
@@ -194,7 +194,9 @@ function EditProfile() {
             className={`${styles.primaryButton} mt-3 py-3 px-10 hover:scale-[1.05]`}
             type="submit"
           >
-            اعمال تغییر
+            <span className="flex items-center justify-center w-20 h-5">
+              {loading ? <LoadingLine /> : "اعمال تغییر"}
+            </span>
           </button>
         </form>
       </section>
