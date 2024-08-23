@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 
 import { NumberLogin, NumberLoginVerify } from "@/features/auth";
@@ -22,9 +22,11 @@ function Login() {
   const { setAuth } = useAuth();
   const { user, getUser } = useUser();
   const { error, setError } = useError();
+  const [loading, setLoading] = useState<boolean>(false);
 
   const loginHandler = async (body: submitHandlerPropsType) => {
     try {
+      setLoading(true);
       const isConnected = await checkConnectivity();
 
       if (isConnected) {
@@ -42,10 +44,9 @@ function Login() {
 
           await getUser(token);
 
-          if (user?.id) {
-            router.push("/");
-          }
+          if (user?.id) router.push("/");
 
+          setLoading(false);
           return;
         }
 
@@ -64,6 +65,7 @@ function Login() {
         setError("ورود به مشکل خورد :(");
       }
     }
+    setLoading(false);
   };
 
   return (
@@ -73,7 +75,11 @@ function Login() {
       {/* {codeSent ? ( */}
       {/* <NumberLoginVerify loginHandler={() => {}} phoneNumber={"09907086274"} /> */}
       {/* ) : ( */}
-      <NumberLogin submitHandler={loginHandler} error={error} />
+      <NumberLogin
+        error={error}
+        loading={loading}
+        submitHandler={loginHandler}
+      />
       {/* )} */}
     </main>
   );

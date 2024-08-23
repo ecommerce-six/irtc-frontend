@@ -25,6 +25,15 @@ const config: Config = {
         dark: "0 0 40px rgba(85, 104, 112, 0.25)",
         darker: "0 0 30px rgba(0, 0, 0, 1)",
       },
+      keyframes: {
+        passLine: {
+          "0%": { transform: "translateX(-250%)" },
+          "100%": { transform: "translateX(250%)" },
+        },
+      },
+      animation: {
+        passLine: "passLine 2s linear infinite",
+      },
     },
   },
   plugins: [],

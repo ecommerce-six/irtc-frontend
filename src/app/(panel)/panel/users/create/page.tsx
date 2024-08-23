@@ -3,7 +3,7 @@
 import { useFormik } from "formik";
 import React, { useState } from "react";
 
-import { Input } from "@/components";
+import { Input, LoadingLine } from "@/components";
 
 import { styles } from "@/styles";
 import { userGenderType } from "@/types/user";
@@ -37,7 +37,9 @@ function CreateUser() {
 
   const [message, setMessage] = useState<string | null>(null);
 
-  const [showPassword, setShowPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState<boolean>(false);
+
+  const [loading, setLoading] = useState<boolean>(false);
 
   const showPasswordHandler = () => {
     setShowPassword((prevValue) => !prevValue);
@@ -148,6 +150,8 @@ function CreateUser() {
   });
 
   const submitHandler = async (user: formDataType) => {
+    setLoading(true);
+
     try {
       const isConnected = await checkConnectivity();
 
@@ -166,6 +170,7 @@ function CreateUser() {
 
           setMessage("کاربر با موفقیت ایجاد شد :)");
 
+          setLoading(false);
           return;
         }
 
@@ -186,6 +191,7 @@ function CreateUser() {
         setError("ثبت نام کاربر به مشکل برخورد");
       }
     }
+    setLoading(false);
   };
 
   return (
@@ -333,7 +339,9 @@ function CreateUser() {
           className={`${styles.primaryButton} mt-3 w-full py-3 bg-brand rounded-xl hover:scale-[1.05]`}
           type="submit"
         >
-          ثبت نام کاربر
+          <span className="flex items-center justify-center w-full h-5">
+            {loading ? <LoadingLine /> : "ثبت نام کاربر"}
+          </span>
         </button>
       </form>
     </div>

@@ -24,7 +24,7 @@ function PanelSidebar() {
 
   const { user } = useUser();
 
-  const [showPrompt, setShowPrompt] = useState(false);
+  const [showPrompt, setShowPrompt] = useState<boolean>(false);
 
   let role: string = useSelector((state: StoreType) => state.user.user!.role);
 

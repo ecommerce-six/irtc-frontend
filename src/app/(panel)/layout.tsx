@@ -2,7 +2,8 @@
 
 import { ReactNode } from "react";
 
-import { Error404, ScrollToTop } from "@/components";
+import NotFoundPage from "../not-found";
+import { ScrollToTop } from "@/components";
 import { Navbar, PanelSidebar } from "@/components/layout";
 
 import { styles } from "@/styles";
@@ -37,7 +38,7 @@ const PanelLayout = ({ children }: { children: ReactNode }) => {
 
   return (
     <div suppressHydrationWarning={true}>
-      <Error404 />
+      <NotFoundPage />
     </div>
   );
 };

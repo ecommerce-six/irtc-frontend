@@ -75,19 +75,17 @@ function UserCard({
   };
 
   useEffect(() => {
-    if (message) {
+    if (message)
       setTimeout(() => {
         setMessage(null);
       }, 3000);
-    }
   }, [message]);
 
   useEffect(() => {
-    if (error) {
+    if (error)
       setTimeout(() => {
         setError(null);
       }, 3000);
-    }
   }, [error]);
 
   return (

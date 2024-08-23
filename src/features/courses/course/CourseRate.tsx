@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import { FilledStarIcon, StarOutlineIcon } from "@/assets/icons";
 
 function CourseRate({ slug }: { slug: string }) {
-  const [rate, setRate] = useState(0);
+  const [rate, setRate] = useState<number>(0);
 
   const rateHandler = (rate: number) => {
     setRate(rate);

@@ -28,7 +28,7 @@ function Course({ params }: params) {
     (course: courseType) => course.slug === slug
   );
 
-  if (course) {
+  if (course)
     return (
       <main>
         <CourseDetails {...course} />
@@ -41,7 +41,8 @@ function Course({ params }: params) {
         <Testimonials />
       </main>
     );
-  } else return <Error404 />;
+
+  return <Error404 />;
 }
 
 export default Course;

@@ -40,9 +40,7 @@ function Register() {
 
           setError(null);
 
-          if (user?.id) {
-            router.push("/");
-          }
+          if (user?.id) router.push("/");
 
           return;
         }

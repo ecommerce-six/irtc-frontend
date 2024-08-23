@@ -7,7 +7,7 @@ import ToggleAnimate from "./ToggleAnimate";
 import { TopIcon } from "@/assets/icons";
 
 function ScrollToTop() {
-  const [toggle, setToggle] = useState(false);
+  const [toggle, setToggle] = useState<boolean>(false);
 
   useEffect(() => {
     document.addEventListener("scroll", () => {

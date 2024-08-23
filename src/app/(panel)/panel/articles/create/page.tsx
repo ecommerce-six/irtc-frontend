@@ -9,7 +9,7 @@ import {
   CreateArticleTools,
   ArticlePanelEditingPreview,
 } from "@/features/articles/panel";
-import { Access } from "@/components";
+import { Access, LoadingLine } from "@/components";
 
 import { useTheme } from "@/hooks";
 import { axiosPrivate } from "@/configs/axios";
@@ -34,6 +34,7 @@ function CreateArticle() {
   const [coverFile, setCoverFile] = useState<any>();
   const [content, setContent] = useState<string>(``);
   const [preview, setPreview] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
   const [message, setMessage] = useState<string | null>("");
   const [description, setDescription] = useState<string>("");
   const [uploadArticleImage, setUploadArticleImage] = useState<boolean>(false);
@@ -65,6 +66,7 @@ function CreateArticle() {
   };
 
   const createArticleHandler = async () => {
+    setLoading(true);
     const slug = title.replaceAll(" ", "-");
 
     if (title === "" || !title) {
@@ -113,11 +115,13 @@ function CreateArticle() {
         );
 
         if (response.status)
-          setMessage(response.data.message),
+          setLoading(false),
             setError(null),
+            setMessage(response.data.message),
             router.replace(`/articles/${slug}`);
       } catch (err: any) {
         setMessage(null);
+        setLoading(false);
 
         const statusCode = err.response?.status;
 
@@ -237,7 +241,9 @@ function CreateArticle() {
           className={`${styles.primaryButton} disabled:opacity-50 py-3 px-10 hover:scale-[1.05]`}
           onClick={createArticleHandler}
         >
-          منتشر کردن مقاله
+          <span className="flex items-center justify-center min-w-24 h-5">
+            {loading ? <LoadingLine /> : "منتشر کردن مقاله"}
+          </span>
         </button>
 
         <button

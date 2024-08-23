@@ -8,7 +8,7 @@ import {
   CreateArticleTools,
   ArticlePanelEditingPreview,
 } from "@/features/articles/panel";
-import { Access } from "@/components";
+import { Access, LoadingLine } from "@/components";
 import { PanelArticleEditLoading } from "@/features/panel/articles";
 
 import { styles } from "@/styles";
@@ -42,6 +42,7 @@ function EditArticles({ params }: props) {
   const [title, setTitle] = useState<string>("");
   const [content, setContent] = useState<string>(``);
   const [preview, setPreview] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
   const [message, setMessage] = useState<string | null>("");
   const [description, setDescription] = useState<string>("");
   const [uploadArticleImage, setUploadArticleImage] = useState<boolean>(false);
@@ -71,6 +72,7 @@ function EditArticles({ params }: props) {
   };
 
   const createArticleHandler = async () => {
+    setLoading(true);
     const slug = title.replaceAll(" ", "-");
 
     if (title === "" || !title) {
@@ -118,10 +120,12 @@ function EditArticles({ params }: props) {
         );
 
         if (response.status)
-          setMessage("مقاله با موفقیت اپدیت شد"),
+          setLoading(false),
+            setMessage("مقاله با موفقیت اپدیت شد"),
             setError(null),
             redirect(slug);
       } catch (err: any) {
+        setLoading(false);
         setMessage(null);
 
         const statusCode = err.response?.status;
@@ -243,7 +247,9 @@ function EditArticles({ params }: props) {
             className={`${styles.primaryButton} disabled:opacity-50 py-3 px-10 hover:scale-[1.05]`}
             onClick={createArticleHandler}
           >
-            منتشر کردن مقاله
+            <span className="flex items-center justify-center min-w-24 h-5">
+              {loading ? <LoadingLine /> : "منتشر کردن مقاله"}
+            </span>
           </button>
 
           <button

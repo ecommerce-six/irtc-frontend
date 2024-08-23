@@ -19,17 +19,13 @@ function UserWrapper({ children }: { children: ReactNode }) {
         try {
           await refresh();
 
-          if (!user) {
-            await getUser();
-          }
+          if (!user) await getUser();
         } catch (err) {
           console.log(err);
         }
       };
 
-      if (!auth.accessToken && isMounted) {
-        verifyRefreshToken();
-      }
+      if (!auth.accessToken && isMounted) verifyRefreshToken();
     }
 
     return () => {

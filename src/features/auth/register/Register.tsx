@@ -32,9 +32,10 @@ type formDataType = {
 };
 
 function RegisterSection({ submitHandler, error }: props) {
-  const [isRememberMeChecked, setIsRememberMeChecked] = useState(false);
-  const [gender, setGender] = useState("male");
-  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+  const [isRememberMeChecked, setIsRememberMeChecked] =
+    useState<boolean>(false);
+  const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
+  const [gender, setGender] = useState<"male" | "female" | "others">("male");
 
   const togglePasswordVisibility = () => {
     setIsPasswordVisible((prevValue) => !prevValue);
@@ -90,9 +91,7 @@ function RegisterSection({ submitHandler, error }: props) {
       errors.phoneNumber = "لطفا شماره همراه معتبر وارد کنید.";
     }
 
-    if (isInvalidEmail) {
-      errors.email = "لطفا ایمیل معتبر وارد کنید. :)";
-    }
+    if (isInvalidEmail) errors.email = "لطفا ایمیل معتبر وارد کنید. :)";
 
     if (isInvalidPasswordLength) {
       errors.password = "لطفا پسورد انتخابی حداقل 8 کاراکتر باشد :)";
